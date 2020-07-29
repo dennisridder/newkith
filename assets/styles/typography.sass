@@ -1,10 +1,43 @@
-// @font-face
-//   font-family: ''
-//   src: url('~assets/fonts/') format('')
-//   font-weight: normal
-//   font-style: normal
+@import '~/assets/styles/variables.sass'
+
+@font-face
+  font-family: 'Basis Grotesk Light'
+  src: url('~assets/fonts/basis-grotesque-light.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Basis Grotesk Regular'
+  src: url('~assets/fonts/basis-grotesque-regular.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Basis Grotesk Medium'
+  src: url('~assets/fonts/basis-grotesque-medium.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Basis Grotesk Bold'
+  src: url('~assets/fonts/basis-grotesque-bold.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Basis Grotesk Mono'
+  src: url('~assets/fonts/basis-grotesque-mono.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Basis Grotesk Mono Bold'
+  src: url('~assets/fonts/basis-grotesque-mono-bold.woff') format('woff')
+  font-weight: normal
+  font-style: normal
 
 // https://www.madebymike.com.au/writing/fluid-type-calc-examples/
+
 html
   font-size: 16px
 
@@ -29,17 +62,17 @@ h1, h2, h3, p, a
   hyphens: none
 
 li, h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span, input, button
-  font-family: Helvetica, Arial, sans-serif
+  font-family: 'Basis Grotesk Regular', Helvetica, Arial, sans-serif
   font-size: 1em
   line-height: 1.5
-  color: black
+  color: $color
   font-style: normal
   font-weight: normal
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
 a
-  color: black
+  color: $color
   text-decoration: underline
 
 strong
