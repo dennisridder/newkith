@@ -1,6 +1,6 @@
 <template>
   <div v-editable="story.content">
-    <p>INDEX</p>
+    <p>HOME</p>
     <component
       :is="story.content.component | dashify"
       v-if="story.content.component"

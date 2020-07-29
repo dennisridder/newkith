@@ -6,6 +6,7 @@
       <li v-for="post in talentList" :id="post.content.id" :key="post.content.id">
         <nuxt-link :to="post.full_slug" tag="div">
           <h2>{{ post.name }}</h2>
+          <img :src="post.content.thumbnail" alt />
         </nuxt-link>
       </li>
     </ul>
@@ -49,7 +50,7 @@ export default {
     }
   },
   mounted() {
-    // console.log("TALENTS INDEX", this.stories)
+    console.log("TALENTS INDEX", this.stories)
     this.removeFirstOfarray()
   },
   methods: {
