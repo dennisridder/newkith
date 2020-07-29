@@ -1,5 +1,6 @@
 <template>
   <div v-editable="story.content">
+    <p>ABOUT</p>
     <component
       :is="story.content.component | dashify"
       v-if="story.content.component"

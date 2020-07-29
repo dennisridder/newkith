@@ -1,9 +1,9 @@
 <template>
   <section>
-    <p>BLOG</p>
+    <p>TALENTS</p>
     <ul>
       <!-- prettier-ignore -->
-      <li v-for="post in blogList" :id="post.content.id" :key="post.content.id">
+      <li v-for="post in talentList" :id="post.content.id" :key="post.content.id">
         <nuxt-link :to="post.full_slug" tag="div">
           <h2>{{ post.name }}</h2>
         </nuxt-link>
@@ -21,7 +21,7 @@ export default {
     return context.app.$storyapi
       .get("cdn/stories", {
         version: process.env.NODE_ENV == "production" ? "published" : "draft",
-        starts_with: "blog/"
+        starts_with: "talents/"
       })
       .then(res => {
         return res.data
@@ -45,18 +45,18 @@ export default {
   data() {
     return {
       stories: { content: {} },
-      blogList: {}
+      talentList: {}
     }
   },
   mounted() {
-    // console.log("blogS INDEX", this.stories)
+    // console.log("TALENTS INDEX", this.stories)
     this.removeFirstOfarray()
   },
   methods: {
     removeFirstOfarray() {
       var arr = this.stories
       arr.shift()
-      this.blogList = arr
+      this.talentList = arr
     }
   }
 }

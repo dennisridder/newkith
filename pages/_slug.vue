@@ -1,5 +1,6 @@
 <template>
   <section v-editable="story.content">
+    <p>INDEX SLUG</p>
     <component
       :is="story.content.component | dashify"
       v-if="story.content.component"

@@ -1,5 +1,6 @@
 <template>
   <div v-editable="story.content" class="blog-post">
+    <p>BLOG SLUG</p>
     <h1>{{ story.content.title }}</h1>
     <p>{{ story.content.excerpt }}</p>
     <img :src="story.content.cover_image.filename" alt="" />

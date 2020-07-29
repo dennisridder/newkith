@@ -1,12 +1,13 @@
 <template>
-  <section v-editable="blok" class="page-About">
+  <div v-editable="blok" class="post">
+    <p>POST</p>
     <component
       :is="blok.component | dashify"
       v-for="blok in blok.body"
       :key="blok._uid"
       :blok="blok"
     ></component>
-  </section>
+  </div>
 </template>
 
 <script>
