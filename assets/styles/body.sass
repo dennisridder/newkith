@@ -5,15 +5,18 @@ html
 
 section
   max-width: 100%
-  margin-top: 3rem
-  margin-bottom: 3rem
+  padding: 3rem
   border-bottom: 1px solid white
+  &.full
+    min-height: 90vh
+    display: flex
+    flex-direction: column
+    justify-content: space-around
 
 .words
   display: flex
   flex-wrap: wrap
   text-transform: uppercase
-  padding: 3rem
   li
     // border: 1px solid red
     overflow: hidden
@@ -43,7 +46,6 @@ section
   display: flex
   flex-direction: column
   width: 100%
-  padding: 3rem
   &-Row
     display: flex
     width: 100%

@@ -1,8 +1,7 @@
 <template>
   <div v-editable="story.content" class="page">
-    <p>HOME</p>
-    <section>
-      <ul class="words">
+    <section class="full">
+      <ul class="words landing">
         <li>
           <p class="words-Single">NEWKITH&nbsp;</p>
         </li>
