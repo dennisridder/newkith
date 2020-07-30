@@ -1,11 +1,23 @@
 <template>
-  <div v-editable="story.content">
+  <div v-editable="story.content" class="page">
     <p>HOME</p>
-    <p>INTRO</p>
-    <p>CASES</p>
-    <ul class="imageGrid">
-      <!-- prettier-ignore -->
-      <li v-for="item in casesList" :id="item.id" :key="item.id" class="imageGrid-Row">
+    <section>
+      <ul class="words">
+        <li>
+          <p class="words-Single">NEWKITH&nbsp;</p>
+        </li>
+        <li>
+          <p class="words-Single">Talent&nbsp;</p>
+        </li>
+        <li>
+          <p class="words-Single">Agency&nbsp;</p>
+        </li>
+      </ul>
+    </section>
+    <section class="section">
+      <ul class="imageGrid">
+        <!-- prettier-ignore -->
+        <li v-for="item in casesList" :id="item.id" :key="item.id" class="imageGrid-Row">
         <nuxt-link :to="'cases/' + item.id" class="imageGrid-Item" tag="div">
           <div class="image-Container">
             <img :src="item.thumbnail" alt />
@@ -18,7 +30,8 @@
           </ul>
         </nuxt-link>
       </li>
-    </ul>
+      </ul>
+    </section>
     <component
       :is="story.content.component | dashify"
       v-if="story.content.component"
@@ -31,6 +44,7 @@
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import { mapState } from "vuex"
+import { gsap } from "gsap"
 
 export default {
   mixins: [storyblokLivePreview],
@@ -71,6 +85,7 @@ export default {
   },
   mounted() {
     this.filterCases()
+    this.wordsLoad()
     console.log("HOME STORY", this.story)
     console.log("HOME CASESLIST", this.casesList)
   },
@@ -79,6 +94,19 @@ export default {
       let array = this.cases
       let filteredArray = array.slice(1)
       this.casesList = filteredArray
+    },
+    wordsLoad() {
+      var el = document.querySelectorAll(".words-Single")
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el
+        },
+        duration: 0.25,
+        stagger: 0.1,
+        delay: 0.25,
+        yPercent: -100,
+        ease: "expo.in:"
+      })
     }
   }
 }
