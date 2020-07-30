@@ -7,24 +7,12 @@ section
   max-width: 100%
   padding: 3rem
   border-bottom: 1px solid white
+  position: relative
   &.full
     min-height: 90vh
     display: flex
     flex-direction: column
     justify-content: space-around
-
-.words
-  display: flex
-  flex-wrap: wrap
-  text-transform: uppercase
-  li
-    // border: 1px solid red
-    overflow: hidden
-  p
-    font-family: 'Basis Grotesk Bold', Helvetica, Arial, sans-serif
-    font-size: 11vw
-    line-height: 1
-    transform: translate(0px, 100%)
 
 .tagList
   display: flex
@@ -59,11 +47,11 @@ section
     &:nth-child(4)
       justify-content: flex-start
     &:nth-child(5)
-      justify-content: flex-start
+      justify-content: flex-end
     &:nth-child(6)
       justify-content: flex-start
     &:nth-child(7)
-      justify-content: flex-start
+      justify-content: center
     &:last-child
       margin-bottom: 0
   &-Item

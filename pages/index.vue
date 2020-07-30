@@ -31,6 +31,10 @@
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import { mapState } from "vuex"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
   mixins: [storyblokLivePreview],
@@ -71,14 +75,25 @@ export default {
   },
   mounted() {
     this.filterCases()
-    console.log("HOME STORY", this.story)
-    console.log("HOME CASESLIST", this.casesList)
+    this.scrollSpeed()
+    // console.log("HOME STORY", this.story)
+    // console.log("HOME CASESLIST", this.casesList)
   },
   methods: {
     filterCases() {
       let array = this.cases
       let filteredArray = array.slice(1)
       this.casesList = filteredArray
+    },
+    scrollSpeed() {
+      var el = document.querySelector(".words")
+      gsap.to(el, {
+        scrollTrigger: {
+          scrub: true
+        },
+        y: -ScrollTrigger.maxScroll(window) * 20,
+        ease: "none"
+      })
     }
   }
 }

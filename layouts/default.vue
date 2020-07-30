@@ -1,9 +1,9 @@
 <template>
   <div>
-    <the-navigation />
     <transition name="pages" mode="out-in">
       <nuxt />
     </transition>
+    <the-navigation />
   </div>
 </template>
 
