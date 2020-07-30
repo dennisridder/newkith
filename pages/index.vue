@@ -5,15 +5,15 @@
     <p>CASES</p>
     <ul class="imageGrid">
       <!-- prettier-ignore -->
-      <li v-for="item in casesList" :id="item.id" :key="item.id">
-        <nuxt-link :to="'cases/' + item.id" tag="div">
+      <li v-for="item in casesList" :id="item.id" :key="item.id" class="imageGrid-Row">
+        <nuxt-link :to="'cases/' + item.id" class="imageGrid-Item" tag="div">
           <div class="image-Container">
             <img :src="item.thumbnail" alt />
           </div>
           <h2>{{ item.title }}</h2>
           <ul class="tagList">
             <li v-for="tag in item.taglist" :id="tag" :key="tag">
-              {{ tag }}
+              #{{ tag }}<span>,</span>
             </li>
           </ul>
         </nuxt-link>

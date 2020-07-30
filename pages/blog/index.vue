@@ -98,11 +98,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-.image
-  &-Container
-    position: relative
-    display: inline-block
-    border: 1px solid red
-</style>
