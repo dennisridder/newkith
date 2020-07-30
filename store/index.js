@@ -28,7 +28,8 @@ export default {
         return {
           id: bp.slug,
           title: bp.content.title,
-          thumbnail: bp.content.thumbnail
+          thumbnail: bp.content.thumbnail,
+          taglist: bp.tag_list
         }
       })
       commit("cases/update", cases)

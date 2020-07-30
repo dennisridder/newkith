@@ -2,6 +2,11 @@
   <section>
     <nuxt-link to="/cases">Close</nuxt-link>
     <h2>{{ story.name }}</h2>
+    <ul class="tagList">
+      <li v-for="item in story.tag_list" :id="item" :key="item">
+        {{ item }}
+      </li>
+    </ul>
     <img :src="story.content.thumbnail" alt />
   </section>
 </template>
@@ -46,7 +51,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.stories)
+    console.log("CASE", this.story)
   }
 }
 </script>

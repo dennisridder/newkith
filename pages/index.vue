@@ -7,10 +7,15 @@
       <!-- prettier-ignore -->
       <li v-for="item in casesList" :id="item.id" :key="item.id">
         <nuxt-link :to="'cases/' + item.id" tag="div">
-          <h2>{{ item.title }}</h2>
           <div class="image-Container">
             <img :src="item.thumbnail" alt />
           </div>
+          <h2>{{ item.title }}</h2>
+          <ul class="tagList">
+            <li v-for="tag in item.taglist" :id="tag" :key="tag">
+              {{ tag }}
+            </li>
+          </ul>
         </nuxt-link>
       </li>
     </ul>
