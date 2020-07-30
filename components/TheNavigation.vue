@@ -28,7 +28,7 @@ header
   top: 0
   left: 0
   right: 0
-  padding: 1rem
+  padding: 2rem 3rem
   ul
     display: flex
     justify-content: flex-end
