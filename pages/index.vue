@@ -1,6 +1,19 @@
 <template>
   <div v-editable="story.content">
     <p>HOME</p>
+    <p>INTRO</p>
+    <p>CASES</p>
+    <ul class="imageGrid">
+      <!-- prettier-ignore -->
+      <li v-for="item in casesList" :id="item.id" :key="item.id">
+        <nuxt-link :to="'cases/' + item.id" tag="div">
+          <h2>{{ item.title }}</h2>
+          <div class="image-Container">
+            <img :src="item.thumbnail" alt />
+          </div>
+        </nuxt-link>
+      </li>
+    </ul>
     <component
       :is="story.content.component | dashify"
       v-if="story.content.component"
@@ -12,6 +25,7 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import { mapState } from "vuex"
 
 export default {
   mixins: [storyblokLivePreview],
@@ -41,7 +55,25 @@ export default {
   },
   data() {
     return {
-      story: { content: {} }
+      story: { content: {} },
+      casesList: {}
+    }
+  },
+  computed: {
+    ...mapState({
+      cases: state => state.cases.list
+    })
+  },
+  mounted() {
+    this.filterCases()
+    console.log("HOME STORY", this.story)
+    console.log("HOME CASESLIST", this.casesList)
+  },
+  methods: {
+    filterCases() {
+      let array = this.cases
+      let filteredArray = array.slice(1)
+      this.casesList = filteredArray
     }
   }
 }
