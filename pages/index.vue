@@ -102,7 +102,9 @@ export default {
           trigger: el
         },
         duration: 0.25,
-        stagger: 0.1,
+        stagger: {
+          amount: 0.25
+        },
         delay: 0.25,
         yPercent: -100,
         ease: "expo.in:"
