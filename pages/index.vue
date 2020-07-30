@@ -1,18 +1,6 @@
 <template>
   <div v-editable="story.content" class="page">
-    <section class="full">
-      <ul class="words landing">
-        <li>
-          <p class="words-Single">NEWKITH&nbsp;</p>
-        </li>
-        <li>
-          <p class="words-Single">Talent&nbsp;</p>
-        </li>
-        <li>
-          <p class="words-Single">Agency&nbsp;</p>
-        </li>
-      </ul>
-    </section>
+    <blok-page-landing :words="['Newkith', 'talent', 'agency']" />
     <section class="section">
       <ul class="imageGrid">
         <!-- prettier-ignore -->
@@ -43,7 +31,6 @@
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import { mapState } from "vuex"
-import { gsap } from "gsap"
 
 export default {
   mixins: [storyblokLivePreview],
@@ -84,7 +71,6 @@ export default {
   },
   mounted() {
     this.filterCases()
-    this.wordsLoad()
     console.log("HOME STORY", this.story)
     console.log("HOME CASESLIST", this.casesList)
   },
@@ -93,21 +79,6 @@ export default {
       let array = this.cases
       let filteredArray = array.slice(1)
       this.casesList = filteredArray
-    },
-    wordsLoad() {
-      var el = document.querySelectorAll(".words-Single")
-      gsap.to(el, {
-        scrollTrigger: {
-          trigger: el
-        },
-        duration: 0.25,
-        stagger: {
-          amount: 0.25
-        },
-        delay: 0.25,
-        yPercent: -100,
-        ease: "expo.in:"
-      })
     }
   }
 }

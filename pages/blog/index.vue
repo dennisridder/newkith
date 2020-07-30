@@ -1,9 +1,12 @@
 <template>
-  <section>
-    <p>BLOG</p>
-    <ul>
-      <!-- prettier-ignore -->
-      <li v-for="post in blogList" :id="post.content.id" :key="post.content.id">
+  <div class="page">
+    <section>
+      <blok-page-landing :words="['What\'s', 'is', 'Happening']" />
+    </section>
+    <section>
+      <ul>
+        <!-- prettier-ignore -->
+        <li v-for="post in blogList" :id="post.content.id" :key="post.content.id">
         <nuxt-link :to="post.full_slug" tag="div">
           <h2>{{ post.name }}</h2>
           <div class="image-Container">
@@ -11,8 +14,9 @@
           </div>
         </nuxt-link>
       </li>
-    </ul>
-  </section>
+      </ul>
+    </section>
+  </div>
 </template>
 
 <script>

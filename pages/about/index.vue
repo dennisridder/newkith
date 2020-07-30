@@ -1,12 +1,14 @@
 <template>
-  <div v-editable="story.content">
-    <p>ABOUT</p>
-    <component
-      :is="story.content.component | dashify"
-      v-if="story.content.component"
-      :key="story.content._uid"
-      :blok="story.content"
-    ></component>
+  <div v-editable="story.content" class="page">
+    <blok-page-landing :words="['Who', 'we', 'are']" />
+    <section>
+      <component
+        :is="story.content.component | dashify"
+        v-if="story.content.component"
+        :key="story.content._uid"
+        :blok="story.content"
+      ></component>
+    </section>
   </div>
 </template>
 
