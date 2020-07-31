@@ -2,6 +2,9 @@
   <div class="page">
     <blok-page-landing :words="['Meet', 'our', 'talents']" />
     <section>
+      <nuxt-link class="" to="/" tag="div">
+        <h1>BACK</h1>
+      </nuxt-link>
       <ul class="imageGrid">
         <!-- prettier-ignore -->
         <li v-for="item in talentsList" :id="item.id" :key="item.id" class="imageGrid-Row">
