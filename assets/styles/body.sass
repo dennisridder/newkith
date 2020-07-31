@@ -64,7 +64,26 @@ section
     font-family: 'Basis Grotesk Bold', Helvetica, Arial, sans-serif
     text-transform: uppercase
 
-// Important since overriding interactions
+.talentsList
+  position: relative
+  width: 100%
+  &-Container
+    display: flex
+    overflow-x: scroll
+    height: 33vh
+    white-space: nowrap
+  &-Item
+    display: flex
+    flex-direction: column
+    height: 100%
+    margin-right: 3rem
+  &-Image
+    height: 100%
+    img
+      height: 100%
+      max-height: 100%
+
+// !important because overriding interactions
 .desktop
   display: none
   @media screen and ( max-width: $breakpoint-mobile)

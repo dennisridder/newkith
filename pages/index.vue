@@ -1,23 +1,47 @@
 <template>
   <div v-editable="story.content" class="page">
+    <!-- LANDING -->
     <blok-page-landing :words="['Newkith', 'talent', 'agency']" />
-    <section class="section">
+    <!-- CASES -->
+    <section>
       <ul class="imageGrid">
-        <!-- prettier-ignore -->
-        <li v-for="item in casesList" :id="item.id" :key="item.id" class="imageGrid-Row">
-        <nuxt-link :to="'cases/' + item.id" class="imageGrid-Item" tag="div">
-          <div class="image-Container">
-            <img :src="item.thumbnail" alt />
-          </div>
-          <h2>{{ item.title }}</h2>
-          <ul class="tagList">
-            <li v-for="tag in item.taglist" :id="tag" :key="tag">
-              #{{ tag }}<span>,</span>
-            </li>
-          </ul>
-        </nuxt-link>
-      </li>
+        <li
+          v-for="item in casesList"
+          :id="item.id"
+          :key="item.id"
+          class="imageGrid-Row"
+        >
+          <nuxt-link :to="'cases/' + item.id" class="imageGrid-Item" tag="div">
+            <div class="image-Container">
+              <img :src="item.thumbnail" alt />
+            </div>
+            <h2>{{ item.title }}</h2>
+            <ul class="tagList">
+              <li v-for="tag in item.taglist" :id="tag" :key="tag">
+                #{{ tag }}<span>,</span>
+              </li>
+            </ul>
+          </nuxt-link>
+        </li>
       </ul>
+    </section>
+    <!-- TALENTS -->
+    <section>
+      <div class="talentsList">
+        <ul class="talentsList-Container">
+          <li
+            v-for="item in talentsList"
+            :id="item.id"
+            :key="item.id"
+            class="talentsList-Item"
+          >
+            <div class="talentsList-Image">
+              <img :src="item.thumbnail" alt />
+            </div>
+            <h2>{{ item.name }}</h2>
+          </li>
+        </ul>
+      </div>
     </section>
     <component
       :is="story.content.component | dashify"
@@ -61,24 +85,33 @@ export default {
   data() {
     return {
       story: { content: {} },
-      casesList: {}
+      casesList: {},
+      talentsList: {}
     }
   },
   computed: {
     ...mapState({
-      cases: state => state.cases.list
+      cases: state => state.cases.list,
+      talents: state => state.talents.list
     })
   },
   mounted() {
     this.filterCases()
+    this.filterTalents()
     // console.log("HOME STORY", this.story)
     // console.log("HOME CASESLIST", this.casesList)
+    console.log("HOME TALENTSLIST", this.talentsList)
   },
   methods: {
     filterCases() {
       let array = this.cases
       let filteredArray = array.slice(1)
       this.casesList = filteredArray
+    },
+    filterTalents() {
+      let array = this.talents
+      let filteredArray = array.slice(1)
+      this.talentsList = filteredArray
     }
   }
 }
