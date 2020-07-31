@@ -33,6 +33,18 @@ export default {
         }
       })
       commit("cases/update", cases)
+      let getTalents = await app.$storyapi.get("cdn/stories", {
+        version: process.env.NODE_ENV === "production" ? "published" : "draft",
+        starts_with: "talents/"
+      })
+      let talents = getTalents.data.stories.map(bp => {
+        return {
+          id: bp.slug,
+          name: bp.content.name,
+          thumbnail: bp.content.thumbnail
+        }
+      })
+      commit("talents/update", talents)
     }
   }
 }
