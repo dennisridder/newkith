@@ -20,7 +20,7 @@ export default {
   },
   mounted() {
     this.wordsLoad()
-    this.scrollSpeed()
+    // this.scrollSpeed()
   },
   methods: {
     wordsLoad() {
@@ -59,14 +59,14 @@ export default {
   pointer-events: none
 
 .words
-  position: fixed
-  top: 50%
-  left: 0
+  // position: fixed
+  // top: 50%
+  // left: 0
   display: flex
   flex-wrap: wrap
   text-transform: uppercase
-  transform: translateY(-50%)
-  padding: 3rem
+  // transform: translateY(-50%)
+  // padding: 3rem
   li
     // border: 1px solid red
     overflow: hidden

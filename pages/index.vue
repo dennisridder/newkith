@@ -46,9 +46,9 @@
           </li>
         </ul>
       </div>
-      <div class="talentsList-More">
+      <nuxt-link class="talentsList-More" to="/talents" tag="div">
         <h1>TALENTS INDEX -></h1>
-      </div>
+      </nuxt-link>
     </section>
     <component
       :is="story.content.component | dashify"
