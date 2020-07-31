@@ -5,7 +5,7 @@
     </ul>
     <nav>
       <ul>
-        <nuxt-link to="/" tag="li">Our work</nuxt-link>
+        <nuxt-link to="/" tag="li">Our Services</nuxt-link>
         <!-- <nuxt-link to="/talents" tag="li">Talents</nuxt-link> -->
         <nuxt-link to="/blog" tag="li">Whats Happening</nuxt-link>
         <nuxt-link to="/about" tag="li">Who we ware</nuxt-link>
@@ -29,6 +29,7 @@ header
   left: 0
   right: 0
   padding: 2rem 3rem
+  mix-blend-mode: difference
   ul
     display: flex
     justify-content: flex-end
