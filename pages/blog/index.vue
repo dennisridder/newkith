@@ -55,12 +55,12 @@ export default {
   mounted() {
     // console.log("blogS INDEX", this.stories)
     this.removeFirstOfarray()
-    this.changePerspective()
-    document
-      .querySelectorAll(".image-Container")
-      .forEach(item =>
-        item.addEventListener("mousemove", this.imagePerspective)
-      )
+    // this.changePerspective()
+    // document
+    //   .querySelectorAll(".image-Container")
+    //   .forEach(item =>
+    //     item.addEventListener("mousemove", this.imagePerspective)
+    //   )
   },
   destroyed() {},
   methods: {

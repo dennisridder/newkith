@@ -40,12 +40,13 @@ export default {
       })
     },
     scrollSpeed() {
+      console.log(ScrollTrigger.maxScroll(window))
       var el = document.querySelector(".words")
       gsap.to(el, {
         scrollTrigger: {
           scrub: true
         },
-        y: -ScrollTrigger.maxScroll(window) * 0.5,
+        y: 0 - ScrollTrigger.maxScroll(window) * 2,
         ease: "none"
       })
     }

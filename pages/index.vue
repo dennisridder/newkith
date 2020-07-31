@@ -27,7 +27,7 @@
       </ul>
     </section>
     <!-- TALENTS -->
-    <section>
+    <section class="section-Talents">
       <h1>TALENTS</h1>
       <div class="talentsList">
         <ul class="talentsList-Container">
@@ -45,6 +45,9 @@
             </div>
           </li>
         </ul>
+      </div>
+      <div class="talentsList-More">
+        <h1>TALENTS INDEX -></h1>
       </div>
     </section>
     <component
