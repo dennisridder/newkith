@@ -20,6 +20,7 @@ export default {
   },
   mounted() {
     this.wordsLoad()
+    this.scrollSpeed()
   },
   methods: {
     wordsLoad() {
@@ -36,6 +37,17 @@ export default {
         yPercent: -100,
         ease: "expo.in:",
         onComplete: () => ScrollTrigger.refresh()
+      })
+    },
+    scrollSpeed() {
+      console.log("MOUNTED")
+      var el = document.querySelector(".words")
+      gsap.to(el, {
+        scrollTrigger: {
+          scrub: true
+        },
+        y: -ScrollTrigger.maxScroll(window) * 20,
+        ease: "none"
       })
     }
   }
