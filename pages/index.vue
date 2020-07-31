@@ -2,30 +2,6 @@
   <div v-editable="story.content" class="page">
     <!-- LANDING -->
     <blok-page-landing :words="['Newkith', 'talent', 'agency']" />
-    <!-- CASES -->
-    <section>
-      <h1>CASES</h1>
-      <ul class="imageGrid">
-        <li
-          v-for="item in casesList"
-          :id="item.id"
-          :key="item.id"
-          class="imageGrid-Row"
-        >
-          <nuxt-link :to="'cases/' + item.id" class="imageGrid-Item" tag="div">
-            <div class="image-Container">
-              <img :src="item.thumbnail" alt />
-            </div>
-            <h2>{{ item.title }}</h2>
-            <ul class="tagList">
-              <li v-for="tag in item.taglist" :id="tag" :key="tag">
-                #{{ tag }}<span>,</span>
-              </li>
-            </ul>
-          </nuxt-link>
-        </li>
-      </ul>
-    </section>
     <!-- TALENTS -->
     <section class="section-Talents">
       <h1>TALENTS</h1>
@@ -49,6 +25,30 @@
       <nuxt-link class="talentsList-More" to="/talents" tag="div">
         <h1>TALENTS INDEX -></h1>
       </nuxt-link>
+    </section>
+    <!-- CASES -->
+    <section>
+      <h1>CASES</h1>
+      <ul class="imageGrid">
+        <li
+          v-for="item in casesList"
+          :id="item.id"
+          :key="item.id"
+          class="imageGrid-Row"
+        >
+          <nuxt-link :to="'cases/' + item.id" class="imageGrid-Item" tag="div">
+            <div class="image-Container">
+              <img :src="item.thumbnail" alt />
+            </div>
+            <h2>{{ item.title }}</h2>
+            <ul class="tagList">
+              <li v-for="tag in item.taglist" :id="tag" :key="tag">
+                #{{ tag }}<span>,</span>
+              </li>
+            </ul>
+          </nuxt-link>
+        </li>
+      </ul>
     </section>
     <component
       :is="story.content.component | dashify"
