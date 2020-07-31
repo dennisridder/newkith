@@ -18,7 +18,6 @@ export const actions = {
 
 export default {
   actions: {
-    // put asynchronous functions that can call one or more mutation functions
     async nuxtServerInit({ commit }, { app }) {
       let getCases = await app.$storyapi.get("cdn/stories", {
         version: process.env.NODE_ENV === "production" ? "published" : "draft",
