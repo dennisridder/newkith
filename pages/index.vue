@@ -38,7 +38,9 @@
             <div class="talentsList-Image">
               <img :src="item.thumbnail" alt />
             </div>
-            <h2>{{ item.name }}</h2>
+            <div>
+              <h2>{{ item.name }}</h2>
+            </div>
           </li>
         </ul>
       </div>

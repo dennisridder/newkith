@@ -22,6 +22,9 @@ export default {
     this.wordsLoad()
     this.scrollSpeed()
   },
+  destroyed() {
+    this.scrollSpeed()
+  },
   methods: {
     wordsLoad() {
       var el = document.querySelectorAll(".words-Single")
@@ -46,7 +49,7 @@ export default {
         scrollTrigger: {
           scrub: true
         },
-        y: -ScrollTrigger.maxScroll(window) * 20,
+        y: -ScrollTrigger.maxScroll(window) * 0.5,
         ease: "none"
       })
     }
