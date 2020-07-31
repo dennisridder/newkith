@@ -1,16 +1,20 @@
 <template>
-  <section>
-    <p>TALENTS</p>
-    <ul>
-      <!-- prettier-ignore -->
-      <li v-for="post in talentList" :id="post.content.id" :key="post.content.id">
-        <nuxt-link :to="post.full_slug" tag="div">
-          <h2>{{ post.name }}</h2>
-          <img :src="post.content.thumbnail" alt />
-        </nuxt-link>
-      </li>
-    </ul>
-  </section>
+  <div class="page">
+    <blok-page-landing :words="['Meet', 'our', 'talents']" />
+    <section>
+      <ul class="imageGrid">
+        <!-- prettier-ignore -->
+        <li v-for="item in talentsList" :id="item.id" :key="item.id" class="imageGrid-Row">
+          <nuxt-link :to="'talents' + item.id" class="imageGrid-Item" tag="div">
+            <div class="image-Container">
+              <img :src="item.content.thumbnail" alt />
+            </div>
+            <h2>{{ item.content.name }}</h2>
+          </nuxt-link>
+        </li>
+      </ul>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -46,18 +50,19 @@ export default {
   data() {
     return {
       stories: { content: {} },
-      talentList: {}
+      talentsList: {}
     }
   },
   mounted() {
-    console.log("TALENTS INDEX", this.stories)
+    // console.log("TALENTS INDEX", this.stories)
+    // console.log("TALENTS LIST", this.talentsList)
     this.removeFirstOfarray()
   },
   methods: {
     removeFirstOfarray() {
       var arr = this.stories
       arr.shift()
-      this.talentList = arr
+      this.talentsList = arr
     }
   }
 }
