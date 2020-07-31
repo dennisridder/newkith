@@ -4,6 +4,7 @@
     <blok-page-landing :words="['Newkith', 'talent', 'agency']" />
     <!-- CASES -->
     <section>
+      <h1>CASES</h1>
       <ul class="imageGrid">
         <li
           v-for="item in casesList"
@@ -27,6 +28,7 @@
     </section>
     <!-- TALENTS -->
     <section>
+      <h1>TALENTS</h1>
       <div class="talentsList">
         <ul class="talentsList-Container">
           <li
@@ -38,7 +40,7 @@
             <div class="talentsList-Image">
               <img :src="item.thumbnail" alt />
             </div>
-            <div>
+            <div class="talentsList-Title">
               <h2>{{ item.name }}</h2>
             </div>
           </li>

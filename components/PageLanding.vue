@@ -22,9 +22,6 @@ export default {
     this.wordsLoad()
     this.scrollSpeed()
   },
-  destroyed() {
-    this.scrollSpeed()
-  },
   methods: {
     wordsLoad() {
       var el = document.querySelectorAll(".words-Single")
@@ -43,7 +40,6 @@ export default {
       })
     },
     scrollSpeed() {
-      console.log("MOUNTED")
       var el = document.querySelector(".words")
       gsap.to(el, {
         scrollTrigger: {
