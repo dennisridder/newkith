@@ -3,16 +3,17 @@
     <!-- LANDING -->
     <blok-page-landing :words="['Newkith', 'talent', 'agency']" />
     <!-- TALENTS -->
-    <section class="section-Talents">
-      <h1>TALENTS</h1>
+    <section class="section section-Talents">
+      <div class="section-Titles">
+        <h1>Talent Management</h1>
+        <nuxt-link class="talentsList-More" to="/talents" tag="div">
+          <h1>All -></h1>
+        </nuxt-link>
+      </div>
       <div class="talentsList">
         <ul class="talentsList-Container">
-          <li
-            v-for="item in talentsList"
-            :id="item.id"
-            :key="item.id"
-            class="talentsList-Item"
-          >
+          <!-- prettier-ignore -->
+          <li v-for="item in talentsList" :id="item.id" :key="item.id" class="talentsList-Item">
             <div class="talentsList-Image">
               <img :src="item.thumbnail" alt />
             </div>
@@ -22,20 +23,62 @@
           </li>
         </ul>
       </div>
-      <nuxt-link class="talentsList-More" to="/talents" tag="div">
-        <h1>TALENTS INDEX -></h1>
-      </nuxt-link>
+    </section>
+    <section class="section section-ServiceList serviceList">
+      <ul>
+        <li>
+          <h1>Services</h1>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <h1>Management</h1>
+        </li>
+        <li>
+          <h4>Voorbeeld</h4>
+        </li>
+        <li>
+          <h4>Voorbeeld</h4>
+        </li>
+        <li>
+          <h4>Voorbeeld</h4>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <h1>Creative</h1>
+        </li>
+        <li>
+          <h4>Voorbeeld</h4>
+        </li>
+        <li>
+          <h4>Voorbeeld</h4>
+        </li>
+        <li>
+          <h4>Voorbeeld</h4>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <h1>Advertising</h1>
+        </li>
+        <li>
+          <h4>Voorbeeld</h4>
+        </li>
+        <li>
+          <h4>Voorbeeld</h4>
+        </li>
+        <li>
+          <h4>Voorbeeld</h4>
+        </li>
+      </ul>
     </section>
     <!-- CASES -->
     <section>
-      <h1>CASES</h1>
+      <h1>Cases</h1>
       <ul class="imageGrid">
-        <li
-          v-for="item in casesList"
-          :id="item.id"
-          :key="item.id"
-          class="imageGrid-Row"
-        >
+        <!-- prettier-ignore -->
+        <li v-for="item in casesList" :id="item.id" :key="item.id" class="imageGrid-Row">
           <nuxt-link :to="'cases/' + item.id" class="imageGrid-Item" tag="div">
             <div class="image-Container">
               <img :src="item.thumbnail" alt />
@@ -43,7 +86,8 @@
             <h2>{{ item.title }}</h2>
             <ul class="tagList">
               <li v-for="tag in item.taglist" :id="tag" :key="tag">
-                #{{ tag }}<span>,</span>
+                #{{ tag }}
+                <span>,</span>
               </li>
             </ul>
           </nuxt-link>
