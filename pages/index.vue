@@ -63,7 +63,10 @@
           <h4>Campaigns</h4>
         </li>
         <li>
-          <h4>Collaborations</h4>
+          <h4>&nbsp;</h4>
+        </li>
+        <li>
+          <h4>More about us -></h4>
         </li>
       </ul>
     </section>
@@ -99,6 +102,39 @@
         src="https://images.unsplash.com/photo-1470753323753-3f8091bb0232?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
         alt
       />
+    </section>
+    <section class="section section-ServiceList serviceList">
+      <ul>
+        <li>
+          <h1>Footer</h1>
+        </li>
+      </ul>
+      <ul></ul>
+      <ul>
+        <li>
+          <h4>What we do</h4>
+        </li>
+        <li>
+          <h4>What's happening</h4>
+        </li>
+        <li>
+          <h4>Who we are</h4>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <h4>Cases</h4>
+        </li>
+        <li>
+          <h4>Talens</h4>
+        </li>
+        <li>
+          <h4>Academy</h4>
+        </li>
+        <li>
+          <h4>Contact</h4>
+        </li>
+      </ul>
     </section>
     <component
       :is="story.content.component | dashify"
