@@ -94,6 +94,18 @@
         </li>
       </ul>
     </section>
+    <section>
+      <div class="section-Titles">
+        <h1>Academy</h1>
+        <div class="talentsList-More">
+          <h1>Enroll -></h1>
+        </div>
+      </div>
+      <img
+        src="https://images.unsplash.com/photo-1470753323753-3f8091bb0232?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
+        alt
+      />
+    </section>
     <component
       :is="story.content.component | dashify"
       v-if="story.content.component"
