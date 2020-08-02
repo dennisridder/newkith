@@ -35,13 +35,13 @@
           <h1>Management</h1>
         </li>
         <li>
-          <h4>Voorbeeld</h4>
+          <h4>Collaborations</h4>
         </li>
         <li>
-          <h4>Voorbeeld</h4>
+          <h4>Branding</h4>
         </li>
         <li>
-          <h4>Voorbeeld</h4>
+          <h4>Marketing</h4>
         </li>
       </ul>
       <ul>
@@ -49,13 +49,10 @@
           <h1>Creative</h1>
         </li>
         <li>
-          <h4>Voorbeeld</h4>
+          <h4>Production</h4>
         </li>
         <li>
-          <h4>Voorbeeld</h4>
-        </li>
-        <li>
-          <h4>Voorbeeld</h4>
+          <h4>Distribution</h4>
         </li>
       </ul>
       <ul>
@@ -63,13 +60,10 @@
           <h1>Advertising</h1>
         </li>
         <li>
-          <h4>Voorbeeld</h4>
+          <h4>Campaigns</h4>
         </li>
         <li>
-          <h4>Voorbeeld</h4>
-        </li>
-        <li>
-          <h4>Voorbeeld</h4>
+          <h4>Collaborations</h4>
         </li>
       </ul>
     </section>
@@ -94,7 +88,7 @@
         </li>
       </ul>
     </section>
-    <section>
+    <section class="section section-Academy">
       <div class="section-Titles">
         <h1>Academy</h1>
         <div class="talentsList-More">
