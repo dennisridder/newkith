@@ -12,8 +12,13 @@
       </div>
       <div class="talentsList">
         <ul class="talentsList-Container">
-          <!-- prettier-ignore -->
-          <li v-for="item in talentsList" :id="item.id" :key="item.id" class="talentsList-Item">
+          <!-- ignore-prettier -->
+          <li
+            v-for="item in talentsList"
+            :id="item.id"
+            :key="item.id"
+            class="talentsList-Item"
+          >
             <div class="talentsList-Image">
               <img :src="item.thumbnail" alt />
             </div>
@@ -73,23 +78,7 @@
     <!-- CASES -->
     <section>
       <h1>Cases</h1>
-      <ul class="imageGrid">
-        <!-- prettier-ignore -->
-        <li v-for="item in casesList" :id="item.id" :key="item.id" class="imageGrid-Row">
-          <nuxt-link :to="'cases/' + item.id" class="imageGrid-Item" tag="div">
-            <div class="image-Container">
-              <img :src="item.thumbnail" alt />
-            </div>
-            <h2>{{ item.title }}</h2>
-            <ul class="tagList">
-              <li v-for="tag in item.taglist" :id="tag" :key="tag">
-                #{{ tag }}
-                <span>,</span>
-              </li>
-            </ul>
-          </nuxt-link>
-        </li>
-      </ul>
+      <blok-image-grid class="verticalRowIrregular" :array="casesList" />
     </section>
     <section class="section section-Academy">
       <div class="section-Titles">
@@ -192,8 +181,8 @@ export default {
     this.filterCases()
     this.filterTalents()
     // console.log("HOME STORY", this.story)
-    // console.log("HOME CASESLIST", this.casesList)
-    console.log("HOME TALENTSLIST", this.talentsList)
+    // console.log("HOME CASESLIST", this.casesList, typeof this.casesList)
+    // console.log("HOME TALENTSLIST", this.talentsList)
   },
   methods: {
     filterCases() {

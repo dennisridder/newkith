@@ -49,6 +49,7 @@ export default {
     return {
       story: { content: {} }
     }
-  }
+  },
+  methods: {}
 }
 </script>

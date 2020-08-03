@@ -30,6 +30,7 @@ header
   right: 0
   padding: 2rem 3rem
   mix-blend-mode: difference
+  z-index: 999
   ul
     display: flex
     justify-content: flex-end
