@@ -23,10 +23,10 @@ export default {
       var el = $("#effect-" + this.image.id)
       var width = el.width()
       var xPos = (event.layerX / width - 0.5) * 60
-      gsap.to(el, {
-        duration: 1,
+      gsap.to(el, 1, {
         rotationY: xPos,
-        transformPerspective: 900
+        transformPerspective: 900,
+        ease: "power2.easeOut"
       })
     }
   }
