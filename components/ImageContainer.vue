@@ -1,5 +1,5 @@
 <template>
-  <div class="image-Effect">
+  <div class="image-Effect image-Effect_Tilt">
     <div :id="'effect-' + image.id" @mousemove="imageTilt($event)">
       <img :src="image.thumbnail" :alt="image.title" />
     </div>
@@ -22,10 +22,9 @@ export default {
       // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
       var el = $("#effect-" + this.image.id)
       var width = el.width()
-      var xPos = (event.layerX / width - 0.5) * 60
+      var xPos = (event.layerX / width - 0.5) * 75
       gsap.to(el, 1, {
         rotationY: xPos,
-        transformPerspective: 900,
         ease: "power2.easeOut"
       })
     }
@@ -39,6 +38,8 @@ export default {
   display: flex
   justify-content: center
   align-items: center
+  &_Tilt
+    perspective: 2000px
   #container
     position: relative
     display: flex
