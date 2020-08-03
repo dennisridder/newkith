@@ -1,6 +1,6 @@
 <template>
-  <div class="image-Tilt">
-    <div :id="'tilt-' + image.id" @mousemove="imageTilt($event)">
+  <div class="image-Effect">
+    <div :id="'effect-' + image.id" @mousemove="imageTilt($event)">
       <img :src="image.thumbnail" :alt="image.title" />
     </div>
   </div>
@@ -14,18 +14,19 @@ export default {
   props: ["image"],
   mounted() {
     // console.log("IMAGE CONTAINER COMPONENT", this.image, typeof this.image)
+    $(window).resize(this.changePersective)
+    // $("#effect-" + this.image.id).mousemove(this.imageTilt)
   },
   methods: {
     imageTilt: function(event) {
-      var el = $("#tilt-" + this.image.id)
-      var xPos = (event.layerX / el.width() - 0.5) * 50
-      console.log(xPos, event, this.image.id)
+      // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
+      var el = $("#effect-" + this.image.id)
+      var width = el.width()
+      var xPos = (event.layerX / width - 0.5) * 100
       gsap.to(el, {
+        duration: 1,
         rotationY: xPos,
-        transformPerspective: 900,
-        transformOrigin: "center",
-        ease: "power2.out",
-        duration: 0.5
+        transformPerspective: 900
       })
     }
   }
@@ -33,7 +34,7 @@ export default {
 </script>
 
 <style lang="sass">
-.image-Tilt
+.image-Effect
   position: relative
   display: flex
   justify-content: center
