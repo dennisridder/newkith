@@ -14,7 +14,6 @@ export default {
   props: ["image"],
   mounted() {
     // console.log("IMAGE CONTAINER COMPONENT", this.image, typeof this.image)
-    $(window).resize(this.changePersective)
     // $("#effect-" + this.image.id).mousemove(this.imageTilt)
   },
   methods: {

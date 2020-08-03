@@ -10,24 +10,7 @@
           <h1>All -></h1>
         </nuxt-link>
       </div>
-      <div class="talentsList">
-        <ul class="talentsList-Container">
-          <!-- ignore-prettier -->
-          <li
-            v-for="item in talentsList"
-            :id="item.id"
-            :key="item.id"
-            class="talentsList-Item"
-          >
-            <div class="talentsList-Image">
-              <img :src="item.thumbnail" alt />
-            </div>
-            <div class="talentsList-Title">
-              <h2>{{ item.name }}</h2>
-            </div>
-          </li>
-        </ul>
-      </div>
+      <blok-horizontal-image-row :list="talentsList" />
     </section>
     <section class="section section-ServiceList serviceList">
       <ul>
