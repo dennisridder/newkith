@@ -22,7 +22,7 @@ export default {
       // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
       var el = $("#effect-" + this.image.id)
       var width = el.width()
-      var xPos = (event.layerX / width - 0.5) * 100
+      var xPos = (event.layerX / width - 0.5) * 60
       gsap.to(el, {
         duration: 1,
         rotationY: xPos,
