@@ -19,8 +19,28 @@
 </template>
 
 <script>
+import gsap from "gsap"
+import $ from "jquery"
+
 export default {
-  props: ["list"]
+  props: ["list"],
+  mounted() {
+    window.addEventListener("scroll", this.onScroll)
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.onScroll)
+  },
+  methods: {
+    onScroll() {
+      const sPosition = window.pageYOffset || document.documentElement.scrollTop
+      console.log("RUNNING", sPosition)
+      var el = $(".horizontalImages-Container")
+      gsap.to(el, 1, {
+        x: 0 - sPosition / 6,
+        ease: "power2.easeOut"
+      })
+    }
+  }
 }
 </script>
 
