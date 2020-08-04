@@ -35,9 +35,9 @@ export default {
       const sPosition = window.pageYOffset || document.documentElement.scrollTop
       console.log("RUNNING", sPosition)
       var el = $(".horizontalImages-Container")
-      gsap.to(el, 1, {
-        x: 0 - sPosition / 6,
-        ease: "power2.easeOut"
+      gsap.to(el, 0.5, {
+        x: 0 - sPosition / 6
+        // ease: "power2.easeOut"
       })
     }
   }
