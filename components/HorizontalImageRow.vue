@@ -20,7 +20,10 @@
 
 <script>
 import gsap from "gsap"
-import $ from "jquery"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+// import $ from "jquery"
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
   props: ["list"],
@@ -32,12 +35,24 @@ export default {
   },
   methods: {
     onScroll() {
-      const sPosition = window.pageYOffset || document.documentElement.scrollTop
-      console.log("RUNNING", sPosition)
-      var el = $(".horizontalImages-Container")
-      gsap.to(el, 0.5, {
-        x: 0 - sPosition / 6
-        // ease: "power2.easeOut"
+      const windowHeight = window.innerHeight
+      var el = document.querySelector(".horizontalImages-Container")
+      var elRect = el.getBoundingClientRect()
+      var sPosition = (elRect.top / windowHeight) * 100 - 100
+      if (elRect.top < 0) {
+        sPosition = -100
+      } else if (sPosition > 0) {
+        sPosition = 0
+      }
+      console.log("RUNNING", sPosition, elRect)
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el, // start the animation when ".box" enters the viewport (once)
+          scrub: 0 // Seconds to catch up after scroll stop
+        },
+        xPercent: sPosition / 10,
+        ease: "expo.out:",
+        onComplete: () => ScrollTrigger.refresh()
       })
     }
   }
