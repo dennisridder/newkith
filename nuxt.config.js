@@ -8,7 +8,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: "Inert Site Title", // Change in package.json files
+    title: "#NEWKITH", // Change in package.json files
     meta: [
       { charset: "utf-8" },
       {
