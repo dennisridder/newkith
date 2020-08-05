@@ -1,6 +1,6 @@
 <template>
   <section class="full landing">
-    <ul class="words">
+    <ul id="scrollslow" class="words parallax-bg" data-speed="-1.5">
       <li v-for="word in words" :key="word">
         <p class="words-Single">{{ word }}&nbsp;</p>
       </li>
@@ -20,7 +20,7 @@ export default {
   },
   mounted() {
     this.wordsLoad()
-    // this.scrollSpeed()
+    this.scrollSpeed()
   },
   methods: {
     wordsLoad() {
@@ -40,13 +40,25 @@ export default {
       })
     },
     scrollSpeed() {
-      console.log(ScrollTrigger.maxScroll(window))
-      var el = document.querySelector(".words")
-      gsap.to(el, {
+      // var el = document.getElementById("scrollslow")
+      // console.log("SCROLLSPEED", el)
+      // gsap.to(el, {
+      //   scrollTrigger: {
+      //     trigger: el,
+      //     scrub: true,
+      //     markers: true,
+      //     start: "bottom center"
+      //   },
+      //   yPercent: 100,
+      //   ease: "expo.out",
+      //   onComplete: () => ScrollTrigger.refresh()
+      // })
+      gsap.to(".parallax-bg", {
         scrollTrigger: {
           scrub: true
         },
-        y: 0 - ScrollTrigger.maxScroll(window) * 2,
+        y: (i, target) =>
+          -ScrollTrigger.maxScroll(window) * target.dataset.speed,
         ease: "none"
       })
     }
