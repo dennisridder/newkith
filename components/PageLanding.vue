@@ -40,20 +40,7 @@ export default {
       })
     },
     scrollSpeed() {
-      // var el = document.getElementById("scrollslow")
-      // console.log("SCROLLSPEED", el)
-      // gsap.to(el, {
-      //   scrollTrigger: {
-      //     trigger: el,
-      //     scrub: true,
-      //     markers: true,
-      //     start: "bottom center"
-      //   },
-      //   yPercent: 100,
-      //   ease: "expo.out",
-      //   onComplete: () => ScrollTrigger.refresh()
-      // })
-      gsap.to(".parallax-bg", {
+      gsap.to("#scrollslow", {
         scrollTrigger: {
           scrub: true
         },
@@ -71,16 +58,10 @@ export default {
   pointer-events: none
 
 .words
-  // position: fixed
-  // top: 50%
-  // left: 0
   display: flex
   flex-wrap: wrap
   text-transform: uppercase
-  // transform: translateY(-50%)
-  // padding: 3rem
   li
-    // border: 1px solid red
     overflow: hidden
   p
     font-family: 'Basis Grotesk Bold', Helvetica, Arial, sans-serif
