@@ -70,10 +70,13 @@
           <h1>Enroll -></h1>
         </div>
       </div>
-      <img
-        src="https://images.unsplash.com/photo-1470753323753-3f8091bb0232?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
-        alt
-      />
+      <div class="image-Effect image-Effect_Tilt">
+        <div id="effect-Tilt" @mousemove="imageTilt($event)">
+          <img
+            src="https://images.unsplash.com/photo-1470753323753-3f8091bb0232?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
+          />
+        </div>
+      </div>
     </section>
     <section class="section section-ServiceList serviceList">
       <ul>
@@ -120,6 +123,8 @@
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import { mapState } from "vuex"
+import gsap from "gsap"
+import $ from "jquery"
 
 export default {
   mixins: [storyblokLivePreview],
@@ -177,6 +182,16 @@ export default {
       let array = this.talents
       let filteredArray = array.slice(1)
       this.talentsList = filteredArray
+    },
+    imageTilt: function(event) {
+      // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
+      var el = $("#effect-Tilt")
+      var width = el.width()
+      var xPos = (event.layerX / width - 0.5) * 25
+      gsap.to(el, 1, {
+        rotationY: xPos,
+        ease: "power2.easeOut"
+      })
     }
   }
 }
