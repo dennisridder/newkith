@@ -70,13 +70,13 @@ export default {
       this.blogList = arr
     },
     changePerspective() {
-      console.log("CHANGEPERSPECTIVE")
+      // console.log("CHANGEPERSPECTIVE")
       gsap.set(".image-Container", {
         perspective: $(".image-Container").width()
       })
     },
     imagePerspective(e) {
-      console.log("ACTIVE")
+      // console.log("ACTIVE")
       if (e.timeout) clearTimeout(e.timeout)
       setTimeout(this.callParallax.bind(null, e), 400)
     },

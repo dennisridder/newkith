@@ -19,7 +19,7 @@
 export default {
   props: ["array"],
   mounted() {
-    console.log("IMAGE GRID COMPONENT", this.array, typeof this.array)
+    // console.log("IMAGE GRID COMPONENT", this.array, typeof this.array)
   }
 }
 </script>

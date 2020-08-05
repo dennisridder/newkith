@@ -51,7 +51,7 @@ export default {
     }
   },
   mounted() {
-    console.log("CASE", this.story)
+    // console.log("CASE", this.story)
   }
 }
 </script>
