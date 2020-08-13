@@ -26,12 +26,7 @@ export default {
 </script>
 
 <style lang="sass">
-// Testing
-// .imageGrid
-//   &-Row
-//     border: 1px solid blue
-//   &-Item
-//     border: 1px solid red
+@import '~/assets/styles/variables.sass'
 
 .imageGrid
   position: relative
@@ -45,14 +40,19 @@ export default {
     flex-direction: column
     cursor: pointer
     margin-bottom: 3rem
+    &:hover
+      h2, h4, li
+        color: $support-color
   &-Details
-    max-width: 15rem
+    max-width: 90%
   img
     max-width: 100%
   h2
     margin-top: .5rem
     margin-bottom: .5rem
     text-transform: uppercase
+    font-family: 'SohneSchmal Halbfett'
+    font-size: 5vw
 
   // Vertical column, with irregular placement within rows
   &.verticalRowIrregular

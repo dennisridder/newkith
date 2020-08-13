@@ -10,8 +10,37 @@
           :key="post.content.id"
           class="blogList-Item"
         >
-          <nuxt-link :to="post.full_slug" tag="div">
-            <h2>{{ post.content.title }}</h2>
+          <nuxt-link class="blogList-Content" :to="post.full_slug" tag="div">
+            <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div>
+              <h4>{{ post.content.component }}</h4>
+            </div>
+            <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div>
+              <h4>{{ post.content.component }}</h4>
+            </div>
+            <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div>
+              <h4>{{ post.content.component }}</h4>
+            </div>
+            <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div>
+              <h4>{{ post.content.component }}</h4>
+            </div>
+            <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div>
+              <h4>{{ post.content.component }}</h4>
+            </div>
           </nuxt-link>
           <div class="blogList-Image">
             <blok-image-container
@@ -68,6 +97,7 @@ export default {
   mounted() {
     this.removeFirstOfarray()
     console.log("BLOGLIST", this.blogList)
+    console.log("BLOG STORY", this.story)
   },
   methods: {
     removeFirstOfarray() {
@@ -99,11 +129,10 @@ export default {
 
 .blogList
   &-Item
-    border-top: 1px solid $color
     padding-top: 3rem
     padding-bottom: 3rem
-  &-Item:last-child
-    border-bottom: 1px solid $color
+    width: 100%
+    overflow-x: auto
   &-Image
     position: fixed
     left: 0
@@ -117,7 +146,7 @@ export default {
     pointer-events: none
     z-index: -1
     .image-Effect
-      width: 60vw
+      width: 50vw
       height: 80vh
       display: flex
       justify-content: center
@@ -126,6 +155,27 @@ export default {
       img
         max-width: 100%
         width: 100%
-  &-Item:hover > .blogList-Image
+  &-Content
+    display: flex
+    flex-wrap: nowrap
+    cursor: pointer
+    align-items: center
+    margin-left: 3rem
+    h2
+      font-family: 'SohneSchmal Halbfett'
+      font-size: 5vw
+      font-family: 'Sohne Kraftig'
+      font-size: 3.5vw
+    > div
+      flex-shrink: 0
+      margin-right: 3rem
+    &_Title
+      max-width: 30em
+  &-Content:hover
+    h1, h2, h3, h4, p
+      color: $support-color
+    h2
+      font-family: 'Sohne KraftigKursiv'
+  &-Content:hover ~ .blogList-Image
     visibility: visible
 </style>
