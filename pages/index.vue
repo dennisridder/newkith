@@ -3,7 +3,7 @@
     <!-- LANDING -->
     <blok-page-landing :words="['Newkith', 'talent', 'agency']" />
     <!-- TALENTS -->
-    <section class="section section-Talents">
+    <!-- <section class="section section-Talents">
       <div class="section-Titles">
         <h1>Talent Management</h1>
         <nuxt-link class="talentsList-More" to="/talents" tag="div">
@@ -11,8 +11,9 @@
         </nuxt-link>
       </div>
       <blok-horizontal-image-row :list="talentsList" />
-    </section>
-    <section class="section section-ServiceList serviceList">
+    </section>-->
+    <!-- SERVICES -->
+    <!-- <section class="section section-ServiceList serviceList">
       <ul>
         <li>
           <h1>Services</h1>
@@ -57,10 +58,9 @@
           <h4>More about us -></h4>
         </li>
       </ul>
-    </section>
+    </section>-->
     <!-- CASES -->
     <section>
-      <h1>Cases</h1>
       <blok-image-grid class="verticalRowIrregular" :array="casesList" />
     </section>
     <section class="section section-Academy">

@@ -4,12 +4,14 @@
     <li v-for="item in array" :id="item.id" :key="item.id" class="imageGrid-Row">
       <nuxt-link :to="'cases/' + item.id" class="imageGrid-Item" tag="div">
         <blok-image-container :image="item" />
-        <h2>{{ item.title }}</h2>
-        <ul class="tagList">
-          <li v-for="tag in item.taglist" :id="tag" :key="tag">
-            <h4>#{{ tag }}</h4>
-          </li>
-        </ul>
+        <div class="imageGrid-Details">
+          <h2>{{ item.title }}</h2>
+          <ul class="tagList">
+            <li v-for="tag in item.taglist" :id="tag" :key="tag">
+              <h4>#{{ tag }}</h4>
+            </li>
+          </ul>
+        </div>
       </nuxt-link>
     </li>
   </ul>
@@ -43,10 +45,13 @@ export default {
     flex-direction: column
     cursor: pointer
     margin-bottom: 3rem
+  &-Details
+    max-width: 15rem
   img
     max-width: 100%
   h2
-    margin-top: 1rem
+    margin-top: .5rem
+    margin-bottom: .5rem
     text-transform: uppercase
 
   // Vertical column, with irregular placement within rows
