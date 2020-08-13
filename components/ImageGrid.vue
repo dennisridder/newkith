@@ -7,8 +7,7 @@
         <h2>{{ item.title }}</h2>
         <ul class="tagList">
           <li v-for="tag in item.taglist" :id="tag" :key="tag">
-            #{{ tag }}
-            <span>,</span>
+            <h4>#{{ tag }}</h4>
           </li>
         </ul>
       </nuxt-link>
@@ -48,7 +47,6 @@ export default {
     max-width: 100%
   h2
     margin-top: 1rem
-    font-family: 'Basis Grotesk Bold', Helvetica, Arial, sans-serif
     text-transform: uppercase
 
   // Vertical column, with irregular placement within rows

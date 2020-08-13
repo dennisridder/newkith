@@ -1,7 +1,9 @@
 <template>
   <header>
     <ul class="header-Logo">
-      <nuxt-link to="/" tag="li">#NewKith</nuxt-link>
+      <nuxt-link to="/" tag="li">
+        <h2>#NewKith</h2>
+      </nuxt-link>
     </ul>
     <nav>
       <ul>
@@ -35,8 +37,6 @@ header
     display: flex
     justify-content: flex-end
   li
-    font-family: 'Basis Grotesk Bold', Helvetica, Arial, sans-serif
-    text-transform: uppercase
     opacity: .25
     letter-spacing: .01rem
     text-decoration: none
@@ -53,4 +53,5 @@ header
   .header-Logo
     li
       opacity: 1
+      text-transform: uppercase
 </style>

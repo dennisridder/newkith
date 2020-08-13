@@ -2,7 +2,7 @@
   <section class="landing">
     <ul id="scrollslow" class="words parallax-bg" data-speed="1">
       <li v-for="word in words" :key="word">
-        <p class="words-Single">{{ word }}&nbsp;</p>
+        <h1 class="words-Single">{{ word }}&nbsp;</h1>
       </li>
     </ul>
   </section>
@@ -73,9 +73,7 @@ export default {
   padding-right: 3rem
   li
     overflow: hidden
-  p
-    font-family: 'Basis Grotesk Bold', Helvetica, Arial, sans-serif
-    font-size: 11vw
+  h1, h2, p, a
     line-height: 1
     transform: translate(0px, 100%)
 </style>

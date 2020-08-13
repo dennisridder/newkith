@@ -1,40 +1,82 @@
 @import '~/assets/styles/variables.sass'
 
+// Sohne
 @font-face
-  font-family: 'Basis Grotesk Light'
-  src: url('~assets/fonts/basis-grotesque-light.woff') format('woff')
+  font-family: 'Sohne Buch'
+  src: url('~assets/fonts/Sohne-Buch.woff2') format('woff2')
   font-weight: normal
   font-style: normal
+  font-display: swap
 
 @font-face
-  font-family: 'Basis Grotesk Regular'
-  src: url('~assets/fonts/basis-grotesque-regular.woff') format('woff')
+  font-family: 'Sohne BuchKursiv'
+  src: url('~assets/fonts/Sohne-BuchKursiv.woff2') format('woff2')
   font-weight: normal
   font-style: normal
+  font-display: swap
 
 @font-face
-  font-family: 'Basis Grotesk Medium'
-  src: url('~assets/fonts/basis-grotesque-medium.woff') format('woff')
+  font-family: 'Sohne Halbfett'
+  src: url('~assets/fonts/Sohne-Halbfett.woff2') format('woff2')
   font-weight: normal
   font-style: normal
+  font-display: swap
 
 @font-face
-  font-family: 'Basis Grotesk Bold'
-  src: url('~assets/fonts/basis-grotesque-bold.woff') format('woff')
+  font-family: 'Sohne Kraftig'
+  src: url('~assets/fonts/Sohne-Kraftig.woff2') format('woff2')
   font-weight: normal
   font-style: normal
+  font-display: swap
 
 @font-face
-  font-family: 'Basis Grotesk Mono'
-  src: url('~assets/fonts/basis-grotesque-mono.woff') format('woff')
+  font-family: 'Sohne KraftigKursiv'
+  src: url('~assets/fonts/Sohne-KraftigKursiv.woff2') format('woff2')
   font-weight: normal
   font-style: normal
+  font-display: swap
 
 @font-face
-  font-family: 'Basis Grotesk Mono Bold'
-  src: url('~assets/fonts/basis-grotesque-mono-bold.woff') format('woff')
+  font-family: 'SohneSchmal Buch'
+  src: url('~assets/fonts/SohneSchmal-Buch.woff2') format('woff2')
   font-weight: normal
   font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'SohneSchmal BuchKursiv'
+  src: url('~assets/fonts/SohneSchmal-BuchKursiv.woff2') format('woff2')
+  font-weight: normal
+  font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'SohneSchmal Halbfett'
+  src: url('~assets/fonts/SohneSchmal-Halbfett.woff2') format('woff2')
+  font-weight: normal
+  font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'SohneSchmal HalbfettKursiv'
+  src: url('~assets/fonts/SohneSchmal-HalbfettKursiv.woff2') format('woff2')
+  font-weight: normal
+  font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'SohneSchmal Kraftig'
+  src: url('~assets/fonts/SohneSchmal-Kraftig.woff2') format('woff2')
+  font-weight: normal
+  font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'SohneSchmal KraftigKursiv'
+  src: url('~assets/fonts/SohneSchmal-KraftigKursiv.woff2') format('woff2')
+  font-weight: normal
+  font-style: normal
+  font-display: swap
 
 // https://www.madebymike.com.au/writing/fluid-type-calc-examples/
 
@@ -62,7 +104,7 @@ h1, h2, h3, p, a
   hyphens: none
 
 li, h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span, input, button, nav
-  font-family: 'Basis Grotesk Regular', Helvetica, Arial, sans-serif
+  font-family: 'Sohne Buch', Helvetica, Arial, sans-serif
   font-size: 1em
   line-height: 1.5
   color: $color
@@ -71,18 +113,35 @@ li, h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span, input, button,
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
+h1, h2, h3 // Titles
+  font-family: 'Sohne Kraftig', Helvetica, Arial, sans-serif
+
+h1
+  font-size: 8vw
+  line-height: 1
+
+h2, h3
+  font-size: 2rem
+  text-transform: uppercase
+
+h4 // Captions
+  font-size: .6rem
+  opacity: .5
+  text-transform: uppercase
+
 a
   color: $color
   text-decoration: underline
 
 strong
-  font-weight: bold
+  font-family: 'Sohne Kraftig', Helvetica, Arial, sans-serif
 
 em
-  font-style: italic
+  font-family: 'Sohne BuchKursiv', Helvetica, Arial, sans-serif
 
-h4
-  font-size: 1rem
+strong
+  em
+    font-family: 'Sohne KraftigKursiv', Helvetica, Arial, sans-serif
 
 .ellipsis
   overflow: hidden
