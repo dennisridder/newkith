@@ -60,10 +60,10 @@
       </ul>
     </section>-->
     <!-- CASES -->
-    <section>
+    <section class="section section-Cases">
       <blok-image-grid class="verticalRowIrregular" :array="casesList" />
     </section>
-    <section class="section section-Academy">
+    <!-- <section class="section section-Academy">
       <div class="section-Titles">
         <h1>Academy</h1>
         <div class="talentsList-More">
@@ -77,7 +77,7 @@
           />
         </div>
       </div>
-    </section>
+    </section>-->
     <section class="section section-ServiceList serviceList">
       <ul>
         <li>

@@ -1,7 +1,7 @@
 <template>
   <div class="image-Effect image-Effect_Tilt">
-    <div :id="'effect-' + image.id" @mousemove="imageTilt($event)">
-      <img :src="image.thumbnail" :alt="image.title" />
+    <div :id="'effect-' + id" @mousemove="imageTilt($event)">
+      <img :src="image" :alt="title" />
     </div>
   </div>
 </template>
@@ -11,15 +11,14 @@ import gsap from "gsap"
 import $ from "jquery"
 
 export default {
-  props: ["image"],
+  props: { image: String, title: String, id: String },
   mounted() {
-    // console.log("IMAGE CONTAINER COMPONENT", this.image, typeof this.image)
-    // $("#effect-" + this.image.id).mousemove(this.imageTilt)
+    console.log("IMAGE ITEM", this.id, this.title, this.image)
   },
   methods: {
     imageTilt: function(event) {
       // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
-      var el = $("#effect-" + this.image.id)
+      var el = $("#effect-" + this.id)
       var width = el.width()
       var xPos = (event.layerX / width - 0.5) * 75
       gsap.to(el, 1, {

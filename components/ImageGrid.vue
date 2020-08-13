@@ -3,7 +3,7 @@
     <!-- prettier-ignore -->
     <li v-for="item in array" :id="item.id" :key="item.id" class="imageGrid-Row">
       <nuxt-link :to="'cases/' + item.id" class="imageGrid-Item" tag="div">
-        <blok-image-container :image="item" />
+        <blok-image-container :id="item.id" :image="item.thumbnail" :title="item.title" />
         <div class="imageGrid-Details">
           <h2>{{ item.title }}</h2>
           <ul class="tagList">
@@ -18,9 +18,9 @@
 </template>
 <script>
 export default {
-  props: ["array"],
+  props: { array: Array },
   mounted() {
-    // console.log("IMAGE GRID COMPONENT", this.array, typeof this.array)
+    console.log("IMAGE GRID", this.array)
   }
 }
 </script>
