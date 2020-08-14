@@ -3,7 +3,7 @@
     <!-- prettier-ignore -->
     <li v-for="item in array" :id="item.id" :key="item.id" class="imageGrid-Row">
       <nuxt-link :to="'cases/' + item.id" class="imageGrid-Item" tag="div">
-        <blok-image-container :id="item.id" :image="item.thumbnail" :title="item.title" />
+        <blok-image-container-tilt :id="item.id" :image="item.thumbnail" :title="item.title" />
         <div class="imageGrid-Details">
           <h2>{{ item.title }}</h2>
           <ul class="tagList">

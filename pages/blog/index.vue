@@ -9,6 +9,7 @@
           :id="post.content.id"
           :key="post.content.id"
           class="blogList-Item"
+          @mousemove="registerMouse($event)"
         >
           <nuxt-link class="blogList-Content" :to="post.full_slug" tag="div">
             <div class="blogList-Content_Title">
@@ -43,10 +44,11 @@
             </div>
           </nuxt-link>
           <div class="blogList-Image">
-            <blok-image-container
+            <blok-image-container-blog
               :id="post.content._uid"
               :image="post.content.thumbnail"
               :title="post.content.title"
+              :event="tiltNumber"
             />
           </div>
         </li>
@@ -56,8 +58,8 @@
 </template>
 
 <script>
-import gsap from "gsap"
-import $ from "jquery"
+// import gsap from "gsap"
+// import $ from "jquery"
 
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 
@@ -91,13 +93,14 @@ export default {
   data() {
     return {
       stories: { content: {} },
-      blogList: {}
+      blogList: {},
+      tiltNumber: 0
     }
   },
   mounted() {
     this.removeFirstOfarray()
-    console.log("BLOGLIST", this.blogList)
-    console.log("BLOG STORY", this.story)
+    // console.log("BLOGLIST", this.blogList)
+    // console.log("BLOG STORY", this.story)
   },
   methods: {
     removeFirstOfarray() {
@@ -105,17 +108,22 @@ export default {
       arr.shift()
       this.blogList = arr
     },
-    imageTilt: function(event, title) {
-      // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
-      var el = $(`#effect-${title}`)
-      var width = el.width()
-      var xPos = (event.layerX / width - 0.5) * 75
-      console.log(event, title, el)
-      gsap.to(el, 1, {
-        rotationY: xPos,
-        ease: "power2.easeOut"
-      })
+    registerMouse(event) {
+      // console.log("EVENT IN BLOG", event.clientX)
+      this.tiltNumber = event.clientX
     }
+
+    //   imageTilt: function(event, title) {
+    //     // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
+    //     var el = $(`#effect-${title}`)
+    //     var width = el.width()
+    //     var xPos = (event.layerX / width - 0.5) * 75
+    //     // console.log(event, title, el)
+    //     gsap.to(el, 1, {
+    //       rotationY: xPos,
+    //       ease: "power2.easeOut"
+    //     })
+    //   }
   }
 }
 </script>
@@ -153,7 +161,8 @@ export default {
     justify-content: center
     align-items: center
     visibility: hidden
-    z-index: -1
+    pointer-events: none
+    // z-index: -1
     .image-Effect
       width: 40vw
       height: 70vh
