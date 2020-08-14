@@ -107,4 +107,7 @@ export default {
       right: 0
       h1
         font-size: 21vw
+  &:hover
+    .header-Background
+      transform: translateY(0)
 </style>
