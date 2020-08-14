@@ -15,11 +15,8 @@
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
             </div>
-            <div>
-              <h4>{{ post.content.component }}</h4>
-            </div>
-            <div class="blogList-Content_Title">
-              <h2>{{ post.content.title }}</h2>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
             </div>
             <div>
               <h4>{{ post.content.component }}</h4>
@@ -27,17 +24,35 @@
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
             </div>
-            <div>
-              <h4>{{ post.content.component }}</h4>
-            </div>
-            <div class="blogList-Content_Title">
-              <h2>{{ post.content.title }}</h2>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
             </div>
             <div>
               <h4>{{ post.content.component }}</h4>
             </div>
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
+            </div>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
+            </div>
+            <div>
+              <h4>{{ post.content.component }}</h4>
+            </div>
+            <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
+            </div>
+            <div>
+              <h4>{{ post.content.component }}</h4>
+            </div>
+            <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
             </div>
             <div>
               <h4>{{ post.content.component }}</h4>
@@ -99,7 +114,7 @@ export default {
   },
   mounted() {
     this.removeFirstOfarray()
-    // console.log("BLOGLIST", this.blogList)
+    console.log("BLOGLIST", this.blogList)
     // console.log("BLOG STORY", this.story)
   },
   methods: {
