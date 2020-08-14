@@ -57,7 +57,7 @@ export default {
 .landing
   position: relative
   padding: 0
-  min-height: 100vh
+  min-height: 75vh
   pointer-events: none
 
 .words

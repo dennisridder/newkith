@@ -61,9 +61,9 @@ export default {
     .imageGrid-Row
       flex-direction: row
       &:nth-child(1)
-        justify-content: flex-start
-      &:nth-child(2)
         justify-content: flex-end
+      &:nth-child(2)
+        justify-content: flex-start
       &:nth-child(3)
         justify-content: center
       &:nth-child(4)
