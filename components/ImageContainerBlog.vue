@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     imageTilt: function(event) {
-      console.log("EVENT", event)
+      // console.log("EVENT", event)
       // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
       var el = $("#effect-" + this.id)
       var width = el.width()
