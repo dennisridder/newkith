@@ -23,6 +23,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import '~/assets/styles/variables.sass'
+
 header
   position: fixed
   display: flex
@@ -31,7 +33,7 @@ header
   left: 0
   right: 0
   padding: 2rem 3rem
-  mix-blend-mode: difference
+  // mix-blend-mode: difference
   z-index: 999
   ul
     display: flex
@@ -54,4 +56,6 @@ header
     li
       opacity: 1
       text-transform: uppercase
+  &:hover
+    background: $support-color
 </style>
