@@ -54,6 +54,7 @@ export default {
     text-transform: uppercase
     font-family: 'SohneSchmal Halbfett'
     font-size: 5vw
+    line-height: .9
 
   // Vertical column, with irregular placement within rows
   &.verticalRowIrregular
