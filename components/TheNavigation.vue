@@ -1,11 +1,12 @@
 <template>
-  <header>
+  <header class="header">
+    <div class="header-Background"></div>
     <ul class="header-Logo">
       <nuxt-link to="/" tag="li">
         <h2>#NewKith</h2>
       </nuxt-link>
     </ul>
-    <nav>
+    <nav class="header-Nav">
       <ul>
         <nuxt-link to="/" tag="li">Our Services</nuxt-link>
         <!-- <nuxt-link to="/talents" tag="li">Talents</nuxt-link> -->
@@ -25,7 +26,7 @@ export default {
 <style lang="sass">
 @import '~/assets/styles/variables.sass'
 
-header
+.header
   position: fixed
   display: flex
   justify-content: space-between
@@ -39,23 +40,34 @@ header
     display: flex
     justify-content: flex-end
   li
-    opacity: .25
     letter-spacing: .01rem
-    text-decoration: none
     cursor: pointer
     margin-right: 1rem
-    transition: opacity .33s ease
     &:last-child
       margin-right: 0
-    &:hover
-      opacity: 1
-    &.nuxt-link-exact-active
-      opacity: 1
-      text-decoration: none
-  .header-Logo
+  &-Nav
+    li
+      border-bottom: 2px solid rgba(0, 0, 0, 0)
+      transition: border-bottom .165s ease
+      &:hover, &.nuxt-link-exact-active
+        text-decoration: none
+        border-bottom: 2px solid white
+        padding-bottom: .5rem
+  &-Logo
     li
       opacity: 1
       text-transform: uppercase
-  &:hover
+  &-Background
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
     background: $support-color
+    z-index: -1
+    transform: translateY(-100%)
+    transition: transform .165s ease
+  &:hover
+    .header-Background
+      transform: translateY(0)
 </style>
