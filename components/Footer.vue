@@ -60,6 +60,7 @@
   padding: 0
   margin: 0
   background: $support-color
+  // background: white
   z-index: -1
   display: flex
   flex-direction: column
