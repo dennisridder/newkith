@@ -20,7 +20,7 @@
 export default {
   props: { array: Array },
   mounted() {
-    console.log("IMAGE GRID", this.array)
+    // console.log("IMAGE GRID", this.array)
   }
 }
 </script>

@@ -78,39 +78,6 @@
         </div>
       </div>
     </section>-->
-    <section class="section section-ServiceList serviceList">
-      <ul>
-        <li>
-          <h1>Footer</h1>
-        </li>
-      </ul>
-      <ul></ul>
-      <ul>
-        <li>
-          <h4>What we do</h4>
-        </li>
-        <li>
-          <h4>What's happening</h4>
-        </li>
-        <li>
-          <h4>Who we are</h4>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <h4>Cases</h4>
-        </li>
-        <li>
-          <h4>Talens</h4>
-        </li>
-        <li>
-          <h4>Academy</h4>
-        </li>
-        <li>
-          <h4>Contact</h4>
-        </li>
-      </ul>
-    </section>
     <component
       :is="story.content.component | dashify"
       v-if="story.content.component"
