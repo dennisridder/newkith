@@ -1,11 +1,14 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ active: isActive }">
     <div class="header-Background"></div>
-    <ul class="header-Logo">
+    <div class="header-Mega">
+      <h1 @click="toggleHeader">NEWKITH</h1>
+    </div>
+    <!-- <ul class="header-Logo">
       <nuxt-link to="/" tag="li">
         <h2>#NewKith</h2>
       </nuxt-link>
-    </ul>
+    </ul>-->
     <nav class="header-Nav">
       <ul>
         <nuxt-link to="/" tag="li">Our Services</nuxt-link>
@@ -18,8 +21,25 @@
 </template>
 
 <script>
+// import gsap from "gsap"
+// import $ from "jquery"
+
 export default {
-  name: "TheNavigation"
+  name: "TheNavigation",
+  data() {
+    return {
+      isActive: true
+    }
+  },
+  methods: {
+    // toggleHeader() {
+    //   this.isActive = !this.isActive
+    // },
+    toggleHeader() {
+      var mega = ".header-Mega"
+      gsap.to(mega, 1, {})
+    }
+  }
 }
 </script>
 
@@ -27,14 +47,10 @@ export default {
 @import '~/assets/styles/variables.sass'
 
 .header
-  position: fixed
+  position: relative
   display: flex
-  justify-content: space-between
-  top: 0
-  left: 0
-  right: 0
+  justify-content: flex-end
   padding: 2rem 3rem
-  // mix-blend-mode: difference
   z-index: 999
   ul
     display: flex
@@ -49,6 +65,7 @@ export default {
     li
       border-bottom: 2px solid rgba(0, 0, 0, 0)
       transition: border-bottom .165s ease
+      cursor: pointer
       &:hover, &.nuxt-link-exact-active
         text-decoration: none
         border-bottom: 2px solid white
@@ -57,6 +74,16 @@ export default {
     li
       opacity: 1
       text-transform: uppercase
+  &-Mega
+    position: absolute
+    display: block
+    left: 0
+    top: 0
+    padding-top: 2rem
+    padding-left: 3rem
+    h1
+      font-size: 2rem
+      cursor: pointer
   &-Background
     position: absolute
     left: 0
@@ -67,7 +94,17 @@ export default {
     z-index: -1
     transform: translateY(-100%)
     transition: transform .165s ease
-  &:hover
+  &.active
+    height: 100vh
     .header-Background
       transform: translateY(0)
+    .header-Mega
+      position: absolute
+      display: inline-block
+      left: 0
+      bottom: 0
+      top: auto
+      right: 0
+      h1
+        font-size: 21vw
 </style>

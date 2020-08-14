@@ -1,10 +1,10 @@
 <template>
   <main>
-    <blok-footer />
+    <the-navigation />
     <transition name="pages" mode="out-in">
       <nuxt class="main" />
     </transition>
-    <the-navigation />
+    <blok-footer />
   </main>
 </template>
 
