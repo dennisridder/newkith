@@ -32,13 +32,13 @@ export default {
     }
   },
   methods: {
-    // toggleHeader() {
-    //   this.isActive = !this.isActive
-    // },
     toggleHeader() {
-      var mega = ".header-Mega"
-      gsap.to(mega, 1, {})
+      this.isActive = !this.isActive
     }
+    // toggleHeader() {
+    //   var mega = ".header-Mega"
+    //   gsap.to(mega, 1, {})
+    // }
   }
 }
 </script>
