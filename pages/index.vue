@@ -12,53 +12,6 @@
       </div>
       <blok-horizontal-image-row :list="talentsList" />
     </section>-->
-    <!-- SERVICES -->
-    <!-- <section class="section section-ServiceList serviceList">
-      <ul>
-        <li>
-          <h1>Services</h1>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <h1>Management</h1>
-        </li>
-        <li>
-          <h4>Collaborations</h4>
-        </li>
-        <li>
-          <h4>Branding</h4>
-        </li>
-        <li>
-          <h4>Marketing</h4>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <h1>Creative</h1>
-        </li>
-        <li>
-          <h4>Production</h4>
-        </li>
-        <li>
-          <h4>Distribution</h4>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <h1>Advertising</h1>
-        </li>
-        <li>
-          <h4>Campaigns</h4>
-        </li>
-        <li>
-          <h4>&nbsp;</h4>
-        </li>
-        <li>
-          <h4>More about us -></h4>
-        </li>
-      </ul>
-    </section>-->
     <!-- CASES -->
     <section class="section section-Cases">
       <blok-image-grid class="verticalRowIrregular" :array="casesList" />
@@ -136,7 +89,7 @@ export default {
     this.filterCases()
     this.filterTalents()
     // console.log("HOME STORY", this.story)
-    // console.log("HOME CASESLIST", this.casesList, typeof this.casesList)
+    console.log("HOME CASESLIST", this.casesList, typeof this.casesList)
     // console.log("HOME TALENTSLIST", this.talentsList)
   },
   methods: {

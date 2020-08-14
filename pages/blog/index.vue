@@ -171,7 +171,7 @@ export default {
       // align-items: center
       > div
         width: 40vw
-        height: 60vh
+        height: 75vh
         display: flex
         justify-content: center
         align-items: center

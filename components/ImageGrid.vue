@@ -18,7 +18,7 @@
 </template>
 <script>
 export default {
-  props: { array: Array },
+  props: { array: Object },
   mounted() {
     // console.log("IMAGE GRID", this.array)
   }
