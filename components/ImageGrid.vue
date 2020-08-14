@@ -43,6 +43,7 @@ export default {
     &:hover
       h2, h4, li
         color: $support-color
+        font-family: 'SohneSchmal HalbfettKursiv'
   &-Details
     max-width: 90%
   img

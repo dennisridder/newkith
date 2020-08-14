@@ -148,7 +148,7 @@ export default {
         h1, h2, h3, h4, p
           color: $support-color
         h2
-          font-family: 'Sohne KraftigKursiv'
+          font-family: 'SohneSchmal HalbfettKursiv'
       .blogList-Image
         visibility: visible
   &-Image
@@ -184,8 +184,8 @@ export default {
     h2
       font-family: 'SohneSchmal Halbfett'
       font-size: 5vw
-      font-family: 'Sohne Kraftig'
-      font-size: 3.5vw
+      // font-family: 'Sohne Kraftig'
+      // font-size: 3.5vw
     > div
       flex-shrink: 0
       margin-right: 3rem
