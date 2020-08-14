@@ -57,17 +57,19 @@ export default {
 .landing
   position: relative
   padding: 0
-  min-height: 75vh
+  min-height: 80vh
   pointer-events: none
 
 .words
   position: fixed
   left: 50%
-  top: 50%
+  top: 40%
   width: 100%
+  max-width: 75%
   transform: translate(-50%, -50%)
   display: flex
   flex-wrap: wrap
+  justify-content: center
   text-transform: uppercase
   padding-left: 3rem
   padding-right: 3rem
@@ -76,4 +78,7 @@ export default {
   h1, h2, p, a
     line-height: 1
     transform: translate(0px, 100%)
+    font-family: 'SohneSchmal Halbfett'
+    font-size: 15vw
+    line-height: .9
 </style>
