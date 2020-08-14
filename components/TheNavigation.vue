@@ -11,10 +11,10 @@
     </ul>-->
     <nav class="header-Nav">
       <ul>
-        <nuxt-link to="/" tag="li">Our Services</nuxt-link>
+        <nuxt-link to="/" tag="li">Our services</nuxt-link>
         <!-- <nuxt-link to="/talents" tag="li">Talents</nuxt-link> -->
-        <nuxt-link to="/blog" tag="li">Whats Happening</nuxt-link>
-        <nuxt-link to="/about" tag="li">Who we ware</nuxt-link>
+        <nuxt-link to="/blog" tag="li">What's happening</nuxt-link>
+        <nuxt-link to="/about" tag="li">Our story</nuxt-link>
       </ul>
     </nav>
   </header>

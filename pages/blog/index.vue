@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <blok-page-landing :words="['What\'s', 'is', 'Happening']" />
+    <blok-page-landing :words="['What\'s', 'is', 'happening']" />
     <section class="section section-Blog">
       <ul class="blogList">
         <!-- prettier-ignore -->
