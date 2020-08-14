@@ -133,6 +133,15 @@ export default {
     padding-bottom: 3rem
     width: 100%
     overflow-x: auto
+    &:hover
+      .blogList-Content
+        animation-play-state: running
+        h1, h2, h3, h4, p
+          color: $support-color
+        h2
+          font-family: 'Sohne KraftigKursiv'
+      .blogList-Image
+        visibility: visible
   &-Image
     position: fixed
     left: 0
@@ -146,8 +155,8 @@ export default {
     pointer-events: none
     z-index: -1
     .image-Effect
-      width: 50vw
-      height: 80vh
+      width: 40vw
+      height: 70vh
       display: flex
       justify-content: center
       align-items: center
@@ -161,6 +170,9 @@ export default {
     cursor: pointer
     align-items: center
     margin-left: 3rem
+    animation: carousel 15s infinite linear
+    animation-direction: alternate
+    animation-play-state: paused
     h2
       font-family: 'SohneSchmal Halbfett'
       font-size: 5vw
@@ -171,11 +183,11 @@ export default {
       margin-right: 3rem
     &_Title
       max-width: 30em
-  &-Content:hover
-    h1, h2, h3, h4, p
-      color: $support-color
-    h2
-      font-family: 'Sohne KraftigKursiv'
-  &-Content:hover ~ .blogList-Image
-    visibility: visible
+
+@keyframes carousel
+  0%
+    transform: translateX(0vw)
+
+  100%
+    transform: translateX(-100vw)
 </style>

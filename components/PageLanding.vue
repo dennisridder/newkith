@@ -1,6 +1,6 @@
 <template>
   <section class="landing">
-    <ul id="scrollslow" class="words parallax-bg" data-speed="4">
+    <ul id="scrollslow" class="words parallax-bg" data-speed="5">
       <li v-for="word in words" :key="word">
         <h1 class="words-Single">{{ word }}&nbsp;</h1>
       </li>
