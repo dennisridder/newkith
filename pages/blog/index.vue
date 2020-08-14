@@ -160,7 +160,7 @@ export default {
     &:hover
       .blogList-Content
         animation-play-state: running
-        h1, h2, h3, h4, p
+        h2
           color: $support-color
         h2
           font-family: 'SohneSchmal HalbfettKursiv'

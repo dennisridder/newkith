@@ -41,7 +41,7 @@ export default {
     cursor: pointer
     margin-bottom: 3rem
     &:hover
-      h2, h4, li
+      h2
         color: $support-color
         font-family: 'SohneSchmal HalbfettKursiv'
   &-Details
