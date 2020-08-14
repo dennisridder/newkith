@@ -47,7 +47,10 @@ export default {
 @import '~/assets/styles/variables.sass'
 
 .header
-  position: relative
+  position: fixed
+  left: 0
+  top: 0
+  right: 0
   display: flex
   justify-content: flex-end
   padding: 2rem 3rem

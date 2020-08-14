@@ -31,6 +31,8 @@ export default {
 .imageGrid
   position: relative
   display: flex
+  padding-left: var(--spacing-sides)
+  padding-right: var(--spacing-sides)
   &-Row
     position: relative
     display: flex

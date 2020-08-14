@@ -57,13 +57,13 @@ export default {
 .landing
   position: relative
   padding: 0
-  min-height: 80vh
+  min-height: 100vh
   pointer-events: none
 
 .words
   position: fixed
   left: 50%
-  top: 40%
+  top: 50%
   width: 100%
   max-width: 75%
   transform: translate(-50%, -50%)
