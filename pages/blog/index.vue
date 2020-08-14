@@ -164,14 +164,23 @@ export default {
     pointer-events: none
     // z-index: -1
     .image-Effect
-      width: 40vw
-      height: 70vh
-      display: flex
-      justify-content: center
-      align-items: center
+      // width: 40vw
+      // height: 60vh
+      // display: flex
+      // justify-content: center
+      // align-items: center
+      > div
+        width: 40vw
+        height: 60vh
+        display: flex
+        justify-content: center
+        align-items: center
       img
         max-width: 100%
         width: 100%
+        object-fit: contain
+        max-height: 100%
+        // border: 1px solid white
   &-Content
     display: flex
     flex-wrap: nowrap
