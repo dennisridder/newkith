@@ -1,7 +1,6 @@
 <template>
   <div v-editable="story.content" class="page">
     <blok-page-landing :words="['Who', 'we', 'are']" />
-    <p>test</p>
     <section>
       <component
         :is="story.content.component | dashify"
