@@ -11,7 +11,7 @@ import gsap from "gsap"
 import $ from "jquery"
 
 export default {
-  props: { image: String, title: String, id: String },
+  props: { image: String, title: String, id: Number },
   mounted() {
     // console.log("IMAGE ITEM", this.id, this.title, this.image)
   },

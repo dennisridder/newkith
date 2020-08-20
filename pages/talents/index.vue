@@ -1,12 +1,9 @@
 <template>
   <div class="page">
     <blok-page-landing :words="['Meet', 'our', 'talents']" />
-    <section>
-      <nuxt-link class="" to="/" tag="div">
-        <h1>BACK</h1>
-      </nuxt-link>
-      <ul class="imageGrid">
-        <!-- prettier-ignore -->
+    <section class="section section-Talents">
+      <blok-image-grid class="verticalRowIrregular" :array="talentsList" />
+      <!-- <ul class="imageGrid">
         <li v-for="item in talentsList" :id="item.id" :key="item.id" class="imageGrid-Row">
           <nuxt-link :to="'talents' + item.id" class="imageGrid-Item" tag="div">
             <div class="image-Container">
@@ -15,13 +12,14 @@
             <h2>{{ item.content.name }}</h2>
           </nuxt-link>
         </li>
-      </ul>
+      </ul> -->
     </section>
   </div>
 </template>
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import { mapState } from "vuex"
 
 export default {
   mixins: [storyblokLivePreview],
@@ -56,16 +54,27 @@ export default {
       talentsList: {}
     }
   },
+  computed: {
+    ...mapState({
+      cases: state => state.cases.list,
+      talents: state => state.talents.list
+    })
+  },
   mounted() {
     // console.log("TALENTS INDEX", this.stories)
     // console.log("TALENTS LIST", this.talentsList)
-    this.removeFirstOfarray()
+    this.filterTalents()
   },
   methods: {
-    removeFirstOfarray() {
-      var arr = this.stories
-      arr.shift()
-      this.talentsList = arr
+    // removeFirstOfarray() {
+    //   var arr = this.stories
+    //   arr.shift()
+    //   this.talentsList = arr
+    // },
+    filterTalents() {
+      let array = this.talents
+      let filteredArray = array.slice(1)
+      this.talentsList = filteredArray
     }
   }
 }

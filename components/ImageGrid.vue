@@ -2,11 +2,11 @@
   <ul class="imageGrid">
     <!-- prettier-ignore -->
     <li v-for="item in array" :id="item.id" :key="item.id" class="imageGrid-Row">
-      <nuxt-link :to="'cases/' + item.id" class="imageGrid-Item" tag="div">
+      <nuxt-link :to="$route.name + '/' + item.id" class="imageGrid-Item" tag="div">
         <blok-image-container-tilt :id="item.id" :image="item.thumbnail" :title="item.title" />
         <div class="imageGrid-Details">
           <h2>{{ item.title }}</h2>
-          <blok-tag-list :array="item.taglist" />
+          <blok-tag-list v-if="item.taglist" :array="item.taglist" />
         </div>
       </nuxt-link>
     </li>
@@ -17,7 +17,7 @@
 export default {
   props: { array: Object },
   mounted() {
-    // console.log("IMAGE GRID", this.array)
+    console.log("IMAGE GRID", this.array)
   }
 }
 </script>
