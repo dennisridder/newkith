@@ -2,6 +2,9 @@ import Vue from "vue"
 import Page from "~/components/Page.vue"
 import PageLanding from "~/components/PageLanding.vue"
 import Footer from "~/components/Footer.vue"
+import ButtonContainer from "~/components/ButtonContainer.vue"
+import ButtonBlok from "~/components/ButtonBlok.vue"
+import ImageBlok from "~/components/ImageBlok.vue"
 import TagList from "~/components/TagList.vue"
 import TextBlok from "~/components/TextBlok.vue"
 import ImageGrid from "~/components/ImageGrid.vue"
@@ -13,6 +16,9 @@ Vue.component("blok-page", Page)
 Vue.component("blok-page-landing", PageLanding)
 Vue.component("blok-footer", Footer)
 Vue.component("blok-tag-list", TagList)
+Vue.component("blok-button-container", ButtonContainer)
+Vue.component("blok-button-blok", ButtonBlok)
+Vue.component("blok-image-blok", ImageBlok)
 Vue.component("blok-text-blok", TextBlok)
 Vue.component("blok-image-grid", ImageGrid)
 Vue.component("blok-image-container-tilt", ImageContainerTilt)

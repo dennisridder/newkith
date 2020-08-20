@@ -2,7 +2,11 @@
   <div class="page">
     <blok-page-landing :words="['Meet', 'our', 'talents']" />
     <section class="section section-Talents">
-      <blok-image-grid class="verticalRowIrregular" :array="talentsList" />
+      <blok-image-grid
+        class="verticalRowIrregular"
+        :array="talentsList"
+        slug="talents"
+      />
       <!-- <ul class="imageGrid">
         <li v-for="item in talentsList" :id="item.id" :key="item.id" class="imageGrid-Row">
           <nuxt-link :to="'talents' + item.id" class="imageGrid-Item" tag="div">

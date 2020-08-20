@@ -14,7 +14,11 @@
     </section>-->
     <!-- CASES -->
     <section class="section section-Cases">
-      <blok-image-grid class="verticalRowIrregular" :array="casesList" />
+      <blok-image-grid
+        class="verticalRowIrregular"
+        :array="casesList"
+        slug="cases"
+      />
     </section>
     <!-- <section class="section section-Academy">
       <div class="section-Titles">

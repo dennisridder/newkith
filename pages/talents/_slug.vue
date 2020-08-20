@@ -62,7 +62,8 @@ export default {
     }
   },
   mounted() {
-    // console.log("TALENT", this.story)
+    console.log("TALENT SINGLE", this.story)
+    console.log("TALENT SINGLE", this.$route)
   }
 }
 </script>
