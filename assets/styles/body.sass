@@ -27,6 +27,26 @@ html
       max-width: 100%
   &-Blog
     margin-top: -5rem
+  &-Single
+    display: flex
+    flex-direction: column
+    align-items: center
+    > div, a, ul
+      margin-bottom: var(--spacing-content-bottom)
+    &_Title
+      width: 100%
+      margin-top: 50vh
+      padding-left: var(--spacing-content-sides)
+      padding-right: var(--spacing-content-sides)
+      h1, h2, h3
+        text-align: center
+        font-size: $font-subtitles
+    .text
+      padding-left: var(--spacing-content-sides)
+      padding-right: var(--spacing-content-sides)
+      max-width: var(--max-width)
+      .markdown
+        text-align: center
 
 .tagList
   display: flex
