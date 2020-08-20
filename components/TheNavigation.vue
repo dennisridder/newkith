@@ -1,6 +1,6 @@
 <template>
   <header class="header" :class="{ active: isActive }">
-    <div class="header-Background"></div>
+    <!-- <div class="header-Background"></div> -->
     <div class="header-Logo">
       <nuxt-link to="/" tag="li" @click="unToggleHeader">#NEWKITH</nuxt-link>
     </div>
@@ -34,11 +34,11 @@ export default {
   methods: {
     toggleHeader() {
       this.isActive = !this.isActive
-      console.log(this.isActive)
+      // console.log(this.isActive)
     },
     unToggleHeader() {
       this.isActive = false
-      console.log(this.isActive)
+      // console.log(this.isActive)
     }
     // toggleHeader() {
     //   var mega = ".header-Mega"
