@@ -1,8 +1,25 @@
 <template>
-  <section>
+  <section class="section section-BlogSingle section-Single">
     <nuxt-link to="/blog">Close</nuxt-link>
-    <h2>{{ story.name }}</h2>
-    <img :src="story.content.thumbnail" alt />
+    <div
+      v-if="story.name"
+      class="section-BlogSingle_Title section-Single_Title"
+    >
+      <h2>{{ story.name }}</h2>
+    </div>
+    <div
+      v-if="story.content.thumbnail"
+      class="section-BlogSingle_Thumbnail section-Single_Thumbnail"
+    >
+      <img :src="story.content.thumbnail" alt />
+    </div>
+    <blok-tag-list v-if="story.tag_list" :array="story.tag_list" />
+    <component
+      :is="blok.component | dashify"
+      v-for="blok in story.content.body"
+      :key="blok._uid"
+      :blok="blok"
+    ></component>
   </section>
 </template>
 
@@ -46,7 +63,7 @@ export default {
     }
   },
   mounted() {
-    // console.log(this.stories)
+    console.log("CASE SINGLE", this.stories)
   }
 }
 </script>

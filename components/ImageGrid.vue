@@ -6,16 +6,13 @@
         <blok-image-container-tilt :id="item.id" :image="item.thumbnail" :title="item.title" />
         <div class="imageGrid-Details">
           <h2>{{ item.title }}</h2>
-          <ul class="tagList">
-            <li v-for="tag in item.taglist" :id="tag" :key="tag">
-              <h4>#{{ tag }}</h4>
-            </li>
-          </ul>
+          <blok-tag-list :array="item.taglist" />
         </div>
       </nuxt-link>
     </li>
   </ul>
 </template>
+
 <script>
 export default {
   props: { array: Object },
