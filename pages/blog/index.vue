@@ -114,8 +114,6 @@ export default {
   },
   mounted() {
     this.removeFirstOfarray()
-    // console.log("BLOGLIST", this.blogList)
-    // console.log("BLOG STORY", this.story)
   },
   methods: {
     removeFirstOfarray() {
