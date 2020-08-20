@@ -1,6 +1,5 @@
 <template>
   <section class="section section-CaseSingle section-Single">
-    <nuxt-link to="/cases">Close</nuxt-link>
     <div
       v-if="story.name"
       class="section-CaseSingle_Title section-Single_Title"

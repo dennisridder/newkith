@@ -1,6 +1,5 @@
 <template>
   <section class="section section-TalentSingle section-Single">
-    <nuxt-link to="/talents">Close</nuxt-link>
     <div
       v-if="story.name"
       class="section-TalentSingle_Title section-Single_Title"

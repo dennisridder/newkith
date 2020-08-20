@@ -11,10 +11,19 @@
     </ul>-->
     <nav class="header-Nav">
       <!-- prettier-ignore -->
-      <ul>
+      <ul v-if="mainNav == true">
         <li :class="{ active: isActive }" @click="toggleHeader">Our services</li>
         <nuxt-link  to="/blog" tag="li" @click="unToggleHeader">What's happening</nuxt-link>
         <nuxt-link to="/about" tag="li" @click="unToggleHeader">Our story</nuxt-link>
+      </ul>
+      <ul v-if="pageType === 'blogSlug'">
+        <nuxt-link to="/blog" tag="li">close</nuxt-link>
+      </ul>
+      <ul v-if="pageType === 'talentSlug'">
+        <nuxt-link to="/talents" tag="li">close</nuxt-link>
+      </ul>
+      <ul v-if="pageType === 'caseSlug'">
+        <nuxt-link to="/" tag="li">close</nuxt-link>
       </ul>
     </nav>
   </header>
@@ -28,8 +37,20 @@ export default {
   name: "TheNavigation",
   data() {
     return {
-      isActive: false
+      isActive: false,
+      pageType: "initial",
+      mainNav: false
     }
+  },
+  watch: {
+    $route() {
+      this.checkPageType()
+      this.toggleMainNav()
+    }
+  },
+  mounted() {
+    this.checkPageType()
+    this.toggleMainNav()
   },
   methods: {
     toggleHeader() {
@@ -39,11 +60,31 @@ export default {
     unToggleHeader() {
       this.isActive = false
       // console.log(this.isActive)
+    },
+    checkPageType() {
+      if (this.$route.name === "blog-slug") {
+        this.pageType = "blogSlug"
+      } else if (this.$route.name === "cases-slug") {
+        this.pageType = "caseSlug"
+      } else if (this.$route.name === "talents-slug") {
+        this.pageType = "talent-Slug"
+      } else {
+        this.pageType = "error"
+      }
+      console.log(this.$route, this.pageType)
+    },
+    toggleMainNav() {
+      if (
+        this.$route.name === "blog-slug" ||
+        this.$route.name === "cases-slug" ||
+        this.$route.name === "talents-slug"
+      ) {
+        this.mainNav = false
+      } else {
+        this.mainNav = true
+      }
+      console.log("toggleMainNav", this.mainNav)
     }
-    // toggleHeader() {
-    //   var mega = ".header-Mega"
-    //   gsap.to(mega, 1, {})
-    // }
   }
 }
 </script>
