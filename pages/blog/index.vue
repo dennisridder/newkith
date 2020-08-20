@@ -19,7 +19,7 @@
               <h2>{{ post.content.date }}</h2>
             </div>
             <div>
-              <h4>{{ post.content.component }}</h4>
+              <blok-tag-list :array="post.tag_list" />
             </div>
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
@@ -28,7 +28,7 @@
               <h2>{{ post.content.date }}</h2>
             </div>
             <div>
-              <h4>{{ post.content.component }}</h4>
+               <blok-tag-list :array="post.tag_list" />
             </div>
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
@@ -37,7 +37,7 @@
               <h2>{{ post.content.date }}</h2>
             </div>
             <div>
-              <h4>{{ post.content.component }}</h4>
+               <blok-tag-list :array="post.tag_list" />
             </div>
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
@@ -46,7 +46,7 @@
               <h2>{{ post.content.date }}</h2>
             </div>
             <div>
-              <h4>{{ post.content.component }}</h4>
+<blok-tag-list :array="post.tag_list" />
             </div>
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
@@ -55,7 +55,7 @@
               <h2>{{ post.content.date }}</h2>
             </div>
             <div>
-              <h4>{{ post.content.component }}</h4>
+<blok-tag-list :array="post.tag_list" />
             </div>
           </nuxt-link>
           <div class="blogList-Image">
@@ -114,6 +114,7 @@ export default {
   },
   mounted() {
     this.removeFirstOfarray()
+    console.log("BLOG LIST", this.stories)
   },
   methods: {
     removeFirstOfarray() {
