@@ -67,7 +67,7 @@ export default {
       } else if (this.$route.name === "cases-slug") {
         this.pageType = "caseSlug"
       } else if (this.$route.name === "talents-slug") {
-        this.pageType = "talent-Slug"
+        this.pageType = "talentSlug"
       } else {
         this.pageType = "error"
       }
