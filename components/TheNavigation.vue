@@ -1,8 +1,8 @@
 <template>
   <header class="header" :class="{ active: isActive }">
     <div class="header-Background"></div>
-    <div class="header-Mega">
-      <h1 @click="toggleHeader">NEWKITH</h1>
+    <div class="header-Logo">
+      <nuxt-link to="/" tag="li" @click="unToggleHeader">#NEWKITH</nuxt-link>
     </div>
     <!-- <ul class="header-Logo">
       <nuxt-link to="/" tag="li">
@@ -10,11 +10,11 @@
       </nuxt-link>
     </ul>-->
     <nav class="header-Nav">
+      <!-- prettier-ignore -->
       <ul>
-        <nuxt-link to="/" tag="li">Our services</nuxt-link>
-        <!-- <nuxt-link to="/talents" tag="li">Talents</nuxt-link> -->
-        <nuxt-link to="/blog" tag="li">What's happening</nuxt-link>
-        <nuxt-link to="/about" tag="li">Our story</nuxt-link>
+        <li :class="{ active: isActive }" @click="toggleHeader">Our services</li>
+        <nuxt-link  to="/blog" tag="li" @click="unToggleHeader">What's happening</nuxt-link>
+        <nuxt-link to="/about" tag="li" @click="unToggleHeader">Our story</nuxt-link>
       </ul>
     </nav>
   </header>
@@ -28,12 +28,17 @@ export default {
   name: "TheNavigation",
   data() {
     return {
-      isActive: true
+      isActive: false
     }
   },
   methods: {
     toggleHeader() {
       this.isActive = !this.isActive
+      console.log(this.isActive)
+    },
+    unToggleHeader() {
+      this.isActive = false
+      console.log(this.isActive)
     }
     // toggleHeader() {
     //   var mega = ".header-Mega"
@@ -52,7 +57,7 @@ export default {
   top: 0
   right: 0
   display: flex
-  justify-content: flex-end
+  justify-content: space-between
   padding: 2rem 3rem
   z-index: 999
   ul
