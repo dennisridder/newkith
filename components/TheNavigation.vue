@@ -3,7 +3,7 @@
     <!-- <div class="header-Background"></div> -->
     <div class="header-Logo">
       <nuxt-link to="/" tag="li">
-        <div v-html="require('~/assets/images/logo.svg?include')" />
+        <div v-html="require('~/assets/images/logo-hash.svg?include')" />
       </nuxt-link>
     </div>
     <nav class="header-Nav">

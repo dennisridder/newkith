@@ -1,6 +1,6 @@
 <template>
   <footer class="footer section-Footer">
-    <div class="footer-Content">
+    <div class="section-Footer_Content">
       <ul>
         <li>
           <p>About</p>
@@ -16,38 +16,49 @@
       <ul></ul>
       <ul>
         <li>
-          <p>Our Work</p>
+          <p>Navigate</p>
         </li>
         <li>
-          <p>Our Services</p>
+          <p>&nbsp;</p>
         </li>
-        <li>
-          <p>What's happening</p>
-        </li>
-        <li>
-          <p>Who we are</p>
-        </li>
+        <nuxt-link class="link" to="/" tag="li">Home</nuxt-link>
+        <nuxt-link class="link" to="/cases" tag="li">Cases</nuxt-link>
+        <nuxt-link class="link" to="/talents" tag="li">Talents</nuxt-link>
+        <nuxt-link class="link" to="/blog" tag="li">What's happening</nuxt-link>
+        <nuxt-link class="link" to="/about" tag="li">Our Story</nuxt-link>
       </ul>
       <ul>
         <li>
-          <p>Cases</p>
-        </li>
-        <li>
-          <p>Talents</p>
-        </li>
-        <li>
-          <p>Academy</p>
-        </li>
-        <li>
           <p>Contact</p>
+        </li>
+        <li>
+          <p>&nbsp;</p>
+        </li>
+        <li class="link">
+          <a href="mailto:info@newkith.com" target="_blank">
+            info@newkith.com
+          </a>
+        </li>
+        <li class="link">
+          <a href="tel:0031636101262" target="_blank">
+            +31(0)636101262
+          </a>
+        </li>
+        <li class="link">
+          <a href="https://goo.gl/maps/EQQuTb834wUmkuQy6" target="_blank">
+            Directions
+          </a>
+        </li>
+        <li class="link">
+          <a href="https://www.instagram.com/new.kith/" target="_blank">
+            Instagram
+          </a>
         </li>
       </ul>
     </div>
-    <div class="footer-Logo">
-      <nuxt-link to="/" tag="li">
-        <div v-html="require('~/assets/images/logo.svg?include')" />
-      </nuxt-link>
-    </div>
+    <nuxt-link class="section-Footer_Logo" to="/" tag="div">
+      <div v-html="require('~/assets/images/logo.svg?include')" />
+    </nuxt-link>
   </footer>
 </template>
 
@@ -59,22 +70,25 @@
   right: 0
   bottom: 0
   left: 0
-  padding: 0
   margin: 0
   background: $support-color
-  // background: white
+  padding-top: var(--spacing-two)
   z-index: -1
   display: flex
   flex-direction: column
-
-.footer
-  &-Content
-    padding: 3rem 3rem
+  &_Content
     display: flex
+    padding-left: var(--spacing-content-sides)
+    padding-right: var(--spacing-content-sides)
+    padding-bottom: var(--spacing-two)
     ul
       flex-basis: 25%
-  &-Logo
-    padding-left: var(--spacing-sides)
-    padding-right: var(--spacing-sides)
-    padding-bottom: var(--spacing-one)
+    a
+      text-decoration: none
+    .link
+      cursor: pointer
+  &_Logo
+    padding-left: var(--spacing-content-sides)
+    padding-right: var(--spacing-content-sides)
+    padding-bottom: var(--spacing-two)
 </style>
