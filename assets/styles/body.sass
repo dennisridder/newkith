@@ -11,6 +11,12 @@ html
   // Container
   &-Wrapper
     background: $bg
+    padding-top: var(--spacing-wrapper-vertical)
+    padding-bottom: var(--spacing-wrapper-vertical)
+    > .section
+      margin-bottom: var(--spacing-content-bottom)
+    > .section:last-child
+      margin-bottom: 0
   // Two content styles
   &-TextContent
     padding-left: var(--spacing-content-sides)
@@ -19,9 +25,6 @@ html
     padding-left: var(--spacing-image-sides)
     padding-right: var(--spacing-image-sides)
   // Specific sections
-  &-Landing
-    padding-top: var(--spacing-content-first)
-    padding-bottom: var(--spacing-content-bottom)
   &-Thumbnail
     position: relative
     height: 100vh
