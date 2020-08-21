@@ -3,53 +3,37 @@
     <div class="section-Footer_Content">
       <ul>
         <li>
-          <p>About</p>
-        </li>
-        <li>
-          <p>&nbsp;</p>
-        </li>
-        <li>
           We are a digital design studio from Auckland, New Zealand specialising
           in the fields of web, motion and new media design.
         </li>
       </ul>
       <ul></ul>
       <ul>
-        <li>
-          <p>Navigate</p>
-        </li>
-        <li>
-          <p>&nbsp;</p>
-        </li>
-        <nuxt-link class="link" to="/" tag="li">Home</nuxt-link>
-        <nuxt-link class="link" to="/cases" tag="li">Cases</nuxt-link>
-        <nuxt-link class="link" to="/talents" tag="li">Talents</nuxt-link>
-        <nuxt-link class="link" to="/blog" tag="li">What's happening</nuxt-link>
-        <nuxt-link class="link" to="/about" tag="li">Our Story</nuxt-link>
+        <nuxt-link class="navLink" to="/" tag="li">Home</nuxt-link>
+        <nuxt-link class="navLink" to="/cases" tag="li">Cases</nuxt-link>
+        <nuxt-link class="navLink" to="/talents" tag="li">Talents</nuxt-link>
+        <nuxt-link class="navLink" to="/blog" tag="li"
+          >What's happening</nuxt-link
+        >
+        <nuxt-link class="navLink" to="/about" tag="li">Our story</nuxt-link>
       </ul>
       <ul>
-        <li>
-          <p>Contact</p>
-        </li>
-        <li>
-          <p>&nbsp;</p>
-        </li>
-        <li class="link">
+        <li class="navLink">
           <a href="mailto:info@newkith.com" target="_blank">
             info@newkith.com
           </a>
         </li>
-        <li class="link">
+        <li class="navLink">
           <a href="tel:0031636101262" target="_blank">
             +31(0)636101262
           </a>
         </li>
-        <li class="link">
+        <li class="navLink">
           <a href="https://goo.gl/maps/EQQuTb834wUmkuQy6" target="_blank">
             Directions
           </a>
         </li>
-        <li class="link">
+        <li class="navLink">
           <a href="https://www.instagram.com/new.kith/" target="_blank">
             Instagram
           </a>
@@ -80,13 +64,14 @@
     display: flex
     padding-left: var(--spacing-content-sides)
     padding-right: var(--spacing-content-sides)
-    padding-bottom: var(--spacing-two)
+    padding-bottom: var(--spacing-three)
     ul
       flex-basis: 25%
     a
       text-decoration: none
-    .link
+    .navLink
       cursor: pointer
+      line-height: 1.8
   &_Logo
     padding-left: var(--spacing-content-sides)
     padding-right: var(--spacing-content-sides)
