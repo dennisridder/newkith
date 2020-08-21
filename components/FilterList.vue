@@ -2,7 +2,7 @@
   <div class="filters">
     <ul class="filters-Container">
       <li class="filter" v-for="tag in array" :id="tag" :key="tag">
-        <h4>{{ tag }}</h4>
+        <h4>#{{ tag }}</h4>
       </li>
     </ul>
   </div>

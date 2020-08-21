@@ -12,3 +12,13 @@ export default {
   mounted() {}
 }
 </script>
+<style lang="sass">
+.tagList
+  display: flex
+  flex-wrap: wrap
+  li
+    margin-right: .5em
+    flex-shrink: 0
+    &:last-child
+      margin-right: 0
+</style>

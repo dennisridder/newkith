@@ -50,7 +50,8 @@ export default {
     margin-bottom: .5rem
     text-transform: uppercase
     font-family: 'SohneSchmal Halbfett'
-    font-size: 5vw
+    // font-family: 'Helvetica Neue Black', Helvetica, Arial, sans-serif
+    font-size: 3.5vw
     line-height: .9
 
   // Vertical column, with irregular placement within rows
