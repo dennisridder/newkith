@@ -44,7 +44,9 @@
       </ul>
     </div>
     <div class="footer-Logo">
-      <h1>NEWKITH</h1>
+      <nuxt-link to="/" tag="li">
+        <div v-html="require('~/assets/images/logo.svg?include')" />
+      </nuxt-link>
     </div>
   </section>
 </template>
@@ -71,6 +73,8 @@
     display: flex
     ul
       flex-basis: 25%
-  &-Logo h1
-    font-size: 22vw
+  &-Logo
+    padding-left: var(--spacing-sides)
+    padding-right: var(--spacing-sides)
+    padding-bottom: var(--spacing-one)
 </style>

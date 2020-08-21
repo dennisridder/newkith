@@ -1,15 +1,6 @@
 <template>
   <header class="header" :class="{ active: isActive }">
     <!-- <div class="header-Background"></div> -->
-    <div class="header-Logo">
-      <nuxt-link to="/" tag="li" @click="unToggleHeader">#NEWKITH</nuxt-link>
-      <!-- <img :src="require('my-image.jpg')" /> -->
-    </div>
-    <!-- <ul class="header-Logo">
-      <nuxt-link to="/" tag="li">
-        <h2>#NewKith</h2>
-      </nuxt-link>
-    </ul>-->
     <nav class="header-Nav">
       <!-- prettier-ignore -->
       <ul v-if="mainNav == true">
@@ -27,7 +18,11 @@
         <nuxt-link to="/" tag="li">close</nuxt-link>
       </ul>
     </nav>
-    <div></div>
+    <div class="header-Logo">
+      <nuxt-link to="/" tag="li">
+        <div v-html="require('~/assets/images/logo.svg?include')" />
+      </nuxt-link>
+    </div>
   </header>
 </template>
 
@@ -97,8 +92,9 @@ export default {
   right: 0
   display: flex
   justify-content: space-between
-  padding: 2rem 3rem
+  padding: 3rem 3rem
   z-index: 999
+  color: white !important
   ul
     display: flex
     justify-content: flex-end
@@ -119,8 +115,8 @@ export default {
         padding-bottom: .5rem
   &-Logo
     li
-      opacity: 1
-      text-transform: uppercase
+      svg
+        height: 1.75rem
   &-Mega
     position: absolute
     display: block
