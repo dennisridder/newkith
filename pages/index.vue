@@ -33,12 +33,11 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import titleSpeed from "@/mixins/titleSpeed"
 import { mapState } from "vuex"
-// import gsap from "gsap"
-// import $ from "jquery"
 
 export default {
-  mixins: [storyblokLivePreview],
+  mixins: [storyblokLivePreview, titleSpeed],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories/home", {
