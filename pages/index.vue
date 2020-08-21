@@ -5,7 +5,7 @@
     </section>
     <section class="section section-Cases">
       <blok-filter-list :array="filterListCases" />
-      <blok-title v-if="story.name" words="Cases" />
+      <blok-title words="Cases" />
       <blok-image-grid
         class="verticalRowIrregular"
         :array="casesList"
@@ -14,7 +14,7 @@
     </section>
     <section class="section section-Cases">
       <blok-filter-list :array="filterListTalents" />
-      <blok-title v-if="story.name" words="Talents" />
+      <blok-title words="Talents" />
       <blok-image-grid
         class="verticalRowIrregular"
         :array="talentsList"

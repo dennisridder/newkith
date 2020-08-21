@@ -1,5 +1,5 @@
 <template>
-  <ul id="scrollslow" class="title parallax-bg title-Animated" data-speed="0">
+  <ul id="scrollSlow" class="title parallax-bg title-Animated">
     <li v-for="word in words" :key="word">
       <h1 class="animated-Word">{{ word }}&nbsp;</h1>
     </li>
@@ -18,7 +18,6 @@ export default {
   },
   mounted() {
     this.wordsLoad()
-    this.scrollSpeed()
   },
   methods: {
     wordsLoad() {
@@ -35,16 +34,6 @@ export default {
         yPercent: -100,
         ease: "expo.in:",
         onComplete: () => ScrollTrigger.refresh()
-      })
-    },
-    scrollSpeed() {
-      gsap.to("#scrollslow", {
-        scrollTrigger: {
-          scrub: true
-        },
-        y: (i, target) =>
-          -ScrollTrigger.maxScroll(window) * target.dataset.speed,
-        ease: "none"
       })
     }
   }
