@@ -1,6 +1,11 @@
 <template>
   <header class="header" :class="{ active: isActive }">
     <!-- <div class="header-Background"></div> -->
+    <div class="header-Logo">
+      <nuxt-link to="/" tag="li">
+        <div v-html="require('~/assets/images/logo.svg?include')" />
+      </nuxt-link>
+    </div>
     <nav class="header-Nav">
       <!-- prettier-ignore -->
       <ul v-if="mainNav == true">
@@ -18,11 +23,6 @@
         <nuxt-link to="/" tag="li">close</nuxt-link>
       </ul>
     </nav>
-    <div class="header-Logo">
-      <nuxt-link to="/" tag="li">
-        <div v-html="require('~/assets/images/logo.svg?include')" />
-      </nuxt-link>
-    </div>
   </header>
 </template>
 
