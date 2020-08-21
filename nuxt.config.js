@@ -73,10 +73,6 @@ module.exports = {
     "@nuxtjs/axios",
     "vue-scrollto/nuxt",
     [
-      "@bazzite/nuxt-optimized-images",
-      { optimizedImages: { optimizeImages: true, optimizeImagesInDev: true } } // Test compression by setting to true first
-    ],
-    [
       "storyblok-nuxt",
       {
         accessToken:
@@ -144,7 +140,15 @@ module.exports = {
     transpile: ["gsap"]
   },
   buildModules: [
-    "@nuxtjs/pwa"
+    "@nuxtjs/pwa",
+    [
+      "@aceforth/nuxt-optimized-images",
+      {
+        optimizedImages: {
+          optimizeImages: true
+        }
+      }
+    ]
     // [
     //   "@nuxtjs/google-analytics",
     //   {
