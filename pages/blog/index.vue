@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <section class="section section-Landing">
-      <blok-title-animated :words="['What\'s', 'is', 'happening']" />
+      <blok-title-animated :words="['What\'s', 'happening']" />
     </section>
     <section class="section section-Blog">
       <blok-filter-list :array="filterList" />
