@@ -3,7 +3,7 @@
     v-editable="blok"
     class="section section-Media section-ImageContent youtube"
   >
-    <div class="media-Container media-Video">
+    <div class="section-Media_Container">
       <iframe
         id="mediaPlayer"
         type="text/html"

@@ -3,7 +3,7 @@
     v-editable="blok"
     class="section section-Media section-ImageContent vimeo"
   >
-    <div class="media-Container media-Video">
+    <div class="section-Media_Container">
       <iframe
         :src="'https://player.vimeo.com/video/' + blok.video_id"
         width="640"
