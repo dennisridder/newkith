@@ -1,6 +1,8 @@
 <template>
   <div class="page">
-    <blok-page-landing :words="['What\'s', 'is', 'happening']" />
+    <section class="section section-Landing">
+      <blok-title-animated :words="['What\'s', 'is', 'happening']" />
+    </section>
     <section class="section section-Blog">
       <blok-filter-list :array="filterList" />
       <ul class="blogList">

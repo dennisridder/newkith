@@ -1,20 +1,11 @@
 <template>
   <div v-editable="story.content" class="page">
-    <!-- LANDING -->
-    <blok-page-landing :words="['Newkith', 'talent', 'agency']" />
-    <!-- TALENTS -->
-    <!-- <section class="section section-Talents">
-      <div class="section-Titles">
-        <h1>Talent Management</h1>
-        <nuxt-link class="talentsList-More" to="/talents" tag="div">
-          <h1>All -></h1>
-        </nuxt-link>
-      </div>
-      <blok-horizontal-image-row :list="talentsList" />
-    </section>-->
-    <!-- CASES -->
+    <section class="section section-Landing">
+      <blok-title-animated :words="['Newkith', 'talent', 'agency']" />
+    </section>
     <section class="section section-Cases">
       <blok-filter-list :array="filterListCases" />
+      <blok-title v-if="story.name" words="Cases" />
       <blok-image-grid
         class="verticalRowIrregular"
         :array="casesList"
@@ -23,6 +14,7 @@
     </section>
     <section class="section section-Cases">
       <blok-filter-list :array="filterListTalents" />
+      <blok-title v-if="story.name" words="Talents" />
       <blok-image-grid
         class="verticalRowIrregular"
         :array="talentsList"

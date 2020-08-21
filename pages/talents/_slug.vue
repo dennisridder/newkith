@@ -1,11 +1,8 @@
 <template>
   <section class="section section-TalentSingle section-Single">
-    <div
-      v-if="story.name"
-      class="section-TalentSingle_Title section-Single_Title"
-    >
-      <h2>{{ story.name }}</h2>
-    </div>
+    <section class="section section-Landing">
+      <blok-title v-if="story.name" :words="story.name" />
+    </section>
     <div
       v-if="story.content.thumbnail"
       class="section-TalentSingle_Thumbnail section-Single_Thumbnail"

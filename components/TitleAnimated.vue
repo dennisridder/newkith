@@ -1,11 +1,9 @@
 <template>
-  <section class="landing">
-    <ul id="scrollslow" class="words parallax-bg" data-speed="5">
-      <li v-for="word in words" :key="word">
-        <h1 class="words-Single">{{ word }}&nbsp;</h1>
-      </li>
-    </ul>
-  </section>
+  <ul id="scrollslow" class="words parallax-bg" data-speed="0">
+    <li v-for="word in words" :key="word">
+      <h1 class="words-Single">{{ word }}&nbsp;</h1>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -54,25 +52,17 @@ export default {
 </script>
 
 <style lang="sass">
-.landing
-  position: relative
-  padding: 0
-  min-height: 100vh
-  pointer-events: none
-
 .words
-  position: fixed
-  left: 50%
-  top: 50%
-  width: 100%
-  max-width: 75%
-  transform: translate(-50%, -50%)
+  // position: fixed
+  // left: 50%
+  // top: 50%
+  // width: 100%
+  // transform: translate(-50%, -50%)
   display: flex
   flex-wrap: wrap
-  justify-content: center
   text-transform: uppercase
-  padding-left: 3rem
-  padding-right: 3rem
+  padding-left: var(--spacing-content-sides)
+  padding-right: var(--spacing-content-sides)
   li
     overflow: hidden
   h1, h2, p, a

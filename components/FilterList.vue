@@ -23,7 +23,7 @@ export default {
   justify-content: flex-end
   padding-left: var(--spacing-sides)
   padding-right: var(--spacing-sides)
-  margin-bottom: 2rem
+  margin-bottom: 5rem
   &-Container
     display: flex
     justify-content: flex-end

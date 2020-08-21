@@ -92,7 +92,7 @@ export default {
   right: 0
   display: flex
   justify-content: space-between
-  padding: 3rem 3rem
+  padding: 3rem var(--spacing-content-sides)
   z-index: 999
   color: white !important
   ul

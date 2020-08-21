@@ -1,6 +1,7 @@
 import Vue from "vue"
 import Page from "~/components/Page.vue"
-import PageLanding from "~/components/PageLanding.vue"
+import TitleAnimated from "~/components/TitleAnimated.vue"
+import Title from "~/components/Title.vue"
 import Footer from "~/components/Footer.vue"
 import ButtonContainer from "~/components/ButtonContainer.vue"
 import ButtonBlok from "~/components/ButtonBlok.vue"
@@ -16,7 +17,8 @@ import ImageContainerBlog from "~/components/ImageContainerBlog.vue"
 import HorizontalImageRow from "~/components/HorizontalImageRow.vue"
 
 Vue.component("blok-page", Page)
-Vue.component("blok-page-landing", PageLanding)
+Vue.component("blok-title", Title)
+Vue.component("blok-title-animated", TitleAnimated)
 Vue.component("blok-footer", Footer)
 Vue.component("blok-tag-list", TagList)
 Vue.component("blok-filter-list", FilterList)
