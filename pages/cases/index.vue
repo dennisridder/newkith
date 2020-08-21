@@ -8,7 +8,7 @@
       <blok-image-grid
         class="verticalRowIrregular"
         :array="casesList"
-        slug="cases"
+        slug="/cases/"
       />
     </section>
     <!-- <ul>
@@ -70,6 +70,7 @@ export default {
   mounted() {
     this.filterCases()
     this.filterArray()
+    console.log("CASES", this.casesList)
   },
   methods: {
     filterCases() {

@@ -8,18 +8,8 @@
       <blok-image-grid
         class="verticalRowIrregular"
         :array="talentsList"
-        slug="talents"
+        slug="/talents/"
       />
-      <!-- <ul class="imageGrid">
-        <li v-for="item in talentsList" :id="item.id" :key="item.id" class="imageGrid-Row">
-          <nuxt-link :to="'talents' + item.id" class="imageGrid-Item" tag="div">
-            <div class="image-Container">
-              <img :src="item.content.thumbnail" alt />
-            </div>
-            <h2>{{ item.content.name }}</h2>
-          </nuxt-link>
-        </li>
-      </ul> -->
     </section>
   </div>
 </template>
@@ -71,6 +61,7 @@ export default {
   mounted() {
     this.filterTalents()
     this.filterArray()
+    console.log("TALENTS", this.talentsList)
   },
   methods: {
     // removeFirstOfarray() {
