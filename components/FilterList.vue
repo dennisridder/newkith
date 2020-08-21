@@ -21,8 +21,8 @@ export default {
 .filters
   display: flex
   justify-content: flex-end
-  padding-left: var(--spacing-sides)
-  padding-right: var(--spacing-sides)
+  padding-left: var(--spacing-content-sides)
+  padding-right: var(--spacing-content-sides)
   margin-bottom: 5rem
   &-Container
     display: flex

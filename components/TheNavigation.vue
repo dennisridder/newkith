@@ -14,13 +14,13 @@
         <nuxt-link to="/about" tag="li" @click="unToggleHeader">Our story</nuxt-link>
       </ul>
       <ul v-if="pageType === 'blogSlug'">
-        <nuxt-link to="/blog" tag="li">close</nuxt-link>
+        <nuxt-link to="/blog" tag="li">back</nuxt-link>
       </ul>
       <ul v-if="pageType === 'talentSlug'">
-        <nuxt-link to="/talents" tag="li">close</nuxt-link>
+        <nuxt-link to="/talents" tag="li">back</nuxt-link>
       </ul>
       <ul v-if="pageType === 'caseSlug'">
-        <nuxt-link to="/" tag="li">close</nuxt-link>
+        <nuxt-link to="/" tag="li">back</nuxt-link>
       </ul>
     </nav>
   </header>
