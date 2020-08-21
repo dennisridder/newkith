@@ -61,9 +61,6 @@ export default {
       story: { content: {} }
     }
   },
-  mounted() {
-    console.log("TALENT SINGLE", this.story)
-    console.log("TALENT SINGLE", this.$route)
-  }
+  mounted() {}
 }
 </script>

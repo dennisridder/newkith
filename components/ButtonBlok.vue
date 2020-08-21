@@ -9,9 +9,7 @@ export default {
   props: {
     blok: Object
   },
-  mounted() {
-    console.log("BUTTON BLOK", this.blok)
-  }
+  mounted() {}
 }
 </script>
 

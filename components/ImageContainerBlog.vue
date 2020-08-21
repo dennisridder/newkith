@@ -12,12 +12,9 @@ import $ from "jquery"
 
 export default {
   props: { image: String, title: String, id: String },
-  mounted() {
-    // console.log("IMAGE ITEM", this.id, this.title, this.image)
-  },
+  mounted() {},
   methods: {
     imageTilt: function(event) {
-      // console.log("EVENT", event)
       // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
       var el = $("#effect-" + this.id)
       var width = el.width()

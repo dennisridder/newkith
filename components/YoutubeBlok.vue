@@ -18,8 +18,6 @@ export default {
   props: {
     blok: Object
   },
-  mounted() {
-    console.log(this.blok, "MEDIA BLOK YOUTUBE")
-  }
+  mounted() {}
 }
 </script>

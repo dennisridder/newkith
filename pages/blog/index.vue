@@ -2,6 +2,7 @@
   <div class="page">
     <blok-page-landing :words="['What\'s', 'is', 'happening']" />
     <section class="section section-Blog">
+      <blok-filter-list :array="filterList" />
       <ul class="blogList">
         <!-- prettier-ignore -->
         <li
@@ -109,12 +110,13 @@ export default {
     return {
       stories: { content: {} },
       blogList: {},
-      tiltNumber: 0
+      tiltNumber: 0,
+      filterList: {}
     }
   },
   mounted() {
     this.removeFirstOfarray()
-    console.log("BLOG LIST", this.stories)
+    this.filterArray()
   },
   methods: {
     removeFirstOfarray() {
@@ -123,8 +125,14 @@ export default {
       this.blogList = arr
     },
     registerMouse(event) {
-      // console.log("EVENT IN BLOG", event.clientX)
       this.tiltNumber = event.clientX
+    },
+    filterArray() {
+      var array = this.blogList
+      var filteredArray = array.map(el => {
+        return el.tag_list[0]
+      })
+      this.filterList = filteredArray
     }
 
     //   imageTilt: function(event, title) {
@@ -132,7 +140,6 @@ export default {
     //     var el = $(`#effect-${title}`)
     //     var width = el.width()
     //     var xPos = (event.layerX / width - 0.5) * 75
-    //     // console.log(event, title, el)
     //     gsap.to(el, 1, {
     //       rotationY: xPos,
     //       ease: "power2.easeOut"

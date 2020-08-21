@@ -2,6 +2,7 @@
   <div class="page">
     <blok-page-landing :words="['Meet', 'our', 'talents']" />
     <section class="section section-Talents">
+      <blok-filter-list :array="filterList" />
       <blok-image-grid
         class="verticalRowIrregular"
         :array="talentsList"
@@ -55,7 +56,8 @@ export default {
   data() {
     return {
       stories: { content: {} },
-      talentsList: {}
+      talentsList: {},
+      filterList: {}
     }
   },
   computed: {
@@ -65,9 +67,8 @@ export default {
     })
   },
   mounted() {
-    // console.log("TALENTS INDEX", this.stories)
-    // console.log("TALENTS LIST", this.talentsList)
     this.filterTalents()
+    this.filterArray()
   },
   methods: {
     // removeFirstOfarray() {
@@ -79,6 +80,13 @@ export default {
       let array = this.talents
       let filteredArray = array.slice(1)
       this.talentsList = filteredArray
+    },
+    filterArray() {
+      var array = this.talentsList
+      var filteredArray = array.map(el => {
+        return el.taglist[0]
+      })
+      this.filterList = filteredArray
     }
   }
 }

@@ -8,6 +8,7 @@ import ImageBlok from "~/components/ImageBlok.vue"
 import YoutubeBlok from "~/components/YoutubeBlok.vue"
 import VimeoBlok from "~/components/VimeoBlok.vue"
 import TagList from "~/components/TagList.vue"
+import FilterList from "~/components/FilterList.vue"
 import TextBlok from "~/components/TextBlok.vue"
 import ImageGrid from "~/components/ImageGrid.vue"
 import ImageContainerTilt from "~/components/ImageContainerTilt.vue"
@@ -18,6 +19,7 @@ Vue.component("blok-page", Page)
 Vue.component("blok-page-landing", PageLanding)
 Vue.component("blok-footer", Footer)
 Vue.component("blok-tag-list", TagList)
+Vue.component("blok-filter-list", FilterList)
 Vue.component("blok-button-container", ButtonContainer)
 Vue.component("blok-button-blok", ButtonBlok)
 Vue.component("blok-image-blok", ImageBlok)

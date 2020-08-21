@@ -61,8 +61,6 @@ export default {
       story: { content: {} }
     }
   },
-  mounted() {
-    console.log("CASE SINGLE", this.story)
-  }
+  mounted() {}
 }
 </script>

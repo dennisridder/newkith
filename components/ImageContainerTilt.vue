@@ -12,9 +12,7 @@ import $ from "jquery"
 
 export default {
   props: { image: String, title: String, id: Number },
-  mounted() {
-    // console.log("IMAGE ITEM", this.id, this.title, this.image)
-  },
+  mounted() {},
   methods: {
     imageTilt: function(event) {
       // Codepen: https://codepen.io/driesbos/pen/NWNKwjM

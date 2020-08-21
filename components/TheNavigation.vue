@@ -3,6 +3,7 @@
     <!-- <div class="header-Background"></div> -->
     <div class="header-Logo">
       <nuxt-link to="/" tag="li" @click="unToggleHeader">#NEWKITH</nuxt-link>
+      <!-- <img :src="require('my-image.jpg')" /> -->
     </div>
     <!-- <ul class="header-Logo">
       <nuxt-link to="/" tag="li">
@@ -26,6 +27,7 @@
         <nuxt-link to="/" tag="li">close</nuxt-link>
       </ul>
     </nav>
+    <div></div>
   </header>
 </template>
 
@@ -55,11 +57,9 @@ export default {
   methods: {
     toggleHeader() {
       this.isActive = !this.isActive
-      // console.log(this.isActive)
     },
     unToggleHeader() {
       this.isActive = false
-      // console.log(this.isActive)
     },
     checkPageType() {
       if (this.$route.name === "blog-slug") {
@@ -71,7 +71,6 @@ export default {
       } else {
         this.pageType = "error"
       }
-      console.log(this.$route, this.pageType)
     },
     toggleMainNav() {
       if (
@@ -83,7 +82,6 @@ export default {
       } else {
         this.mainNav = true
       }
-      console.log("toggleMainNav", this.mainNav)
     }
   }
 }

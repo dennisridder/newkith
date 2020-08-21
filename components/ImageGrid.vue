@@ -15,10 +15,8 @@
 
 <script>
 export default {
-  props: { array: Object, slug: String },
-  mounted() {
-    console.log("IMAGE GRID", this.array)
-  }
+  props: { array: Array, slug: String },
+  mounted() {}
 }
 </script>
 

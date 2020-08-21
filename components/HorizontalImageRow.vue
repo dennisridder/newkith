@@ -21,7 +21,6 @@
 <script>
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-// import $ from "jquery"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -44,7 +43,6 @@ export default {
       } else if (sPosition > 0) {
         sPosition = 0
       }
-      // console.log("RUNNING", sPosition, elRect)
       gsap.to(el, {
         scrollTrigger: {
           trigger: el, // start the animation when ".box" enters the viewport (once)

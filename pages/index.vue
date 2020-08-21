@@ -14,27 +14,21 @@
     </section>-->
     <!-- CASES -->
     <section class="section section-Cases">
+      <blok-filter-list :array="filterListCases" />
       <blok-image-grid
         class="verticalRowIrregular"
         :array="casesList"
         slug="cases"
       />
     </section>
-    <!-- <section class="section section-Academy">
-      <div class="section-Titles">
-        <h1>Academy</h1>
-        <div class="talentsList-More">
-          <h1>Enroll -></h1>
-        </div>
-      </div>
-      <div class="image-Effect image-Effect_Tilt">
-        <div id="effect-Tilt" @mousemove="imageTilt($event)">
-          <img
-            src="https://images.unsplash.com/photo-1470753323753-3f8091bb0232?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
-          />
-        </div>
-      </div>
-    </section>-->
+    <section class="section section-Cases">
+      <blok-filter-list :array="filterListTalents" />
+      <blok-image-grid
+        class="verticalRowIrregular"
+        :array="talentsList"
+        slug="cases"
+      />
+    </section>
     <nuxt-link to="/talents">GO TO TALENTS</nuxt-link>
     <component
       :is="story.content.component | dashify"
@@ -81,7 +75,9 @@ export default {
     return {
       story: { content: {} },
       casesList: {},
-      talentsList: {}
+      talentsList: {},
+      filterListCases: {},
+      filterListTalents: {}
     }
   },
   computed: {
@@ -93,9 +89,8 @@ export default {
   mounted() {
     this.filterCases()
     this.filterTalents()
-    // console.log("HOME STORY", this.story)
-    console.log("HOME CASESLIST", this.casesList, typeof this.casesList)
-    // console.log("HOME TALENTSLIST", this.talentsList)
+    this.filterArrayCases()
+    this.filterArrayTalents()
   },
   methods: {
     filterCases() {
@@ -107,17 +102,21 @@ export default {
       let array = this.talents
       let filteredArray = array.slice(1)
       this.talentsList = filteredArray
+    },
+    filterArrayCases() {
+      var array = this.casesList
+      var filteredArray = array.map(el => {
+        return el.taglist[0]
+      })
+      this.filterListCases = filteredArray
+    },
+    filterArrayTalents() {
+      var array = this.talentsList
+      var filteredArray = array.map(el => {
+        return el.taglist[0]
+      })
+      this.filterListTalents = filteredArray
     }
-    // imageTilt: function(event) {
-    //   // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
-    //   var el = $("#effect-Tilt")
-    //   var width = el.width()
-    //   var xPos = (event.layerX / width - 0.5) * 25
-    //   gsap.to(el, 1, {
-    //     rotationY: xPos,
-    //     ease: "power2.easeOut"
-    //   })
-    // }
   }
 }
 </script>

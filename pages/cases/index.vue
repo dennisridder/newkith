@@ -1,20 +1,28 @@
 <template>
-  <section>
-    <p>CASES</p>
-    <ul>
-      <!-- prettier-ignore -->
-      <li v-for="post in caseList" :id="post.content.id" :key="post.content.id">
+  <div class="page">
+    <blok-page-landing :words="['Read', 'our', 'cases']" />
+    <section class="section section-Cases">
+      <blok-filter-list :array="filterList" />
+      <blok-image-grid
+        class="verticalRowIrregular"
+        :array="casesList"
+        slug="cases"
+      />
+    </section>
+    <!-- <ul>
+      <li v-for="post in casesList" :id="post.content.id" :key="post.content.id">
         <nuxt-link :to="post.full_slug" tag="div">
           <h2>{{ post.name }}</h2>
           <img :src="post.content.thumbnail" alt />
         </nuxt-link>
       </li>
-    </ul>
-  </section>
+    </ul> -->
+  </div>
 </template>
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import { mapState } from "vuex"
 
 export default {
   mixins: [storyblokLivePreview],
@@ -46,18 +54,32 @@ export default {
   data() {
     return {
       stories: { content: {} },
-      caseList: {}
+      casesList: {},
+      filterList: {}
     }
   },
+
+  computed: {
+    ...mapState({
+      cases: state => state.cases.list
+    })
+  },
   mounted() {
-    // console.log("CASES INDEX", this.stories)
-    this.removeFirstOfarray()
+    this.filterCases()
+    this.filterArray()
   },
   methods: {
-    removeFirstOfarray() {
-      var arr = this.stories
-      arr.shift()
-      this.caseList = arr
+    filterCases() {
+      let array = this.cases
+      let filteredArray = array.slice(1)
+      this.casesList = filteredArray
+    },
+    filterArray() {
+      var array = this.casesList
+      var filteredArray = array.map(el => {
+        return el.taglist[0]
+      })
+      this.filterList = filteredArray
     }
   }
 }
