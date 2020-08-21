@@ -1,10 +1,10 @@
 <template>
-  <div class="page">
+  <div class="section-Wrapper">
     <section class="section section-Landing">
       <blok-title-animated :words="['What\'s', 'happening']" />
     </section>
+    <blok-filter-list :array="filterList" />
     <section class="section section-Blog">
-      <blok-filter-list :array="filterList" />
       <ul class="blogList">
         <!-- prettier-ignore -->
         <li

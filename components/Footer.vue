@@ -1,5 +1,5 @@
 <template>
-  <section class="section section-Footer">
+  <footer class="footer section-Footer">
     <div class="footer-Content">
       <ul>
         <li>
@@ -48,7 +48,7 @@
         <div v-html="require('~/assets/images/logo.svg?include')" />
       </nuxt-link>
     </div>
-  </section>
+  </footer>
 </template>
 
 <style lang="sass" scoped>

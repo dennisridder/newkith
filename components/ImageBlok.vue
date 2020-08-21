@@ -1,7 +1,7 @@
 <template>
-  <div v-editable="blok" class="image">
+  <section v-editable="blok" class="section section-Image image">
     <img :src="blok.image" :alt="blok.image_title" />
-  </div>
+  </section>
 </template>
 
 <script>

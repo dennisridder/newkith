@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok" class="media youtube">
+  <section v-editable="blok" class="section section-Media media youtube">
     <div class="media-Container media-Video">
       <iframe
         id="mediaPlayer"
@@ -10,7 +10,7 @@
         :src="'https://www.youtube.com/embed/' + blok.video_id"
       />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

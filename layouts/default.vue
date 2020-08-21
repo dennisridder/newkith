@@ -2,7 +2,7 @@
   <main>
     <the-navigation />
     <transition name="pages" mode="out-in">
-      <nuxt class="main" />
+      <nuxt />
     </transition>
     <blok-footer />
   </main>

@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok" class="media vimeo">
+  <section v-editable="blok" class="section section-Media media vimeo">
     <div class="media-Container media-Video">
       <iframe
         :src="'https://player.vimeo.com/video/' + blok.video_id"
@@ -15,7 +15,7 @@
         allowfullscreen
       />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

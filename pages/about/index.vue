@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="story.content" class="page">
+  <div v-editable="story.content" class="section-Wrapper">
     <blok-page-landing :words="['Who', 'we', 'are']" />
     <section>
       <component

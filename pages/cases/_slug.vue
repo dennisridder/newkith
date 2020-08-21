@@ -1,14 +1,14 @@
 <template>
-  <section class="section section-CaseSingle section-Single">
+  <div class="section section-CaseSingle section-Single section-Wrapper">
     <section class="section section-Landing">
       <blok-title v-if="story.name" :words="story.name" />
     </section>
-    <div
+    <section
       v-if="story.content.thumbnail"
       class="section-CaseSingle_Thumbnail section-Single_Thumbnail"
     >
       <img :src="story.content.thumbnail" alt />
-    </div>
+    </section>
     <blok-tag-list v-if="story.tag_list" :array="story.tag_list" />
     <component
       :is="blok.component | dashify"
@@ -16,7 +16,7 @@
       :key="blok._uid"
       :blok="blok"
     ></component>
-  </section>
+  </div>
 </template>
 
 <script>

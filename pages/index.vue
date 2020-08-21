@@ -1,10 +1,10 @@
 <template>
-  <div v-editable="story.content" class="page">
+  <div v-editable="story.content" class="section-Wrapper">
     <section class="section section-Landing">
       <blok-title-animated :words="['Newkith', 'talent', 'agency']" />
     </section>
+    <blok-filter-list :array="filterListCases" />
     <section class="section section-Cases">
-      <blok-filter-list :array="filterListCases" />
       <blok-title words="Cases" />
       <blok-image-grid
         class="verticalRowIrregular"
@@ -12,8 +12,8 @@
         slug="cases"
       />
     </section>
+    <blok-filter-list :array="filterListTalents" />
     <section class="section section-Cases">
-      <blok-filter-list :array="filterListTalents" />
       <blok-title words="Talents" />
       <blok-image-grid
         class="verticalRowIrregular"
@@ -21,13 +21,13 @@
         slug="talents"
       />
     </section>
-    <nuxt-link to="/talents">GO TO TALENTS</nuxt-link>
+    <!-- <nuxt-link to="/talents">GO TO TALENTS</nuxt-link>
     <component
       :is="story.content.component | dashify"
       v-if="story.content.component"
       :key="story.content._uid"
       :blok="story.content"
-    ></component>
+    ></component> -->
   </div>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
-  <div :id="blok.title" v-editable="blok" class="text">
+  <section :id="blok.title" v-editable="blok" class="section section-Text text">
     <!-- <h1 v-if="blok.title" class="text-Title">{{ blok.title }}</h1> -->
     <markdown-item :input="blok.text" />
-  </div>
+  </section>
 </template>
 
 <script>

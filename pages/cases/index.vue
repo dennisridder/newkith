@@ -1,10 +1,10 @@
 <template>
-  <div class="page">
+  <div class="section-Wrapper">
     <section class="section section-Landing">
       <blok-title-animated :words="['Read', 'our', 'cases']" />
     </section>
+    <blok-filter-list :array="filterList" />
     <section class="section section-Cases">
-      <blok-filter-list :array="filterList" />
       <blok-image-grid
         class="verticalRowIrregular"
         :array="casesList"
