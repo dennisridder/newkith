@@ -1,6 +1,8 @@
 <template>
   <div class="page">
-    <blok-page-landing :words="['Meet', 'our', 'talents']" />
+    <section class="section section-Landing">
+      <blok-title-animated :words="['Meet', 'our', 'talents']" />
+    </section>
     <section class="section section-Talents">
       <blok-filter-list :array="filterList" />
       <blok-image-grid
@@ -62,7 +64,6 @@ export default {
   },
   computed: {
     ...mapState({
-      cases: state => state.cases.list,
       talents: state => state.talents.list
     })
   },

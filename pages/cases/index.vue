@@ -1,6 +1,8 @@
 <template>
   <div class="page">
-    <blok-page-landing :words="['Read', 'our', 'cases']" />
+    <section class="section section-Landing">
+      <blok-title-animated :words="['Read', 'our', 'cases']" />
+    </section>
     <section class="section section-Cases">
       <blok-filter-list :array="filterList" />
       <blok-image-grid

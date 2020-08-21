@@ -1,7 +1,7 @@
 <template>
-  <ul id="scrollslow" class="words parallax-bg" data-speed="0">
+  <ul id="scrollslow" class="title parallax-bg title-Animated" data-speed="0">
     <li v-for="word in words" :key="word">
-      <h1 class="words-Single">{{ word }}&nbsp;</h1>
+      <h1 class="animated-Word">{{ word }}&nbsp;</h1>
     </li>
   </ul>
 </template>
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     wordsLoad() {
-      var el = document.querySelectorAll(".words-Single")
+      var el = document.querySelectorAll(".animated-Word")
       gsap.to(el, {
         scrollTrigger: {
           trigger: el
@@ -52,12 +52,7 @@ export default {
 </script>
 
 <style lang="sass">
-.words
-  // position: fixed
-  // left: 50%
-  // top: 50%
-  // width: 100%
-  // transform: translate(-50%, -50%)
+.title
   display: flex
   flex-wrap: wrap
   text-transform: uppercase
@@ -67,8 +62,10 @@ export default {
     overflow: hidden
   h1, h2, p, a
     line-height: 1
-    transform: translate(0px, 100%)
     font-family: 'SohneSchmal Halbfett'
     font-size: 15vw
     line-height: .9
+  &-Animated
+    h1, h2, p, a
+      transform: translate(0px, 100%)
 </style>

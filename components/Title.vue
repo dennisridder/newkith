@@ -33,20 +33,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-.title
-  display: flex
-  flex-wrap: wrap
-  text-transform: uppercase
-  padding-left: var(--spacing-content-sides)
-  padding-right: var(--spacing-content-sides)
-  li
-    overflow: hidden
-  h1, h2, p, a
-    line-height: 1
-    // transform: translate(0px, 100%)
-    font-family: 'SohneSchmal Halbfett'
-    font-size: 15vw
-    line-height: .9
-</style>

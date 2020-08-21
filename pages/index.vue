@@ -18,7 +18,7 @@
       <blok-image-grid
         class="verticalRowIrregular"
         :array="talentsList"
-        slug="cases"
+        slug="talents"
       />
     </section>
     <nuxt-link to="/talents">GO TO TALENTS</nuxt-link>
