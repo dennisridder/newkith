@@ -1,5 +1,9 @@
 <template>
-  <section :id="blok.title" v-editable="blok" class="section section-Text text">
+  <section
+    :id="blok.title"
+    v-editable="blok"
+    class="section section-Text section-TextContent"
+  >
     <!-- <h1 v-if="blok.title" class="text-Title">{{ blok.title }}</h1> -->
     <markdown-item :input="blok.text" />
   </section>
@@ -19,10 +23,8 @@ export default {
 </script>
 
 <style lang="sass">
-.text
+.section-Text
   overflow: hidden
-  padding-left: var(--spacing-content-sides)
-  padding-right: var(--spacing-content-sides)
   width: 100%
   img
     width: 100%

@@ -1,15 +1,17 @@
 <template>
   <div class="section section-CaseSingle section-Single section-Wrapper">
-    <section class="section section-Landing">
+    <section class="section section-Landing section-TextContent">
       <blok-title v-if="story.name" :words="story.name" />
     </section>
     <section
       v-if="story.content.thumbnail"
-      class="section-CaseSingle_Thumbnail section-Single_Thumbnail"
+      class="section section-Thumbnail section-ImageContent"
     >
       <img :src="story.content.thumbnail" alt />
     </section>
-    <blok-tag-list v-if="story.tag_list" :array="story.tag_list" />
+    <section class="section section-TagList section-TextContent">
+      <blok-tag-list v-if="story.tag_list" :array="story.tag_list" />
+    </section>
     <component
       :is="blok.component | dashify"
       v-for="blok in story.content.body"

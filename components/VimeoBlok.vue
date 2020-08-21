@@ -1,5 +1,8 @@
 <template>
-  <section v-editable="blok" class="section section-Media media vimeo">
+  <section
+    v-editable="blok"
+    class="section section-Media section-ImageContent vimeo"
+  >
     <div class="media-Container media-Video">
       <iframe
         :src="'https://player.vimeo.com/video/' + blok.video_id"
@@ -22,7 +25,6 @@
 export default {
   props: {
     blok: Object
-  },
-  mounted() {}
+  }
 }
 </script>

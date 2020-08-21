@@ -1,6 +1,6 @@
 <template>
   <div class="section-Wrapper">
-    <section class="section section-Landing">
+    <section class="section section-Landing section-ImageContent">
       <blok-title-animated :words="['Read', 'our', 'cases']" />
     </section>
     <blok-filter-list :array="filterList" />

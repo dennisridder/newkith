@@ -1,7 +1,7 @@
 <template>
-  <a :href="'https://' + blok.hyperlink" target="_blank" class="button">{{
-    blok.text
-  }}</a>
+  <a :href="'https://' + blok.hyperlink" target="_blank" class="button"
+    ><h4>{{ blok.text }}</h4></a
+  >
 </template>
 
 <script>
@@ -16,14 +16,16 @@ export default {
 <style lang="sass" scoped>
 @import '~/assets/styles/variables.sass'
 
-.buttons
+.section-Buttons
   .button
     border: $border
-    margin-right: var(--spacing-one)
-    padding: var(--spacing-one) var(--spacing-one)
+    margin-right: var(--button-margins)
+    margin-bottom: var(--button-margins)
+    padding: var(--button-padding-top) var(--button-padding-sides)
     line-height: 1
     transition: background $transition-button, color $transition-button
     text-decoration: none
+    cursor: pointer
     &:last-child
       margin-right: 0
     &:hover

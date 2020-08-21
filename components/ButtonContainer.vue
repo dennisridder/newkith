@@ -1,5 +1,5 @@
 <template>
-  <section class="section section-Buttons buttons">
+  <section class="section section-Buttons section-TextContent">
     <component
       :is="blok.component | dashify"
       v-for="blok in blok.body"
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="sass">
-.buttons
+.section-Buttons
   display: flex
   flex-wrap: wrap
 </style>

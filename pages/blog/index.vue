@@ -1,6 +1,6 @@
 <template>
   <div class="section-Wrapper">
-    <section class="section section-Landing">
+    <section class="section section-Landing section-TextContent">
       <blok-title-animated :words="['What\'s', 'happening']" />
     </section>
     <blok-filter-list :array="filterList" />

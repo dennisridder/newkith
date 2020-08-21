@@ -9,7 +9,7 @@
       <blok-image-grid
         class="verticalRowIrregular"
         :array="casesList"
-        slug="cases"
+        slug="/cases/"
       />
     </section>
     <blok-filter-list :array="filterListTalents" />
@@ -18,7 +18,7 @@
       <blok-image-grid
         class="verticalRowIrregular"
         :array="talentsList"
-        slug="talents"
+        slug="/talents/"
       />
     </section>
     <!-- <nuxt-link to="/talents">GO TO TALENTS</nuxt-link>

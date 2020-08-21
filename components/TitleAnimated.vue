@@ -45,8 +45,6 @@ export default {
   display: flex
   flex-wrap: wrap
   text-transform: uppercase
-  padding-left: var(--spacing-content-sides)
-  padding-right: var(--spacing-content-sides)
   li
     overflow: hidden
   h1, h2, p, a

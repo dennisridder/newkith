@@ -1,5 +1,8 @@
 <template>
-  <section v-editable="blok" class="section section-Media media youtube">
+  <section
+    v-editable="blok"
+    class="section section-Media section-ImageContent youtube"
+  >
     <div class="media-Container media-Video">
       <iframe
         id="mediaPlayer"
@@ -17,7 +20,6 @@
 export default {
   props: {
     blok: Object
-  },
-  mounted() {}
+  }
 }
 </script>

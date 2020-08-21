@@ -1,5 +1,5 @@
 <template>
-  <section v-editable="blok" class="section section-Image image">
+  <section v-editable="blok" class="section section-Image section-ImageContent">
     <img :src="blok.image" :alt="blok.image_title" />
   </section>
 </template>
@@ -14,12 +14,10 @@ export default {
 </script>
 
 <style lang="sass">
-.image
+.section-Image
   overflow: hidden
   width: 100%
   height: 100vh
-  padding-left: var(--spacing-content-sides)
-  padding-right: var(--spacing-content-sides)
   max-width: calc(#{var(--max-width)} * 2)
   img
     width: 100%

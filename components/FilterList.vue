@@ -1,7 +1,12 @@
 <template>
-  <section class="section section-Filters filters">
-    <ul class="filters-Container">
-      <li class="filter" v-for="tag in array" :id="tag" :key="tag">
+  <section class="section section-Filters section-TextContent">
+    <ul class="section-Filters_Container">
+      <li
+        class="section-Filters_Item"
+        v-for="tag in array"
+        :id="tag"
+        :key="tag"
+      >
         <h4>#{{ tag }}</h4>
       </li>
     </ul>
@@ -18,19 +23,17 @@ export default {
 <style lang="sass" scoped>
 @import '~/assets/styles/variables.sass'
 
-.filters
+.section-Filters
   display: flex
   justify-content: flex-end
-  padding-left: var(--spacing-content-sides)
-  padding-right: var(--spacing-content-sides)
   margin-bottom: 5rem
-  &-Container
+  &_Container
     display: flex
     justify-content: flex-end
     flex-wrap: wrap
     width: 100%
     max-width: var(--button-container-width)
-  .filter
+  &_Item
     border: $border
     margin-left: var(--button-margins)
     margin-bottom: var(--button-margins)
