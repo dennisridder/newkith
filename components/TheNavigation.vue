@@ -1,17 +1,28 @@
 <template>
-  <header class="header" :class="{ active: isActive }">
-    <!-- <div class="header-Background"></div> -->
+  <header
+    class="header"
+    :class="{ active: isActive }"
+    @mouseenter="mouseEnterHeader"
+    @mouseleave="mouseLeaveHeader"
+  >
+    <div class="header-Background"></div>
     <div class="header-Logo">
       <nuxt-link to="/" tag="li">
         <div v-html="require('~/assets/images/logo-hash.svg?include')" />
       </nuxt-link>
     </div>
+    <!-- prettire-ignore -->
     <nav class="header-Nav">
-      <!-- prettier-ignore -->
       <ul v-if="mainNav == true">
-        <li :class="{ active: isActive }" @click="toggleHeader">Our services</li>
-        <nuxt-link  to="/blog" tag="li" @click="unToggleHeader">What's happening</nuxt-link>
-        <nuxt-link to="/about" tag="li" @click="unToggleHeader">Our story</nuxt-link>
+        <li :class="{ active: isActive }" @click="toggleHeader">
+          Our services
+        </li>
+        <nuxt-link to="/blog" tag="li" @click="unToggleHeader"
+          >What's happening</nuxt-link
+        >
+        <nuxt-link to="/about" tag="li" @click="unToggleHeader"
+          >Our story</nuxt-link
+        >
       </ul>
       <ul v-if="pageType === 'blogSlug'">
         <nuxt-link to="/blog" tag="li">back</nuxt-link>
@@ -50,6 +61,18 @@ export default {
     this.toggleMainNav()
   },
   methods: {
+    mouseEnterHeader() {
+      console.log("ENTER")
+      var headerHeight = document.querySelector("header").offsetHeight
+      var contentContainer = document.querySelector(".section-Wrapper")
+      contentContainer.style.marginTop = headerHeight + "px"
+    },
+    mouseLeaveHeader() {
+      console.log("LEAVE")
+      var contentContainer = document.querySelector(".section-Wrapper")
+      contentContainer.style.marginTop = "0px"
+    },
+
     toggleHeader() {
       this.isActive = !this.isActive
     },
@@ -92,9 +115,11 @@ export default {
   right: 0
   display: flex
   justify-content: space-between
+  align-items: center
   padding: 3rem var(--spacing-content-sides)
   z-index: 999
   color: white !important
+  mix-blend-mode: difference
   ul
     display: flex
     justify-content: flex-end
@@ -116,7 +141,7 @@ export default {
   &-Logo
     li
       svg
-        height: 1.75rem
+        height: 2rem
   &-Mega
     position: absolute
     display: block
