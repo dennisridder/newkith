@@ -1,7 +1,7 @@
 <template>
   <header
     class="header"
-    :class="{ active: isActive }"
+    :class="isActive"
     @mouseenter="mouseEnterHeader"
     @mouseleave="mouseLeaveHeader"
   >
@@ -14,15 +14,11 @@
     <!-- prettire-ignore -->
     <nav class="header-Nav">
       <ul v-if="mainNav == true">
-        <li :class="{ active: isActive }" @click="toggleHeader">
+        <li @click="clickServices">
           Our services
         </li>
-        <nuxt-link to="/blog" tag="li" @click="unToggleHeader"
-          >What's happening</nuxt-link
-        >
-        <nuxt-link to="/about" tag="li" @click="unToggleHeader"
-          >Our story</nuxt-link
-        >
+        <nuxt-link to="/blog" tag="li">What's happening</nuxt-link>
+        <nuxt-link to="/about" tag="li">Our story</nuxt-link>
       </ul>
       <ul v-if="pageType === 'blogSlug'">
         <nuxt-link to="/blog" tag="li">back</nuxt-link>
@@ -38,14 +34,11 @@
 </template>
 
 <script>
-// import gsap from "gsap"
-// import $ from "jquery"
-
 export default {
   name: "TheNavigation",
   data() {
     return {
-      isActive: false,
+      isActive: "two",
       pageType: "initial",
       mainNav: false
     }
@@ -66,18 +59,16 @@ export default {
       var headerHeight = document.querySelector("header").offsetHeight
       var contentContainer = document.querySelector(".section-Wrapper")
       contentContainer.style.marginTop = headerHeight + "px"
+      this.isActive = "two"
     },
     mouseLeaveHeader() {
       console.log("LEAVE")
       var contentContainer = document.querySelector(".section-Wrapper")
       contentContainer.style.marginTop = "0px"
+      this.isActive = "one"
     },
-
-    toggleHeader() {
-      this.isActive = !this.isActive
-    },
-    unToggleHeader() {
-      this.isActive = false
+    clickServices() {
+      this.isActive = "three"
     },
     checkPageType() {
       if (this.$route.name === "blog-slug") {
@@ -107,6 +98,7 @@ export default {
 
 <style lang="sass">
 @import '~/assets/styles/variables.sass'
+$transition-header: .165s ease
 
 .header
   position: fixed
@@ -119,7 +111,12 @@ export default {
   padding: 3rem var(--spacing-content-sides)
   z-index: 999
   color: white !important
-  mix-blend-mode: difference
+  transition: mix-blend-mode $transition-header
+  &.one
+    mix-blend-mode: difference
+  &.two
+    .header-Background
+      transform: translateY(0)
   ul
     display: flex
     justify-content: flex-end
@@ -132,7 +129,7 @@ export default {
   &-Nav
     li
       border-bottom: 2px solid rgba(0, 0, 0, 0)
-      transition: border-bottom .165s ease
+      transition: border-bottom $transition-header
       cursor: pointer
       &:hover, &.nuxt-link-exact-active
         text-decoration: none
@@ -142,40 +139,14 @@ export default {
     li
       svg
         height: 2rem
-  &-Mega
-    position: absolute
-    display: block
-    left: 0
-    top: 0
-    padding-top: 2rem
-    padding-left: 3rem
-    h1
-      font-size: 2rem
-      cursor: pointer
   &-Background
     position: absolute
     left: 0
     top: 0
-    width: 100%
+    right: 0
     height: 100%
     background: $support-color
     z-index: -1
     transform: translateY(-100%)
-    transition: transform .165s ease
-  &.active
-    height: 100vh
-    .header-Background
-      transform: translateY(0)
-    .header-Mega
-      position: absolute
-      display: inline-block
-      left: 0
-      bottom: 0
-      top: auto
-      right: 0
-      h1
-        font-size: 21vw
-  &:hover
-    .header-Background
-      transform: translateY(0)
+    transition: transform $transition-header
 </style>
