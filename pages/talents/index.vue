@@ -63,11 +63,6 @@ export default {
     this.filterArray()
   },
   methods: {
-    // removeFirstOfarray() {
-    //   var arr = this.stories
-    //   arr.shift()
-    //   this.talentsList = arr
-    // },
     filterTalents() {
       let array = this.talents
       let filteredArray = array.slice(1)
@@ -78,7 +73,11 @@ export default {
       var filteredArray = array.map(el => {
         return el.taglist[0]
       })
-      this.filterList = filteredArray
+      // Remove duplicates
+      const uniqueSet = new Set(filteredArray)
+      const backToArray = [...uniqueSet]
+      // Set filterList data
+      this.filterList = backToArray
     }
   }
 }

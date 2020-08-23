@@ -128,11 +128,16 @@ export default {
       this.tiltNumber = event.clientX
     },
     filterArray() {
+      // Map tag values to new array
       var array = this.blogList
       var filteredArray = array.map(el => {
         return el.tag_list[0]
       })
-      this.filterList = filteredArray
+      // Remove duplicates
+      const uniqueSet = new Set(filteredArray)
+      const backToArray = [...uniqueSet]
+      // Set filterList data
+      this.filterList = backToArray
     }
 
     //   imageTilt: function(event, title) {

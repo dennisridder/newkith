@@ -82,7 +82,11 @@ export default {
       var filteredArray = array.map(el => {
         return el.taglist[0]
       })
-      this.filterList = filteredArray
+      // Remove duplicates
+      const uniqueSet = new Set(filteredArray)
+      const backToArray = [...uniqueSet]
+      // Set filterList data
+      this.filterList = backToArray
     }
   }
 }

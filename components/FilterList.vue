@@ -15,8 +15,7 @@
 
 <script>
 export default {
-  props: { array: Array },
-  mounted() {}
+  props: { array: Array }
 }
 </script>
 

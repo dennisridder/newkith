@@ -102,14 +102,22 @@ export default {
       var filteredArray = array.map(el => {
         return el.taglist[0]
       })
-      this.filterListCases = filteredArray
+      // Remove duplicates
+      const uniqueSet = new Set(filteredArray)
+      const backToArray = [...uniqueSet]
+      // Set filterList data
+      this.filterListCases = backToArray
     },
     filterArrayTalents() {
       var array = this.talentsList
       var filteredArray = array.map(el => {
         return el.taglist[0]
       })
-      this.filterListTalents = filteredArray
+      // Remove duplicates
+      const uniqueSet = new Set(filteredArray)
+      const backToArray = [...uniqueSet]
+      // Set filterList data
+      this.filterListTalents = backToArray
     }
   }
 }
