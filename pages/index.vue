@@ -31,7 +31,6 @@
       :key="story.content._uid"
       :blok="story.content"
     ></component>
-    -->
   </div>
 </template>
 
