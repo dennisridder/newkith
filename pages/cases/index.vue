@@ -57,8 +57,8 @@ export default {
   data() {
     return {
       stories: { content: {} },
-      casesList: {},
-      filterList: {}
+      casesList: [],
+      filterList: []
     }
   },
 
@@ -70,7 +70,6 @@ export default {
   mounted() {
     this.filterCases()
     this.filterArray()
-    console.log("CASES", this.casesList)
   },
   methods: {
     filterCases() {

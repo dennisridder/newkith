@@ -49,8 +49,8 @@ export default {
   data() {
     return {
       stories: { content: {} },
-      talentsList: {},
-      filterList: {}
+      talentsList: [],
+      filterList: []
     }
   },
   computed: {
@@ -61,7 +61,6 @@ export default {
   mounted() {
     this.filterTalents()
     this.filterArray()
-    console.log("TALENTS", this.talentsList)
   },
   methods: {
     // removeFirstOfarray() {

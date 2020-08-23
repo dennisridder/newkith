@@ -109,9 +109,9 @@ export default {
   data() {
     return {
       stories: { content: {} },
-      blogList: {},
+      blogList: [],
       tiltNumber: 0,
-      filterList: {}
+      filterList: []
     }
   },
   mounted() {

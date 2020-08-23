@@ -68,10 +68,10 @@ export default {
   data() {
     return {
       story: { content: {} },
-      casesList: {},
-      talentsList: {},
-      filterListCases: {},
-      filterListTalents: {}
+      casesList: [],
+      talentsList: [],
+      filterListCases: [],
+      filterListTalents: []
     }
   },
   computed: {
