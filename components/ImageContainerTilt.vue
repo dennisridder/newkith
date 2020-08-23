@@ -11,7 +11,7 @@ import gsap from "gsap"
 import $ from "jquery"
 
 export default {
-  props: { image: String, title: String, id: Number },
+  props: { image: String, title: String, id: String },
   mounted() {},
   methods: {
     imageTilt: function(event) {
