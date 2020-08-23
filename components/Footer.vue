@@ -1,6 +1,7 @@
 <template>
   <footer class="footer section-Footer">
-    <div class="section-Footer_Content">
+    <div class="footer-Background"></div>
+    <div class="footer-Content">
       <ul>
         <li>
           We are a digital design studio from Auckland, New Zealand specialising
@@ -40,27 +41,118 @@
         </li>
       </ul>
     </div>
-    <nuxt-link class="section-Footer_Logo" to="/" tag="div">
+    <nuxt-link class="footer-Logo" to="/" tag="div">
       <div v-html="require('~/assets/images/logo.svg?include')" />
     </nuxt-link>
   </footer>
 </template>
 
-<style lang="sass" scoped>
+<script>
+import { gsap } from "gsap"
+import lodash from "lodash"
+
+export default {
+  data() {
+    return {
+      scrollPosition: 0,
+      showFooter: false
+    }
+  },
+  mounted() {
+    this.handleDebouncedScroll = lodash.debounce(this.updateScrollPosition, 100)
+    window.addEventListener("scroll", this.handleDebouncedScroll)
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleDebouncedScroll)
+  },
+  methods: {
+    updateScrollPosition() {
+      console.log("FIRED")
+      this.scrollPosition = window.scrollY
+      let scrollHeight = document.body.scrollHeight - window.innerHeight
+      if (this.scrollPosition > scrollHeight - 20) {
+        this.showFooter = true
+      } else if (this.scrollPosition < scrollHeight - 20) {
+        this.showFooter = false
+      }
+      this.displayFooter()
+    },
+    displayFooter() {
+      if (this.showFooter === true) {
+        gsap.to(".footer-Background", {
+          height: document.querySelector(".footer").offsetHeight,
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header", {
+          yPercent: "-100",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".footer-Content", {
+          opacity: "1",
+          duration: "0.6",
+          delay: "0.2",
+          ease: "ease"
+        })
+        gsap.to(".footer-Logo", {
+          opacity: "1",
+          duration: "0.6",
+          delay: "0.1",
+          ease: "ease"
+        })
+      } else if (this.showFooter === false) {
+        gsap.to(".footer-Background", {
+          height: "0",
+          duration: "0.65",
+          delay: "0.25",
+          ease: "expo.out"
+        })
+        gsap.to(".header", {
+          yPercent: "0",
+          duration: "0.65",
+          delay: "0.25",
+          ease: "expo.out"
+        })
+        gsap.to(".footer-Content", {
+          opacity: "0",
+          duration: "0.4",
+          delay: "0.1",
+          ease: "ease"
+        })
+        gsap.to(".footer-Logo", {
+          opacity: "0",
+          duration: "0.5",
+          ease: "ease"
+        })
+      }
+    }
+  }
+}
+</script>
+
+<style lang="sass">
 @import '~/assets/styles/variables.sass'
 
-.section-Footer
+.footer
   position: fixed
-  right: 0
-  bottom: 0
   left: 0
-  margin: 0
-  background: $support-color
+  bottom: 0
+  right: 0
   padding-top: var(--spacing-two)
-  z-index: -1
+  z-index: 888
   display: flex
   flex-direction: column
-  &_Content
+  &-Background
+    position: absolute
+    left: 0
+    bottom: 0
+    right: 0
+    height: 0
+    background: $support-color
+    z-index: -1
+  &-Content
+    opacity: 0
     display: flex
     padding-left: var(--spacing-content-sides)
     padding-right: var(--spacing-content-sides)
@@ -72,7 +164,8 @@
     .navLink
       cursor: pointer
       line-height: 1.8
-  &_Logo
+  &-Logo
+    opacity: 0
     padding-left: var(--spacing-content-sides)
     padding-right: var(--spacing-content-sides)
     padding-bottom: var(--spacing-two)

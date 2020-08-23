@@ -88,7 +88,6 @@ export default {
   },
   methods: {
     mouseEnterTop() {
-      console.log("ENTER")
       if (this.isActive === "one") {
         this.isActive = "two"
         gsap.to(".section-Wrapper", {
@@ -104,7 +103,6 @@ export default {
       }
     },
     mouseLeaveTop() {
-      console.log("LEAVE")
       if (this.isActive === "two") {
         gsap.to(".section-Wrapper", {
           y: "0",
@@ -120,7 +118,6 @@ export default {
       }
     },
     clickServices() {
-      console.log("CLICKED", this.services)
       this.services = !this.services
       if (this.services === true) {
         this.isActive = "three"
