@@ -1,12 +1,11 @@
 <template>
-  <header
-    class="header"
-    :class="isActive"
-    @mouseenter="mouseEnterHeader"
-    @mouseleave="mouseLeaveHeader"
-  >
+  <header class="header" :class="isActive" @mouseleave="mouseLeaveAll">
     <div class="header-Background"></div>
-    <div class="header-Top">
+    <div
+      class="header-Top"
+      @mouseenter="mouseEnterTop"
+      @mouseleave="mouseLeaveTop"
+    >
       <div class="header-Logo">
         <nuxt-link to="/" tag="li">
           <div v-html="require('~/assets/images/logo-hash.svg?include')" />
@@ -15,7 +14,7 @@
       <!-- prettire-ignore -->
       <nav class="header-Nav">
         <ul v-if="mainNav == true">
-          <li @click="clickServices">
+          <li class="header-Services" @click="clickServices">
             Our services
           </li>
           <nuxt-link to="/blog" tag="li">What's happening</nuxt-link>
@@ -34,8 +33,8 @@
     </div>
     <div class="header-Bottom">
       <div class="header-Bottom_Items">
-        <h1>New Kith Management</h1>
-        <p>
+        <h1 class="header-ContentTitle">New Kith Management</h1>
+        <p class="header-ContentText">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -43,8 +42,8 @@
         </p>
       </div>
       <div class="header-Bottom_Items">
-        <h1>New Kith Creative</h1>
-        <p>
+        <h1 class="header-ContentTitle">New Kith Creative</h1>
+        <p class="header-ContentText">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -52,8 +51,8 @@
         </p>
       </div>
       <div class="header-Bottom_Items">
-        <h1>New Kith Academy</h1>
-        <p>
+        <h1 class="header-ContentTitle">New Kith Academy</h1>
+        <p class="header-ContentText">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -65,6 +64,8 @@
 </template>
 
 <script>
+import gsap from "gsap"
+
 export default {
   name: "TheNavigation",
   data() {
@@ -86,25 +87,119 @@ export default {
     this.toggleMainNav()
   },
   methods: {
-    mouseEnterHeader() {
+    mouseEnterTop() {
       console.log("ENTER")
-      var headerHeight = document.querySelector("header").offsetHeight
-      var contentContainer = document.querySelector(".section-Wrapper")
-      contentContainer.style.marginTop = headerHeight + "px"
-      this.isActive = "two"
+      if (this.isActive === "one") {
+        this.isActive = "two"
+        gsap.to(".section-Wrapper", {
+          y: document.querySelector(".header-Top").offsetHeight,
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Background", {
+          height: document.querySelector(".header-Top").offsetHeight,
+          duration: "0.75",
+          ease: "expo.out"
+        })
+      }
     },
-    mouseLeaveHeader() {
+    mouseLeaveTop() {
       console.log("LEAVE")
-      var contentContainer = document.querySelector(".section-Wrapper")
-      contentContainer.style.marginTop = "0px"
-      this.isActive = "one"
+      if (this.isActive === "two") {
+        gsap.to(".section-Wrapper", {
+          y: "0",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Background", {
+          height: "0",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        this.isActive = "one"
+      }
     },
     clickServices() {
+      console.log("CLICKED", this.services)
       this.services = !this.services
       if (this.services === true) {
         this.isActive = "three"
+        gsap.to(".section-Wrapper", {
+          y: document.querySelector(".header").offsetHeight,
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Background", {
+          height: document.querySelector(".header").offsetHeight,
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-ContentTitle", {
+          opacity: "1",
+          duration: "0.7",
+          delay: "0.1",
+          ease: "ease"
+        })
+        gsap.to(".header-ContentText", {
+          opacity: "1",
+          duration: "0.6",
+          delay: "0.2",
+          ease: "ease"
+        })
       } else {
         this.isActive = "two"
+        gsap.to(".section-Wrapper", {
+          y: document.querySelector(".header-Top").offsetHeight,
+          duration: "0.65",
+          delay: "0.25",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Background", {
+          height: document.querySelector(".header-Top").offsetHeight,
+          duration: "0.65",
+          delay: "0.25",
+          ease: "expo.out"
+        })
+        gsap.to(".header-ContentTitle", {
+          opacity: "0",
+          duration: "0.4",
+          delay: "0.1",
+          ease: "ease"
+        })
+        gsap.to(".header-ContentText", {
+          opacity: "0",
+          duration: "0.5",
+          ease: "ease"
+        })
+      }
+    },
+    mouseLeaveAll() {
+      if (this.isActive === "three") {
+        gsap.to(".section-Wrapper", {
+          y: "0",
+          duration: "0.65",
+          delay: "0.25",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Background", {
+          height: "0",
+          duration: "0.65",
+          delay: "0.25",
+          ease: "expo.out"
+        })
+        gsap.to(".header-ContentTitle", {
+          opacity: "0",
+          duration: "0.4",
+          delay: "0.1",
+          ease: "ease"
+        })
+        gsap.to(".header-ContentText", {
+          opacity: "0",
+          duration: "0.5",
+          ease: "ease"
+        })
+        this.isActive = "one"
+        this.services = false
       }
     },
     checkPageType() {
@@ -135,7 +230,6 @@ export default {
 
 <style lang="sass">
 @import '~/assets/styles/variables.sass'
-$transition-header: .165s ease
 
 .header
   position: fixed
@@ -144,45 +238,28 @@ $transition-header: .165s ease
   right: 0
   display: flex
   flex-direction: column
-  padding: 3rem var(--spacing-content-sides)
   z-index: 999
-  color: white !important
-  transition: mix-blend-mode $transition-header
+  &.three
+    .header-Services
+      border-bottom: 2px solid white
   &-Top
     display: flex
     justify-content: space-between
-    align-items: center
+    padding: 3rem var(--spacing-content-sides)
   &-Bottom
     display: flex
     justify-content: space-between
     gap: var(--spacing-two)
     overflow: hidden
-    height: auto
-    max-height: 0
-    transition: max-height $transition-header .165s
-    h1
-      padding-top: var(--spacing-content-sides)
-      font-family: 'Sohne Buch', Helvetica, Arial, sans-serif
-      font-size: 1rem
-      margin-bottom: 1.5rem
-    h1, p
-      opacity: 0
-      transition: opacity $transition-header
-  &.one
-    mix-blend-mode: difference
-  &.two
-    .header-Background
-      transform: translateY(0)
-  &.three
-    .header-Background
-      transform: translateY(0)
-    .header-Bottom
-      display: flex
-      max-height: 1000px
-      transition: max-height $transition-header
-      h1, p
-        opacity: 1
-        transition: opacity $transition-header .165s
+    padding: 3rem var(--spacing-content-sides)
+  &-ContentTitle
+    font-family: 'Sohne Buch', Helvetica, Arial, sans-serif
+    font-size: 1rem
+    margin-bottom: 1.5rem
+  &-ContentTitle
+    opacity: 0
+  &-ContentText
+    opacity: 0
   ul
     display: flex
     justify-content: flex-end
@@ -195,12 +272,11 @@ $transition-header: .165s ease
   &-Nav
     li
       border-bottom: 2px solid rgba(0, 0, 0, 0)
-      transition: border-bottom $transition-header
       cursor: pointer
+      padding-bottom: .5rem
       &:hover, &.nuxt-link-exact-active
         text-decoration: none
         border-bottom: 2px solid white
-        padding-bottom: .5rem
   &-Logo
     li
       svg
@@ -210,9 +286,7 @@ $transition-header: .165s ease
     left: 0
     top: 0
     right: 0
-    height: 100%
+    height: 0
     background: $support-color
     z-index: -1
-    transform: translateY(-100%)
-    transition: transform $transition-header
 </style>
