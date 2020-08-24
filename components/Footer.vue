@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer section-Footer">
+  <footer class="footer section-Footer" :class="{ active: showFooter }">
     <div class="footer-Background"></div>
     <div class="footer-Content">
       <ul>
@@ -101,7 +101,7 @@ export default {
           delay: "0.1",
           ease: "ease"
         })
-      } else if (this.showFooter === false) {
+      } else {
         gsap.to(".footer-Background", {
           height: "0",
           duration: "0.65",
@@ -143,6 +143,9 @@ export default {
   z-index: 888
   display: flex
   flex-direction: column
+  pointer-events: none
+  &.active
+    pointer-events: auto
   &-Background
     position: absolute
     left: 0

@@ -19,6 +19,17 @@
           </li>
           <nuxt-link to="/blog" tag="li">What's happening</nuxt-link>
           <nuxt-link to="/about" tag="li">Our story</nuxt-link>
+          <li class="icon">
+            <div
+              v-html="require('~/assets/images/icon-instagram.svg?include')"
+            />
+          </li>
+          <li class="icon">
+            <div v-html="require('~/assets/images/icon-mail.svg?include')" />
+          </li>
+          <li class="icon">
+            <div v-html="require('~/assets/images/icon-call.svg?include')" />
+          </li>
         </ul>
         <ul v-if="pageType === 'blogSlug'">
           <nuxt-link to="/blog" tag="li">back</nuxt-link>
@@ -236,7 +247,15 @@ export default {
   display: flex
   flex-direction: column
   z-index: 999
+  pointer-events: none
+  &.one
+    .header-Top
+      pointer-events: auto
+  &.two
+    .header-Top
+      pointer-events: auto
   &.three
+    pointer-events: auto
     .header-Services
       border-bottom: 2px solid white
   &-Top
@@ -249,6 +268,8 @@ export default {
     gap: var(--spacing-two)
     overflow: hidden
     padding: 3rem var(--spacing-content-sides)
+  &-Services
+    pointer-events: auto
   &-ContentTitle
     font-family: 'Sohne Buch', Helvetica, Arial, sans-serif
     font-size: 1rem
