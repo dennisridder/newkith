@@ -289,12 +289,22 @@ export default {
       margin-right: 0
   &-Nav
     li
-      border-bottom: 2px solid rgba(0, 0, 0, 0)
+      // border-bottom: 2px solid rgba(0, 0, 0, 0)
+      // background: green
+      // border-bottom: 1px solid red
       cursor: pointer
       padding-bottom: .5rem
       &:hover, &.nuxt-link-exact-active
         text-decoration: none
         border-bottom: 2px solid white
+    .icon
+      display: flex
+      justify-content: center
+      align-items: flex-start
+      height: auto
+      padding-bottom: .5rem
+      svg
+        object-position: top center
   &-Logo
     li
       svg
