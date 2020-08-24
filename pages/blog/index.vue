@@ -139,17 +139,6 @@ export default {
       // Set filterList data
       this.filterList = backToArray
     }
-
-    //   imageTilt: function(event, title) {
-    //     // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
-    //     var el = $(`#effect-${title}`)
-    //     var width = el.width()
-    //     var xPos = (event.layerX / width - 0.5) * 75
-    //     gsap.to(el, 1, {
-    //       rotationY: xPos,
-    //       ease: "power2.easeOut"
-    //     })
-    //   }
   }
 }
 </script>

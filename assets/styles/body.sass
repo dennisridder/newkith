@@ -25,7 +25,6 @@ html
   // Container
   &-Wrapper
     background: $bg
-    padding-top: var(--spacing-wrapper-vertical)
     padding-bottom: var(--spacing-wrapper-vertical)
     transition: margin-top .165s ease
     > .section
@@ -40,6 +39,10 @@ html
     padding-left: var(--spacing-image-sides)
     padding-right: var(--spacing-image-sides)
   // Specific sections
+  &-Landing
+    display: flex
+    align-items: center
+    min-height: 100vh
   &-Thumbnail
     position: relative
     height: 100vh

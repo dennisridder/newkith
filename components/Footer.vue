@@ -90,7 +90,6 @@ export default {
   },
   methods: {
     updateScrollPosition() {
-      console.log("FIRED")
       this.scrollPosition = window.scrollY
       let scrollHeight = document.body.scrollHeight - window.innerHeight
       if (this.scrollPosition > scrollHeight - 20) {
