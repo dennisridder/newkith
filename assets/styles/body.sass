@@ -4,6 +4,27 @@ html
   background: $bg
   color: $color
 
+.cursor
+  position: fixed
+  width: 1.5em
+  height: 1.5em
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  border-radius: 100px
+  background: white
+  pointer-events: none
+  transition: width .16s ease, height .16s ease
+  will-change: width, height
+  z-index: 999
+  mix-blend-mode: difference
+  color: white
+  &.active
+    width: 3.5em
+    height: 3.5em
+  @media ( hover: none )
+    display: none
+
 .icon
   position: relative
   width: 1.5rem
@@ -16,7 +37,7 @@ html
     height: 100%
     width: 100%
     object-fit: contain
-    color: white !important
+    color: currentColor
 
 .section
   width: 100%

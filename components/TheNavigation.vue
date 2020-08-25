@@ -6,7 +6,7 @@
       @mouseenter="mouseEnterTop"
       @mouseleave="mouseLeaveTop"
     >
-      <div class="header-Logo">
+      <div class="header-Logo cursorInteract">
         <nuxt-link to="/" tag="li">
           <div v-html="require('~/assets/images/logo-hash.svg?include')" />
         </nuxt-link>
@@ -14,11 +14,15 @@
       <!-- prettire-ignore -->
       <nav class="header-Nav">
         <ul v-if="mainNav == true">
-          <li class="header-Services" @click="clickServices">
+          <li class="header-Services cursorInteract" @click="clickServices">
             Our services
           </li>
-          <nuxt-link to="/blog" tag="li">What's happening</nuxt-link>
-          <nuxt-link to="/about" tag="li">Our story</nuxt-link>
+          <nuxt-link to="/blog" class="cursorInteract" tag="li"
+            >What's happening</nuxt-link
+          >
+          <nuxt-link to="/about" class="cursorInteract" tag="li"
+            >Our story</nuxt-link
+          >
           <li class="icon">
             <div
               v-html="require('~/assets/images/icon-instagram.svg?include')"
@@ -266,13 +270,16 @@ export default {
   flex-direction: column
   z-index: 999
   pointer-events: none
+  // mix-blend-mode: difference
   &.one
     .header-Top
       pointer-events: auto
   &.two
+    // mix-blend-mode: initial
     .header-Top
       pointer-events: auto
   &.three
+    // mix-blend-mode: initial
     pointer-events: auto
     .header-Services
       border-bottom: $border
@@ -338,4 +345,5 @@ export default {
     height: 0
     background: $support-color
     z-index: -1
+    isolation: isolate
 </style>

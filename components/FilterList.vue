@@ -2,7 +2,7 @@
   <section class="section section-Filters section-TextContent">
     <ul class="section-Filters_Container">
       <li
-        class="section-Filters_Item"
+        class="section-Filters_Item cursorInteract"
         v-for="tag in array"
         :id="tag"
         :key="tag"

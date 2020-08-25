@@ -1,5 +1,8 @@
 <template>
-  <a :href="'https://' + blok.hyperlink" target="_blank" class="button"
+  <a
+    :href="'https://' + blok.hyperlink"
+    target="_blank"
+    class="button cursorInteract"
     ><h4>{{ blok.text }}</h4></a
   >
 </template>

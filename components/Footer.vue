@@ -7,7 +7,7 @@
           We are a digital design studio from Auckland, New Zealand specialising
           in the fields of web, motion and new media design.
         </li>
-        <li class="footer-Link navLink">
+        <li class="footer-Link navLink cursorInteract">
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
@@ -17,16 +17,24 @@
       </ul>
       <ul></ul>
       <ul>
-        <nuxt-link class="navLink" to="/" tag="li">Home</nuxt-link>
-        <nuxt-link class="navLink" to="/cases" tag="li">Cases</nuxt-link>
-        <nuxt-link class="navLink" to="/talents" tag="li">Talents</nuxt-link>
-        <nuxt-link class="navLink" to="/blog" tag="li"
+        <nuxt-link class="navLink cursorInteract" to="/" tag="li"
+          >Home</nuxt-link
+        >
+        <nuxt-link class="navLink cursorInteract" to="/cases" tag="li"
+          >Cases</nuxt-link
+        >
+        <nuxt-link class="navLink cursorInteract" to="/talents" tag="li"
+          >Talents</nuxt-link
+        >
+        <nuxt-link class="navLink cursorInteract" to="/blog" tag="li"
           >What's happening</nuxt-link
         >
-        <nuxt-link class="navLink" to="/about" tag="li">Our story</nuxt-link>
+        <nuxt-link class="navLink cursorInteract" to="/about" tag="li"
+          >Our story</nuxt-link
+        >
       </ul>
       <ul>
-        <li class="navLink">
+        <li class="navLink cursorInteract">
           <div
             class="icon"
             v-html="require('~/assets/images/icon-mail.svg?include')"
@@ -35,7 +43,7 @@
             info@newkith.com
           </a>
         </li>
-        <li class="navLink">
+        <li class="navLink cursorInteract">
           <div
             class="icon"
             v-html="require('~/assets/images/icon-call.svg?include')"
@@ -44,7 +52,7 @@
             +31(0)636101262
           </a>
         </li>
-        <li class="navLink">
+        <li class="navLink cursorInteract">
           <div
             class="icon"
             v-html="require('~/assets/images/icon-location.svg?include')"
@@ -53,7 +61,7 @@
             Directions
           </a>
         </li>
-        <li class="navLink">
+        <li class="navLink cursorInteract">
           <div
             class="icon"
             v-html="require('~/assets/images/icon-instagram.svg?include')"
@@ -64,7 +72,7 @@
         </li>
       </ul>
     </div>
-    <nuxt-link class="footer-Logo" to="/" tag="div">
+    <nuxt-link class="footer-Logo cursorInteract" to="/" tag="div">
       <div v-html="require('~/assets/images/logo.svg?include')" />
     </nuxt-link>
   </footer>

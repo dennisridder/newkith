@@ -5,16 +5,19 @@
       <nuxt />
     </transition>
     <blok-footer />
+    <div class="cursor"></div>
   </main>
 </template>
 
 <script>
 import TheNavigation from "~/components/TheNavigation.vue"
+import cursorInteraction from "@/mixins/cursorInteraction"
 
 export default {
   components: {
     "the-navigation": TheNavigation
   },
+  mixins: [cursorInteraction],
   watch: {
     $route() {
       // this.scrollSpeedTitles()
