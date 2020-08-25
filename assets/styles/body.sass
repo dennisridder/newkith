@@ -29,6 +29,8 @@ html
     transition: margin-top .165s ease
     > .section
       margin-bottom: var(--spacing-content-bottom)
+    > .section-ImageContent
+      margin-bottom: 0
     > .section:last-child
       margin-bottom: 0
   // Two content styles
@@ -56,14 +58,20 @@ html
       height: 100%
       object-fit: contain
   &-Media
+    display: flex
+    justify-content: center
+    align-items: center
     overflow: hidden
     width: 100%
-    max-width: calc(#{var(--max-width)} * 2)
     &_Container
       position: relative
       width: 100%
       height: 0
       padding-top: 56.25%
+    &_Wrapper
+      position: relative
+      width: 100%
+      max-width: $max-content-width
     img, video, audio, iframe
       position: absolute
       left: 0
