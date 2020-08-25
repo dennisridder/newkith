@@ -5,7 +5,7 @@
     </section>
     <section
       v-if="story.content.thumbnail"
-      class="section section-Thumbnail section-ImageContent"
+      class="section section-Thumbnail section-ImageContent scrollFast"
     >
       <img :src="story.content.thumbnail" alt />
     </section>
@@ -24,10 +24,17 @@
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import landingScrollSpeed from "@/mixins/landingScrollSpeed"
+import imageScrollSpeed from "@/mixins/imageScrollSpeed"
+import titleScrollSpeed from "@/mixins/titleScrollSpeed"
 
 export default {
   scrollToTop: true,
-  mixins: [storyblokLivePreview, landingScrollSpeed],
+  mixins: [
+    storyblokLivePreview,
+    landingScrollSpeed,
+    imageScrollSpeed,
+    titleScrollSpeed
+  ],
   asyncData(context) {
     let endpoint = `cdn/stories/cases/${context.params.slug}`
     let version =

@@ -1,5 +1,8 @@
 <template>
-  <section v-editable="blok" class="section section-Image section-ImageContent">
+  <section
+    v-editable="blok"
+    class="section section-Image section-ImageContent scrollFast"
+  >
     <img :src="blok.image" :alt="blok.image_title" />
   </section>
 </template>

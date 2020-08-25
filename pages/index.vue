@@ -37,11 +37,17 @@
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import landingScrollSpeed from "@/mixins/landingScrollSpeed"
+import imageScrollSpeed from "@/mixins/imageScrollSpeed"
 import titleScrollSpeed from "@/mixins/titleScrollSpeed"
 import { mapState } from "vuex"
 
 export default {
-  mixins: [storyblokLivePreview, landingScrollSpeed, titleScrollSpeed],
+  mixins: [
+    storyblokLivePreview,
+    landingScrollSpeed,
+    imageScrollSpeed,
+    titleScrollSpeed
+  ],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories/home", {

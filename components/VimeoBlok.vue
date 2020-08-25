@@ -1,7 +1,7 @@
 <template>
   <section
     v-editable="blok"
-    class="section section-Media section-ImageContent vimeo"
+    class="section section-Media section-ImageContent vimeo scrollFast"
   >
     <div class="section-Media_Container">
       <iframe

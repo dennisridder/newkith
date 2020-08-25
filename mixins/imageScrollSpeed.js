@@ -4,15 +4,16 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default {
   mounted() {
-    this.scrollSpeedTitles()
+    this.scrollSpeedImages()
   },
   methods: {
-    scrollSpeedTitles() {
-      var titles = document.querySelectorAll(".scrollSlow")
+    scrollSpeedImages() {
+      var titles = document.querySelectorAll(".scrollFast")
       console.log(titles)
       titles.forEach(el => {
+        console.log(el)
         gsap.to(el, {
-          y: ScrollTrigger.maxScroll(window) * 0.5,
+          y: ScrollTrigger.maxScroll(window) * -0.1,
           ease: "none",
           scrollTrigger: {
             trigger: el,

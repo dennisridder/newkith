@@ -1,7 +1,7 @@
 <template>
   <section
     v-editable="blok"
-    class="section section-Media section-ImageContent youtube"
+    class="section section-Media section-ImageContent youtube scrollFast"
   >
     <div class="section-Media_Container">
       <iframe
