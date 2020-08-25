@@ -77,10 +77,10 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import titleScrollSpeed from "@/mixins/titleScrollSpeed"
+import landingScrollSpeed from "@/mixins/landingScrollSpeed"
 
 export default {
-  mixins: [storyblokLivePreview, titleScrollSpeed],
+  mixins: [storyblokLivePreview, landingScrollSpeed],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories", {

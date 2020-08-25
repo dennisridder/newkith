@@ -24,11 +24,11 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import titleScrollSpeed from "@/mixins/titleScrollSpeed"
+import landingScrollSpeed from "@/mixins/landingScrollSpeed"
 import { mapState } from "vuex"
 
 export default {
-  mixins: [storyblokLivePreview, titleScrollSpeed],
+  mixins: [storyblokLivePreview, landingScrollSpeed],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories", {

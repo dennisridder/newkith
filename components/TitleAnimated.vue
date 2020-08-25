@@ -1,5 +1,5 @@
 <template>
-  <ul id="scrollSlow" class="title title-Animated">
+  <ul class="title title-Animated">
     <li v-for="word in words" :key="word">
       <h1 class="animated-Word">{{ word }}&nbsp;</h1>
     </li>

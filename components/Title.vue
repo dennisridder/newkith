@@ -1,5 +1,5 @@
 <template>
-  <ul id="scrollSlow" class="title">
+  <ul class="title">
     <li>
       <h1 class="title-Single">{{ words }}</h1>
     </li>

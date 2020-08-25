@@ -23,11 +23,11 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import titleScrollSpeed from "@/mixins/titleScrollSpeed"
+import landingScrollSpeed from "@/mixins/landingScrollSpeed"
 
 export default {
   scrollToTop: true,
-  mixins: [storyblokLivePreview, titleScrollSpeed],
+  mixins: [storyblokLivePreview, landingScrollSpeed],
   asyncData(context) {
     let endpoint = `cdn/stories/talents/${context.params.slug}`
     let version =

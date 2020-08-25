@@ -5,7 +5,7 @@
     </section>
     <blok-filter-list :array="filterListCases" />
     <section class="section section-TextContent">
-      <blok-title words="Cases" />
+      <blok-title class="scrollSlow" words="Cases" />
     </section>
     <section class="section section-Cases">
       <blok-image-grid
@@ -16,7 +16,7 @@
     </section>
     <blok-filter-list :array="filterListTalents" />
     <section class="section section-TextContent">
-      <blok-title words="Talents" />
+      <blok-title class="scrollSlow" words="Talents" />
     </section>
     <section class="section section-Cases">
       <blok-image-grid
@@ -36,11 +36,12 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import landingScrollSpeed from "@/mixins/landingScrollSpeed"
 import titleScrollSpeed from "@/mixins/titleScrollSpeed"
 import { mapState } from "vuex"
 
 export default {
-  mixins: [storyblokLivePreview, titleScrollSpeed],
+  mixins: [storyblokLivePreview, landingScrollSpeed, titleScrollSpeed],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories/home", {
