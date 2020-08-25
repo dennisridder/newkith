@@ -257,7 +257,7 @@ export default {
   &.three
     pointer-events: auto
     .header-Services
-      border-bottom: 2px solid white
+      border-bottom: $border
   &-Top
     display: flex
     justify-content: space-between
@@ -289,14 +289,11 @@ export default {
       margin-right: 0
   &-Nav
     li
-      // border-bottom: 2px solid rgba(0, 0, 0, 0)
-      // background: green
-      // border-bottom: 1px solid red
       cursor: pointer
       padding-bottom: .5rem
       &:hover, &.nuxt-link-exact-active
         text-decoration: none
-        border-bottom: 2px solid white
+        border-bottom: $border
     .icon
       display: flex
       justify-content: center

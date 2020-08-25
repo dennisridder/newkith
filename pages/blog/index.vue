@@ -156,7 +156,7 @@ export default {
     padding-bottom: 3rem
     width: 100%
     overflow-x: auto
-    border-top: 1px solid $color
+    border-top: $border
     &:hover
       .blogList-Content
         animation-play-state: running
@@ -177,13 +177,7 @@ export default {
     align-items: center
     visibility: hidden
     pointer-events: none
-    // z-index: -1
     .image-Effect
-      // width: 40vw
-      // height: 60vh
-      // display: flex
-      // justify-content: center
-      // align-items: center
       > div
         width: 40vw
         height: 75vh
@@ -195,7 +189,6 @@ export default {
         width: 100%
         object-fit: contain
         max-height: 100%
-        // border: 1px solid white
   &-Content
     display: flex
     flex-wrap: nowrap
