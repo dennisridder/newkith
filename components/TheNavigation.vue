@@ -23,20 +23,20 @@
           <nuxt-link to="/about" class="cursorInteract" tag="li"
             >Our story</nuxt-link
           >
-          <li class="icon">
+          <li class="icon cursorInteract">
             <div
               v-html="require('~/assets/images/icon-instagram.svg?include')"
             />
           </li>
-          <li class="icon">
+          <li class="icon cursorInteract">
             <div v-html="require('~/assets/images/icon-mail.svg?include')" />
           </li>
-          <li class="icon">
+          <li class="icon cursorInteract">
             <div v-html="require('~/assets/images/icon-call.svg?include')" />
           </li>
         </ul>
         <ul v-if="pageType === 'blogSlug'">
-          <nuxt-link to="/blog" class="header-Back" tag="li"
+          <nuxt-link to="/blog" class="header-Back cursorInteract" tag="li"
             ><div
               class="icon"
               v-html="require('~/assets/images/icon-arrow.svg?include')"
@@ -45,7 +45,7 @@
           >
         </ul>
         <ul v-if="pageType === 'talentSlug'">
-          <nuxt-link to="/talents" class="header-Back" tag="li"
+          <nuxt-link to="/talents" class="header-Back cursorInteract" tag="li"
             ><div
               class="icon"
               v-html="require('~/assets/images/icon-arrow.svg?include')"
@@ -54,7 +54,7 @@
           >
         </ul>
         <ul v-if="pageType === 'caseSlug'">
-          <nuxt-link to="/" class="header-Back" tag="li"
+          <nuxt-link to="/" class="header-Back cursorInteract" tag="li"
             ><div
               class="icon"
               v-html="require('~/assets/images/icon-arrow.svg?include')"

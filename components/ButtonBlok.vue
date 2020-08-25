@@ -8,7 +8,10 @@
 </template>
 
 <script>
+import cursorInteraction from "@/mixins/cursorInteraction"
+
 export default {
+  mixins: [cursorInteraction],
   props: {
     blok: Object
   },
