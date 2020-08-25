@@ -32,13 +32,31 @@
           </li>
         </ul>
         <ul v-if="pageType === 'blogSlug'">
-          <nuxt-link to="/blog" tag="li">back</nuxt-link>
+          <nuxt-link to="/blog" class="header-Back" tag="li"
+            ><div
+              class="icon"
+              v-html="require('~/assets/images/icon-arrow.svg?include')"
+            />
+            &nbsp;back</nuxt-link
+          >
         </ul>
         <ul v-if="pageType === 'talentSlug'">
-          <nuxt-link to="/talents" tag="li">back</nuxt-link>
+          <nuxt-link to="/talents" class="header-Back" tag="li"
+            ><div
+              class="icon"
+              v-html="require('~/assets/images/icon-arrow.svg?include')"
+            />
+            &nbsp;back</nuxt-link
+          >
         </ul>
         <ul v-if="pageType === 'caseSlug'">
-          <nuxt-link to="/" tag="li">back</nuxt-link>
+          <nuxt-link to="/" class="header-Back" tag="li"
+            ><div
+              class="icon"
+              v-html="require('~/assets/images/icon-arrow.svg?include')"
+            />
+            &nbsp;back</nuxt-link
+          >
         </ul>
       </nav>
     </div>
@@ -306,6 +324,12 @@ export default {
     li
       svg
         height: 2rem
+  &-Back
+    display: flex
+    .icon
+      width: 1rem
+    svg
+      transform: rotate(180deg)
   &-Background
     position: absolute
     left: 0
