@@ -82,7 +82,7 @@ export default {
     }
   },
   mounted() {
-    this.handleDebouncedScroll = lodash.debounce(this.updateScrollPosition, 100)
+    this.handleDebouncedScroll = lodash.debounce(this.updateScrollPosition, 50)
     window.addEventListener("scroll", this.handleDebouncedScroll)
   },
   destroyed() {
@@ -94,7 +94,7 @@ export default {
       let scrollHeight = document.body.scrollHeight - window.innerHeight
       if (this.scrollPosition > scrollHeight - 20) {
         this.showFooter = true
-      } else if (this.scrollPosition < scrollHeight - 20) {
+      } else {
         this.showFooter = false
       }
       this.displayFooter()
