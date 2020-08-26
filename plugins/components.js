@@ -5,6 +5,8 @@ import Title from "~/components/Title.vue"
 import Footer from "~/components/Footer.vue"
 import ButtonContainer from "~/components/ButtonContainer.vue"
 import ButtonBlok from "~/components/ButtonBlok.vue"
+import LogosBlok from "~/components/LogosBlok.vue"
+import LogoBlok from "~/components/LogoBlok.vue"
 import ImageBlok from "~/components/ImageBlok.vue"
 import YoutubeBlok from "~/components/YoutubeBlok.vue"
 import VimeoBlok from "~/components/VimeoBlok.vue"
@@ -24,6 +26,8 @@ Vue.component("blok-tag-list", TagList)
 Vue.component("blok-filter-list", FilterList)
 Vue.component("blok-button-container", ButtonContainer)
 Vue.component("blok-button-blok", ButtonBlok)
+Vue.component("blok-logos-blok", LogosBlok)
+Vue.component("blok-logo-blok", LogoBlok)
 Vue.component("blok-image-blok", ImageBlok)
 Vue.component("blok-youtube-blok", YoutubeBlok)
 Vue.component("blok-vimeo-blok", VimeoBlok)

@@ -210,18 +210,4 @@ export default {
   &-Item:nth-child(2n)
     .blogList-Content
       animation: carouselRight 60s infinite linear
-
-@keyframes carouselLeft
-  0%
-    transform: translateX(0vw)
-
-  100%
-    transform: translateX(-100vw)
-
-@keyframes carouselRight
-  0%
-    transform: translateX(-100vw)
-
-  100%
-    transform: translateX(0vw)
 </style>
