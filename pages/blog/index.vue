@@ -201,8 +201,6 @@ export default {
     h2
       font-family: 'SohneSchmal Halbfett'
       font-size: 5vw
-      // font-family: 'Sohne Kraftig'
-      // font-size: 3.5vw
     > div
       flex-shrink: 0
       margin-right: 3rem
