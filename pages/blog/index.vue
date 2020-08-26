@@ -14,7 +14,7 @@
           class="blogList-Item"
           @mousemove="registerMouse($event)"
         >
-          <nuxt-link class="blogList-Content" :to="post.full_slug" tag="div">
+          <nuxt-link class="blogList-Content cursorInteract" :to="post.full_slug" tag="div">
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
             </div>
