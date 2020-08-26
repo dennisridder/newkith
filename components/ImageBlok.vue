@@ -4,7 +4,11 @@
     class="section section-Image section-Media section-ImageContent scrollFast"
   >
     <div class="section-Media_Wrapper">
-      <div class="section-Media_Container">
+      <div
+        :id="blok._uid"
+        class="section-Media_Container"
+        @mousemove="imageTilt($event)"
+      >
         <img :src="blok.image" :alt="blok.image_title" />
       </div>
     </div>
@@ -12,28 +16,26 @@
 </template>
 
 <script>
+import gsap from "gsap"
+import $ from "jquery"
+
 export default {
   props: {
     blok: Object
   },
-  mounted() {}
+  mounted() {
+    // console.log(this.blok)
+  },
+  methods: {
+    imageTilt: function(event) {
+      var el = $("#" + this.blok._uid)
+      var width = el.width()
+      var xPos = (event.layerX / width - 0.5) * 75
+      gsap.to(el, 1, {
+        rotationY: xPos,
+        ease: "power2.easeOut"
+      })
+    }
+  }
 }
 </script>
-
-<style lang="sass">
-// @import '~/assets/styles/variables.sass'
-
-// .section-Image
-//   display: flex
-//   justify-content: center
-//   overflow: hidden
-//   width: 100%
-//   height: 100vh
-//   img
-//     width: 100%
-//     height: 100%
-//     max-width: 100%
-//     max-width: $max-content-width
-//     max-height: 100%
-//     object-fit: contain
-</style>

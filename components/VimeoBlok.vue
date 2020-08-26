@@ -4,7 +4,11 @@
     class="section section-Media section-ImageContent vimeo scrollFast"
   >
     <div class="section-Media_Wrapper">
-      <div class="section-Media_Container">
+      <div
+        :id="blok._uid"
+        class="section-Media_Container"
+        @mousemove="imageTilt($event)"
+      >
         <iframe
           :src="'https://player.vimeo.com/video/' + blok.video_id"
           width="640"
@@ -24,9 +28,26 @@
 </template>
 
 <script>
+import gsap from "gsap"
+import $ from "jquery"
+
 export default {
   props: {
     blok: Object
+  },
+  mounted() {
+    // console.log(this.blok)
+  },
+  methods: {
+    imageTilt: function(event) {
+      var el = $("#" + this.blok._uid)
+      var width = el.width()
+      var xPos = (event.layerX / width - 0.5) * 25
+      gsap.to(el, 1, {
+        rotationY: xPos,
+        ease: "power2.easeOut"
+      })
+    }
   }
 }
 </script>
