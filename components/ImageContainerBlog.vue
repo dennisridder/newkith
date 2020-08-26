@@ -27,21 +27,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-.image-Effect
-  position: relative
-  display: flex
-  justify-content: center
-  align-items: center
-  pointer-events: auto
-  &_Tilt
-    perspective: 2000px
-  #container
-    position: relative
-    display: flex
-    justify-content: center
-    align-items: center
-    img
-      width: 100%
-</style>
