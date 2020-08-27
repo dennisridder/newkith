@@ -74,8 +74,6 @@ export default {
 </script>
 
 <style lang="sass">
-// @import '~/assets/styles/variables.sass'
-
 .section-Quote
     padding-left: 0
     padding-right: 0
