@@ -13,6 +13,7 @@ import VimeoBlok from "~/components/VimeoBlok.vue"
 import TagList from "~/components/TagList.vue"
 import FilterList from "~/components/FilterList.vue"
 import TextBlok from "~/components/TextBlok.vue"
+import QuoteBlok from "~/components/QuoteBlok.vue"
 import ImageGrid from "~/components/ImageGrid.vue"
 import ImageContainerTilt from "~/components/ImageContainerTilt.vue"
 import ImageContainerBlog from "~/components/ImageContainerBlog.vue"
@@ -32,6 +33,7 @@ Vue.component("blok-image-blok", ImageBlok)
 Vue.component("blok-youtube-blok", YoutubeBlok)
 Vue.component("blok-vimeo-blok", VimeoBlok)
 Vue.component("blok-text-blok", TextBlok)
+Vue.component("blok-quote-blok", QuoteBlok)
 Vue.component("blok-image-grid", ImageGrid)
 Vue.component("blok-image-container-tilt", ImageContainerTilt)
 Vue.component("blok-image-container-blog", ImageContainerBlog)
