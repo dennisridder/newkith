@@ -16,6 +16,16 @@ export default {
       .forEach(item =>
         item.addEventListener("mouseleave", this.removeChangeCursor)
       )
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.addEventListener("mouseover", this.changeCursorWhite)
+      )
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.addEventListener("mouseleave", this.removeChangeCursorWhite)
+      )
   },
   updated() {
     document
@@ -26,6 +36,16 @@ export default {
       .forEach(item =>
         item.addEventListener("mouseleave", this.removeChangeCursor)
       )
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.addEventListener("mouseover", this.changeCursorWhite)
+      )
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.addEventListener("mouseleave", this.removeChangeCursorWhite)
+      )
   },
   destroyed() {
     document
@@ -35,6 +55,16 @@ export default {
       .querySelectorAll(".cursorInteract")
       .forEach(item =>
         item.removeEventListener("mouseleave", this.removeChangeCursor)
+      )
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.removeEventListener("mouseover", this.changeCursorWhite)
+      )
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.removeEventListener("mouseleave", this.removeChangeCursorWhite)
       )
   },
   methods: {
@@ -53,6 +83,12 @@ export default {
     },
     removeChangeCursor() {
       document.querySelector(".cursor").classList.remove("active")
+    },
+    changeCursorWhite() {
+      document.querySelector(".cursor").classList.add("white")
+    },
+    removeChangeCursorWhite() {
+      document.querySelectorWhite(".cursor").classList.remove("white")
     }
   }
 }

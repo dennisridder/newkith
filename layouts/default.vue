@@ -1,5 +1,6 @@
 <template>
   <main>
+    <div class="header-Background"></div>
     <the-navigation />
     <transition name="pages" mode="out-in">
       <nuxt />

@@ -42,7 +42,7 @@ export default {
     margin-bottom: 3rem
     &:hover
       h2
-        color: $support-color
+        // color: $support-color
         font-family: 'SohneSchmal HalbfettKursiv'
   &-Details
     max-width: 90%

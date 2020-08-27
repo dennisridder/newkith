@@ -1,6 +1,5 @@
 <template>
   <header class="header" :class="isActive" @mouseleave="mouseLeaveAll">
-    <div class="header-Background"></div>
     <div
       class="header-Top"
       @mouseenter="mouseEnterTop"
@@ -270,8 +269,8 @@ export default {
   flex-direction: column
   z-index: 999
   pointer-events: none
-  // mix-blend-mode: difference
   &.one
+    mix-blend-mode: difference
     .header-Top
       pointer-events: auto
   &.two
@@ -338,12 +337,12 @@ export default {
     svg
       transform: rotate(180deg)
   &-Background
-    position: absolute
+    position: fixed
     left: 0
     top: 0
     right: 0
     height: 0
     background: $support-color
-    z-index: -1
+    z-index: 1
     isolation: isolate
 </style>
