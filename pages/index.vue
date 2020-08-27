@@ -3,6 +3,7 @@
     <section class="section section-Landing section-TextContent">
       <blok-title-animated
         :words="['Newkith', 'talent', 'Connective', 'Online', 'agency']"
+        :wordswap="true"
       />
     </section>
     <blok-filter-list :array="filterListCases" />

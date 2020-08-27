@@ -1,7 +1,10 @@
 <template>
   <div class="section-Wrapper">
     <section class="section section-Landing section-TextContent">
-      <blok-title-animated :words="['Meet', 'our', 'talents']" />
+      <blok-title-animated
+        :words="['Meet', 'our', 'talents']"
+        wordswap="false"
+      />
     </section>
     <blok-filter-list :array="filterList" />
     <section class="section section-Talents">

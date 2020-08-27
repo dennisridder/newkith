@@ -1,17 +1,24 @@
 <template>
-  <ul class="title title-Animated">
-    <li>
-      <h1 class="animated-Word">{{ firstWord }}&nbsp;</h1>
-    </li>
-    <li class="swapWordContainer">
-      <h1 v-for="word in middleWords" :key="word" class="swapWord">
-        {{ word }}&nbsp;
-      </h1>
-    </li>
-    <li>
-      <h1 class="animated-Word">{{ lastWord }}&nbsp;</h1>
-    </li>
-  </ul>
+  <div>
+    <ul v-if="wordswap === true" class="title title-Animated">
+      <li>
+        <h1 class="animated-Word">{{ firstWord }}&nbsp;</h1>
+      </li>
+      <li class="swapWordContainer">
+        <h1 v-for="word in middleWords" :key="word" class="swapWord">
+          {{ word }}&nbsp;
+        </h1>
+      </li>
+      <li>
+        <h1 class="animated-Word">{{ lastWord }}&nbsp;</h1>
+      </li>
+    </ul>
+    <ul v-else class="title title-Animated">
+      <li>
+        <h1 v-for="word in words" :key="word" class="word">{{ word }}&nbsp;</h1>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -22,7 +29,8 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default {
   props: {
-    words: Array
+    words: Array,
+    wordswap: Boolean
   },
   data() {
     return {
@@ -34,6 +42,7 @@ export default {
   mounted() {
     this.wordsSort()
     this.wordsLoad()
+    this.wordsLoadAnimated()
     this.wordsSwap()
   },
   methods: {
@@ -43,24 +52,45 @@ export default {
       this.middleWords = this.words.slice(1, this.words.length - 1)
     },
     wordsLoad() {
-      let duration = 0.25
-      let delay = 0.4
-      gsap.to(".animated-Word", {
-        duration: duration,
-        stagger: delay,
-        yPercent: -100,
-        ease: "expo.out:"
-      })
-      gsap.to(".animated-Word", {
-        duration: duration,
-        stagger: delay,
-        opacity: 1,
-        ease: "ease.in:"
-      })
+      setTimeout(function() {
+        let duration = 0.25
+        let delay = 0.125
+        gsap.to(".word", {
+          duration: duration,
+          stagger: delay,
+          yPercent: -100,
+          ease: "expo.out:"
+        })
+        gsap.to(".word", {
+          duration: duration,
+          stagger: delay,
+          opacity: 1,
+          ease: "ease.in:"
+        })
+      }, 125)
+    },
+
+    wordsLoadAnimated() {
+      setTimeout(function() {
+        let duration = 0.25
+        let delay = 0.25
+        gsap.to(".animated-Word", {
+          duration: duration,
+          stagger: delay,
+          yPercent: -100,
+          ease: "expo.out:"
+        })
+        gsap.to(".animated-Word", {
+          duration: duration,
+          stagger: delay,
+          opacity: 1,
+          ease: "ease.in:"
+        })
+      }, 125)
     },
     wordsSwap() {
       let duration = 0.25
-      let delay = 2.75
+      let delay = 1.5
 
       setTimeout(function() {
         var targets = document.querySelectorAll(".swapWord")
@@ -85,7 +115,7 @@ export default {
             timeDelay
           )
         })
-      }, 200)
+      }, 125)
     }
   }
 }

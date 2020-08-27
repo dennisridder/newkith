@@ -1,7 +1,11 @@
 <template>
   <div class="section section-Wrapper">
     <section class="section section-Landing section-TextContent">
-      <blok-title v-if="story.name" :words="story.name" />
+      <blok-title-animated
+        v-if="story.name"
+        :words="wordsArray"
+        :wordswap="false"
+      />
     </section>
     <section
       v-if="story.content.thumbnail"
@@ -65,9 +69,19 @@ export default {
   },
   data() {
     return {
-      story: { content: {} }
+      story: { content: {} },
+      wordsArray: []
     }
   },
-  mounted() {}
+  mounted() {
+    this.wordsToArray()
+  },
+  methods: {
+    wordsToArray() {
+      var string = this.story.name
+      var array = string.split(/\s+/)
+      this.wordsArray = Object.values(array)
+    }
+  }
 }
 </script>
