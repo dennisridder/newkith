@@ -1,7 +1,9 @@
 <template>
   <div v-editable="story.content" class="section-Wrapper">
     <section class="section section-Landing section-TextContent">
-      <blok-title-animated :words="['Newkith', 'talent', 'agency']" />
+      <blok-title-animated
+        :words="['Newkith', 'talent', 'Connective', 'Online', 'agency']"
+      />
     </section>
     <blok-filter-list :array="filterListCases" />
     <section class="section section-TextContent">
