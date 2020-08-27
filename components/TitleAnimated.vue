@@ -40,8 +40,8 @@ export default {
     }
   },
   mounted() {
-    this.wordsSort()
     this.wordsLoad()
+    this.wordsSort()
     this.wordsLoadAnimated()
     this.wordsSwap()
   },

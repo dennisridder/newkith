@@ -85,6 +85,7 @@ export default {
       left: 0
       bottom: 0
       margin-left: var(--spacing-content-sides)
+      margin-bottom: var(--spacing-content-sides)
       max-width: 33.3333%
       &_Link
         display: flex
@@ -123,9 +124,9 @@ export default {
       &:nth-child(1n)
         justify-content: flex-end
       &:nth-child(2n)
-        justify-content: center
-      &:nth-child(3n)
         justify-content: flex-start
+      &:nth-child(3n)
+        justify-content: flex-end
       &:nth-child(4n)
         justify-content: center
       &:nth-child(5n)
@@ -142,10 +143,10 @@ export default {
         justify-content: flex-start
       &:last-child(2)
         justify-content: center
-        border: 1px solid red
       &:last-child
-        margin-bottom: 0
         justify-content: flex-end
+        .imageGrid-Item
+          margin-bottom: 0
     .imageGrid-Item
       flex-basis: 33.3333% // 1/3
 </style>
