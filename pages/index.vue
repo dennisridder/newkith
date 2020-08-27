@@ -8,7 +8,7 @@
     </section>
     <blok-filter-list :array="filterListCases" />
     <blok-image-grid
-      :array="casesList"
+      :array="casesListShuffled"
       slug="/cases/"
       title="Cases"
       rowtype="verticalRowIrregular"
@@ -17,7 +17,7 @@
     />
     <blok-filter-list :array="filterListTalents" />
     <blok-image-grid
-      :array="talentsList"
+      :array="talentsListShuffled"
       slug="/talents/"
       title="Talents"
       rowtype="verticalRowIrregular"
@@ -69,7 +69,9 @@ export default {
     return {
       story: { content: {} },
       casesList: [],
+      casesListShuffled: [],
       talentsList: [],
+      talentsListShuffled: [],
       filterListCases: [],
       filterListTalents: []
     }
@@ -105,14 +107,16 @@ export default {
     filterCases() {
       let array = this.cases
       let filteredArray = array.slice(1, 6)
-      this.shuffle(filteredArray)
       this.casesList = filteredArray
+      this.shuffle(filteredArray)
+      this.casesListShuffled = filteredArray
     },
     filterTalents() {
       let array = this.talents
       let filteredArray = array.slice(1, 4)
-      this.shuffle(filteredArray)
       this.talentsList = filteredArray
+      this.shuffle(filteredArray)
+      this.talentsListShuffled = filteredArray
     },
     filterArrayCases() {
       var array = this.casesList
