@@ -21,7 +21,10 @@
     <div v-if="footertext" class="section-ImageGrid_Footer">
       <h2>{{ footertitle }}</h2>
       <markdown-item :input="footertext" />
-      <nuxt-link :to="slug" tag="div" class="section-ImageGrid_Footer_Link"
+      <nuxt-link
+        :to="slug"
+        tag="div"
+        class="section-ImageGrid_Footer_Link cursorInteract"
         ><h4>See more</h4>
         <div
           class="icon"

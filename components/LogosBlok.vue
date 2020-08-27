@@ -12,7 +12,19 @@
         <component
           :is="blok.component | dashify"
           v-for="blok in blok.body"
-          :key="blok._uid"
+          :key="blok._uid + '1'"
+          :blok="blok"
+        ></component>
+        <component
+          :is="blok.component | dashify"
+          v-for="blok in blok.body"
+          :key="blok._uid + '2'"
+          :blok="blok"
+        ></component>
+        <component
+          :is="blok.component | dashify"
+          v-for="blok in blok.body"
+          :key="blok._uid + '3'"
           :blok="blok"
         ></component>
       </ul>
