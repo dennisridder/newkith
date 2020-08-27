@@ -270,15 +270,12 @@ export default {
   z-index: 999
   pointer-events: none
   &.one
-    mix-blend-mode: difference
     .header-Top
       pointer-events: auto
   &.two
-    // mix-blend-mode: initial
     .header-Top
       pointer-events: auto
   &.three
-    // mix-blend-mode: initial
     pointer-events: auto
     .header-Services
       border-bottom: $border
