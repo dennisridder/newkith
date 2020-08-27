@@ -79,9 +79,6 @@ export default {
   &-ImageGrid
     position: relative
     &_Title
-      position: absolute
-      left: 0
-      top: 0
       margin-left: var(--spacing-content-sides)
     &_Footer
       position: absolute
