@@ -292,8 +292,6 @@ export default {
   &-Services
     pointer-events: auto
   &-ContentTitle
-    font-family: 'Sohne Buch', Helvetica, Arial, sans-serif
-    font-size: 1rem
     margin-bottom: 1.5rem
   &-ContentTitle
     opacity: 0

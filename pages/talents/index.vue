@@ -7,13 +7,11 @@
       />
     </section>
     <blok-filter-list :array="filterList" />
-    <section class="section section-Talents">
-      <blok-image-grid
-        class="verticalRowIrregular"
-        :array="talentsList"
-        slug="/talents/"
-      />
-    </section>
+    <blok-image-grid
+      :array="talentsList"
+      slug="/talents/"
+      rowtype="verticalRowIrregular"
+    />
   </div>
 </template>
 

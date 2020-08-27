@@ -78,9 +78,11 @@ export default {
   },
   methods: {
     wordsToArray() {
-      var string = this.story.name
-      var array = string.split(/\s+/)
-      this.wordsArray = Object.values(array)
+      if (this.title) {
+        var string = this.title
+        var array = string.split(/\s+/)
+        this.wordsArray = Object.values(array)
+      }
     }
   }
 }

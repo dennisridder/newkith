@@ -7,33 +7,23 @@
       />
     </section>
     <blok-filter-list :array="filterListCases" />
-    <section class="section section-TextContent">
-      <blok-title class="scrollSlow" words="Cases" />
-    </section>
-    <section class="section section-Cases">
-      <blok-image-grid
-        class="verticalRowIrregular"
-        :array="casesList"
-        slug="/cases/"
-      />
-    </section>
+    <blok-image-grid
+      :array="casesList"
+      slug="/cases/"
+      title="Cases"
+      rowtype="verticalRowIrregular"
+      :footertitle="story.content.body[0].cases_imagegrid_title"
+      :footertext="story.content.body[0].cases_imagegrid_text"
+    />
     <blok-filter-list :array="filterListTalents" />
-    <section class="section section-TextContent">
-      <blok-title class="scrollSlow" words="Talents" />
-    </section>
-    <section class="section section-Cases">
-      <blok-image-grid
-        class="verticalRowIrregular"
-        :array="talentsList"
-        slug="/talents/"
-      />
-    </section>
-    <component
-      :is="story.content.component | dashify"
-      v-if="story.content.component"
-      :key="story.content._uid"
-      :blok="story.content"
-    ></component>
+    <blok-image-grid
+      :array="talentsList"
+      slug="/talents/"
+      title="Talents"
+      rowtype="verticalRowIrregular"
+      :footertitle="story.content.body[0].talents_imagegrid_title"
+      :footertext="story.content.body[0].talents_imagegrid_text"
+    />
   </div>
 </template>
 
@@ -95,16 +85,17 @@ export default {
     this.filterTalents()
     this.filterArrayCases()
     this.filterArrayTalents()
+    console.log("DATA HOMEPAGE", this.story)
   },
   methods: {
     filterCases() {
       let array = this.cases
-      let filteredArray = array.slice(1)
+      let filteredArray = array.slice(1, 6)
       this.casesList = filteredArray
     },
     filterTalents() {
       let array = this.talents
-      let filteredArray = array.slice(1)
+      let filteredArray = array.slice(1, 4)
       this.talentsList = filteredArray
     },
     filterArrayCases() {

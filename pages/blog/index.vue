@@ -201,9 +201,6 @@ export default {
     animation: carouselLeft 60s infinite linear
     animation-direction: alternate
     animation-play-state: running
-    h2
-      font-family: 'SohneSchmal Halbfett'
-      font-size: 5vw
     > div
       flex-shrink: 0
       margin-right: 3rem

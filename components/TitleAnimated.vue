@@ -136,13 +136,6 @@ export default {
     overflow: hidden
     &:nth-child(3)
       width: 100%
-  h1, h2, p, a
-    display: inline-block
-    line-height: 1
-    font-family: 'SohneSchmal Halbfett'
-    font-size: 15vw
-    line-height: .9
-    overflow: hidden
   &-Animated
     h1, h2, p, a
       transform: translate(0px, 100%)

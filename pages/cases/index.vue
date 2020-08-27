@@ -1,27 +1,14 @@
 <template>
   <div class="section-Wrapper">
     <section class="section section-Landing section-TextContent">
-      <blok-title-animated
-        :words="['Read', 'our', 'cases']"
-        :wordswap="false"
-      />
+      <blok-title-animated :words="['our', 'cases']" :wordswap="false" />
     </section>
     <blok-filter-list :array="filterList" />
-    <section class="section section-Cases">
-      <blok-image-grid
-        class="verticalRowIrregular"
-        :array="casesList"
-        slug="/cases/"
-      />
-    </section>
-    <!-- <ul>
-      <li v-for="post in casesList" :id="post.content.id" :key="post.content.id">
-        <nuxt-link :to="post.full_slug" tag="div">
-          <h2>{{ post.name }}</h2>
-          <img :src="post.content.thumbnail" alt />
-        </nuxt-link>
-      </li>
-    </ul> -->
+    <blok-image-grid
+      :array="casesList"
+      slug="/cases/"
+      rowtype="verticalRowIrregular"
+    />
   </div>
 </template>
 
