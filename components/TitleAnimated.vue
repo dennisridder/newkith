@@ -52,70 +52,76 @@ export default {
       this.middleWords = this.words.slice(1, this.words.length - 1)
     },
     wordsLoad() {
-      setTimeout(function() {
-        let duration = 0.25
-        let delay = 0.125
-        gsap.to(".word", {
-          duration: duration,
-          stagger: delay,
-          yPercent: -100,
-          ease: "expo.out:"
-        })
-        gsap.to(".word", {
-          duration: duration,
-          stagger: delay,
-          opacity: 1,
-          ease: "ease.in:"
-        })
-      }, 125)
+      if (this.wordswap === false) {
+        setTimeout(function() {
+          let duration = 0.25
+          let delay = 0.125
+          gsap.to(".word", {
+            duration: duration,
+            stagger: delay,
+            yPercent: -100,
+            ease: "expo.out:"
+          })
+          gsap.to(".word", {
+            duration: duration,
+            stagger: delay,
+            opacity: 1,
+            ease: "ease.in:"
+          })
+        }, 125)
+      }
     },
 
     wordsLoadAnimated() {
-      setTimeout(function() {
-        let duration = 0.25
-        let delay = 0.25
-        gsap.to(".animated-Word", {
-          duration: duration,
-          stagger: delay,
-          yPercent: -100,
-          ease: "expo.out:"
-        })
-        gsap.to(".animated-Word", {
-          duration: duration,
-          stagger: delay,
-          opacity: 1,
-          ease: "ease.in:"
-        })
-      }, 125)
+      if (this.wordswap === true) {
+        setTimeout(function() {
+          let duration = 0.25
+          let delay = 0.25
+          gsap.to(".animated-Word", {
+            duration: duration,
+            stagger: delay,
+            yPercent: -100,
+            ease: "expo.out:"
+          })
+          gsap.to(".animated-Word", {
+            duration: duration,
+            stagger: delay,
+            opacity: 1,
+            ease: "ease.in:"
+          })
+        }, 125)
+      }
     },
     wordsSwap() {
       let duration = 0.25
       let delay = 1.5
 
-      setTimeout(function() {
-        var targets = document.querySelectorAll(".swapWord")
-        var wordSwap = gsap.timeline({ repeat: -1 })
-        targets.forEach((el, index) => {
-          var timeDelay = (duration + duration + delay) * (index + 1)
-          wordSwap.to(el, duration, {
-            opacity: 1,
-            yPercent: -100,
-            display: "inline-block",
-            ease: "expo.out:"
+      if (this.wordswap === true) {
+        setTimeout(function() {
+          var targets = document.querySelectorAll(".swapWord")
+          var wordSwap = gsap.timeline({ repeat: -1 })
+          targets.forEach((el, index) => {
+            var timeDelay = (duration + duration + delay) * (index + 1)
+            wordSwap.to(el, duration, {
+              opacity: 1,
+              yPercent: -100,
+              display: "inline-block",
+              ease: "expo.out:"
+            })
+            wordSwap.to(
+              el,
+              duration,
+              {
+                opacity: 0,
+                yPercent: "-=100",
+                display: "none",
+                ease: "expo.in:"
+              },
+              timeDelay
+            )
           })
-          wordSwap.to(
-            el,
-            duration,
-            {
-              opacity: 0,
-              yPercent: "-=100",
-              display: "none",
-              ease: "expo.in:"
-            },
-            timeDelay
-          )
-        })
-      }, 125)
+        }, 125)
+      }
     }
   }
 }
