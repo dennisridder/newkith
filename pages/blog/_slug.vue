@@ -16,6 +16,7 @@
       </div>
     </section>
     <section class="section section-TagList section-TextContent">
+      <h4 class="date">{{ formatDate(story.created_at) }}</h4>
       <blok-tag-list v-if="story.tag_list" :array="story.tag_list" />
     </section>
     <component
@@ -79,6 +80,14 @@ export default {
     this.wordsToArray()
   },
   methods: {
+    formatDate(date) {
+      console.log("DATE", date)
+
+      var d = (new Date(date) + "").split(" ")
+      // d[2] = d[2] + ","
+
+      return [d[2], d[1], d[3]].join(" ")
+    },
     wordsToArray() {
       if (this.story.content.title) {
         var string = this.story.content.title

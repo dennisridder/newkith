@@ -17,11 +17,11 @@
           @mousemove="registerMouse($event)"
         >
           <nuxt-link :id="index" class="blogList-Content cursorInteract animatedHorizontal-Wrapper" :class="{ index }" :to="post.full_slug" tag="div">
+            <div v-if="post.created_at" class="blogList-Content_Date">
+              <h4>{{ formatDate(post.created_at) }}</h4>
+            </div>
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
-            </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
             </div>
             <div>
               <blok-tag-list :array="post.tag_list" />
@@ -29,8 +29,11 @@
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
             </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
+            <div v-if="post.created_at" class="blogList-Content_Date">
+              <h4>{{ formatDate(post.created_at) }}</h4>
+            </div>
+            <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
             </div>
             <div>
                <blok-tag-list :array="post.tag_list" />
@@ -38,26 +41,11 @@
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
             </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
-            </div>
-            <div>
-               <blok-tag-list :array="post.tag_list" />
+            <div v-if="post.created_at" class="blogList-Content_Date">
+              <h4>{{ formatDate(post.created_at) }}</h4>
             </div>
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
-            </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
-            </div>
-            <div>
-              <blok-tag-list :array="post.tag_list" />
-            </div>
-            <div class="blogList-Content_Title">
-              <h2>{{ post.content.title }}</h2>
-            </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
             </div>
             <div>
               <blok-tag-list :array="post.tag_list" />
@@ -65,8 +53,11 @@
        <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
             </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
+            <div v-if="post.created_at" class="blogList-Content_Date">
+              <h4>{{ formatDate(post.created_at) }}</h4>
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
             </div>
             <div>
                <blok-tag-list :array="post.tag_list" />
@@ -74,8 +65,11 @@
        <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
             </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
+            <div v-if="post.created_at" class="blogList-Content_Date">
+              <h4>{{ formatDate(post.created_at) }}</h4>
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
             </div>
             <div>
                <blok-tag-list :array="post.tag_list" />
@@ -83,8 +77,11 @@
        <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
             </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
+            <div v-if="post.created_at" class="blogList-Content_Date">
+              <h4>{{ formatDate(post.created_at) }}</h4>
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
             </div>
             <div>
                <blok-tag-list :array="post.tag_list" />
@@ -92,8 +89,11 @@
        <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
             </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
+            <div v-if="post.created_at" class="blogList-Content_Date">
+              <h4>{{ formatDate(post.created_at) }}</h4>
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
             </div>
             <div>
                <blok-tag-list :array="post.tag_list" />
@@ -101,53 +101,11 @@
        <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
             </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
-            </div>
-            <div>
-               <blok-tag-list :array="post.tag_list" />
+            <div v-if="post.created_at" class="blogList-Content_Date">
+              <h4>{{ formatDate(post.created_at) }}</h4>
             </div>
        <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
-            </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
-            </div>
-            <div>
-               <blok-tag-list :array="post.tag_list" />
-            </div>
-       <div class="blogList-Content_Title">
-              <h2>{{ post.content.title }}</h2>
-            </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
-            </div>
-            <div>
-               <blok-tag-list :array="post.tag_list" />
-            </div>
-       <div class="blogList-Content_Title">
-              <h2>{{ post.content.title }}</h2>
-            </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
-            </div>
-            <div>
-               <blok-tag-list :array="post.tag_list" />
-            </div>
-       <div class="blogList-Content_Title">
-              <h2>{{ post.content.title }}</h2>
-            </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
-            </div>
-            <div>
-               <blok-tag-list :array="post.tag_list" />
-            </div>
-       <div class="blogList-Content_Title">
-              <h2>{{ post.content.title }}</h2>
-            </div>
-            <div v-if="post.content.date" class="blogList-Content_Date">
-              <h2>{{ post.content.date }}</h2>
             </div>
             <div>
                <blok-tag-list :array="post.tag_list" />
@@ -216,6 +174,14 @@ export default {
     this.onScroll()
   },
   methods: {
+    formatDate(date) {
+      console.log("DATE", date)
+
+      var d = (new Date(date) + "").split(" ")
+      // d[2] = d[2] + ","
+
+      return [d[2], d[1], d[3]].join(" ")
+    },
     onScroll() {
       setTimeout(function() {
         const sections = document.querySelectorAll(".animatedHorizontal")
