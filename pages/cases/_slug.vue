@@ -7,7 +7,9 @@
       v-if="story.content.thumbnail"
       class="section section-Thumbnail section-ImageContent scrollFast"
     >
-      <img :src="story.content.thumbnail" alt />
+      <div class="section-Thumbnail_Container">
+        <img :src="story.content.thumbnail" alt />
+      </div>
     </section>
     <section class="section section-TagList section-TextContent">
       <blok-tag-list v-if="story.tag_list" :array="story.tag_list" />
