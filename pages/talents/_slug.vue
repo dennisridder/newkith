@@ -78,8 +78,8 @@ export default {
   },
   methods: {
     wordsToArray() {
-      if (this.title) {
-        var string = this.title
+      if (this.story.content.name) {
+        var string = this.story.content.name
         var array = string.split(/\s+/)
         this.wordsArray = Object.values(array)
       }

@@ -53,7 +53,7 @@
           >
         </ul>
         <ul v-if="pageType === 'caseSlug'">
-          <nuxt-link to="/" class="header-Back cursorInteract" tag="li"
+          <nuxt-link to="/cases" class="header-Back cursorInteract" tag="li"
             ><div
               class="icon"
               v-html="require('~/assets/images/icon-arrow.svg?include')"

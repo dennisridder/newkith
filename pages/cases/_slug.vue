@@ -1,11 +1,7 @@
 <template>
   <div class="section section-CaseSingle section-Single section-Wrapper">
     <section class="section section-Landing section-TextContent">
-      <blok-title-animated
-        v-if="story.name"
-        :words="wordsArray"
-        :wordswap="false"
-      />
+      <blok-title-animated :words="wordsArray" :wordswap="false" />
     </section>
     <section
       v-if="story.content.thumbnail"
@@ -78,8 +74,8 @@ export default {
   },
   methods: {
     wordsToArray() {
-      if (this.title) {
-        var string = this.title
+      if (this.story.content.title) {
+        var string = this.story.content.title
         var array = string.split(/\s+/)
         this.wordsArray = Object.values(array)
       }
