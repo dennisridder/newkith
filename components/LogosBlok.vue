@@ -1,41 +1,71 @@
 <template>
-  <section class="section section-Logos section-TextContent">
+  <section class="section section-Logos section-TextContent ">
     <p>Our partners:</p>
-    <div class="section-Logos_Content">
-      <ul>
-        <component
-          :is="blok.component | dashify"
-          v-for="blok in blok.body"
-          :key="blok._uid"
-          :blok="blok"
-        ></component>
-        <component
-          :is="blok.component | dashify"
-          v-for="blok in blok.body"
-          :key="blok._uid + '1'"
-          :blok="blok"
-        ></component>
-        <component
-          :is="blok.component | dashify"
-          v-for="blok in blok.body"
-          :key="blok._uid + '2'"
-          :blok="blok"
-        ></component>
-        <component
-          :is="blok.component | dashify"
-          v-for="blok in blok.body"
-          :key="blok._uid + '3'"
-          :blok="blok"
-        ></component>
-      </ul>
+    <div class="section-Logos_Content animatedHorizontal">
+      <div class="animatedHorizontal-Wrapper">
+        <ul>
+          <component
+            :is="blok.component | dashify"
+            v-for="blok in blok.body"
+            :key="blok._uid"
+            :blok="blok"
+          ></component>
+          <component
+            :is="blok.component | dashify"
+            v-for="blok in blok.body"
+            :key="blok._uid + '1'"
+            :blok="blok"
+          ></component>
+          <component
+            :is="blok.component | dashify"
+            v-for="blok in blok.body"
+            :key="blok._uid + '2'"
+            :blok="blok"
+          ></component>
+          <component
+            :is="blok.component | dashify"
+            v-for="blok in blok.body"
+            :key="blok._uid + '3'"
+            :blok="blok"
+          ></component>
+        </ul>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
+
 export default {
   props: {
     blok: Object
+  },
+  mounted() {
+    this.onScroll()
+  },
+  methods: {
+    onScroll() {
+      const section = document.querySelector(".animatedHorizontal")
+      const sectionWidth = section.offsetWidth / 1.5
+      const wrapper = document.querySelector(".animatedHorizontal-Wrapper")
+      gsap.utils.toArray(".animatedHorizontal").forEach(el => {
+        gsap.fromTo(
+          wrapper,
+          { x: 0 },
+          {
+            x: -sectionWidth,
+            scrollTrigger: {
+              trigger: el,
+              scrub: true
+            }
+          }
+        )
+      })
+    }
   }
 }
 </script>
@@ -62,7 +92,4 @@ export default {
         display: flex
         flex-wrap: nowrap
         height: 6.5rem
-        animation: carouselLeft 60s infinite linear
-        animation-direction: alternate
-        animation-play-state: running
 </style>

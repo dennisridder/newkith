@@ -11,13 +11,12 @@
       <ul class="blogList">
         <!-- prettier-ignore -->
         <li
-          v-for="post in blogList"
-          :id="post.content.id"
-          :key="post.content.id"
-          class="blogList-Item"
+          v-for="(post, index) in blogList"
+          :key="index"
+          class="blogList-Item animatedHorizontal"
           @mousemove="registerMouse($event)"
         >
-          <nuxt-link class="blogList-Content cursorInteract" :to="post.full_slug" tag="div">
+          <nuxt-link :id="index" class="blogList-Content cursorInteract animatedHorizontal-Wrapper" :class="{ index }" :to="post.full_slug" tag="div">
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
             </div>
@@ -52,7 +51,7 @@
               <h2>{{ post.content.date }}</h2>
             </div>
             <div>
-<blok-tag-list :array="post.tag_list" />
+              <blok-tag-list :array="post.tag_list" />
             </div>
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
@@ -61,7 +60,97 @@
               <h2>{{ post.content.date }}</h2>
             </div>
             <div>
-<blok-tag-list :array="post.tag_list" />
+              <blok-tag-list :array="post.tag_list" />
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
+            </div>
+            <div>
+               <blok-tag-list :array="post.tag_list" />
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
+            </div>
+            <div>
+               <blok-tag-list :array="post.tag_list" />
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
+            </div>
+            <div>
+               <blok-tag-list :array="post.tag_list" />
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
+            </div>
+            <div>
+               <blok-tag-list :array="post.tag_list" />
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
+            </div>
+            <div>
+               <blok-tag-list :array="post.tag_list" />
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
+            </div>
+            <div>
+               <blok-tag-list :array="post.tag_list" />
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
+            </div>
+            <div>
+               <blok-tag-list :array="post.tag_list" />
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
+            </div>
+            <div>
+               <blok-tag-list :array="post.tag_list" />
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
+            </div>
+            <div>
+               <blok-tag-list :array="post.tag_list" />
+            </div>
+       <div class="blogList-Content_Title">
+              <h2>{{ post.content.title }}</h2>
+            </div>
+            <div v-if="post.content.date" class="blogList-Content_Date">
+              <h2>{{ post.content.date }}</h2>
+            </div>
+            <div>
+               <blok-tag-list :array="post.tag_list" />
             </div>
           </nuxt-link>
           <div class="blogList-Image">
@@ -81,6 +170,10 @@
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import landingScrollSpeed from "@/mixins/landingScrollSpeed"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
   mixins: [storyblokLivePreview, landingScrollSpeed],
@@ -120,8 +213,43 @@ export default {
   mounted() {
     this.removeFirstOfarray()
     this.filterArray()
+    this.onScroll()
   },
   methods: {
+    onScroll() {
+      setTimeout(function() {
+        const sections = document.querySelectorAll(".animatedHorizontal")
+        const sectionWidth = window.innerWidth / 1.5
+        sections.forEach((el, index) => {
+          const wrapper = document.getElementById(index)
+          if (index % 2 === 0) {
+            gsap.fromTo(
+              wrapper,
+              { x: 0 },
+              {
+                x: -sectionWidth,
+                scrollTrigger: {
+                  trigger: el,
+                  scrub: true
+                }
+              }
+            )
+          } else {
+            gsap.fromTo(
+              wrapper,
+              { x: -sectionWidth },
+              {
+                x: 0,
+                scrollTrigger: {
+                  trigger: el,
+                  scrub: true
+                }
+              }
+            )
+          }
+        })
+      }, 100)
+    },
     removeFirstOfarray() {
       var arr = this.stories
       arr.shift()
@@ -198,16 +326,9 @@ export default {
     cursor: pointer
     align-items: center
     margin-left: 3rem
-    animation: carouselLeft 60s infinite linear
-    animation-direction: alternate
-    animation-play-state: running
     > div
       flex-shrink: 0
       margin-right: 3rem
     &_Title
       max-width: 30em
-
-  &-Item:nth-child(2n)
-    .blogList-Content
-      animation: carouselRight 60s infinite linear
 </style>

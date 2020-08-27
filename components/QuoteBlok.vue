@@ -1,6 +1,6 @@
 <template>
-  <section class="section section-Quote section-TextContent">
-    <ul class="section-Quote_Wrapper">
+  <section class="section section-Quote section-TextContent animatedHorizontal">
+    <ul class="section-Quote_Wrapper animatedHorizontal-Wrapper">
       <li class="section-Quote_Item">
         <h1>{{ blok.quote }}&nbsp;</h1>
       </li>
@@ -46,21 +46,19 @@ export default {
     blok: Object
   },
   mounted() {
-    console.log(this.blok)
     this.onScroll()
   },
   methods: {
     onScroll() {
-      const section = document.querySelector(".section-Quote")
-      const sectionWidth = section.offsetWidth
-      const wrapper = document.querySelector(".section-Quote_Wrapper")
-      //   const wrapperWidth = wrapper.scrollWidth
-      gsap.utils.toArray(".section-Quote").forEach(el => {
+      const section = document.querySelector(".animatedHorizontal")
+      const sectionWidth = section.offsetWidth / 1.5
+      const wrapper = document.querySelector(".animatedHorizontal-Wrapper")
+      gsap.utils.toArray(".animatedHorizontal").forEach(el => {
         gsap.fromTo(
           wrapper,
           { x: 0 },
           {
-            x: 0 - sectionWidth,
+            x: -sectionWidth,
             scrollTrigger: {
               trigger: el,
               scrub: true
