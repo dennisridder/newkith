@@ -112,7 +112,8 @@ export default {
       h2
         font-family: 'SohneSchmal HalbfettKursiv'
   &-Details
-    max-width: 90%
+    display: flex
+    flex-direction: column
   img
     max-width: 100%
 

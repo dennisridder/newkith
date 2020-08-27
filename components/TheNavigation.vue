@@ -65,7 +65,7 @@
     </div>
     <div class="header-Bottom">
       <div class="header-Bottom_Items">
-        <h1 class="header-ContentTitle">New Kith Management</h1>
+        <p class="header-ContentTitle">New Kith Management</p>
         <p class="header-ContentText">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -74,7 +74,7 @@
         </p>
       </div>
       <div class="header-Bottom_Items">
-        <h1 class="header-ContentTitle">New Kith Creative</h1>
+        <p class="header-ContentTitle">New Kith Creative</p>
         <p class="header-ContentText">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -83,7 +83,7 @@
         </p>
       </div>
       <div class="header-Bottom_Items">
-        <h1 class="header-ContentTitle">New Kith Academy</h1>
+        <p class="header-ContentTitle">New Kith Academy</p>
         <p class="header-ContentText">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
