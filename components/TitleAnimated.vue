@@ -44,11 +44,10 @@ export default {
     },
     wordsLoad() {
       let duration = 0.5
-      // let delay = 2
-      var timeDelay = duration
+      let delay = 0.5
       gsap.to(".animated-Word", {
         duration: duration,
-        stagger: timeDelay,
+        stagger: delay,
         yPercent: -100,
         opacity: 1,
         ease: "expo.in:"
