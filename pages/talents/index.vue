@@ -3,7 +3,7 @@
     <section class="section section-Landing section-TextContent">
       <blok-title-animated
         :words="['Meet', 'our', 'talents']"
-        wordswap="false"
+        :wordswap="false"
       />
     </section>
     <blok-filter-list :array="filterList" />
