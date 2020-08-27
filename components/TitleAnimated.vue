@@ -43,19 +43,24 @@ export default {
       this.middleWords = this.words.slice(1, this.words.length - 1)
     },
     wordsLoad() {
-      let duration = 0.5
-      let delay = 0.5
+      let duration = 0.25
+      let delay = 0.4
       gsap.to(".animated-Word", {
         duration: duration,
         stagger: delay,
         yPercent: -100,
+        ease: "expo.out:"
+      })
+      gsap.to(".animated-Word", {
+        duration: duration,
+        stagger: delay,
         opacity: 1,
-        ease: "expo.in:"
+        ease: "ease.in:"
       })
     },
     wordsSwap() {
-      let duration = 0.5
-      let delay = 2
+      let duration = 0.25
+      let delay = 2.75
 
       setTimeout(function() {
         var targets = document.querySelectorAll(".swapWord")
@@ -66,7 +71,7 @@ export default {
             opacity: 1,
             yPercent: -100,
             display: "inline-block",
-            ease: "expo.in:"
+            ease: "expo.out:"
           })
           wordSwap.to(
             el,
@@ -75,7 +80,7 @@ export default {
               opacity: 0,
               yPercent: "-=100",
               display: "none",
-              ease: "expo.out:"
+              ease: "expo.in:"
             },
             timeDelay
           )
