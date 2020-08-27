@@ -9,7 +9,9 @@
 <script>
 export default {
   props: { array: Array },
-  mounted() {}
+  mounted() {
+    // console.log("TAGLIST", this.array)
+  }
 }
 </script>
 <style lang="sass">

@@ -88,14 +88,30 @@ export default {
     console.log("DATA HOMEPAGE", this.story)
   },
   methods: {
+    shuffle(arr) {
+      function getRandomInt(n) {
+        return Math.floor(Math.random() * n)
+      }
+      var n = arr.length // Length of the array
+
+      for (var i = 0; i < n - 1; ++i) {
+        var j = getRandomInt(n) // Get random of [0, n-1]
+
+        var temp = arr[i] // Swap arr[i] and arr[j]
+        arr[i] = arr[j]
+        arr[j] = temp
+      }
+    },
     filterCases() {
       let array = this.cases
       let filteredArray = array.slice(1, 6)
+      this.shuffle(filteredArray)
       this.casesList = filteredArray
     },
     filterTalents() {
       let array = this.talents
       let filteredArray = array.slice(1, 4)
+      this.shuffle(filteredArray)
       this.talentsList = filteredArray
     },
     filterArrayCases() {
