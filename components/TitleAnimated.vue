@@ -1,5 +1,5 @@
 <template>
-  <div :key="componentKey" class="rerender">
+  <div class="rerender">
     <ul v-if="wordswap === true" class="title title-Animated">
       <li>
         <h1 class="animated-Word">{{ firstWord }}&nbsp;</h1>
@@ -36,8 +36,8 @@ export default {
     return {
       firstWord: "",
       lastWord: "",
-      middleWords: [],
-      componentKey: 0
+      middleWords: []
+      // componentKey: 0
     }
   },
   created() {},
@@ -46,19 +46,12 @@ export default {
     this.wordsSort()
     this.wordsLoadAnimated()
     this.wordsSwap()
-    window.addEventListener("resize", this.forceRerender)
+    // window.addEventListener("resize", this.forceRerender)
   },
   destroyed() {
-    window.removeEventListener("resize", this.forceRerender)
+    // window.removeEventListener("resize", this.forceRerender)
   },
   methods: {
-    forceRerender() {
-      this.componentKey += 1
-      setTimeout(function() {
-        var element = document.querySelector(".rerender")
-        element.style.webkitTransform = "scale(1)"
-      }, 250)
-    },
     wordsSort() {
       this.firstWord = this.words[0]
       this.lastWord = this.words[this.words.length - 1]
