@@ -3,6 +3,9 @@
     <div class="footer-Background"></div>
     <div class="footer-Content">
       <ul>
+        <li class="footer-Content_Title">
+          <p>{{ general[0].content.footer_title }}</p>
+        </li>
         <li>
           <p>{{ general[0].content.footer_text }}</p>
         </li>
@@ -195,6 +198,8 @@ export default {
     padding-left: var(--spacing-content-sides)
     padding-right: var(--spacing-content-sides)
     padding-bottom: var(--spacing-three)
+    &_Title
+      margin-bottom: 1.55rem
     ul
       flex-basis: 25%
     a
