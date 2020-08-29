@@ -1,5 +1,5 @@
 <template>
-  <div :key="componentKey">
+  <div :key="componentKey" class="rerender">
     <ul v-if="wordswap === true" class="title title-Animated">
       <li>
         <h1 class="animated-Word">{{ firstWord }}&nbsp;</h1>
@@ -54,6 +54,10 @@ export default {
   methods: {
     forceRerender() {
       this.componentKey += 1
+      setTimeout(function() {
+        var element = document.querySelector(".rerender")
+        element.style.webkitTransform = "scale(1)"
+      }, 250)
     },
     wordsSort() {
       this.firstWord = this.words[0]
@@ -135,6 +139,9 @@ export default {
 </script>
 
 <style lang="sass">
+.rerender
+  transform: translateZ(0)
+
 .title
   display: flex
   flex-wrap: wrap
