@@ -19,20 +19,8 @@ export default {
     "the-navigation": TheNavigation
   },
   mixins: [cursorInteraction],
-  watch: {
-    $route() {
-      // this.scrollSpeedTitles()
-    }
-  },
   mounted() {
     this.footerPadding()
-    // this.scrollSpeedTitles()
-  },
-  updated() {
-    // this.scrollSpeedTitles()
-  },
-  destroyed() {
-    // this.scrollSpeedTitles()
   },
   methods: {
     footerPadding() {
