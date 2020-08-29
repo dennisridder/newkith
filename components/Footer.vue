@@ -4,8 +4,7 @@
     <div class="footer-Content">
       <ul>
         <li>
-          We are a digital design studio from Auckland, New Zealand specialising
-          in the fields of web, motion and new media design.
+          <p>{{ general[0].content.footer_text }}</p>
         </li>
         <li class="footer-Link navLink cursorInteract">
           <div
@@ -39,8 +38,8 @@
             class="icon"
             v-html="require('~/assets/images/icon-mail.svg?include')"
           />
-          <a href="mailto:info@newkith.com" target="_blank">
-            info@newkith.com
+          <a :href="`mailto:${general[0].content.general_email}`">
+            {{ general[0].content.general_email }}
           </a>
         </li>
         <li class="navLink cursorInteract">
@@ -48,8 +47,8 @@
             class="icon"
             v-html="require('~/assets/images/icon-call.svg?include')"
           />
-          <a href="tel:0031636101262" target="_blank">
-            +31(0)636101262
+          <a :href="`tel:0031${general[0].content.general_phone_number}`">
+            +31(0){{ general[0].content.general_phone_number }}
           </a>
         </li>
         <li class="navLink cursorInteract">
@@ -81,6 +80,7 @@
 <script>
 import { gsap } from "gsap"
 import lodash from "lodash"
+import { mapState } from "vuex"
 
 export default {
   data() {
@@ -88,6 +88,11 @@ export default {
       scrollPosition: 0,
       showFooter: false
     }
+  },
+  computed: {
+    ...mapState({
+      general: state => state.general.list
+    })
   },
   mounted() {
     this.handleDebouncedScroll = lodash.debounce(this.updateScrollPosition, 50)

@@ -46,6 +46,17 @@ export default {
         }
       })
       commit("talents/update", talents)
+
+      let getGeneral = await app.$storyapi.get("cdn/stories", {
+        version: process.env.NODE_ENV === "production" ? "published" : "draft",
+        starts_with: "general/"
+      })
+      let general = getGeneral.data.stories.map(bp => {
+        return {
+          content: bp.content
+        }
+      })
+      commit("general/update", general)
     }
   }
 }

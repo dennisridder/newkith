@@ -23,15 +23,21 @@
             >Our story</nuxt-link
           >
           <li class="icon cursorInteract">
-            <div
-              v-html="require('~/assets/images/icon-instagram.svg?include')"
-            />
+            <a href="https://www.instagram.com/new.kith/" target="_blank">
+              <div
+                v-html="require('~/assets/images/icon-instagram.svg?include')"
+              />
+            </a>
           </li>
           <li class="icon cursorInteract">
-            <div v-html="require('~/assets/images/icon-mail.svg?include')" />
+            <a :href="`mailto:${general[0].content.general_email}`">
+              <div v-html="require('~/assets/images/icon-mail.svg?include')" />
+            </a>
           </li>
           <li class="icon cursorInteract">
-            <div v-html="require('~/assets/images/icon-call.svg?include')" />
+            <a :href="`tel:0031${general[0].content.general_phone_number}`">
+              <div v-html="require('~/assets/images/icon-call.svg?include')" />
+            </a>
           </li>
         </ul>
         <ul v-if="pageType === 'blogSlug'">
@@ -65,30 +71,27 @@
     </div>
     <div class="header-Bottom">
       <div class="header-Bottom_Items">
-        <p class="header-ContentTitle">New Kith Management</p>
+        <p class="header-ContentTitle">
+          {{ general[0].content.header_title_column_one }}
+        </p>
         <p class="header-ContentText">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          {{ general[0].content.header_text_column_one }}
         </p>
       </div>
       <div class="header-Bottom_Items">
-        <p class="header-ContentTitle">New Kith Creative</p>
+        <p class="header-ContentTitle">
+          {{ general[0].content.header_title_column_two }}
+        </p>
         <p class="header-ContentText">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          {{ general[0].content.header_text_column_two }}
         </p>
       </div>
       <div class="header-Bottom_Items">
-        <p class="header-ContentTitle">New Kith Academy</p>
+        <p class="header-ContentTitle">
+          {{ general[0].content.header_title_column_three }}
+        </p>
         <p class="header-ContentText">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          {{ general[0].content.header_text_column_three }}
         </p>
       </div>
     </div>
@@ -97,6 +100,7 @@
 
 <script>
 import gsap from "gsap"
+import { mapState } from "vuex"
 
 export default {
   name: "TheNavigation",
@@ -108,12 +112,18 @@ export default {
       services: false
     }
   },
+  computed: {
+    ...mapState({
+      general: state => state.general.list
+    })
+  },
   watch: {
     $route() {
       this.checkPageType()
       this.toggleMainNav()
     }
   },
+
   mounted() {
     this.checkPageType()
     this.toggleMainNav()
