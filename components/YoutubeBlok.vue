@@ -29,7 +29,7 @@ import $ from "jquery"
 export default {
   props: {
     blok: Object
-  }
+  },
   methods: {
     imageTilt: function(event) {
       var el = $("#" + this.blok._uid)
