@@ -250,6 +250,7 @@ export default {
     width: 100%
     overflow-x: auto
     border-top: $border
+    // z-index: 100
     &:hover
       .blogList-Content
         animation-play-state: running
@@ -270,10 +271,11 @@ export default {
     align-items: center
     visibility: hidden
     pointer-events: none
+    z-index: +100
     .image-Effect
       > div
-        width: 40vw
-        height: 75vh
+        width: 35vw
+        height: 35vw
         display: flex
         justify-content: center
         align-items: center
@@ -288,6 +290,7 @@ export default {
     cursor: pointer
     align-items: center
     margin-left: 3rem
+    // z-index: +800
     > div
       flex-shrink: 0
       margin-right: 3rem
