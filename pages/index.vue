@@ -6,8 +6,9 @@
         :wordswap="true"
       />
     </section>
-    <blok-filter-list :array="filterListCases" />
+    <blok-filter-list v-if="filterListCases" :array="filterListCases" />
     <blok-image-grid
+      v-if="casesListShuffled"
       :array="casesListShuffled"
       slug="/cases/"
       title="Cases"
@@ -15,8 +16,9 @@
       :footertitle="story.content.body[0].cases_imagegrid_title"
       :footertext="story.content.body[0].cases_imagegrid_text"
     />
-    <blok-filter-list :array="filterListTalents" />
+    <blok-filter-list v-if="filterListTalents" :array="filterListTalents" />
     <blok-image-grid
+      v-if="talentsListShuffled"
       :array="talentsListShuffled"
       slug="/talents/"
       title="Talents"

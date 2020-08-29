@@ -6,8 +6,8 @@
         :wordswap="false"
       />
     </section>
-    <blok-filter-list :array="filterList" />
-    <section class="section section-Blog">
+    <blok-filter-list v-if="filterList" :array="filterList" />
+    <section v-if="blogList" class="section section-Blog">
       <ul class="blogList">
         <!-- prettier-ignore -->
         <li
@@ -111,7 +111,7 @@
                <blok-tag-list :array="post.tag_list" />
             </div>
           </nuxt-link>
-          <div class="blogList-Image">
+          <div v-if="post.content.thumbnail" class="blogList-Image">
             <blok-image-container-blog
               :id="post.content._uid"
               :image="post.content.thumbnail"

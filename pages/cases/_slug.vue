@@ -1,6 +1,9 @@
 <template>
   <div class="section section-CaseSingle section-Single section-Wrapper">
-    <section class="section section-Landing section-TextContent">
+    <section
+      v-if="wordsArray"
+      class="section section-Landing section-TextContent"
+    >
       <blok-title-animated :words="wordsArray" :wordswap="false" />
     </section>
     <section
@@ -11,8 +14,11 @@
         <img :src="story.content.thumbnail" alt />
       </div>
     </section>
-    <section class="section section-TagList section-TextContent">
-      <blok-tag-list v-if="story.tag_list" :array="story.tag_list" />
+    <section
+      v-if="story.tag_list"
+      class="section section-TagList section-TextContent"
+    >
+      <blok-tag-list :array="story.tag_list" />
     </section>
     <component
       :is="blok.component | dashify"
