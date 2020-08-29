@@ -1,6 +1,6 @@
 <template>
-  <div :key="randomKey" :class="randomKey">
-    <ul v-if="wordswap === true" :key="randomKey" class="title title-Animated">
+  <div :key="componentKey">
+    <ul v-if="wordswap === true" class="title title-Animated">
       <li>
         <h1 class="animated-Word">{{ firstWord }}&nbsp;</h1>
       </li>
@@ -13,7 +13,7 @@
         <h1 class="animated-Word">{{ lastWord }}&nbsp;</h1>
       </li>
     </ul>
-    <ul v-else :key="randomKey" class="title title-Animated">
+    <ul v-else class="title title-Animated">
       <li>
         <h1 v-for="word in words" :key="word" class="word">{{ word }}&nbsp;</h1>
       </li>
@@ -37,7 +37,7 @@ export default {
       firstWord: "",
       lastWord: "",
       middleWords: [],
-      randomKey: 0
+      componentKey: 0
     }
   },
   created() {},
@@ -46,16 +46,14 @@ export default {
     this.wordsSort()
     this.wordsLoadAnimated()
     this.wordsSwap()
-    window.addEventListener("resize", this.onResize)
+    window.addEventListener("resize", this.forceRerender)
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.forceRerender)
   },
   methods: {
-    onResize() {
-      console.log("RESIZED")
-      this.$forceUpdate()
-      setTimeout(function() {
-        var key = Math.floor(Math.random() * 10)
-        this.randomKey = key
-      }, 1000)
+    forceRerender() {
+      this.componentKey += 1
     },
     wordsSort() {
       this.firstWord = this.words[0]
