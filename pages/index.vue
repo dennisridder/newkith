@@ -8,8 +8,8 @@
     </section>
     <blok-filter-list v-if="filterListCases" :array="filterListCases" />
     <blok-image-grid
-      v-if="casesListShuffled"
-      :array="casesListShuffled"
+      v-if="casesList"
+      :array="casesList"
       slug="/cases/"
       title="Cases"
       rowtype="verticalRowIrregular"
@@ -18,8 +18,8 @@
     />
     <blok-filter-list v-if="filterListTalents" :array="filterListTalents" />
     <blok-image-grid
-      v-if="talentsListShuffled"
-      :array="talentsListShuffled"
+      v-if="talentsList"
+      :array="talentsList"
       slug="/talents/"
       title="Talents"
       rowtype="verticalRowIrregular"
@@ -71,9 +71,7 @@ export default {
     return {
       story: { content: {} },
       casesList: [],
-      casesListShuffled: [],
       talentsList: [],
-      talentsListShuffled: [],
       filterListCases: [],
       filterListTalents: []
     }
@@ -108,17 +106,17 @@ export default {
     },
     filterCases() {
       let array = this.cases
-      let filteredArray = array.slice(1, 6)
+      this.shuffle(array)
+      let filteredArray = array.slice(1, 4)
       this.casesList = filteredArray
-      this.shuffle(filteredArray)
-      this.casesListShuffled = filteredArray
+      console.log(this.casesList)
     },
     filterTalents() {
       let array = this.talents
-      let filteredArray = array.slice(1, 4)
+      this.shuffle(array)
+      let filteredArray = array.slice(1, 6)
       this.talentsList = filteredArray
-      this.shuffle(filteredArray)
-      this.talentsListShuffled = filteredArray
+      console.log(this.talentsList)
     },
     filterArrayCases() {
       var array = this.casesList
