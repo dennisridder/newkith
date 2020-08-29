@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <ul v-if="wordswap === true" class="title title-Animated">
+  <div :key="randomKey" :class="randomKey">
+    <ul v-if="wordswap === true" :key="randomKey" class="title title-Animated">
       <li>
         <h1 class="animated-Word">{{ firstWord }}&nbsp;</h1>
       </li>
@@ -13,7 +13,7 @@
         <h1 class="animated-Word">{{ lastWord }}&nbsp;</h1>
       </li>
     </ul>
-    <ul v-else class="title title-Animated">
+    <ul v-else :key="randomKey" class="title title-Animated">
       <li>
         <h1 v-for="word in words" :key="word" class="word">{{ word }}&nbsp;</h1>
       </li>
@@ -36,16 +36,27 @@ export default {
     return {
       firstWord: "",
       lastWord: "",
-      middleWords: []
+      middleWords: [],
+      randomKey: 0
     }
   },
+  created() {},
   mounted() {
     this.wordsLoad()
     this.wordsSort()
     this.wordsLoadAnimated()
     this.wordsSwap()
+    window.addEventListener("resize", this.onResize)
   },
   methods: {
+    onResize() {
+      console.log("RESIZED")
+      this.$forceUpdate()
+      setTimeout(function() {
+        var key = Math.floor(Math.random() * 10)
+        this.randomKey = key
+      }, 1000)
+    },
     wordsSort() {
       this.firstWord = this.words[0]
       this.lastWord = this.words[this.words.length - 1]
@@ -71,7 +82,6 @@ export default {
         }, 125)
       }
     },
-
     wordsLoadAnimated() {
       if (this.wordswap === true) {
         setTimeout(function() {
@@ -93,9 +103,8 @@ export default {
       }
     },
     wordsSwap() {
-      let duration = 0.25
-      let delay = 1.5
-
+      let duration = 0.125
+      let delay = 1.25
       if (this.wordswap === true) {
         setTimeout(function() {
           var targets = document.querySelectorAll(".swapWord")
@@ -120,7 +129,7 @@ export default {
               timeDelay
             )
           })
-        }, 125)
+        }, 250)
       }
     }
   }
