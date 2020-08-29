@@ -58,7 +58,6 @@ export default {
   },
   mounted() {
     this.wordsToArray()
-    console.log("IMAGEGRID DATA", this.array, this.slug, this.title)
   },
   methods: {
     wordsToArray() {

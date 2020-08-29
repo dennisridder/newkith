@@ -9,9 +9,7 @@ export default {
   methods: {
     scrollSpeedImages() {
       var titles = document.querySelectorAll(".scrollFast")
-      // console.log(titles)
       titles.forEach(el => {
-        // console.log(el)
         gsap.to(el, {
           y: ScrollTrigger.maxScroll(window) * -0.1,
           ease: "none",

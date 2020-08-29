@@ -9,7 +9,6 @@ export default {
   methods: {
     scrollSpeedTitles() {
       var titles = document.querySelectorAll(".scrollSlow")
-      // console.log(titles)
       titles.forEach(el => {
         gsap.to(el, {
           y: ScrollTrigger.maxScroll(window) * 0.5,

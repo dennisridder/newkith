@@ -87,7 +87,6 @@ export default {
     this.filterTalents()
     this.filterArrayCases()
     this.filterArrayTalents()
-    console.log("DATA HOMEPAGE", this.story)
   },
   methods: {
     shuffle(arr) {
@@ -109,14 +108,12 @@ export default {
       this.shuffle(array)
       let filteredArray = array.slice(1, 4)
       this.casesList = filteredArray
-      console.log(this.casesList)
     },
     filterTalents() {
       let array = this.talents
       this.shuffle(array)
       let filteredArray = array.slice(1, 6)
       this.talentsList = filteredArray
-      console.log(this.talentsList)
     },
     filterArrayCases() {
       var array = this.casesList

@@ -8,10 +8,7 @@
 
 <script>
 export default {
-  props: { array: Array },
-  mounted() {
-    // console.log("TAGLIST", this.array)
-  }
+  props: { array: Array }
 }
 </script>
 <style lang="sass">
