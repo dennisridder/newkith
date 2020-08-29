@@ -133,7 +133,9 @@ export default {
       if (this.isActive === "one") {
         this.isActive = "two"
         gsap.to(".section-Wrapper", {
-          y: document.querySelector(".header-Top").offsetHeight,
+          css: {
+            marginTop: document.querySelector(".header-Top").offsetHeight
+          },
           duration: "0.75",
           ease: "expo.out"
         })
@@ -147,7 +149,9 @@ export default {
     mouseLeaveTop() {
       if (this.isActive === "two") {
         gsap.to(".section-Wrapper", {
-          y: "0",
+          css: {
+            marginTop: 0
+          },
           duration: "0.75",
           ease: "expo.out"
         })
@@ -164,7 +168,9 @@ export default {
       if (this.services === true) {
         this.isActive = "three"
         gsap.to(".section-Wrapper", {
-          y: document.querySelector(".header").offsetHeight,
+          css: {
+            marginTop: document.querySelector(".header").offsetHeight
+          },
           duration: "0.75",
           ease: "expo.out"
         })
@@ -188,7 +194,9 @@ export default {
       } else {
         this.isActive = "two"
         gsap.to(".section-Wrapper", {
-          y: document.querySelector(".header-Top").offsetHeight,
+          css: {
+            marginTop: document.querySelector(".header-Top").offsetHeight
+          },
           duration: "0.65",
           delay: "0.25",
           ease: "expo.out"
@@ -215,7 +223,9 @@ export default {
     mouseLeaveAll() {
       if (this.isActive === "three") {
         gsap.to(".section-Wrapper", {
-          y: "0",
+          css: {
+            marginTop: 0
+          },
           duration: "0.65",
           delay: "0.25",
           ease: "expo.out"
