@@ -110,6 +110,7 @@ export default {
     &:hover
       h2
         font-family: 'SohneSchmal HalbfettKursiv'
+        color: $support-color
   &-Details
     display: flex
     flex-direction: column
