@@ -4,7 +4,18 @@
     v-editable="blok"
     class="section section-Text section-TextContent"
   >
-    <!-- <h1 v-if="blok.title" class="text-Title">{{ blok.title }}</h1> -->
+    <h1 v-if="blok.title_large" class="section-Text_Title">
+      {{ blok.title_large }}
+    </h1>
+    <h2 v-if="blok.title_medium" class="section-Text_Title">
+      {{ blok.title_medium }}
+    </h2>
+    <p
+      v-if="blok.title_small"
+      class="section-Text_Title section-Text_Title_Small"
+    >
+      {{ blok.title_small }}
+    </p>
     <markdown-item :input="blok.text" />
   </section>
 </template>
@@ -18,6 +29,9 @@ export default {
   },
   props: {
     blok: Object
+  },
+  mounted() {
+    console.log(this.blok)
   }
 }
 </script>
@@ -26,6 +40,10 @@ export default {
 .section-Text
   overflow: hidden
   width: 100%
+  &_Title
+    line-height: 1.55
+    &_Small
+      margin-bottom: 1.55rem
   img
     width: 100%
     height: auto
