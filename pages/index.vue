@@ -6,7 +6,7 @@
         :wordswap="true"
       />
     </section>
-    <blok-filter-list v-if="filterListCases" :array="filterListCases" />
+    <!-- <blok-filter-list v-if="filterListCases" :array="filterListCases" /> -->
     <blok-image-grid
       v-if="casesList"
       :array="casesList"
@@ -16,7 +16,7 @@
       :footertitle="story.content.body[0].cases_imagegrid_title"
       :footertext="story.content.body[0].cases_imagegrid_text"
     />
-    <blok-filter-list v-if="filterListTalents" :array="filterListTalents" />
+    <!-- <blok-filter-list v-if="filterListTalents" :array="filterListTalents" /> -->
     <blok-image-grid
       v-if="talentsList"
       :array="talentsList"
@@ -71,9 +71,9 @@ export default {
     return {
       story: { content: {} },
       casesList: [],
-      talentsList: [],
-      filterListCases: [],
-      filterListTalents: []
+      talentsList: []
+      // filterListCases: [],
+      // filterListTalents: []
     }
   },
   computed: {
@@ -83,10 +83,9 @@ export default {
     })
   },
   mounted() {
+    console.log(this.cases)
     this.filterCases()
     this.filterTalents()
-    this.filterArrayCases()
-    this.filterArrayTalents()
   },
   methods: {
     shuffle(arr) {
@@ -104,38 +103,19 @@ export default {
       }
     },
     filterCases() {
-      let array = this.cases
+      // Clone array
+      let array = this.cases.slice(0)
+      array.shift()
       this.shuffle(array)
       let filteredArray = array.slice(1, 4)
       this.casesList = filteredArray
     },
     filterTalents() {
-      let array = this.talents
+      let array = this.talents.slice(0)
+      array.shift()
       this.shuffle(array)
       let filteredArray = array.slice(1, 6)
       this.talentsList = filteredArray
-    },
-    filterArrayCases() {
-      var array = this.casesList
-      var filteredArray = array.map(el => {
-        return el.taglist[0]
-      })
-      // Remove duplicates
-      const uniqueSet = new Set(filteredArray)
-      const backToArray = [...uniqueSet]
-      // Set filterList data
-      this.filterListCases = backToArray
-    },
-    filterArrayTalents() {
-      var array = this.talentsList
-      var filteredArray = array.map(el => {
-        return el.taglist[0]
-      })
-      // Remove duplicates
-      const uniqueSet = new Set(filteredArray)
-      const backToArray = [...uniqueSet]
-      // Set filterList data
-      this.filterListTalents = backToArray
     }
   }
 }
