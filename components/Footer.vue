@@ -9,13 +9,13 @@
         <li>
           <p>{{ general[0].content.footer_text }}</p>
         </li>
-        <li class="footer-Link navLink cursorInteract">
+        <nuxt-link to="/about" class="link navLink cursorInteract">
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
-          Read our story
-        </li>
+          <p>Read our story</p>
+        </nuxt-link>
       </ul>
       <ul></ul>
       <ul>
@@ -36,7 +36,7 @@
         >
       </ul>
       <ul>
-        <li class="navLink cursorInteract">
+        <li class="link cursorInteract">
           <div
             class="icon"
             v-html="require('~/assets/images/icon-mail.svg?include')"
@@ -45,7 +45,7 @@
             {{ general[0].content.general_email }}
           </a>
         </li>
-        <li class="navLink cursorInteract">
+        <li class="link cursorInteract">
           <div
             class="icon"
             v-html="require('~/assets/images/icon-call.svg?include')"
@@ -54,7 +54,7 @@
             +31(0){{ general[0].content.general_phone_number }}
           </a>
         </li>
-        <li class="navLink cursorInteract">
+        <li class="link cursorInteract">
           <div
             class="icon"
             v-html="require('~/assets/images/icon-location.svg?include')"
@@ -63,7 +63,7 @@
             Directions
           </a>
         </li>
-        <li class="navLink cursorInteract">
+        <li class="link cursorInteract">
           <div
             class="icon"
             v-html="require('~/assets/images/icon-instagram.svg?include')"

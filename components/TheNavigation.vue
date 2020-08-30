@@ -19,29 +19,36 @@
           <nuxt-link to="/blog" class="cursorInteract" tag="li"
             >What's happening</nuxt-link
           >
-          <nuxt-link to="/about" class="cursorInteract" tag="li"
+          <nuxt-link to="/about" class="header-Story cursorInteract" tag="li"
             >Our story</nuxt-link
           >
-          <li class="icon cursorInteract">
+          <li class="cursorInteract">
             <a href="https://www.instagram.com/new.kith/" target="_blank">
               <div
+                class="icon"
                 v-html="require('~/assets/images/icon-instagram.svg?include')"
               />
             </a>
           </li>
-          <li class="icon cursorInteract">
+          <li class="cursorInteract">
             <a :href="`mailto:${general[0].content.general_email}`">
-              <div v-html="require('~/assets/images/icon-mail.svg?include')" />
+              <div
+                class="icon"
+                v-html="require('~/assets/images/icon-mail.svg?include')"
+              />
             </a>
           </li>
-          <li class="icon cursorInteract">
+          <li class="cursorInteract">
             <a :href="`tel:0031${general[0].content.general_phone_number}`">
-              <div v-html="require('~/assets/images/icon-call.svg?include')" />
+              <div
+                class="icon"
+                v-html="require('~/assets/images/icon-call.svg?include')"
+              />
             </a>
           </li>
         </ul>
         <ul v-if="pageType === 'blogSlug'">
-          <nuxt-link to="/blog" class="header-Back cursorInteract" tag="li"
+          <nuxt-link to="/blog" class="header-Back link cursorInteract" tag="li"
             ><div
               class="icon"
               v-html="require('~/assets/images/icon-arrow.svg?include')"
@@ -50,7 +57,10 @@
           >
         </ul>
         <ul v-if="pageType === 'talentSlug'">
-          <nuxt-link to="/talents" class="header-Back cursorInteract" tag="li"
+          <nuxt-link
+            to="/talents"
+            class="header-Back link cursorInteract"
+            tag="li"
             ><div
               class="icon"
               v-html="require('~/assets/images/icon-arrow.svg?include')"
@@ -59,7 +69,10 @@
           >
         </ul>
         <ul v-if="pageType === 'caseSlug'">
-          <nuxt-link to="/cases" class="header-Back cursorInteract" tag="li"
+          <nuxt-link
+            to="/cases"
+            class="header-Back link cursorInteract"
+            tag="li"
             ><div
               class="icon"
               v-html="require('~/assets/images/icon-arrow.svg?include')"
@@ -77,6 +90,13 @@
         <p class="header-ContentText">
           {{ general[0].content.header_text_column_one }}
         </p>
+        <nuxt-link to="/talents" class="link header-ContentText cursorInteract">
+          <div
+            class="icon"
+            v-html="require('~/assets/images/icon-arrow.svg?include')"
+          />
+          <p>See our talents</p>
+        </nuxt-link>
       </div>
       <div class="header-Bottom_Items">
         <p class="header-ContentTitle">
@@ -85,6 +105,13 @@
         <p class="header-ContentText">
           {{ general[0].content.header_text_column_two }}
         </p>
+        <nuxt-link to="/cases" class="link header-ContentText cursorInteract">
+          <div
+            class="icon"
+            v-html="require('~/assets/images/icon-arrow.svg?include')"
+          />
+          <p>See our work</p>
+        </nuxt-link>
       </div>
       <div class="header-Bottom_Items">
         <p class="header-ContentTitle">
@@ -93,6 +120,13 @@
         <p class="header-ContentText">
           {{ general[0].content.header_text_column_three }}
         </p>
+        <nuxt-link to="/about" class="link header-ContentText cursorInteract">
+          <div
+            class="icon"
+            v-html="require('~/assets/images/icon-arrow.svg?include')"
+          />
+          <p>Read more</p>
+        </nuxt-link>
       </div>
     </div>
   </header>
@@ -121,6 +155,7 @@ export default {
     $route() {
       this.checkPageType()
       this.toggleMainNav()
+      this.mouseLeaveAll()
     }
   },
 
@@ -297,11 +332,12 @@ export default {
       pointer-events: auto
   &.three
     pointer-events: auto
-    .header-Services
-      border-bottom: $border
+    // .header-Services
+    //   border-bottom: $border
   &-Top
     display: flex
     justify-content: space-between
+    align-items: center
     padding: 3rem var(--spacing-content-sides)
   &-Bottom
     display: flex
@@ -326,29 +362,26 @@ export default {
     margin-right: 1rem
     &:last-child
       margin-right: 0
+      .icon
+        margin-right: 0
   &-Nav
     li
+      display: flex
+      align-items: center
       cursor: pointer
-      padding-bottom: .5rem
+      .icon
+        margin-right: 0
       &:hover, &.nuxt-link-exact-active
         text-decoration: none
-        border-bottom: $border
-    .icon
-      display: flex
-      justify-content: center
-      align-items: flex-start
-      height: auto
-      padding-bottom: .5rem
-      svg
-        object-position: top center
+        // border-bottom: $border
   &-Logo
     li
       svg
         height: 2rem
   &-Back
     display: flex
-    .icon
-      width: 1rem
+    // .icon
+    //   width: 1rem
     svg
       transform: rotate(180deg)
   &-Background
