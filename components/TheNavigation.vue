@@ -157,7 +157,7 @@ export default {
   name: "TheNavigation",
   data() {
     return {
-      isActive: "one",
+      isActive: "two",
       pageType: "initial",
       mainNav: false,
       services: false
@@ -366,6 +366,8 @@ export default {
     gap: var(--spacing-two)
     overflow: hidden
     padding: 3rem var(--spacing-content-sides)
+    @media screen and (max-width: $breakpoint-mobile)
+      flex-wrap: wrap
   &-Services
     pointer-events: auto
   &-ContentTitle
