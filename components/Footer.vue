@@ -108,6 +108,7 @@ export default {
     updateScrollPosition() {
       this.scrollPosition = window.scrollY
       let scrollHeight = document.body.scrollHeight - window.innerHeight
+      console.log(this.scrollPosition, scrollHeight)
       if (this.scrollPosition > scrollHeight - 20) {
         this.showFooter = true
       } else {

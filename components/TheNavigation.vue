@@ -341,6 +341,8 @@ export default {
   flex-direction: column
   z-index: 999
   pointer-events: none
+  max-height: 100vh
+  overflow-y: auto
   &.one
     .header-Top
       pointer-events: auto
@@ -366,6 +368,10 @@ export default {
     gap: var(--spacing-two)
     overflow: hidden
     padding: 3rem var(--spacing-content-sides)
+    &_Items
+      margin-right: var(--spacing-one)
+      &:last-child
+        margin-right: 0
     @media screen and (max-width: $breakpoint-mobile)
       flex-wrap: wrap
   &-Services

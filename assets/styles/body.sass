@@ -71,6 +71,9 @@ html
   max-width: 100%
   position: relative
   // Two content styles
+  &-Wrapper
+    @media screen and ( max-width: $breakpoint-mobile)
+      margin-bottom: 100vh
   &-TextContent
     padding-left: var(--spacing-content-sides)
     padding-right: var(--spacing-content-sides)

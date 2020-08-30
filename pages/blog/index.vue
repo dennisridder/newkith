@@ -265,6 +265,8 @@ export default {
     visibility: hidden
     z-index: +100
     pointer-events: none
+    @media screen and ( max-width: $breakpoint-mobile)
+      display: none
     .image-Effect
       > div
         width: 45vw
