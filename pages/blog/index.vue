@@ -14,7 +14,6 @@
           v-for="(post, index) in blogList"
           :key="index"
           class="blogList-Item animatedHorizontal"
-          @mousemove="registerMouse($event)"
         >
           <nuxt-link :id="index" class="blogList-Content cursorInteract animatedHorizontal-Wrapper" :class="{ index }" :to="post.full_slug" tag="div">
             <div v-if="post.created_at" class="blogList-Content_Date">
@@ -112,11 +111,10 @@
             </div>
           </nuxt-link>
           <div v-if="post.content.thumbnail" class="blogList-Image">
-            <blok-image-container-blog
+            <blok-image-container-tilt
               :id="post.content._uid"
               :image="post.content.thumbnail"
               :title="post.content.title"
-              :event="tiltNumber"
             />
           </div>
         </li>
@@ -164,7 +162,6 @@ export default {
     return {
       stories: { content: {} },
       blogList: [],
-      tiltNumber: 0,
       filterList: []
     }
   },
@@ -217,9 +214,6 @@ export default {
       arr.shift()
       this.blogList = arr
     },
-    registerMouse(event) {
-      this.tiltNumber = event.clientX
-    },
     filterArray() {
       // Map tag values to new array
       var array = this.blogList
@@ -252,6 +246,13 @@ export default {
     border-top: $border
     &:last-child
       border-bottom: $border
+    &:hover
+      h2
+        color: $support-color
+      h2
+        font-family: 'SohneSchmal HalbfettKursiv'
+      & .blogList-Image
+        visibility: visible
   &-Image
     position: fixed
     left: 0
@@ -262,8 +263,8 @@ export default {
     justify-content: center
     align-items: center
     visibility: hidden
-    pointer-events: none
     z-index: +100
+    pointer-events: none
     .image-Effect
       > div
         width: 45vw
@@ -272,10 +273,7 @@ export default {
         justify-content: center
         align-items: center
       img
-        max-width: 100%
-        width: 100%
-        object-fit: contain
-        max-height: 100%
+        pointer-events: auto
   &-Content
     display: flex
     flex-wrap: nowrap
@@ -287,11 +285,4 @@ export default {
       margin-right: 3rem
     &_Title
       max-width: 30em
-    &:hover
-      h2
-        color: $support-color
-      h2
-        font-family: 'SohneSchmal HalbfettKursiv'
-      & ~ .blogList-Image
-        visibility: visible
 </style>

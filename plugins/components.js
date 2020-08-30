@@ -16,7 +16,6 @@ import TextBlok from "~/components/TextBlok.vue"
 import QuoteBlok from "~/components/QuoteBlok.vue"
 import ImageGrid from "~/components/ImageGrid.vue"
 import ImageContainerTilt from "~/components/ImageContainerTilt.vue"
-import ImageContainerBlog from "~/components/ImageContainerBlog.vue"
 import HorizontalImageRow from "~/components/HorizontalImageRow.vue"
 
 Vue.component("blok-page", Page)
@@ -36,5 +35,4 @@ Vue.component("blok-text-blok", TextBlok)
 Vue.component("blok-quote-blok", QuoteBlok)
 Vue.component("blok-image-grid", ImageGrid)
 Vue.component("blok-image-container-tilt", ImageContainerTilt)
-Vue.component("blok-image-container-blog", ImageContainerBlog)
 Vue.component("blok-horizontal-image-row", HorizontalImageRow)
