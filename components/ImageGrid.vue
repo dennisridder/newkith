@@ -114,8 +114,6 @@ export default {
   &-Details
     display: flex
     flex-direction: column
-  img
-    max-width: 100%
 
   // Vertical column, with irregular placement within rows
   &.verticalRowIrregular
