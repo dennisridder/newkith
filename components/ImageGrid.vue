@@ -76,8 +76,6 @@ export default {
         justify-content: flex-end
       &:nth-child(10), &:nth-child(20), &:nth-child(30), &:nth-child(40), &:nth-child(50)
         justify-content: flex-start
-      &:last-child
-        justify-content: flex-end
         .imageGrid-Item
           margin-bottom: 0
     .imageGrid-Item

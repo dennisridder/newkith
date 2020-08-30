@@ -20,9 +20,7 @@
       slug="/cases/"
       title="Cases"
     />
-    <section
-      class="section section-ImageGridFooter section-TextContent slowScroll"
-    >
+    <section class="section section-ImageGridFooter section-TextContent">
       <div class="section-ImageGridFooter_Content">
         <h2>{{ story.content.body[0].cases_imagegrid_title }}</h2>
         <markdown-item :input="story.content.body[0].cases_imagegrid_text" />
@@ -51,9 +49,7 @@
       slug="/talents/"
       title="Talents"
     />
-    <section
-      class="section section-ImageGridFooter section-TextContent slowScroll"
-    >
+    <section class="section section-ImageGridFooter section-TextContent">
       <div class="section-ImageGridFooter_Content">
         <h2>{{ story.content.body[0].talents_imagegrid_title }}</h2>
         <markdown-item :input="story.content.body[0].talents_imagegrid_text" />
@@ -160,3 +156,11 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.imageGrid
+  &.verticalRowIrregular
+    .imageGrid-Row
+      &:last-child
+        justify-content: flex-end
+</style>
