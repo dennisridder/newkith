@@ -61,22 +61,17 @@ html
   width: 100%
   max-width: 100%
   position: relative
-  // Container
-  &-Wrapper
-    padding-bottom: var(--spacing-wrapper-vertical)
-    > .section
-      margin-bottom: var(--spacing-content-bottom)
-    > .section-ImageContent
-      margin-bottom: 0
-    > .section:last-child
-      margin-bottom: 0
+  border: 2px solid blue
   // Two content styles
   &-TextContent
     padding-left: var(--spacing-content-sides)
     padding-right: var(--spacing-content-sides)
+    padding-bottom: var(--spacing-content-bottom)
+    border: 2px solid green
   &-ImageContent
     padding-left: var(--spacing-image-sides)
     padding-right: var(--spacing-image-sides)
+    border: 2px solid purple
   // Specific sections
   &-Landing
     display: flex
@@ -113,6 +108,14 @@ html
       max-width: 100%
       max-height: 100%
       object-fit: contain
+  &-ImageGridFooter
+    &_Content
+      max-width: var(--max-width)
+    &_Link
+      display: flex
+      margin-top: .5rem
+      svg
+        margin-left: 0.5rem
   &-Media
     display: flex
     justify-content: center

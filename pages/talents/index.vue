@@ -7,12 +7,7 @@
       />
     </section>
     <blok-filter-list v-if="filterList" :array="filterList" />
-    <blok-image-grid
-      v-if="talentsList"
-      :array="talentsList"
-      slug="/talents/"
-      rowtype="verticalRowIrregular"
-    />
+    <blok-image-grid v-if="talentsList" :array="talentsList" slug="/talents/" />
   </div>
 </template>
 

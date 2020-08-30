@@ -6,26 +6,64 @@
         :wordswap="true"
       />
     </section>
+    <section class="section section-Title section-TextContent">
+      <blok-title-animated
+        class="scrollSlow section-ImageGrid_Title"
+        :words="['Cases']"
+        :wordswap="false"
+      />
+    </section>
     <!-- <blok-filter-list v-if="filterListCases" :array="filterListCases" /> -->
     <blok-image-grid
       v-if="casesList"
       :array="casesList"
       slug="/cases/"
       title="Cases"
-      rowtype="verticalRowIrregular"
-      :footertitle="story.content.body[0].cases_imagegrid_title"
-      :footertext="story.content.body[0].cases_imagegrid_text"
     />
+    <section class="section section-ImageGridFooter section-TextContent">
+      <div class="section-ImageGridFooter_Content">
+        <h2>{{ story.content.body[0].cases_imagegrid_title }}</h2>
+        <markdown-item :input="story.content.body[0].cases_imagegrid_text" />
+        <nuxt-link
+          to="/cases"
+          tag="div"
+          class="section-ImageGridFooter_Link cursorInteract"
+          ><h4>See more</h4>
+          <div
+            class="icon"
+            v-html="require('~/assets/images/icon-arrow.svg?include')"
+        /></nuxt-link>
+      </div>
+    </section>
     <!-- <blok-filter-list v-if="filterListTalents" :array="filterListTalents" /> -->
+    <section class="section section-Title section-TextContent">
+      <blok-title-animated
+        class="scrollSlow section-ImageGrid_Title"
+        :words="['Talents']"
+        :wordswap="false"
+      />
+    </section>
     <blok-image-grid
       v-if="talentsList"
       :array="talentsList"
       slug="/talents/"
       title="Talents"
-      rowtype="verticalRowIrregular"
-      :footertitle="story.content.body[0].talents_imagegrid_title"
-      :footertext="story.content.body[0].talents_imagegrid_text"
     />
+    <section class="section section-ImageGridFooter section-TextContent">
+      <div class="section-ImageGridFooter_Content">
+        <h2>{{ story.content.body[0].talents_imagegrid_title }}</h2>
+        <markdown-item :input="story.content.body[0].talents_imagegrid_text" />
+        <nuxt-link
+          to="/talents"
+          tag="div"
+          class="section-ImageGridFooter_Link cursorInteract"
+          ><h4>See more</h4>
+          <div
+            class="icon"
+            v-html="require('~/assets/images/icon-arrow.svg?include')"
+        /></nuxt-link>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -34,9 +72,13 @@ import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import landingScrollSpeed from "@/mixins/landingScrollSpeed"
 import imageScrollSpeed from "@/mixins/imageScrollSpeed"
 import titleScrollSpeed from "@/mixins/titleScrollSpeed"
+import MarkdownItem from "@/components/MarkdownItem.vue"
 import { mapState } from "vuex"
 
 export default {
+  components: {
+    "markdown-item": MarkdownItem
+  },
   mixins: [
     storyblokLivePreview,
     landingScrollSpeed,

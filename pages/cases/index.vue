@@ -4,12 +4,7 @@
       <blok-title-animated :words="['our', 'cases']" :wordswap="false" />
     </section>
     <blok-filter-list v-if="filterList" :array="filterList" />
-    <blok-image-grid
-      v-if="casesList"
-      :array="casesList"
-      slug="/cases/"
-      rowtype="verticalRowIrregular"
-    />
+    <blok-image-grid v-if="casesList" :array="casesList" slug="/cases/" />
   </div>
 </template>
 

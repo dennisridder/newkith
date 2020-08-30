@@ -4,10 +4,16 @@
     v-editable="blok"
     class="section section-Text section-TextContent"
   >
-    <h1 v-if="blok.title_large" class="section-Text_Title">
+    <h1
+      v-if="blok.title_large"
+      class="section-Text_Title section-Text_Title_Large"
+    >
       {{ blok.title_large }}
     </h1>
-    <h2 v-if="blok.title_medium" class="section-Text_Title">
+    <h2
+      v-if="blok.title_medium"
+      class="section-Text_Title section-Text_Title_Medium"
+    >
       {{ blok.title_medium }}
     </h2>
     <p
@@ -39,9 +45,14 @@ export default {
   overflow: hidden
   width: 100%
   &_Title
-    line-height: 1.55
+    margin-bottom: 1.55rem
+    overflow: visible
+    &_Large
+      line-height: 1
+    &_Medium
+      line-height: 1
     &_Small
-      margin-bottom: 1.55rem
+      line-height: 1.55
   img
     width: 100%
     height: auto
