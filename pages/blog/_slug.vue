@@ -10,8 +10,14 @@
       v-if="story.content.thumbnail"
       class="section section-Thumbnail section-ImageContent scrollFast"
     >
-      <div class="section-Thumbnail_Container">
-        <img :src="story.content.thumbnail" alt />
+      <div class="section-Thumbnail_Wrapper">
+        <div
+          :id="story.content._uid"
+          class="section-Thumbnail_Container"
+          @mousemove="imageTilt($event)"
+        >
+          <img :src="story.content.thumbnail" :alt="story.content.title" />
+        </div>
       </div>
     </section>
     <section
@@ -35,6 +41,8 @@ import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import landingScrollSpeed from "@/mixins/landingScrollSpeed"
 import imageScrollSpeed from "@/mixins/imageScrollSpeed"
 import titleScrollSpeed from "@/mixins/titleScrollSpeed"
+import gsap from "gsap"
+import $ from "jquery"
 
 export default {
   scrollToTop: true,
@@ -82,6 +90,15 @@ export default {
     this.wordsToArray()
   },
   methods: {
+    imageTilt: function(event) {
+      var el = $("#" + this.story.content._uid)
+      var width = el.width()
+      var xPos = (event.layerX / width - 0.5) * 75
+      gsap.to(el, 1, {
+        rotationY: xPos,
+        ease: "power2.easeOut"
+      })
+    },
     formatDate(date) {
       var d = (new Date(date) + "").split(" ")
       return [d[2], d[1], d[3]].join(" ")
