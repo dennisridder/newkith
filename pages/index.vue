@@ -27,12 +27,14 @@
         <nuxt-link
           to="/cases"
           tag="div"
-          class="section-ImageGridFooter_Link cursorInteract"
-          ><h4>See more</h4>
+          class="section-ImageGridFooter_Link link cursorInteract"
+        >
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
-        /></nuxt-link>
+          />
+          <p>See more</p>
+        </nuxt-link>
       </div>
     </section>
     <!-- <blok-filter-list v-if="filterListTalents" :array="filterListTalents" /> -->
@@ -56,12 +58,16 @@
         <nuxt-link
           to="/talents"
           tag="div"
-          class="section-ImageGridFooter_Link cursorInteract"
-          ><h4>See more</h4>
+          class="section-ImageGridFooter_Link link cursorInteract"
+        >
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
-        /></nuxt-link>
+          />
+          <p>
+            See more
+          </p>
+        </nuxt-link>
       </div>
     </section>
   </div>
