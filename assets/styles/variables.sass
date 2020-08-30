@@ -1,5 +1,6 @@
-$breakpoint-mobile: 800px
-$breakpoint-laptop: 1440px
+$breakpoint-mobile: 768px
+$breakpoint-tablet: 1024px
+$breakpoint-laptop: 1280px
 
 $color: white
 $color-hover: black
@@ -32,10 +33,15 @@ body
   --button-padding-top: .8rem
   --button-container-width: 30em
 
+  @media screen and (max-width: $breakpoint-laptop)
+    --spacing-image-sides: 1.5rem
+    --spacing-content-sides: 3rem
+
   @media screen and ( max-width: $breakpoint-mobile)
     --spacing-one: 1em
-    --spacing-two: 1em
-    --spacing-three: 2em
+    --spacing-two: 2em
+    --spacing-three: 4em
+    --spacing-content-sides: 1.5rem
 
 @keyframes carouselLeft
   0%

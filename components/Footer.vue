@@ -195,13 +195,27 @@ export default {
   &-Content
     opacity: 0
     display: flex
+    flex-wrap: wrap
     padding-left: var(--spacing-content-sides)
     padding-right: var(--spacing-content-sides)
     padding-bottom: var(--spacing-three)
+    @media screen and (max-width: $breakpoint-laptop)
+      justify-content: flex-end
     &_Title
       margin-bottom: 1.55rem
     ul
       flex-basis: 25%
+      padding-right: var(--spacing-two)
+    @media screen and (max-width: $breakpoint-laptop)
+      ul
+        flex-basis: 50%
+      ul:nth-child(2)
+        display: none
+    @media screen and (max-width: $breakpoint-mobile)
+      ul
+        flex-basis: 100%
+        margin-bottom: var(--spacing-two)
+
     a
       text-decoration: none
     .navLink

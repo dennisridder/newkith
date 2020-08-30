@@ -7,12 +7,19 @@
     >
       <div class="header-Logo cursorInteract">
         <nuxt-link to="/" tag="li">
-          <div v-html="require('~/assets/images/logo-hash.svg?include')" />
+          <div
+            class="laptop"
+            v-html="require('~/assets/images/logo-hash.svg?include')"
+          />
+          <div
+            class="mobile"
+            v-html="require('~/assets/images/icon-hash.svg?include')"
+          />
         </nuxt-link>
       </div>
       <!-- prettire-ignore -->
-      <nav class="header-Nav">
-        <ul v-if="mainNav == true">
+      <nav v-if="mainNav == true" class="header-Nav">
+        <ul>
           <li class="header-Services cursorInteract" @click="clickServices">
             Our services
           </li>
@@ -22,6 +29,10 @@
           <nuxt-link to="/about" class="header-Story cursorInteract" tag="li"
             >Our story</nuxt-link
           >
+        </ul>
+      </nav>
+      <nav v-if="mainNav == true" class="header-Nav header-Nav_IconRow">
+        <ul>
           <li class="cursorInteract">
             <a href="https://www.instagram.com/new.kith/" target="_blank">
               <div
@@ -47,7 +58,9 @@
             </a>
           </li>
         </ul>
-        <ul v-if="pageType === 'blogSlug'">
+      </nav>
+      <nav v-if="pageType === 'blogSlug'" class="header-Nav">
+        <ul>
           <nuxt-link to="/blog" class="header-Back link cursorInteract" tag="li"
             ><div
               class="icon"
@@ -56,7 +69,9 @@
             &nbsp;back</nuxt-link
           >
         </ul>
-        <ul v-if="pageType === 'talentSlug'">
+      </nav>
+      <nav v-if="pageType === 'talentSlug'" class="header-Nav">
+        <ul>
           <nuxt-link
             to="/talents"
             class="header-Back link cursorInteract"
@@ -68,7 +83,9 @@
             &nbsp;back</nuxt-link
           >
         </ul>
-        <ul v-if="pageType === 'caseSlug'">
+      </nav>
+      <nav v-if="pageType === 'caseSlug'" class="header-Nav">
+        <ul>
           <nuxt-link
             to="/cases"
             class="header-Back link cursorInteract"
@@ -336,9 +353,13 @@ export default {
     //   border-bottom: $border
   &-Top
     display: flex
-    justify-content: space-between
+    justify-content: flex-end
     align-items: center
+    flex-wrap: wrap
     padding: 3rem var(--spacing-content-sides)
+    @media screen and (max-width: $breakpoint-mobile)
+      align-items: flex-start
+
   &-Bottom
     display: flex
     justify-content: space-between
@@ -365,19 +386,32 @@ export default {
       .icon
         margin-right: 0
   &-Nav
+    margin-left: var(--spacing-one)
+    flex-shrink: 0
     li
       display: flex
       align-items: center
       cursor: pointer
+      flex-shrink: 0
       .icon
         margin-right: 0
       &:hover, &.nuxt-link-exact-active
         text-decoration: none
-        // border-bottom: $border
+    // &_IconRow
   &-Logo
+    flex-grow: 1
+    .mobile
+      display: none
+    @media screen and (max-width: $breakpoint-mobile)
+      .laptop
+        display: none
+      .mobile
+        display: block
     li
       svg
         height: 2rem
+  &-LogoMobile
+    display: none
   &-Back
     display: flex
     // .icon

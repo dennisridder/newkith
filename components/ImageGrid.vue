@@ -79,5 +79,11 @@ export default {
         .imageGrid-Item
           margin-bottom: 0
     .imageGrid-Item
-      flex-basis: 33.3333% // 1/3
+      flex-basis: 33.3333%
+    @media screen and (max-width: $breakpoint-tablet)
+      .imageGrid-Item
+        flex-basis: 50%
+    @media screen and (max-width: $breakpoint-mobile)
+      .imageGrid-Item
+        flex-basis: 100%
 </style>
