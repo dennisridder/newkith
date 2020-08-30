@@ -111,7 +111,7 @@
             </div>
           </nuxt-link>
           <div v-if="post.content.thumbnail" class="blogList-Image">
-            <blok-image-container-tilt
+            <blok-image-container
               :id="post.content._uid"
               :image="post.content.thumbnail"
               :title="post.content.title"

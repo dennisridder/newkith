@@ -1,7 +1,6 @@
 import Vue from "vue"
 import Page from "~/components/Page.vue"
 import TitleAnimated from "~/components/TitleAnimated.vue"
-import Title from "~/components/Title.vue"
 import Footer from "~/components/Footer.vue"
 import ButtonContainer from "~/components/ButtonContainer.vue"
 import ButtonBlok from "~/components/ButtonBlok.vue"
@@ -15,11 +14,9 @@ import FilterList from "~/components/FilterList.vue"
 import TextBlok from "~/components/TextBlok.vue"
 import QuoteBlok from "~/components/QuoteBlok.vue"
 import ImageGrid from "~/components/ImageGrid.vue"
-import ImageContainerTilt from "~/components/ImageContainerTilt.vue"
-import HorizontalImageRow from "~/components/HorizontalImageRow.vue"
+import ImageContainer from "~/components/ImageContainer.vue"
 
 Vue.component("blok-page", Page)
-Vue.component("blok-title", Title)
 Vue.component("blok-title-animated", TitleAnimated)
 Vue.component("blok-footer", Footer)
 Vue.component("blok-tag-list", TagList)
@@ -34,5 +31,4 @@ Vue.component("blok-vimeo-blok", VimeoBlok)
 Vue.component("blok-text-blok", TextBlok)
 Vue.component("blok-quote-blok", QuoteBlok)
 Vue.component("blok-image-grid", ImageGrid)
-Vue.component("blok-image-container-tilt", ImageContainerTilt)
-Vue.component("blok-horizontal-image-row", HorizontalImageRow)
+Vue.component("blok-image-container", ImageContainer)
