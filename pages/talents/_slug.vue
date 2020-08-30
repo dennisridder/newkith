@@ -39,13 +39,13 @@
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import landingScroll from "@/mixins/landingScroll"
 import fastScroll from "@/mixins/fastScroll"
-import titleScrollSpeed from "@/mixins/titleScrollSpeed"
+import slowScroll from "@/mixins/slowScroll"
 import gsap from "gsap"
 import $ from "jquery"
 
 export default {
   scrollToTop: true,
-  mixins: [storyblokLivePreview, landingScroll, fastScroll, titleScrollSpeed],
+  mixins: [storyblokLivePreview, landingScroll, fastScroll, slowScroll],
   asyncData(context) {
     let endpoint = `cdn/stories/talents/${context.params.slug}`
     let version =

@@ -6,9 +6,9 @@
         :wordswap="true"
       />
     </section>
-    <section class="section section-Title section-TextContent">
+    <section class="section section-Title section-TextContent slowerScroll">
       <blok-title-animated
-        class="scrollSlow section-ImageGrid_Title"
+        class="section-ImageGrid_Title"
         :words="['Cases']"
         :wordswap="false"
       />
@@ -20,7 +20,9 @@
       slug="/cases/"
       title="Cases"
     />
-    <section class="section section-ImageGridFooter section-TextContent">
+    <section
+      class="section section-ImageGridFooter section-TextContent slowScroll"
+    >
       <div class="section-ImageGridFooter_Content">
         <h2>{{ story.content.body[0].cases_imagegrid_title }}</h2>
         <markdown-item :input="story.content.body[0].cases_imagegrid_text" />
@@ -36,9 +38,9 @@
       </div>
     </section>
     <!-- <blok-filter-list v-if="filterListTalents" :array="filterListTalents" /> -->
-    <section class="section section-Title section-TextContent">
+    <section class="section section-Title section-TextContent slowerScroll">
       <blok-title-animated
-        class="scrollSlow section-ImageGrid_Title"
+        class="section-ImageGrid_Title"
         :words="['Talents']"
         :wordswap="false"
       />
@@ -49,7 +51,9 @@
       slug="/talents/"
       title="Talents"
     />
-    <section class="section section-ImageGridFooter section-TextContent">
+    <section
+      class="section section-ImageGridFooter section-TextContent slowScroll"
+    >
       <div class="section-ImageGridFooter_Content">
         <h2>{{ story.content.body[0].talents_imagegrid_title }}</h2>
         <markdown-item :input="story.content.body[0].talents_imagegrid_text" />
@@ -71,7 +75,7 @@
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import landingScroll from "@/mixins/landingScroll"
 import fastScroll from "@/mixins/fastScroll"
-import titleScrollSpeed from "@/mixins/titleScrollSpeed"
+import slowScroll from "@/mixins/slowScroll"
 import MarkdownItem from "@/components/MarkdownItem.vue"
 import { mapState } from "vuex"
 
@@ -79,7 +83,7 @@ export default {
   components: {
     "markdown-item": MarkdownItem
   },
-  mixins: [storyblokLivePreview, landingScroll, fastScroll, titleScrollSpeed],
+  mixins: [storyblokLivePreview, landingScroll, fastScroll, slowScroll],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories/home", {
