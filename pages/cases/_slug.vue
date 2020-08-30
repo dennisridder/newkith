@@ -6,22 +6,14 @@
     >
       <blok-title-animated :words="wordsArray" :wordswap="false" />
     </section>
-    <!-- <section
-      v-if="story.content.thumbnail"
-      class="section section-Thumbnail section-ImageContent scrollFast"
-    >
-      <div class="section-Thumbnail_Container">
-        <img :src="story.content.thumbnail" alt />
-      </div>
-    </section> -->
     <section
       v-if="story.content.thumbnail"
-      class="section section-Thumbnail section-ImageContent scrollFast"
+      class="section section-Thumbnail section-ImageContent fastScroll"
     >
       <div class="section-Thumbnail_Wrapper">
         <div
           :id="story.content._uid"
-          class="section-Thumbnail_Container"
+          class="section-Thumbnail_Container "
           @mousemove="imageTilt($event)"
         >
           <img :src="story.content.thumbnail" :alt="story.content.title" />
@@ -46,7 +38,7 @@
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import landingScrollSpeed from "@/mixins/landingScrollSpeed"
-import imageScrollSpeed from "@/mixins/imageScrollSpeed"
+import fastScroll from "@/mixins/fastScroll"
 import titleScrollSpeed from "@/mixins/titleScrollSpeed"
 import gsap from "gsap"
 import $ from "jquery"
@@ -56,7 +48,7 @@ export default {
   mixins: [
     storyblokLivePreview,
     landingScrollSpeed,
-    imageScrollSpeed,
+    fastScroll,
     titleScrollSpeed
   ],
   asyncData(context) {

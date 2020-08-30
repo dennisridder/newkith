@@ -8,7 +8,7 @@ export default {
   },
   methods: {
     scrollSpeedImages() {
-      var titles = document.querySelectorAll(".scrollFast")
+      var titles = document.querySelectorAll(".fastScroll")
       titles.forEach(el => {
         gsap.to(el, {
           y: ScrollTrigger.maxScroll(window) * -0.1,
@@ -17,7 +17,7 @@ export default {
             trigger: el,
             scrub: true,
             start: "top bottom",
-            end: "+=175%"
+            end: "bottom top"
           }
         })
       })

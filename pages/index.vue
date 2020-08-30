@@ -70,7 +70,7 @@
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import landingScrollSpeed from "@/mixins/landingScrollSpeed"
-import imageScrollSpeed from "@/mixins/imageScrollSpeed"
+import fastScroll from "@/mixins/fastScroll"
 import titleScrollSpeed from "@/mixins/titleScrollSpeed"
 import MarkdownItem from "@/components/MarkdownItem.vue"
 import { mapState } from "vuex"
@@ -82,7 +82,7 @@ export default {
   mixins: [
     storyblokLivePreview,
     landingScrollSpeed,
-    imageScrollSpeed,
+    fastScroll,
     titleScrollSpeed
   ],
   asyncData(context) {

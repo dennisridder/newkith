@@ -1,7 +1,7 @@
 <template>
   <section
     v-editable="blok"
-    class="section section-Image section-Media section-ImageContent scrollFast"
+    class="section section-Image section-Media section-ImageContent fastScroll"
   >
     <div class="section-Media_Wrapper">
       <div

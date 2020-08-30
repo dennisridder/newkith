@@ -1,12 +1,12 @@
 <template>
   <section
     v-editable="blok"
-    class="section section-Media section-ImageContent vimeo scrollFast"
+    class="section section-Media section-ImageContent vimeo fastScroll"
   >
     <div class="section-Media_Wrapper">
       <div
         :id="blok._uid"
-        class="section-Media_Container"
+        class="section-Media_Container "
         @mousemove="imageTilt($event)"
       >
         <iframe
