@@ -109,8 +109,6 @@ export default {
       story: { content: {} },
       casesList: [],
       talentsList: []
-      // filterListCases: [],
-      // filterListTalents: []
     }
   },
   computed: {
