@@ -4,6 +4,7 @@ import TitleAnimated from "~/components/TitleAnimated.vue"
 import Footer from "~/components/Footer.vue"
 import ButtonContainer from "~/components/ButtonContainer.vue"
 import ButtonBlok from "~/components/ButtonBlok.vue"
+import CollaborateButton from "~/components/CollaborateButton.vue"
 import LogosBlok from "~/components/LogosBlok.vue"
 import LogoBlok from "~/components/LogoBlok.vue"
 import ImageBlok from "~/components/ImageBlok.vue"
@@ -23,6 +24,7 @@ Vue.component("blok-tag-list", TagList)
 Vue.component("blok-filter-list", FilterList)
 Vue.component("blok-button-container", ButtonContainer)
 Vue.component("blok-button-blok", ButtonBlok)
+Vue.component("blok-collaborate-button", CollaborateButton)
 Vue.component("blok-logos-blok", LogosBlok)
 Vue.component("blok-logo-blok", LogoBlok)
 Vue.component("blok-image-blok", ImageBlok)
