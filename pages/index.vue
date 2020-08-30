@@ -69,7 +69,7 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import landingScrollSpeed from "@/mixins/landingScrollSpeed"
+import landingScroll from "@/mixins/landingScroll"
 import fastScroll from "@/mixins/fastScroll"
 import titleScrollSpeed from "@/mixins/titleScrollSpeed"
 import MarkdownItem from "@/components/MarkdownItem.vue"
@@ -79,12 +79,7 @@ export default {
   components: {
     "markdown-item": MarkdownItem
   },
-  mixins: [
-    storyblokLivePreview,
-    landingScrollSpeed,
-    fastScroll,
-    titleScrollSpeed
-  ],
+  mixins: [storyblokLivePreview, landingScroll, fastScroll, titleScrollSpeed],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories/home", {

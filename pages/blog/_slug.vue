@@ -38,7 +38,7 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import landingScrollSpeed from "@/mixins/landingScrollSpeed"
+import landingScroll from "@/mixins/landingScroll"
 import fastScroll from "@/mixins/fastScroll"
 import titleScrollSpeed from "@/mixins/titleScrollSpeed"
 import gsap from "gsap"
@@ -46,12 +46,7 @@ import $ from "jquery"
 
 export default {
   scrollToTop: true,
-  mixins: [
-    storyblokLivePreview,
-    landingScrollSpeed,
-    fastScroll,
-    titleScrollSpeed
-  ],
+  mixins: [storyblokLivePreview, landingScroll, fastScroll, titleScrollSpeed],
   asyncData(context) {
     let endpoint = `cdn/stories/blog/${context.params.slug}`
     let version =
