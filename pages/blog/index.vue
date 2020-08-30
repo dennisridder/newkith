@@ -250,16 +250,8 @@ export default {
     width: 100%
     overflow-x: auto
     border-top: $border
-    // z-index: 100
-    &:hover
-      .blogList-Content
-        animation-play-state: running
-        h2
-          color: $support-color
-        h2
-          font-family: 'SohneSchmal HalbfettKursiv'
-      .blogList-Image
-        visibility: visible
+    &:last-child
+      border-bottom: $border
   &-Image
     position: fixed
     left: 0
@@ -274,8 +266,8 @@ export default {
     z-index: +100
     .image-Effect
       > div
-        width: 35vw
-        height: 35vw
+        width: 45vw
+        height: 45vw
         display: flex
         justify-content: center
         align-items: center
@@ -290,10 +282,16 @@ export default {
     cursor: pointer
     align-items: center
     margin-left: 3rem
-    // z-index: +800
     > div
       flex-shrink: 0
       margin-right: 3rem
     &_Title
       max-width: 30em
+    &:hover
+      h2
+        color: $support-color
+      h2
+        font-family: 'SohneSchmal HalbfettKursiv'
+      & ~ .blogList-Image
+        visibility: visible
 </style>
