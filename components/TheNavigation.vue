@@ -157,7 +157,7 @@ export default {
   name: "TheNavigation",
   data() {
     return {
-      isActive: "two",
+      isActive: "one",
       pageType: "initial",
       mainNav: false,
       services: false
