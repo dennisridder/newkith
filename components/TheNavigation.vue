@@ -119,7 +119,7 @@
         </nav>
       </div>
       <div class="header-Top_Mobile_Middle">
-        <nav v-if="mainNav == true" class="header-Nav">
+        <nav class="header-Nav">
           <ul>
             <li class="header-Services cursorInteract" @click="clickServices">
               Our services
@@ -456,6 +456,8 @@ export default {
   pointer-events: none
   max-height: 100vh
   overflow-y: auto
+  @media screen and (max-width: $breakpoint-mobile)
+    bottom: 0
   &.two
     .header-Top_Mobile_Middle
       pointer-events: auto
@@ -489,6 +491,7 @@ export default {
         svg
           height: 4rem
     &_Middle
+      width: 100%
       padding-left: var(--spacing-content-sides)
       padding-bottom: 3rem
       opacity: 0
@@ -502,6 +505,7 @@ export default {
     &_Items
     @media screen and (max-width: $breakpoint-mobile)
       flex-wrap: wrap
+      margin-bottom: var(--spacing-two)
   &-Nav
     flex-shrink: 0
     @media screen and (min-width: $breakpoint-mobile)
