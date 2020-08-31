@@ -140,8 +140,16 @@ html
       perspective: 2000px
       &.small
         width: 60%
+        @media screen and (max-width: $breakpoint-tablet)
+          width: 75%
+        @media screen and (max-width: $breakpoint-mobile)
+          width: 87.5%
       &.medium
         width: 75%
+        @media screen and (max-width: $breakpoint-tablet)
+          width: 87.5%
+        @media screen and (max-width: $breakpoint-mobile)
+          width: 100%
       &.large
         width: 100%
     &_Container
