@@ -488,7 +488,7 @@ export default {
     &_Top
       display: flex
       width: 100%
-      padding: 3rem var(--spacing-content-sides)
+      padding: var(--spacing-content-sides)
       .header-Logo
         flex-grow: 1
         svg
@@ -496,7 +496,8 @@ export default {
     &_Middle
       width: 100%
       padding-left: var(--spacing-content-sides)
-      padding-bottom: 3rem
+      padding-right: var(--spacing-content-sides)
+      padding-bottom: var(--spacing-content-sides)
       opacity: 0
     @media screen and (min-width: $breakpoint-mobile)
       display: none
