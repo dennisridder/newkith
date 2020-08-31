@@ -24,8 +24,11 @@ export default {
   },
   methods: {
     footerPadding() {
-      var height = document.querySelector(".section-Footer").offsetHeight
-      document.querySelector("main").style.marginBottom = height + "px"
+      const mq = window.matchMedia("(min-width: 768px)")
+      if (mq.matches) {
+        var height = document.querySelector(".section-Footer").offsetHeight
+        document.querySelector("main").style.marginBottom = height + "px"
+      }
     }
   }
 }

@@ -492,7 +492,7 @@ export default {
       .header-Logo
         flex-grow: 1
         svg
-          height: 4rem
+          height: 5rem
     &_Middle
       width: 100%
       padding-left: var(--spacing-content-sides)

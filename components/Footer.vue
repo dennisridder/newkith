@@ -173,15 +173,18 @@ export default {
 @import '~/assets/styles/variables.sass'
 
 .footer
-  position: fixed
-  left: 0
-  bottom: 0
-  right: 0
   padding-top: var(--spacing-two)
-  z-index: 888
+  z-index: 800
   display: flex
   flex-direction: column
   pointer-events: none
+  @media screen and (min-width: $breakpoint-mobile)
+    position: fixed
+    left: 0
+    bottom: 0
+    right: 0
+  @media screen and (max-width: $breakpoint-mobile)
+    position: relative
   &.active
     pointer-events: auto
   &-Background
