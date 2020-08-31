@@ -133,24 +133,36 @@ html
     overflow: hidden
     width: 100%
     overflow: visible
+    &_Wrapper
+      position: relative
+      width: 100%
+      max-width: 100%
+      perspective: 2000px
+      &.small
+        width: 60%
+      &.medium
+        width: 75%
+      &.large
+        width: 100%
     &_Container
       position: relative
       width: 100%
       height: 0
       padding-top: 56.25%
-    &_Wrapper
-      position: relative
-      width: 100%
-      max-width: $max-content-width
-      perspective: 2000px
-    img, video, audio, iframe
-      position: absolute
-      left: 0
-      top: 0
-      richt: 0
-      bottom: 0
-      width: 100% !important
-      height: 100% !important
-      max-width: 100%
-      max-height: 100%
-      object-fit: contain
+      img, video, audio, iframe
+        position: absolute
+        left: 0
+        top: 0
+        richt: 0
+        bottom: 0
+        width: 100% !important
+        height: 100% !important
+        max-width: 100%
+        max-height: 100%
+        object-fit: contain
+      &.landscape
+        padding-top: 56.25%
+      &.square
+        padding-top: 100%
+      &.portrait
+        padding-top: 150%

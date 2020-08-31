@@ -1,12 +1,13 @@
 <template>
   <section
     v-editable="blok"
-    class="section section-Image section-Media section-ImageContent fastScroll"
+    class="section section-ImageBlok section-Media section-ImageContent fastScroll"
   >
-    <div class="section-Media_Wrapper">
+    <div class="section-Media_Wrapper" :class="blok.sizing">
       <div
         :id="blok._uid"
         class="section-Media_Container"
+        :class="blok.orientation"
         @mousemove="imageTilt($event)"
       >
         <img :src="blok.image" :alt="blok.image_title" />
@@ -22,6 +23,9 @@ import $ from "jquery"
 export default {
   props: {
     blok: Object
+  },
+  mounted() {
+    console.log(this.blok)
   },
   methods: {
     imageTilt: function(event) {

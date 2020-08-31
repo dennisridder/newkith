@@ -3,7 +3,7 @@
     v-editable="blok"
     class="section section-Media section-ImageContent vimeo fastScroll"
   >
-    <div class="section-Media_Wrapper">
+    <div class="section-Media_Wrapper" :class="blok.sizing">
       <div
         :id="blok._uid"
         class="section-Media_Container "

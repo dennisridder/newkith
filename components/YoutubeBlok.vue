@@ -3,7 +3,7 @@
     v-editable="blok"
     class="section section-Media section-ImageContent youtube fastScroll"
   >
-    <div class="section-Media_Wrapper">
+    <div class="section-Media_Wrapper" :class="blok.sizing">
       <div
         :id="blok._uid"
         class="section-Media_Container "
@@ -29,6 +29,9 @@ import $ from "jquery"
 export default {
   props: {
     blok: Object
+  },
+  mounted() {
+    console.log(this.blok)
   },
   methods: {
     imageTilt: function(event) {
