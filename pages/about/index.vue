@@ -1,25 +1,47 @@
 <template>
-  <div v-editable="story.content" class="section-Wrapper">
-    <blok-page-landing :words="['Who', 'we', 'are']" />
-    <section>
+  <div v-editable="story.content" class="section-Wrapper section-About">
+    <section
+      class="section section-Media section-ImageContent youtube fastScroll"
+    >
+      <div class="section-Media_Wrapper large">
+        <div id="movie" class="section-Media_Container ">
+          <iframe
+            id="mediaPlayer"
+            type="text/html"
+            width="640"
+            height="360"
+            frameborder="0"
+            :src="
+              'https://www.youtube.com/embed/6QPIiX7SCu4?autoplay=1&loop=1&modestbranding=1&color=blue&iv_load_policy=3&rel=0'
+            "
+          />
+        </div>
+      </div>
+    </section>
+    <!-- <section>
       <component
         :is="story.content.component | dashify"
         v-if="story.content.component"
         :key="story.content._uid"
         :blok="story.content"
       ></component>
-    </section>
+    </section> -->
   </div>
 </template>
 
 <script>
+import gsap from "gsap"
+import $ from "jquery"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import MarkdownItem from "@/components/MarkdownItem.vue"
+// import MarkdownItem from "@/components/MarkdownItem.vue"
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
-  components: {
-    "markdown-item": MarkdownItem
-  },
+  // components: {
+  //   "markdown-item": MarkdownItem
+  // },
   mixins: [storyblokLivePreview],
   asyncData(context) {
     return context.app.$storyapi
@@ -50,6 +72,47 @@ export default {
       story: { content: {} }
     }
   },
-  methods: {}
+  mounted() {
+    console.log(this.story)
+    window.addEventListener("scroll", this.imageTiltOnScroll)
+    this.imageTilt()
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.imageTiltOnScroll)
+  },
+  methods: {
+    imageTilt() {
+      console.log("GO!")
+      // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
+      var el = $("#movie")
+      gsap.fromTo(
+        el,
+        1,
+        {
+          rotationY: -35
+        },
+        {
+          rotationY: 0,
+          scrollTrigger: {
+            trigger: el,
+            scrub: true,
+            start: "center center",
+            end: "bottom top"
+          },
+          ease: "power2.easeOut"
+        }
+      )
+    }
+  }
 }
 </script>
+
+<style lang="sass">
+@import '~/assets/styles/variables.sass'
+
+.section-About
+  .youtube
+    margin-top: 25vh
+  #movie
+    // transform: rotateY(-35deg)
+</style>
