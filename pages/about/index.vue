@@ -3,7 +3,7 @@
     <section
       class="section section-Media section-ImageContent youtube fastScroll"
     >
-      <div class="section-Media_Wrapper large">
+      <div class="section-Media_Wrapper medium">
         <div id="movie" class="section-Media_Container ">
           <iframe
             id="mediaPlayer"
@@ -131,7 +131,7 @@ export default {
 
 .section-About
   .youtube
-    margin-top: 25vh
+    margin-top: 18vh
   #movie
     transform: rotateY(-35deg)
 </style>
