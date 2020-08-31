@@ -208,7 +208,7 @@ export default {
     $route() {
       this.checkPageType()
       this.toggleMainNav()
-      this.mouseLeaveAll()
+      this.routeChange()
     }
   },
 
@@ -217,6 +217,9 @@ export default {
     this.toggleMainNav()
   },
   methods: {
+    routeChange() {
+      this.mouseLeaveAllMobile()
+    },
     mouseEnterTop() {
       var headerTopHeight = document.querySelector(".header-Top_Desktop")
         .offsetHeight
