@@ -283,7 +283,6 @@ export default {
         })
         this.isActive = "one"
       }
-      console.log("mouseLeaveTop", this.isActive)
     },
     clickServices() {
       this.services = !this.services
