@@ -9,7 +9,7 @@
     <section class="section section-Title section-TextContent slowerScroll">
       <blok-title-animated
         class="section-ImageGrid_Title"
-        :words="['Cases']"
+        :words="[`${story.content.body[0].cases_header}`]"
         :wordswap="false"
       />
     </section>
@@ -41,7 +41,7 @@
     <section class="section section-Title section-TextContent slowerScroll">
       <blok-title-animated
         class="section-ImageGrid_Title"
-        :words="['Talents']"
+        :words="[`${story.content.body[0].talents_header}`]"
         :wordswap="false"
       />
     </section>
