@@ -33,7 +33,7 @@
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
-          <p>See more</p>
+          <p>See all our cases</p>
         </nuxt-link>
       </div>
     </section>
@@ -65,7 +65,7 @@
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
           <p>
-            See more
+            See all our talents
           </p>
         </nuxt-link>
       </div>
