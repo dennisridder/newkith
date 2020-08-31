@@ -40,16 +40,6 @@ module.exports = {
    ** Customize the progress-bar color
    */
   loading: false,
-
-  /*
-   ** Scroll behaviour (depreciated but new method seems buggy (app folder))
-   */
-  router: {
-    scrollBehavior: function() {
-      return { x: 0, y: 0 }
-    }
-  },
-
   /*
    ** Global CSS
    */
