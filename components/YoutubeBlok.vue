@@ -30,16 +30,40 @@ export default {
   props: {
     blok: Object
   },
-  mounted() {},
+  mounted() {
+    window.addEventListener("scroll", this.imageTiltOnScroll)
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.imageTiltOnScroll)
+  },
   methods: {
     imageTilt: function(event) {
-      var el = $("#" + this.blok._uid)
-      var width = el.width()
-      var xPos = (event.layerX / width - 0.5) * 25
-      gsap.to(el, 1, {
-        rotationY: xPos,
-        ease: "power2.easeOut"
-      })
+      const mq = window.matchMedia("(hover: hover)")
+      if (mq.matches) {
+        // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
+        var el = $("#" + this.blok._uid)
+        var width = el.width()
+        var xPos = (event.layerX / width - 0.5) * 75
+        gsap.to(el, 1, {
+          rotationY: xPos,
+          ease: "power2.easeOut"
+        })
+      }
+    },
+    imageTiltOnScroll: function() {
+      const mq = window.matchMedia("(hover: none)")
+      if (mq.matches) {
+        var el = $("#" + this.blok._uid)
+        var domRect = document
+          .getElementById(`effect-${this.id}`)
+          .getBoundingClientRect()
+        if (domRect.top > 0 && domRect.top < window.innerHeight * 2) {
+          gsap.to(el, 1, {
+            rotationY: domRect.top / 15,
+            ease: "power2.easeOut"
+          })
+        }
+      }
     }
   }
 }
