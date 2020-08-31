@@ -44,9 +44,10 @@ export default {
     cursor: pointer
     margin-bottom: 3rem
     &:hover
-      h2
-        font-family: 'SohneSchmal HalbfettKursiv'
-        color: $support-color
+      @media ( hover: hover )
+        h2
+          font-family: 'SohneSchmal HalbfettKursiv'
+          color: $support-color
   &-Details
     display: flex
     flex-direction: column

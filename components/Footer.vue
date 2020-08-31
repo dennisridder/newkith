@@ -9,7 +9,7 @@
         <li>
           <p>{{ general[0].content.footer_text }}</p>
         </li>
-        <nuxt-link to="/about" class="link navLink cursorInteract">
+        <nuxt-link to="/about" class="link cursorInteract">
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
@@ -19,19 +19,17 @@
       </ul>
       <ul></ul>
       <ul>
-        <nuxt-link class="navLink cursorInteract" to="/" tag="li"
-          >Home</nuxt-link
-        >
-        <nuxt-link class="navLink cursorInteract" to="/cases" tag="li"
+        <nuxt-link class="link cursorInteract" to="/" tag="li">Home</nuxt-link>
+        <nuxt-link class="link cursorInteract" to="/cases" tag="li"
           >Cases</nuxt-link
         >
-        <nuxt-link class="navLink cursorInteract" to="/talents" tag="li"
+        <nuxt-link class="link cursorInteract" to="/talents" tag="li"
           >Talents</nuxt-link
         >
-        <nuxt-link class="navLink cursorInteract" to="/blog" tag="li"
+        <nuxt-link class="link cursorInteract" to="/blog" tag="li"
           >What's happening</nuxt-link
         >
-        <nuxt-link class="navLink cursorInteract" to="/about" tag="li"
+        <nuxt-link class="link cursorInteract" to="/about" tag="li"
           >Our story</nuxt-link
         >
       </ul>
@@ -195,7 +193,7 @@ export default {
     flex-wrap: wrap
     padding-left: var(--spacing-content-sides)
     padding-right: var(--spacing-content-sides)
-    padding-bottom: var(--spacing-three)
+    padding-bottom: var(--spacing-two)
     @media screen and (max-width: $breakpoint-laptop)
       justify-content: flex-end
     &_Title
@@ -203,6 +201,8 @@ export default {
     ul
       flex-basis: 25%
       padding-right: var(--spacing-two)
+      &:last-child
+        padding-right: 0
     @media screen and (max-width: $breakpoint-laptop)
       ul
         flex-basis: 50%
@@ -215,15 +215,6 @@ export default {
 
     a
       text-decoration: none
-    .navLink
-      display: flex
-      align-items: center
-      cursor: pointer
-      line-height: 1.8
-      .icon
-        display: inline
-        margin-right: .5rem
-        width: 1rem
   &-Logo
     opacity: 0
     padding-left: var(--spacing-content-sides)

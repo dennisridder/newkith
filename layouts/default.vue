@@ -20,16 +20,16 @@ export default {
   },
   mixins: [cursorInteraction],
   mounted() {
-    this.footerPadding()
+    // this.footerPadding()
   },
   methods: {
-    footerPadding() {
-      const mq = window.matchMedia("(min-width: 768px)")
-      if (mq.matches) {
-        var height = document.querySelector(".section-Footer").offsetHeight
-        document.querySelector("main").style.marginBottom = height + "px"
-      }
-    }
+    // footerPadding() {
+    //   const mq = window.matchMedia("(min-width: 768px)")
+    //   if (mq.matches) {
+    //     var height = document.querySelector(".section-Footer").offsetHeight
+    //     document.querySelector("main").style.marginBottom = height + "px"
+    //   }
+    // }
   }
 }
 </script>

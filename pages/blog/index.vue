@@ -270,7 +270,7 @@ export default {
     visibility: hidden
     z-index: +100
     pointer-events: none
-    @media screen and ( max-width: $breakpoint-mobile)
+    @media screen and ( hover: none )
       display: none
     .image-Effect
       > div
@@ -279,6 +279,12 @@ export default {
         display: flex
         justify-content: center
         align-items: center
+        @media screen and (max-width: $breakpoint-tablet)
+          width: 55vw
+          height: 55vw
+        @media screen and (max-width: $breakpoint-tablet)
+          width: 75vw
+          height: 75vw
       img
         pointer-events: auto
   &-Content

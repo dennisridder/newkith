@@ -469,12 +469,12 @@ export default {
   &-Top
     display: flex
     flex-wrap: nowrap
-    pointer-events: auto
     flex-shrink: 0
     @media screen and (max-width: $breakpoint-mobile)
       align-items: flex-start
   &-Top_Desktop
     align-items: center
+    pointer-events: auto
     padding: 3rem var(--spacing-content-sides)
     .header-Logo
       flex-grow: 1
@@ -490,8 +490,9 @@ export default {
       display: flex
       width: 100%
       padding: var(--spacing-content-sides)
+      justify-content: space-between
       .header-Logo
-        flex-grow: 1
+        pointer-events: auto
         svg
           height: 5rem
     &_Middle
