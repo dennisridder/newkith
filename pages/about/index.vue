@@ -89,7 +89,20 @@ export default {
         el,
         5,
         {
-          rotationY: -35
+          rotationY: -35,
+          opacity: 1
+        },
+        {
+          rotationY: -34,
+          ease: "power2.easeIn"
+        }
+      )
+      gsap.fromTo(
+        el,
+        5,
+        {
+          rotationY: -35,
+          delay: 8
         },
         {
           rotationY: 0,
@@ -100,7 +113,7 @@ export default {
           //   end: "bottom top"
           // },
           ease: "power2.easeIn",
-          delay: 5
+          delay: 8
         }
       )
       gsap.fromTo(
@@ -118,7 +131,7 @@ export default {
           //   end: "bottom top"
           // },
           ease: "power2.easeIn",
-          delay: 12
+          delay: 14
         }
       )
     }
@@ -133,5 +146,5 @@ export default {
   .youtube
     margin-top: 18vh
   #movie
-    transform: rotateY(-35deg)
+    opacity: 0
 </style>
