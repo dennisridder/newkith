@@ -6,7 +6,7 @@
         :wordswap="false"
       />
     </section>
-    <blok-filter-list v-if="filterList" :array="filterList" />
+    <!-- <blok-filter-list v-if="filterList" :array="filterList" /> -->
     <section v-if="blogList" class="section section-Blog">
       <ul class="blogList">
         <!-- prettier-ignore -->

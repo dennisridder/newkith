@@ -6,7 +6,7 @@
         :wordswap="false"
       />
     </section>
-    <blok-filter-list v-if="filterList" :array="filterList" />
+    <!-- <blok-filter-list v-if="filterList" :array="filterList" /> -->
     <blok-image-grid v-if="talentsList" :array="talentsList" slug="/talents/" />
   </div>
 </template>
