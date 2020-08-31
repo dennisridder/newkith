@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     imageTilt: function(event) {
-      const mq = window.matchMedia("(min-width: 768px)")
+      const mq = window.matchMedia("(hover: hover)")
       if (mq.matches) {
         // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
         var el = $("#effect-" + this.id)
@@ -33,7 +33,7 @@ export default {
       }
     },
     imageTiltOnScroll: function() {
-      const mq = window.matchMedia("(max-width: 768px)")
+      const mq = window.matchMedia("(hover: none)")
       if (mq.matches) {
         var el = $("#effect-" + this.id)
         var domRect = document
