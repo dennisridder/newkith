@@ -244,6 +244,11 @@ export default {
     width: 100%
     overflow-x: auto
     border-top: $border
+    h1, h2, h4, p
+      hyphens: none
+      overflow-wrap: normal
+      break-word: normal
+      white-space: nowrap
     &:last-child
       border-bottom: $border
     &:hover
