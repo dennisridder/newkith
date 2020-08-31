@@ -92,30 +92,26 @@
       </nav>
     </div>
     <!-- HEADER MOBILE -->
-    <div
-      class="header-Top header-Top_Mobile"
-      @mouseenter="mouseEnterTopMobile"
-      @mouseleave="mouseLeaveTop"
-    >
+    <div class="header-Top header-Top_Mobile">
       <div class="header-Top_Mobile_Top">
         <div class="header-Logo cursorInteract">
           <nuxt-link to="/" tag="li">
             <div v-html="require('~/assets/images/icon-hash.svg?include')" />
           </nuxt-link>
         </div>
-        <nav class="header-Mobile_Toggle">
+        <nav class="header-Top_Mobile_Toggle">
           <ul>
             <li
-              v-if="isActive === 'one' || isActive === 'two'"
+              v-if="isActive === 'one'"
               class="cursorInteract"
               @click="mouseEnterTopMobile"
             >
               Menu
             </li>
             <li
-              v-if="isActive === 'three'"
+              v-if="isActive === 'two' || isActive === 'three'"
               class="cursorInteract"
-              @click="mouseLeaveAll"
+              @click="mouseLeaveAllMobile"
             >
               Close
             </li>
@@ -138,7 +134,6 @@
         </nav>
       </div>
     </div>
-    <!-- HEADER MIDDLE only when mobile -->
     <!-- HEADER BOTTOM -->
     <div class="header-Bottom">
       <div class="header-Bottom_Items">
@@ -387,6 +382,41 @@ export default {
         this.services = false
       }
     },
+    mouseLeaveAllMobile() {
+      gsap.to(".section-Wrapper", {
+        css: {
+          marginTop: 0
+        },
+        duration: "0.65",
+        delay: "0.25",
+        ease: "expo.out"
+      })
+      gsap.to(".header-Background", {
+        height: "0",
+        duration: "0.65",
+        delay: "0.25",
+        ease: "expo.out"
+      })
+      gsap.to(".header-ContentTitle", {
+        opacity: "0",
+        duration: "0.4",
+        delay: "0.1",
+        ease: "ease"
+      })
+      gsap.to(".header-ContentText", {
+        opacity: "0",
+        duration: "0.5",
+        ease: "ease"
+      })
+      gsap.to(".header-Top_Mobile_Middle", {
+        opacity: "0",
+        duration: "0.4",
+        delay: "0.1",
+        ease: "ease"
+      })
+      this.isActive = "one"
+      this.services = false
+    },
     checkPageType() {
       if (this.$route.name === "blog-slug") {
         this.pageType = "blogSlug"
@@ -449,6 +479,8 @@ export default {
       display: none
   &-Top_Mobile
     flex-direction: column
+    &_Toggle
+      pointer-events: auto
     &_Top
       display: flex
       width: 100%
