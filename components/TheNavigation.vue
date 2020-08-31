@@ -1,23 +1,15 @@
 <template>
   <header class="header" :class="isActive" @mouseleave="mouseLeaveAll">
     <div
-      class="header-Top"
+      class="header-Top header-Top_Desktop"
       @mouseenter="mouseEnterTop"
       @mouseleave="mouseLeaveTop"
     >
       <div class="header-Logo cursorInteract">
         <nuxt-link to="/" tag="li">
-          <div
-            class="laptop"
-            v-html="require('~/assets/images/logo-hash.svg?include')"
-          />
-          <div
-            class="mobile"
-            v-html="require('~/assets/images/icon-hash.svg?include')"
-          />
+          <div v-html="require('~/assets/images/logo-hash.svg?include')" />
         </nuxt-link>
       </div>
-      <!-- prettire-ignore -->
       <nav v-if="mainNav == true" class="header-Nav">
         <ul>
           <li class="header-Services cursorInteract" @click="clickServices">
@@ -31,7 +23,7 @@
           >
         </ul>
       </nav>
-      <nav v-if="mainNav == true" class="header-Nav header-Nav_IconRow">
+      <nav v-if="mainNav == true" class="header-Nav header-IconRow">
         <ul>
           <li class="cursorInteract">
             <a href="https://www.instagram.com/new.kith/" target="_blank">
@@ -99,6 +91,55 @@
         </ul>
       </nav>
     </div>
+    <!-- HEADER MOBILE -->
+    <div
+      class="header-Top header-Top_Mobile"
+      @mouseenter="mouseEnterTopMobile"
+      @mouseleave="mouseLeaveTop"
+    >
+      <div class="header-Top_Mobile_Top">
+        <div class="header-Logo cursorInteract">
+          <nuxt-link to="/" tag="li">
+            <div v-html="require('~/assets/images/icon-hash.svg?include')" />
+          </nuxt-link>
+        </div>
+        <nav class="header-Mobile_Toggle">
+          <ul>
+            <li
+              v-if="isActive === 'one' || isActive === 'two'"
+              class="cursorInteract"
+              @click="mouseEnterTopMobile"
+            >
+              Menu
+            </li>
+            <li
+              v-if="isActive === 'three'"
+              class="cursorInteract"
+              @click="mouseLeaveAll"
+            >
+              Close
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-Top_Mobile_Middle">
+        <nav v-if="mainNav == true" class="header-Nav">
+          <ul>
+            <li class="header-Services cursorInteract" @click="clickServices">
+              Our services
+            </li>
+            <nuxt-link to="/blog" class="cursorInteract" tag="li"
+              >What's happening</nuxt-link
+            >
+            <nuxt-link to="/about" class="header-Story cursorInteract" tag="li"
+              >Our story</nuxt-link
+            >
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- HEADER MIDDLE only when mobile -->
+    <!-- HEADER BOTTOM -->
     <div class="header-Bottom">
       <div class="header-Bottom_Items">
         <p class="header-ContentTitle">
@@ -182,19 +223,46 @@ export default {
   },
   methods: {
     mouseEnterTop() {
+      var headerTopHeight = document.querySelector(".header-Top_Desktop")
+        .offsetHeight
       if (this.isActive === "one") {
         this.isActive = "two"
         gsap.to(".section-Wrapper", {
           css: {
-            marginTop: document.querySelector(".header-Top").offsetHeight
+            marginTop: headerTopHeight
           },
           duration: "0.75",
           ease: "expo.out"
         })
         gsap.to(".header-Background", {
-          height: document.querySelector(".header-Top").offsetHeight,
+          height: headerTopHeight,
           duration: "0.75",
           ease: "expo.out"
+        })
+      }
+    },
+    mouseEnterTopMobile() {
+      var headerTopHeight = document.querySelector(".header-Top_Mobile")
+        .offsetHeight
+      if (this.isActive === "one") {
+        this.isActive = "two"
+        gsap.to(".section-Wrapper", {
+          css: {
+            marginTop: headerTopHeight
+          },
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Background", {
+          height: headerTopHeight,
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Mobile_Middle", {
+          opacity: "1",
+          duration: "0.6",
+          delay: "0.2",
+          ease: "ease"
         })
       }
     },
@@ -212,8 +280,15 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
+        gsap.to(".header-Top_Mobile_Middle", {
+          opacity: "0",
+          duration: "0.4",
+          delay: "0",
+          ease: "ease"
+        })
         this.isActive = "one"
       }
+      console.log("mouseLeaveTop", this.isActive)
     },
     clickServices() {
       this.services = !this.services
@@ -245,16 +320,19 @@ export default {
         })
       } else {
         this.isActive = "two"
+        var topHeight =
+          document.querySelector(".header-Top_Desktop").offsetHeight +
+          document.querySelector(".header-Top_Mobile").offsetHeight
         gsap.to(".section-Wrapper", {
           css: {
-            marginTop: document.querySelector(".header-Top").offsetHeight
+            marginTop: topHeight
           },
           duration: "0.65",
           delay: "0.25",
           ease: "expo.out"
         })
         gsap.to(".header-Background", {
-          height: document.querySelector(".header-Top").offsetHeight,
+          height: topHeight,
           duration: "0.65",
           delay: "0.25",
           ease: "expo.out"
@@ -297,6 +375,12 @@ export default {
         gsap.to(".header-ContentText", {
           opacity: "0",
           duration: "0.5",
+          ease: "ease"
+        })
+        gsap.to(".header-Top_Mobile_Middle", {
+          opacity: "0",
+          duration: "0.4",
+          delay: "0.1",
           ease: "ease"
         })
         this.isActive = "one"
@@ -343,59 +427,54 @@ export default {
   pointer-events: none
   max-height: 100vh
   overflow-y: auto
-  &.one
-    .header-Top
-      pointer-events: auto
   &.two
-    .header-Top
+    .header-Top_Mobile_Middle
       pointer-events: auto
   &.three
     pointer-events: auto
-    // .header-Services
-    //   border-bottom: $border
   &-Top
     display: flex
-    justify-content: flex-end
-    align-items: center
-    flex-wrap: wrap
-    padding: 3rem var(--spacing-content-sides)
+    flex-wrap: nowrap
+    pointer-events: auto
     @media screen and (max-width: $breakpoint-mobile)
       align-items: flex-start
-
+  &-Top_Desktop
+    align-items: center
+    padding: 3rem var(--spacing-content-sides)
+    .header-Logo
+      flex-grow: 1
+      svg
+        height: 2rem
+    @media screen and (max-width: $breakpoint-mobile)
+      display: none
+  &-Top_Mobile
+    flex-direction: column
+    &_Top
+      display: flex
+      width: 100%
+      padding: 3rem var(--spacing-content-sides)
+      .header-Logo
+        flex-grow: 1
+        svg
+          height: 4rem
+    &_Middle
+      padding-left: var(--spacing-content-sides)
+      padding-bottom: 3rem
+      opacity: 0
+    @media screen and (min-width: $breakpoint-mobile)
+      display: none
   &-Bottom
     display: flex
     justify-content: space-between
     gap: var(--spacing-two)
-    overflow: hidden
     padding: 3rem var(--spacing-content-sides)
     &_Items
-      margin-right: var(--spacing-one)
-      &:last-child
-        margin-right: 0
     @media screen and (max-width: $breakpoint-mobile)
       flex-wrap: wrap
-  &-Services
-    pointer-events: auto
-  &-ContentTitle
-    margin-bottom: 1.5rem
-  &-ContentTitle
-    opacity: 0
-  &-ContentText
-    opacity: 0
-  ul
-    display: flex
-    justify-content: flex-end
-  li
-    letter-spacing: .01rem
-    cursor: pointer
-    margin-right: 1rem
-    &:last-child
-      margin-right: 0
-      .icon
-        margin-right: 0
   &-Nav
-    margin-left: var(--spacing-one)
     flex-shrink: 0
+    @media screen and (min-width: $breakpoint-mobile)
+      margin-left: var(--spacing-content-sides)
     li
       display: flex
       align-items: center
@@ -405,21 +484,22 @@ export default {
         margin-right: 0
       &:hover, &.nuxt-link-exact-active
         text-decoration: none
-    // &_IconRow
-  &-Logo
-    flex-grow: 1
-    .mobile
-      display: none
-    @media screen and (max-width: $breakpoint-mobile)
-      .laptop
-        display: none
-      .mobile
-        display: block
-    li
-      svg
-        height: 2rem
-  &-LogoMobile
-    display: none
+    ul
+      display: flex
+  &-Services
+    pointer-events: auto
+  &-ContentTitle
+    margin-bottom: 1.5rem
+  &-ContentTitle, &-ContentText
+    opacity: 0
+  li
+    letter-spacing: .01rem
+    cursor: pointer
+    margin-right: 1rem
+    &:last-child
+      margin-right: 0
+      .icon
+        margin-right: 0
   &-Back
     display: flex
     // .icon
