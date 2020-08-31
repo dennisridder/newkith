@@ -30,9 +30,7 @@ export default {
   props: {
     blok: Object
   },
-  mounted() {
-    console.log(this.blok)
-  },
+  mounted() {},
   methods: {
     imageTilt: function(event) {
       var el = $("#" + this.blok._uid)
