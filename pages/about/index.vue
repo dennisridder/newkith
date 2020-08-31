@@ -87,19 +87,38 @@ export default {
       var el = $("#movie")
       gsap.fromTo(
         el,
-        1,
+        5,
         {
           rotationY: -35
         },
         {
           rotationY: 0,
-          scrollTrigger: {
-            trigger: el,
-            scrub: true,
-            start: "center center",
-            end: "bottom top"
-          },
-          ease: "power2.easeOut"
+          // scrollTrigger: {
+          //   trigger: el,
+          //   scrub: true,
+          //   start: "center center",
+          //   end: "bottom top"
+          // },
+          ease: "power2.easeIn",
+          delay: 5
+        }
+      )
+      gsap.fromTo(
+        el,
+        2,
+        {
+          rotationY: 0
+        },
+        {
+          rotationY: 360,
+          // scrollTrigger: {
+          //   trigger: el,
+          //   scrub: true,
+          //   start: "center center",
+          //   end: "bottom top"
+          // },
+          ease: "power2.easeIn",
+          delay: 12
         }
       )
     }
@@ -114,5 +133,5 @@ export default {
   .youtube
     margin-top: 25vh
   #movie
-    // transform: rotateY(-35deg)
+    transform: rotateY(-35deg)
 </style>
