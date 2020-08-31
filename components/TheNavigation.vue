@@ -470,6 +470,7 @@ export default {
     display: flex
     flex-wrap: nowrap
     pointer-events: auto
+    flex-shrink: 0
     @media screen and (max-width: $breakpoint-mobile)
       align-items: flex-start
   &-Top_Desktop
@@ -506,10 +507,14 @@ export default {
     justify-content: space-between
     gap: var(--spacing-two)
     padding: 3rem var(--spacing-content-sides)
-    &_Items
     @media screen and (max-width: $breakpoint-mobile)
-      flex-wrap: wrap
-      margin-bottom: var(--spacing-two)
+      flex-direction: column
+      justify-content: flex-start
+      .header-Bottom_Items
+        margin-bottom: var(--spacing-three)
+        &:last-child
+          margin-bottom: var(--spacing-content-bottom)
+          padding-bottom: var(--spacing-content-bottom)
   &-Nav
     flex-shrink: 0
     @media screen and (min-width: $breakpoint-mobile)
