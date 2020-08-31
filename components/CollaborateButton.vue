@@ -1,7 +1,5 @@
 <template>
-  <a
-    :href="`mailto:${general[0].content.general_email}`"
-    class="button cursorInteract"
+  <a :href="`mailto:${blok.button_mail_address}`" class="button cursorInteract"
     ><h4>{{ blok.button_text }}</h4></a
   >
 </template>
