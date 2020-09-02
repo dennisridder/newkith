@@ -37,6 +37,12 @@
         </nuxt-link>
       </div>
     </section>
+    <component
+      :is="story.content.component | dashify"
+      v-if="story.content.component"
+      :key="story.content._uid"
+      :blok="story.content"
+    ></component>
     <!-- <blok-filter-list v-if="filterListTalents" :array="filterListTalents" /> -->
     <section class="section section-Title section-TextContent slowerScroll">
       <blok-title-animated
