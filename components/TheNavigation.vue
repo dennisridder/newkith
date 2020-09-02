@@ -140,9 +140,10 @@
         <p class="header-ContentTitle">
           {{ general[0].content.header_title_column_one }}
         </p>
-        <p class="header-ContentText">
-          {{ general[0].content.header_text_column_one }}
-        </p>
+        <markdown-item
+          class="header-ContentText"
+          :input="general[0].content.header_text_column_one"
+        />
         <nuxt-link to="/talents" class="link header-ContentText cursorInteract">
           <div
             class="icon"
@@ -155,9 +156,10 @@
         <p class="header-ContentTitle">
           {{ general[0].content.header_title_column_two }}
         </p>
-        <p class="header-ContentText">
-          {{ general[0].content.header_text_column_two }}
-        </p>
+        <markdown-item
+          class="header-ContentText"
+          :input="general[0].content.header_text_column_two"
+        />
         <nuxt-link to="/cases" class="link header-ContentText cursorInteract">
           <div
             class="icon"
@@ -170,9 +172,10 @@
         <p class="header-ContentTitle">
           {{ general[0].content.header_title_column_three }}
         </p>
-        <p class="header-ContentText">
-          {{ general[0].content.header_text_column_three }}
-        </p>
+        <markdown-item
+          class="header-ContentText"
+          :input="general[0].content.header_text_column_three"
+        />
         <nuxt-link to="/about" class="link header-ContentText cursorInteract">
           <div
             class="icon"
@@ -188,9 +191,12 @@
 <script>
 import gsap from "gsap"
 import { mapState } from "vuex"
+import MarkdownItem from "@/components/MarkdownItem.vue"
 
 export default {
-  name: "TheNavigation",
+  components: {
+    "markdown-item": MarkdownItem
+  },
   data() {
     return {
       isActive: "one",

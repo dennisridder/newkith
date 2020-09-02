@@ -25,7 +25,12 @@ export default {
 </script>
 
 <style lang="sass">
-.markdown p
+.markdown
   white-space: pre-line
+  max-width: var(--max-width)
+  p
+    margin-bottom: 1.5rem
+  p:last-child
+    margin-bottom: 0
 // Prefer style handling by cascading css (typography.sass) as much as possible.
 </style>
