@@ -176,13 +176,13 @@
           class="header-ContentText"
           :input="general[0].content.header_text_column_three"
         />
-        <nuxt-link to="/about" class="link header-ContentText cursorInteract">
+        <!-- <nuxt-link to="/about" class="link header-ContentText cursorInteract">
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
           <p>Read more</p>
-        </nuxt-link>
+        </nuxt-link> -->
       </div>
     </div>
   </header>
@@ -514,6 +514,9 @@ export default {
     justify-content: space-between
     gap: var(--spacing-two)
     padding: 3rem var(--spacing-content-sides)
+    &_Items
+      @media screen and (min-width: $breakpoint-mobile)
+      flex-basis: 33.3333%
     @media screen and (max-width: $breakpoint-mobile)
       flex-direction: column
       justify-content: flex-start
