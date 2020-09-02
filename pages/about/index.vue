@@ -1,21 +1,5 @@
 <template>
   <div v-editable="story.content" class="section-Wrapper section-About">
-    <!-- <section
-      class="section section-Media section-ImageContent youtube fastScroll"
-    >
-      <div class="section-Media_Wrapper medium">
-        <div id="movie" class="section-Media_Container ">
-          <iframe
-            id="mediaPlayer"
-            type="text/html"
-            width="640"
-            height="360"
-            frameborder="0"
-            src="'https://www.youtube.com/embed/6QPIiX7SCu4?autoplay=1&loop=1&modestbranding=1&color=blue&iv_load_policy=3&rel=0'"
-          />
-        </div>
-      </div>
-    </section> -->
     <section class="section section-Landing section-TextContent">
       <blok-title-animated
         :words="['We', 'are', 'New', 'Kith']"
@@ -29,7 +13,7 @@
       <div class="section-Media_Wrapper">
         <div id="movie" class="section-Media_Container ">
           <iframe
-            src="https://player.vimeo.com/video/451626607"
+            src="https://player.vimeo.com/video/453611222"
             width="640"
             height="360"
             frameborder="0"
@@ -63,14 +47,10 @@ import landingScroll from "@/mixins/landingScroll"
 import fastScroll from "@/mixins/fastScroll"
 import slowScroll from "@/mixins/slowScroll"
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-// import MarkdownItem from "@/components/MarkdownItem.vue"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default {
-  // components: {
-  //   "markdown-item": MarkdownItem
-  // },
   mixins: [storyblokLivePreview, landingScroll, fastScroll, slowScroll],
   asyncData(context) {
     return context.app.$storyapi
@@ -102,30 +82,12 @@ export default {
     }
   },
   mounted() {
-    // console.log(this.story.content.body)
-    // window.addEventListener("scroll", this.imageTiltOnScroll)
     this.videoScrollsIn()
-  },
-  destroyed() {
-    // window.removeEventListener("scroll", this.imageTiltOnScroll)
   },
   methods: {
     videoScrollsIn() {
       console.log("GO!")
-      // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
       var el = $("#movie")
-      // gsap.fromTo(
-      //   el,
-      //   5,
-      //   {
-      //     rotationY: -35,
-      //     opacity: 1
-      //   },
-      //   {
-      //     rotationY: 0,
-      //     ease: "power2.easeIn"
-      //   }
-      // )
       gsap.fromTo(
         el,
         {
@@ -142,34 +104,7 @@ export default {
           ease: "power2.easeIn"
         }
       )
-      // gsap.fromTo(
-      //   el,
-      //   2,
-      //   {
-      //     rotationY: 0
-      //   },
-      //   {
-      //     rotationY: 360,
-      //     // scrollTrigger: {
-      //     //   trigger: el,
-      //     //   scrub: true,
-      //     //   start: "center center",
-      //     //   end: "bottom top"
-      //     // },
-      //     ease: "power2.easeIn",
-      //     delay: 14
-      //   }
-      // )
     }
   }
 }
 </script>
-
-<style lang="sass">
-@import '~/assets/styles/variables.sass'
-
-.section-About
-  // &_Landing
-  #movie
-    opacity: 1
-</style>
