@@ -61,4 +61,8 @@ export default {
     margin-bottom: 1.5rem
   .markdown
     max-width: var(--max-width)
+    p
+      margin-bottom: 1.5rem
+    p:last-child
+      margin-bottom: 0
 </style>
