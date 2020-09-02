@@ -20,7 +20,9 @@
             transparent="true"
             autoplay="true"
             autopause="true"
-            title="We are New Kith"
+            loop="true"
+            playsinline="true"
+            title="false"
             webkitallowfullscreen
             mozallowfullscreen
             allowfullscreen
