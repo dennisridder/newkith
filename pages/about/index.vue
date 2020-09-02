@@ -1,6 +1,6 @@
 <template>
   <div v-editable="story.content" class="section-Wrapper section-About">
-    <section
+    <!-- <section
       class="section section-Media section-ImageContent youtube fastScroll"
     >
       <div class="section-Media_Wrapper medium">
@@ -11,21 +11,47 @@
             width="640"
             height="360"
             frameborder="0"
-            :src="
-              'https://www.youtube.com/embed/6QPIiX7SCu4?autoplay=1&loop=1&modestbranding=1&color=blue&iv_load_policy=3&rel=0'
-            "
+            src="'https://www.youtube.com/embed/6QPIiX7SCu4?autoplay=1&loop=1&modestbranding=1&color=blue&iv_load_policy=3&rel=0'"
+          />
+        </div>
+      </div>
+    </section> -->
+    <section class="section section-Landing section-TextContent">
+      <blok-title-animated
+        :words="['We', 'are', 'New', 'Kith']"
+        :wordswap="false"
+      />
+    </section>
+    <section
+      v-editable="story.content"
+      class="section section-About_Landing section-Media section-ImageContent vimeo fastScroll"
+    >
+      <div class="section-Media_Wrapper">
+        <div id="movie" class="section-Media_Container ">
+          <iframe
+            src="https://player.vimeo.com/video/451626607"
+            width="640"
+            height="360"
+            frameborder="0"
+            transparent="true"
+            autoplay="true"
+            autopause="true"
+            title="We are New Kith"
+            webkitallowfullscreen
+            mozallowfullscreen
+            allowfullscreen
           />
         </div>
       </div>
     </section>
-    <!-- <section>
+    <section>
       <component
         :is="story.content.component | dashify"
         v-if="story.content.component"
         :key="story.content._uid"
         :blok="story.content"
       ></component>
-    </section> -->
+    </section>
   </div>
 </template>
 
@@ -33,6 +59,9 @@
 import gsap from "gsap"
 import $ from "jquery"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import landingScroll from "@/mixins/landingScroll"
+import fastScroll from "@/mixins/fastScroll"
+import slowScroll from "@/mixins/slowScroll"
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 // import MarkdownItem from "@/components/MarkdownItem.vue"
 
@@ -42,7 +71,7 @@ export default {
   // components: {
   //   "markdown-item": MarkdownItem
   // },
-  mixins: [storyblokLivePreview],
+  mixins: [storyblokLivePreview, landingScroll, fastScroll, slowScroll],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories/about", {
@@ -73,7 +102,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.story)
+    console.log(this.story.content.body)
     window.addEventListener("scroll", this.imageTiltOnScroll)
     this.imageTilt()
   },
@@ -143,8 +172,7 @@ export default {
 @import '~/assets/styles/variables.sass'
 
 .section-About
-  .youtube
-    margin-top: 18vh
+  &_Landing
   #movie
     opacity: 0
 </style>
