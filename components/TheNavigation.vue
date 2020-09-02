@@ -516,7 +516,7 @@ export default {
     padding: 3rem var(--spacing-content-sides)
     &_Items
       @media screen and (min-width: $breakpoint-mobile)
-      flex-basis: 33.3333%
+        flex-basis: 33.3333%
     @media screen and (max-width: $breakpoint-mobile)
       flex-direction: column
       justify-content: flex-start
