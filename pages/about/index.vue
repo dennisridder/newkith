@@ -102,67 +102,64 @@ export default {
     }
   },
   mounted() {
-    console.log(this.story.content.body)
-    window.addEventListener("scroll", this.imageTiltOnScroll)
-    this.imageTilt()
+    // console.log(this.story.content.body)
+    // window.addEventListener("scroll", this.imageTiltOnScroll)
+    this.videoScrollsIn()
   },
   destroyed() {
-    window.removeEventListener("scroll", this.imageTiltOnScroll)
+    // window.removeEventListener("scroll", this.imageTiltOnScroll)
   },
   methods: {
-    imageTilt() {
+    videoScrollsIn() {
       console.log("GO!")
       // Codepen: https://codepen.io/driesbos/pen/NWNKwjM
       var el = $("#movie")
+      // gsap.fromTo(
+      //   el,
+      //   5,
+      //   {
+      //     rotationY: -35,
+      //     opacity: 1
+      //   },
+      //   {
+      //     rotationY: 0,
+      //     ease: "power2.easeIn"
+      //   }
+      // )
       gsap.fromTo(
         el,
-        5,
         {
-          rotationY: -35,
-          opacity: 1
-        },
-        {
-          rotationY: -34,
-          ease: "power2.easeIn"
-        }
-      )
-      gsap.fromTo(
-        el,
-        5,
-        {
-          rotationY: -35,
-          delay: 8
+          rotationY: -35
         },
         {
           rotationY: 0,
-          // scrollTrigger: {
-          //   trigger: el,
-          //   scrub: true,
-          //   start: "center center",
-          //   end: "bottom top"
-          // },
-          ease: "power2.easeIn",
-          delay: 8
+          scrollTrigger: {
+            trigger: el,
+            scrub: true,
+            start: "center bottom",
+            end: "center center"
+          },
+          ease: "power2.easeIn"
         }
       )
-      gsap.fromTo(
-        el,
-        2,
-        {
-          rotationY: 0
-        },
-        {
-          rotationY: 360,
-          // scrollTrigger: {
-          //   trigger: el,
-          //   scrub: true,
-          //   start: "center center",
-          //   end: "bottom top"
-          // },
-          ease: "power2.easeIn",
-          delay: 14
-        }
-      )
+      // gsap.fromTo(
+      //   el,
+      //   2,
+      //   {
+      //     rotationY: 0
+      //   },
+      //   {
+      //     rotationY: 360,
+      //     // scrollTrigger: {
+      //     //   trigger: el,
+      //     //   scrub: true,
+      //     //   start: "center center",
+      //     //   end: "bottom top"
+      //     // },
+      //     ease: "power2.easeIn",
+      //     delay: 14
+      //   }
+      // )
     }
   }
 }
@@ -172,7 +169,7 @@ export default {
 @import '~/assets/styles/variables.sass'
 
 .section-About
-  &_Landing
+  // &_Landing
   #movie
-    opacity: 0
+    opacity: 1
 </style>
