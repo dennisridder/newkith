@@ -6,23 +6,23 @@
         :wordswap="true"
       />
     </section>
-    <!-- <section class="section section-Title section-TextContent slowerScroll">
+    <section class="section section-Title section-TextContent slowerScroll">
       <blok-title-animated
         class="section-ImageGrid_Title"
-        :words="[`${story.content.body[0].cases_header}`]"
+        :words="[`${story.content.cases_header}`]"
         :wordswap="false"
       />
-    </section> -->
+    </section>
     <blok-image-grid
       v-if="casesList"
       :array="casesList"
       slug="/cases/"
       title="Cases"
     />
-    <!-- <section class="section section-ImageGridFooter section-TextContent">
+    <section class="section section-ImageGridFooter section-TextContent">
       <div class="section-ImageGridFooter_Content">
-        <h2>{{ story.content.body[0].cases_imagegrid_title }}</h2>
-        <markdown-item :input="story.content.body[0].cases_imagegrid_text" />
+        <h2>{{ story.content.cases_footer_title }}</h2>
+        <markdown-item :input="story.content.cases_footer_text" />
         <nuxt-link
           to="/cases"
           tag="div"
@@ -35,30 +35,30 @@
           <p>See all our cases</p>
         </nuxt-link>
       </div>
-    </section> -->
+    </section>
     <!-- <component
-      :is="story.content.component | dashify"
-      v-if="story.content.component"
+      :is="story.content.body_middle | dashify"
+      v-if="story.content.body_middle"
       :key="story.content._uid"
-      :blok="story.content"
+      :blok="story.content.body_middle"
     ></component> -->
-    <!-- <section class="section section-Title section-TextContent slowerScroll">
+    <section class="section section-Title section-TextContent slowerScroll">
       <blok-title-animated
         class="section-ImageGrid_Title"
-        :words="[`${story.content.body[0].talents_header}`]"
+        :words="[`${story.content.talents_header}`]"
         :wordswap="false"
       />
-    </section> -->
+    </section>
     <blok-image-grid
       v-if="talentsList"
       :array="talentsList"
       slug="/talents/"
       title="Talents"
     />
-    <!-- <section class="section section-ImageGridFooter section-TextContent">
+    <section class="section section-ImageGridFooter section-TextContent">
       <div class="section-ImageGridFooter_Content">
-        <h2>{{ story.content.body[0].talents_imagegrid_title }}</h2>
-        <markdown-item :input="story.content.body[0].talents_imagegrid_text" />
+        <h2>{{ story.content.talents_footer_title }}</h2>
+        <markdown-item :input="story.content.talents_footer_text" />
         <nuxt-link
           to="/talents"
           tag="div"
@@ -73,7 +73,7 @@
           </p>
         </nuxt-link>
       </div>
-    </section> -->
+    </section>
   </div>
 </template>
 
@@ -82,13 +82,13 @@ import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import landingScroll from "@/mixins/landingScroll"
 import fastScroll from "@/mixins/fastScroll"
 import slowScroll from "@/mixins/slowScroll"
-// import MarkdownItem from "@/components/MarkdownItem.vue"
+import MarkdownItem from "@/components/MarkdownItem.vue"
 import { mapState } from "vuex"
 
 export default {
-  // components: {
-  //   "markdown-item": MarkdownItem
-  // },
+  components: {
+    "markdown-item": MarkdownItem
+  },
   mixins: [storyblokLivePreview, landingScroll, fastScroll, slowScroll],
   asyncData(context) {
     return context.app.$storyapi
@@ -130,6 +130,7 @@ export default {
   mounted() {
     this.filterCases()
     this.filterTalents()
+    console.log(this.story)
   },
   methods: {
     shuffle(arr) {
