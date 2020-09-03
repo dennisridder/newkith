@@ -1,5 +1,6 @@
 import Vue from "vue"
 import Page from "~/components/Page.vue"
+import PageHomepage from "~/components/PageHomepage.vue"
 import TitleAnimated from "~/components/TitleAnimated.vue"
 import Footer from "~/components/Footer.vue"
 import ButtonContainer from "~/components/ButtonContainer.vue"
@@ -18,6 +19,7 @@ import ImageGrid from "~/components/ImageGrid.vue"
 import ImageContainer from "~/components/ImageContainer.vue"
 
 Vue.component("blok-page", Page)
+Vue.component("blok-page-homepage", PageHomepage)
 Vue.component("blok-title-animated", TitleAnimated)
 Vue.component("blok-footer", Footer)
 Vue.component("blok-tag-list", TagList)
