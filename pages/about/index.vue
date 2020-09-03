@@ -88,7 +88,6 @@ export default {
   },
   methods: {
     videoScrollsIn() {
-      console.log("GO!")
       var el = $("#movie")
       gsap.fromTo(
         el,
@@ -96,12 +95,12 @@ export default {
           rotationY: -35
         },
         {
-          rotationY: 0,
+          rotationY: 35,
           scrollTrigger: {
             trigger: el,
             scrub: true,
             start: "center bottom",
-            end: "center center"
+            end: "center top"
           },
           ease: "power2.easeIn"
         }
