@@ -84,10 +84,10 @@ export default {
     }
   },
   mounted() {
-    this.videoScrollsIn()
+    this.videoOnScroll()
   },
   methods: {
-    videoScrollsIn() {
+    videoOnScroll() {
       var el = $("#movie")
       gsap.fromTo(
         el,
@@ -95,12 +95,28 @@ export default {
           rotationY: -35
         },
         {
+          rotationY: 0,
+          scrollTrigger: {
+            trigger: el,
+            scrub: true,
+            start: "top bottom",
+            end: "bottom bottom"
+          },
+          ease: "power2.easeIn"
+        }
+      )
+      gsap.fromTo(
+        el,
+        {
+          rotationY: 0
+        },
+        {
           rotationY: 35,
           scrollTrigger: {
             trigger: el,
             scrub: true,
-            start: "center bottom",
-            end: "center top"
+            start: "top top",
+            end: "bottom top"
           },
           ease: "power2.easeIn"
         }
