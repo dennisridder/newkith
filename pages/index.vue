@@ -13,7 +13,6 @@
         :wordswap="false"
       />
     </section>
-    <!-- <blok-filter-list v-if="filterListCases" :array="filterListCases" /> -->
     <blok-image-grid
       v-if="casesList"
       :array="casesList"
@@ -37,13 +36,12 @@
         </nuxt-link>
       </div>
     </section>
-    <component
+    <!-- <component
       :is="story.content.component | dashify"
       v-if="story.content.component"
       :key="story.content._uid"
       :blok="story.content"
-    ></component>
-    <!-- <blok-filter-list v-if="filterListTalents" :array="filterListTalents" /> -->
+    ></component> -->
     <section class="section section-Title section-TextContent slowerScroll">
       <blok-title-animated
         class="section-ImageGrid_Title"

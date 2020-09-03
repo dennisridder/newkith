@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main lang="en-US" translate="no">
     <div class="header-Background"></div>
     <the-navigation />
     <transition name="pages" mode="out-in">
@@ -18,18 +18,6 @@ export default {
   components: {
     "the-navigation": TheNavigation
   },
-  mixins: [cursorInteraction],
-  mounted() {
-    // this.footerPadding()
-  },
-  methods: {
-    // footerPadding() {
-    //   const mq = window.matchMedia("(min-width: 768px)")
-    //   if (mq.matches) {
-    //     var height = document.querySelector(".section-Footer").offsetHeight
-    //     document.querySelector("main").style.marginBottom = height + "px"
-    //   }
-    // }
-  }
+  mixins: [cursorInteraction]
 }
 </script>
