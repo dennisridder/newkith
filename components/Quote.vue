@@ -1,7 +1,37 @@
 <template>
   <section class="section section-Quote section-TextContent animatedHorizontal">
     <ul class="section-Quote_Wrapper animatedHorizontal-Wrapper">
-      <li class="section-Quote_Item">
+      <li>
+        <h1>{{ blok.quote }}&nbsp;</h1>
+      </li>
+      <li>
+        <h1>{{ blok.quote }}&nbsp;</h1>
+      </li>
+      <li>
+        <h1>{{ blok.quote }}&nbsp;</h1>
+      </li>
+      <li>
+        <h1>{{ blok.quote }}&nbsp;</h1>
+      </li>
+      <li>
+        <h1>{{ blok.quote }}&nbsp;</h1>
+      </li>
+      <li>
+        <h1>{{ blok.quote }}&nbsp;</h1>
+      </li>
+      <li>
+        <h1>{{ blok.quote }}&nbsp;</h1>
+      </li>
+      <li>
+        <h1>{{ blok.quote }}&nbsp;</h1>
+      </li>
+      <li>
+        <h1>{{ blok.quote }}&nbsp;</h1>
+      </li>
+      <li>
+        <h1>{{ blok.quote }}&nbsp;</h1>
+      </li>
+      <li>
         <h1>{{ blok.quote }}&nbsp;</h1>
       </li>
       <li>

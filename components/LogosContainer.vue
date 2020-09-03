@@ -28,6 +28,42 @@
             :key="blok._uid + '3'"
             :blok="blok"
           ></component>
+          <component
+            :is="blok.component | dashify"
+            v-for="blok in blok.body"
+            :key="blok._uid + '4'"
+            :blok="blok"
+          ></component>
+          <component
+            :is="blok.component | dashify"
+            v-for="blok in blok.body"
+            :key="blok._uid + '5'"
+            :blok="blok"
+          ></component>
+          <component
+            :is="blok.component | dashify"
+            v-for="blok in blok.body"
+            :key="blok._uid + '6'"
+            :blok="blok"
+          ></component>
+          <component
+            :is="blok.component | dashify"
+            v-for="blok in blok.body"
+            :key="blok._uid + '7'"
+            :blok="blok"
+          ></component>
+          <component
+            :is="blok.component | dashify"
+            v-for="blok in blok.body"
+            :key="blok._uid + '8'"
+            :blok="blok"
+          ></component>
+          <component
+            :is="blok.component | dashify"
+            v-for="blok in blok.body"
+            :key="blok._uid + '9'"
+            :blok="blok"
+          ></component>
         </ul>
       </div>
     </div>
