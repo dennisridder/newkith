@@ -30,14 +30,12 @@
         </div>
       </div>
     </section>
-    <section>
-      <component
-        :is="story.content.component | dashify"
-        v-if="story.content.component"
-        :key="story.content._uid"
-        :blok="story.content"
-      ></component>
-    </section>
+    <component
+      :is="story.content.component | dashify"
+      v-if="story.content.component"
+      :key="story.content._uid"
+      :blok="story.content"
+    ></component>
   </div>
 </template>
 
@@ -92,7 +90,7 @@ export default {
       gsap.fromTo(
         el,
         {
-          rotationY: -35
+          rotationY: -45
         },
         {
           rotationY: 0,
@@ -111,7 +109,7 @@ export default {
           rotationY: 0
         },
         {
-          rotationY: 35,
+          rotationY: 45,
           scrollTrigger: {
             trigger: el,
             scrub: true,
