@@ -1,5 +1,5 @@
 <template>
-  <div class="rerender">
+  <div>
     <ul v-if="wordswap === true" class="title title-Animated">
       <li>
         <h1 class="animated-Word">{{ firstWord }}&nbsp;</h1>
@@ -46,10 +46,6 @@ export default {
     this.wordsSort()
     this.wordsLoadAnimated()
     this.wordsSwap()
-    // window.addEventListener("resize", this.forceRerender)
-  },
-  destroyed() {
-    // window.removeEventListener("resize", this.forceRerender)
   },
   methods: {
     wordsSort() {
@@ -132,9 +128,6 @@ export default {
 </script>
 
 <style lang="sass">
-.rerender
-  transform: translateZ(0)
-
 .title
   display: flex
   flex-wrap: wrap
