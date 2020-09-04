@@ -77,6 +77,7 @@ export default {
   },
   mounted() {
     this.onScroll()
+    console.log(this.blok, "QUOTE BLOK")
   },
   methods: {
     onScroll() {

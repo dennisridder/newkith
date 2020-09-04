@@ -30,12 +30,7 @@
         </nuxt-link>
       </div>
     </section>
-    <component
-      :is="story.content.component | dashify"
-      v-if="story.content.component"
-      :key="story.content._uid"
-      :blok="story.content"
-    ></component>
+    <blok-quote :blok="story.content" />
     <blok-title
       class="section-ImageGrid_Title"
       :words="[`${story.content.talents_header}`]"
@@ -74,6 +69,10 @@ import fastScroll from "@/mixins/fastScroll"
 import slowScroll from "@/mixins/slowScroll"
 import MarkdownItem from "@/components/MarkdownItem.vue"
 import { mapState } from "vuex"
+
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
   components: {
@@ -122,8 +121,27 @@ export default {
     this.getLandingInput()
     this.filterCases()
     this.filterTalents()
+    this.scrollSpeedTitles()
   },
   methods: {
+    scrollSpeedTitles() {
+      var titles = document.querySelectorAll(".section-Title")
+      const mq = window.matchMedia("(min-width: 768px)")
+      if (mq.matches) {
+        titles.forEach(el => {
+          gsap.to(el, {
+            y: ScrollTrigger.maxScroll(window) * 0.25,
+            ease: "none",
+            scrollTrigger: {
+              trigger: el,
+              scrub: true,
+              start: "top bottom",
+              end: "+=175%"
+            }
+          })
+        })
+      }
+    },
     getLandingInput() {
       if (this.story.content.landing_text) {
         var landingTextArray = this.story.content.landing_text.split(" ")
@@ -132,7 +150,6 @@ export default {
         var pathTitle = this.$route.path.replace(/\\|\//g, "")
         var pathTitleArray = pathTitle.split("-")
         this.landingInput = Object.values(pathTitleArray)
-        console.log("TWO", this.landingInput)
       }
     },
     shuffle(arr) {
