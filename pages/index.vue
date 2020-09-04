@@ -1,6 +1,8 @@
 <template>
   <div class="section-Wrapper section-Wrapper_Homepage">
-    <blok-landing :words="landingInput" />
+    <blok-landing
+      :words="['Newkith', 'talent', 'Connective', 'Online', 'agency']"
+    />
     <blok-title
       class="section-ImageGrid_Title"
       :words="[`${story.content.cases_header}`]"
