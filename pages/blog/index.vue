@@ -1,11 +1,11 @@
 <template>
   <div class="section-Wrapper">
     <blok-landing :words="['What\'s', 'happening']" />
-    <section v-if="blogList" class="section section-Blog">
+    <section v-if="stories" class="section section-Blog">
       <ul class="blogList">
         <!-- prettier-ignore -->
         <li
-          v-for="(post, index) in blogList"
+          v-for="(post, index) in stories"
           :key="index"
           class="blogList-Item animatedHorizontal"
         >
@@ -154,12 +154,10 @@ export default {
   data() {
     return {
       stories: { content: {} },
-      blogList: [],
       filterList: []
     }
   },
   mounted() {
-    this.removeFirstOfarray()
     this.filterArray()
     this.onScroll()
   },
@@ -202,14 +200,9 @@ export default {
         })
       }, 100)
     },
-    removeFirstOfarray() {
-      var arr = this.stories
-      arr.shift()
-      this.blogList = arr
-    },
     filterArray() {
       // Map tag values to new array
-      var array = this.blogList
+      var array = this.stories
       var filteredArray = array.map(el => {
         return el.tag_list[0]
       })
