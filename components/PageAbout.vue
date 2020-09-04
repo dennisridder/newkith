@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok" class="section-Wrapper section-Wrapper_About ">
+  <div v-editable="blok" class="section-Wrapper section-Wrapper_Aboutpage">
     <blok-landing v-if="blok.disable_landing === false" :words="landingInput" />
     <section
       class="section section-About_Landing section-Media section-ImageContent vimeo fastScroll"
