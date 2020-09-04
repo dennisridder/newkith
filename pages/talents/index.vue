@@ -1,6 +1,6 @@
 <template>
   <div class="section-Wrapper">
-    <blok-landing :words="['Meet', 'our', 'talents']" />
+    <blok-landing :words="landingInput" />
     <blok-image-grid v-if="talentsList" :array="talentsList" slug="/talents/" />
   </div>
 </template>
@@ -40,7 +40,8 @@ export default {
     return {
       stories: { content: {} },
       talentsList: [],
-      filterList: []
+      filterList: [],
+      landingInput: []
     }
   },
   computed: {
@@ -49,10 +50,21 @@ export default {
     })
   },
   mounted() {
+    this.getLandingInput()
     this.filterTalents()
     this.filterArray()
   },
   methods: {
+    getLandingInput() {
+      if (this.stories[0].content.landing_text) {
+        var landingTextArray = this.stories[0].content.landing_text.split(" ")
+        this.landingInput = landingTextArray
+      } else {
+        var pathTitle = this.$route.path.replace(/\\|\//g, "")
+        var pathTitleArray = pathTitle.split("-")
+        this.landingInput = pathTitleArray
+      }
+    },
     filterTalents() {
       let array = this.talents
       let filteredArray = array.slice(1)
