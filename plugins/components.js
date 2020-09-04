@@ -1,9 +1,9 @@
 import Vue from "vue"
 import Page from "~/components/Page.vue"
 import PageHomepage from "~/components/PageHomepage.vue"
-import TitleAnimated from "~/components/TitleAnimated.vue"
+import Landing from "~/components/Landing.vue"
 import Footer from "~/components/Footer.vue"
-import ButtonContainer from "~/components/ButtonContainer.vue"
+import ButtonsContainer from "~/components/ButtonsContainer.vue"
 import Button from "~/components/Button.vue"
 import ButtonCollaborate from "~/components/ButtonCollaborate.vue"
 import LogosContainer from "~/components/LogosContainer.vue"
@@ -20,11 +20,11 @@ import ImageContainer from "~/components/ImageContainer.vue"
 
 Vue.component("blok-page", Page)
 Vue.component("blok-page-homepage", PageHomepage)
-Vue.component("blok-title-animated", TitleAnimated)
+Vue.component("blok-landing", Landing)
 Vue.component("blok-footer", Footer)
 Vue.component("blok-tag-list", TagList)
 Vue.component("blok-filter-list", FilterList)
-Vue.component("blok-button-container", ButtonContainer)
+Vue.component("blok-buttons-container", ButtonsContainer)
 Vue.component("blok-button", Button)
 Vue.component("blok-button-collaborate", ButtonCollaborate)
 Vue.component("blok-logos-container", LogosContainer)

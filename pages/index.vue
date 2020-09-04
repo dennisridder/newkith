@@ -1,13 +1,13 @@
 <template>
   <div v-editable="story.content" class="section-Wrapper">
     <section class="section section-Landing section-TextContent">
-      <blok-title-animated
+      <blok-landing
         :words="['Newkith', 'talent', 'Connective', 'Online', 'agency']"
         :wordswap="true"
       />
     </section>
     <section class="section section-Title section-TextContent slowerScroll">
-      <blok-title-animated
+      <blok-landing
         class="section-ImageGrid_Title"
         :words="[`${story.content.cases_header}`]"
         :wordswap="false"
@@ -36,14 +36,14 @@
         </nuxt-link>
       </div>
     </section>
-    <!-- <component
-      :is="story.content.body_middle | dashify"
-      v-if="story.content.body_middle"
+    <component
+      :is="story.content.component | dashify"
+      v-if="story.content.component"
       :key="story.content._uid"
-      :blok="story.content.body_middle"
-    ></component> -->
+      :blok="story.content"
+    ></component>
     <section class="section section-Title section-TextContent slowerScroll">
-      <blok-title-animated
+      <blok-landing
         class="section-ImageGrid_Title"
         :words="[`${story.content.talents_header}`]"
         :wordswap="false"

@@ -1,7 +1,7 @@
 <template>
   <div class="section-Wrapper">
     <section class="section section-Landing section-TextContent">
-      <blok-title-animated :words="['our', 'cases']" :wordswap="false" />
+      <blok-landing :words="['our', 'cases']" :wordswap="false" />
     </section>
     <!-- <blok-filter-list v-if="filterList" :array="filterList" /> -->
     <blok-image-grid v-if="casesList" :array="casesList" slug="/cases/" />

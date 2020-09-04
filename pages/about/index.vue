@@ -1,10 +1,7 @@
 <template>
   <div v-editable="story.content" class="section-Wrapper section-About">
     <section class="section section-Landing section-TextContent">
-      <blok-title-animated
-        :words="['We', 'are', 'New', 'Kith']"
-        :wordswap="false"
-      />
+      <blok-landing :words="['We', 'are', 'New', 'Kith']" :wordswap="false" />
     </section>
     <section
       v-editable="story.content"
@@ -30,12 +27,12 @@
         </div>
       </div>
     </section>
-    <component
+    <!-- <component
       :is="story.content.component | dashify"
       v-if="story.content.component"
       :key="story.content._uid"
       :blok="story.content"
-    ></component>
+    ></component> -->
   </div>
 </template>
 
@@ -83,6 +80,7 @@ export default {
   },
   mounted() {
     this.videoOnScroll()
+    console.log("ABOUT DATA", this.story)
   },
   methods: {
     videoOnScroll() {

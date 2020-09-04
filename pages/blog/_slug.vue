@@ -4,7 +4,7 @@
       v-if="wordsArray"
       class="section section-Landing section-TextContent"
     >
-      <blok-title-animated :words="wordsArray" :wordswap="false" />
+      <blok-landing :words="wordsArray" :wordswap="false" />
     </section>
     <section
       v-if="story.content.thumbnail"
