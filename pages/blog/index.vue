@@ -1,9 +1,6 @@
 <template>
   <div class="section-Wrapper">
-    <section class="section section-Landing section-TextContent">
-      <blok-landing :words="['What\'s', 'happening']" :wordswap="false" />
-    </section>
-    <!-- <blok-filter-list v-if="filterList" :array="filterList" /> -->
+    <blok-landing :words="['What\'s', 'happening']" />
     <section v-if="blogList" class="section section-Blog">
       <ul class="blogList">
         <!-- prettier-ignore -->
@@ -122,14 +119,13 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import landingScroll from "@/mixins/landingScroll"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default {
-  mixins: [storyblokLivePreview, landingScroll],
+  mixins: [storyblokLivePreview],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories", {

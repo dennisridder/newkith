@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <ul v-if="wordswap === true" class="title title-Animated">
+  <section class="section section-Landing section-TextContent">
+    <ul v-if="$route.name === 'index'" class="title title-Animated">
       <li>
         <h1 class="animated-Word">{{ firstWord }}&nbsp;</h1>
       </li>
@@ -18,7 +18,7 @@
         <h1 v-for="word in words" :key="word" class="word">{{ word }}&nbsp;</h1>
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -29,23 +29,22 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default {
   props: {
-    words: Array,
-    wordswap: Boolean
+    words: Array
   },
   data() {
     return {
+      wordsArray: [],
       firstWord: "",
       lastWord: "",
       middleWords: []
-      // componentKey: 0
     }
   },
-  created() {},
   mounted() {
     this.wordsLoad()
     this.wordsSort()
     this.wordsLoadAnimated()
     this.wordsSwap()
+    this.scrollSpeedLanding()
   },
   methods: {
     wordsSort() {
@@ -54,7 +53,7 @@ export default {
       this.middleWords = this.words.slice(1, this.words.length - 1)
     },
     wordsLoad() {
-      if (this.wordswap === false) {
+      if (this.$route.name !== "index") {
         setTimeout(function() {
           let duration = 0.25
           let delay = 0.125
@@ -74,7 +73,7 @@ export default {
       }
     },
     wordsLoadAnimated() {
-      if (this.wordswap === true) {
+      if (this.$route.name === "index") {
         setTimeout(function() {
           let duration = 0.25
           let delay = 0.25
@@ -96,7 +95,7 @@ export default {
     wordsSwap() {
       let duration = 0.125
       let delay = 1.25
-      if (this.wordswap === true) {
+      if (this.$route.name === "index") {
         setTimeout(function() {
           var targets = document.querySelectorAll(".swapWord")
           var wordSwap = gsap.timeline({ repeat: -1 })
@@ -122,6 +121,19 @@ export default {
           })
         }, 250)
       }
+    },
+    scrollSpeedLanding() {
+      var el = document.querySelector(".section-Landing")
+      gsap.to(el, {
+        yPercent: 50,
+        ease: "none",
+        scrollTrigger: {
+          trigger: el,
+          scrub: true,
+          start: "top top",
+          end: "bottom top"
+        }
+      })
     }
   }
 }

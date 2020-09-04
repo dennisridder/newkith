@@ -1,14 +1,13 @@
 <template>
-  <div v-editable="story.content" class="section-Wrapper section-About">
-    <blok-landing :words="['We', 'are', 'New', 'Kith']" />
+  <div v-editable="blok" class="section-Wrapper section-Wrapper_About ">
+    <blok-landing v-if="blok.disable_landing === false" :words="landingInput" />
     <section
-      v-editable="story.content"
       class="section section-About_Landing section-Media section-ImageContent vimeo fastScroll"
     >
       <div class="section-Media_Wrapper">
         <div id="movie" class="section-Media_Container ">
           <iframe
-            src="https://player.vimeo.com/video/453960681"
+            :src="'https://player.vimeo.com/video/' + blok.vimeo_id"
             width="640"
             height="360"
             frameborder="0"
@@ -26,10 +25,10 @@
       </div>
     </section>
     <component
-      :is="story.content.component | dashify"
-      v-if="story.content.component"
-      :key="story.content._uid"
-      :blok="story.content"
+      :is="blok.component | dashify"
+      v-for="blok in blok.body"
+      :key="blok._uid"
+      :blok="blok"
     ></component>
   </div>
 </template>
@@ -46,39 +45,29 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default {
   mixins: [storyblokLivePreview, fastScroll, slowScroll],
-  asyncData(context) {
-    return context.app.$storyapi
-      .get("cdn/stories/about", {
-        version: process.env.NODE_ENV == "production" ? "published" : "draft"
-      })
-      .then(res => {
-        return res.data
-      })
-      .catch(res => {
-        if (!res.response) {
-          console.error(res)
-          context.error({
-            statusCode: 404,
-            message: "Failed to receive content form api"
-          })
-        } else {
-          console.error(res.response.data)
-          context.error({
-            statusCode: res.response.status,
-            message: res.response.data
-          })
-        }
-      })
+  props: {
+    blok: Object
   },
   data() {
     return {
-      story: { content: {} }
+      landingInput: []
     }
   },
   mounted() {
+    this.getLandingInput()
     this.videoOnScroll()
   },
   methods: {
+    getLandingInput() {
+      if (this.blok.landing_text) {
+        var landingTextArray = this.blok.landing_text.split(" ")
+        this.landingInput = landingTextArray
+      } else {
+        var pathTitle = this.$route.path.replace(/\\|\//g, "")
+        var pathTitleArray = pathTitle.split("-")
+        this.landingInput = pathTitleArray
+      }
+    },
     videoOnScroll() {
       var el = $("#movie")
       gsap.fromTo(

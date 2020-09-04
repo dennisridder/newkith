@@ -1,11 +1,6 @@
 <template>
   <div class="section section-Wrapper">
-    <section
-      v-if="wordsArray"
-      class="section section-Landing section-TextContent"
-    >
-      <blok-landing :words="wordsArray" :wordswap="false" />
-    </section>
+    <blok-landing :words="wordsArray" />
     <section
       v-if="story.content.thumbnail"
       class="section section-Thumbnail section-ImageContent fastScroll"
@@ -38,7 +33,6 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import landingScroll from "@/mixins/landingScroll"
 import fastScroll from "@/mixins/fastScroll"
 import slowScroll from "@/mixins/slowScroll"
 import gsap from "gsap"
@@ -46,7 +40,7 @@ import $ from "jquery"
 
 export default {
   scrollToTop: true,
-  mixins: [storyblokLivePreview, landingScroll, fastScroll, slowScroll],
+  mixins: [storyblokLivePreview, fastScroll, slowScroll],
   asyncData(context) {
     let endpoint = `cdn/stories/blog/${context.params.slug}`
     let version =

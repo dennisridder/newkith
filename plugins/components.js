@@ -1,7 +1,9 @@
 import Vue from "vue"
 import Page from "~/components/Page.vue"
 import PageHomepage from "~/components/PageHomepage.vue"
+import PageAbout from "~/components/PageAbout.vue"
 import Landing from "~/components/Landing.vue"
+import Title from "~/components/Title.vue"
 import Footer from "~/components/Footer.vue"
 import ButtonsContainer from "~/components/ButtonsContainer.vue"
 import Button from "~/components/Button.vue"
@@ -20,7 +22,9 @@ import ImageContainer from "~/components/ImageContainer.vue"
 
 Vue.component("blok-page", Page)
 Vue.component("blok-page-homepage", PageHomepage)
+Vue.component("blok-page-about", PageAbout)
 Vue.component("blok-landing", Landing)
+Vue.component("blok-title", Title)
 Vue.component("blok-footer", Footer)
 Vue.component("blok-tag-list", TagList)
 Vue.component("blok-filter-list", FilterList)

@@ -1,18 +1,12 @@
 <template>
   <div v-editable="story.content" class="section-Wrapper">
-    <section class="section section-Landing section-TextContent">
-      <blok-landing
-        :words="['Newkith', 'talent', 'Connective', 'Online', 'agency']"
-        :wordswap="true"
-      />
-    </section>
-    <section class="section section-Title section-TextContent slowerScroll">
-      <blok-landing
-        class="section-ImageGrid_Title"
-        :words="[`${story.content.cases_header}`]"
-        :wordswap="false"
-      />
-    </section>
+    <blok-landing
+      :words="['Newkith', 'talent', 'Connective', 'Online', 'agency']"
+    />
+    <blok-title
+      class="section-ImageGrid_Title"
+      :words="[`${story.content.cases_header}`]"
+    />
     <blok-image-grid
       v-if="casesList"
       :array="casesList"
@@ -42,13 +36,10 @@
       :key="story.content._uid"
       :blok="story.content"
     ></component>
-    <section class="section section-Title section-TextContent slowerScroll">
-      <blok-landing
-        class="section-ImageGrid_Title"
-        :words="[`${story.content.talents_header}`]"
-        :wordswap="false"
-      />
-    </section>
+    <blok-title
+      class="section-ImageGrid_Title"
+      :words="[`${story.content.talents_header}`]"
+    />
     <blok-image-grid
       v-if="talentsList"
       :array="talentsList"
@@ -79,7 +70,6 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import landingScroll from "@/mixins/landingScroll"
 import fastScroll from "@/mixins/fastScroll"
 import slowScroll from "@/mixins/slowScroll"
 import MarkdownItem from "@/components/MarkdownItem.vue"
@@ -89,7 +79,7 @@ export default {
   components: {
     "markdown-item": MarkdownItem
   },
-  mixins: [storyblokLivePreview, landingScroll, fastScroll, slowScroll],
+  mixins: [storyblokLivePreview, fastScroll, slowScroll],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories/home", {
@@ -130,7 +120,6 @@ export default {
   mounted() {
     this.filterCases()
     this.filterTalents()
-    console.log(this.story)
   },
   methods: {
     shuffle(arr) {

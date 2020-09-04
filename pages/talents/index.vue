@@ -1,20 +1,16 @@
 <template>
   <div class="section-Wrapper">
-    <section class="section section-Landing section-TextContent">
-      <blok-landing :words="['Meet', 'our', 'talents']" :wordswap="false" />
-    </section>
-    <!-- <blok-filter-list v-if="filterList" :array="filterList" /> -->
+    <blok-landing :words="['Meet', 'our', 'talents']" />
     <blok-image-grid v-if="talentsList" :array="talentsList" slug="/talents/" />
   </div>
 </template>
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import landingScroll from "@/mixins/landingScroll"
 import { mapState } from "vuex"
 
 export default {
-  mixins: [storyblokLivePreview, landingScroll],
+  mixins: [storyblokLivePreview],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories", {

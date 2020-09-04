@@ -217,7 +217,6 @@ export default {
       this.routeChange()
     }
   },
-
   mounted() {
     this.checkPageType()
     this.toggleMainNav()

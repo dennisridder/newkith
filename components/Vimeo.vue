@@ -17,7 +17,9 @@
           transparent="true"
           autoplay="true"
           autopause="true"
-          :title="blok.video_title"
+          loop="true"
+          playsinline="true"
+          title="false"
           webkitallowfullscreen
           mozallowfullscreen
           allowfullscreen
