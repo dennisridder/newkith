@@ -1,8 +1,6 @@
 <template>
-  <div v-editable="story.content" class="section-Wrapper">
-    <blok-landing
-      :words="['Newkith', 'talent', 'Connective', 'Online', 'agency']"
-    />
+  <div class="section-Wrapper section-Wrapper_Homepage">
+    <blok-landing :words="landingInput" />
     <blok-title
       class="section-ImageGrid_Title"
       :words="[`${story.content.cases_header}`]"
@@ -108,7 +106,8 @@ export default {
     return {
       story: { content: {} },
       casesList: [],
-      talentsList: []
+      talentsList: [],
+      landingInput: []
     }
   },
   computed: {
@@ -118,10 +117,22 @@ export default {
     })
   },
   mounted() {
+    this.getLandingInput()
     this.filterCases()
     this.filterTalents()
   },
   methods: {
+    getLandingInput() {
+      if (this.story.content.landing_text) {
+        var landingTextArray = this.story.content.landing_text.split(" ")
+        this.landingInput = Object.values(landingTextArray)
+      } else {
+        var pathTitle = this.$route.path.replace(/\\|\//g, "")
+        var pathTitleArray = pathTitle.split("-")
+        this.landingInput = Object.values(pathTitleArray)
+        console.log("TWO", this.landingInput)
+      }
+    },
     shuffle(arr) {
       function getRandomInt(n) {
         return Math.floor(Math.random() * n)
