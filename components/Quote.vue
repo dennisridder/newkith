@@ -1,6 +1,6 @@
 <template>
   <section class="section section-Quote section-TextContent animatedHorizontal">
-    <ul class="section-Quote_Wrapper animatedHorizontal-Wrapper">
+    <ul ref="wrapper" class="section-Quote_Wrapper animatedHorizontal-Wrapper">
       <li>
         <h1>{{ blok.quote }}&nbsp;</h1>
       </li>
@@ -77,25 +77,19 @@ export default {
   },
   mounted() {
     this.onScroll()
-    console.log(this.blok, "QUOTE BLOK")
   },
   methods: {
     onScroll() {
-      const section = document.querySelector(".animatedHorizontal")
-      const sectionWidth = section.offsetWidth / 1.5
-      const wrapper = document.querySelector(".animatedHorizontal-Wrapper")
-      gsap.utils.toArray(".animatedHorizontal").forEach(el => {
-        gsap.fromTo(
-          wrapper,
-          { x: 0 },
-          {
-            x: -sectionWidth,
-            scrollTrigger: {
-              trigger: el,
-              scrub: true
-            }
-          }
-        )
+      const sectionWidth = window.innerWidth / 1.5
+      gsap.to(this.$refs.wrapper, {
+        x: -sectionWidth,
+        ease: "none",
+        scrollTrigger: {
+          trigger: this.$el,
+          scrub: true,
+          start: "top bottom",
+          end: "bottom top"
+        }
       })
     }
   }

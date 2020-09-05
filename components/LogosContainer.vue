@@ -2,7 +2,7 @@
   <section class="section section-Logos section-TextContent ">
     <p>Our partners:</p>
     <div class="section-Logos_Content animatedHorizontal">
-      <div class="animatedHorizontal-Wrapper">
+      <div ref="wrapper" class="animatedHorizontal-Wrapper">
         <ul>
           <component
             :is="blok.component | dashify"
@@ -85,21 +85,16 @@ export default {
   },
   methods: {
     onScroll() {
-      const section = document.querySelector(".animatedHorizontal")
-      const sectionWidth = section.offsetWidth / 1.5
-      const wrapper = document.querySelector(".animatedHorizontal-Wrapper")
-      gsap.utils.toArray(".animatedHorizontal").forEach(el => {
-        gsap.fromTo(
-          wrapper,
-          { x: 0 },
-          {
-            x: -sectionWidth,
-            scrollTrigger: {
-              trigger: el,
-              scrub: true
-            }
-          }
-        )
+      const sectionWidth = window.innerWidth / 1.5
+      gsap.to(this.$refs.wrapper, {
+        x: -sectionWidth,
+        ease: "none",
+        scrollTrigger: {
+          trigger: this.$el,
+          scrub: true,
+          start: "top bottom",
+          end: "bottom top"
+        }
       })
     }
   }
