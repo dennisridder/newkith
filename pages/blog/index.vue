@@ -7,9 +7,9 @@
         <li
           v-for="(post, index) in stories"
           :key="index"
-          class="blogList-Item animatedHorizontal"
+          class="blogList-Item carouselOnScroll"
         >
-          <nuxt-link :id="index" class="blogList-Content cursorInteract animatedHorizontal-Wrapper" :class="{ index }" :to="post.full_slug" tag="div">
+          <nuxt-link :id="index" class="blogList-Content cursorInteract carouselOnScroll-Wrapper" :class="{ index }" :to="post.full_slug" tag="div">
             <div v-if="post.created_at" class="blogList-Content_Date">
               <h4>{{ formatDate(post.created_at) }}</h4>
             </div>
@@ -119,13 +119,10 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-
-gsap.registerPlugin(ScrollTrigger)
+import carouselOnScroll from "@/mixins/carouselOnScroll"
 
 export default {
-  mixins: [storyblokLivePreview],
+  mixins: [storyblokLivePreview, carouselOnScroll],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories", {
@@ -159,47 +156,47 @@ export default {
   },
   mounted() {
     this.filterArray()
-    this.onScroll()
+    // this.onScroll()
   },
   methods: {
     formatDate(date) {
       var d = (new Date(date) + "").split(" ")
       return [d[2], d[1], d[3]].join(" ")
     },
-    onScroll() {
-      setTimeout(function() {
-        const sections = document.querySelectorAll(".animatedHorizontal")
-        const sectionWidth = window.innerWidth / 1.5
-        sections.forEach((el, index) => {
-          const wrapper = document.getElementById(index)
-          if (index % 2 === 0) {
-            gsap.fromTo(
-              wrapper,
-              { x: 0 },
-              {
-                x: -sectionWidth,
-                scrollTrigger: {
-                  trigger: el,
-                  scrub: true
-                }
-              }
-            )
-          } else {
-            gsap.fromTo(
-              wrapper,
-              { x: -sectionWidth },
-              {
-                x: 0,
-                scrollTrigger: {
-                  trigger: el,
-                  scrub: true
-                }
-              }
-            )
-          }
-        })
-      }, 100)
-    },
+    // onScroll() {
+    //   setTimeout(function() {
+    //     const sections = document.querySelectorAll(".carouselOnScroll")
+    //     const sectionWidth = window.innerWidth / 1.5
+    //     sections.forEach((el, index) => {
+    //       const wrapper = el.querySelectorAll(".carouselOnScroll-Wrapper")
+    //       if (index % 2 === 0) {
+    //         gsap.fromTo(
+    //           wrapper,
+    //           { x: 0 },
+    //           {
+    //             x: -sectionWidth,
+    //             scrollTrigger: {
+    //               trigger: el,
+    //               scrub: true
+    //             }
+    //           }
+    //         )
+    //       } else {
+    //         gsap.fromTo(
+    //           wrapper,
+    //           { x: -sectionWidth },
+    //           {
+    //             x: 0,
+    //             scrollTrigger: {
+    //               trigger: el,
+    //               scrub: true
+    //             }
+    //           }
+    //         )
+    //       }
+    //     })
+    //   }, 100)
+    // },
     filterArray() {
       // Map tag values to new array
       var array = this.stories

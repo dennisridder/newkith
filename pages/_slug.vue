@@ -8,7 +8,11 @@
 </template>
 
 <script>
+import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import carouselOnScroll from "@/mixins/carouselOnScroll"
+
 export default {
+  mixins: [storyblokLivePreview, carouselOnScroll],
   asyncData(context) {
     // Load the JSON from the API
     return context.app.$storyapi

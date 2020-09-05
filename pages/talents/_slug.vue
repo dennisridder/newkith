@@ -32,6 +32,7 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import carouselOnScroll from "@/mixins/carouselOnScroll"
 import fastScroll from "@/mixins/fastScroll"
 import slowScroll from "@/mixins/slowScroll"
 import gsap from "gsap"
@@ -39,7 +40,7 @@ import $ from "jquery"
 
 export default {
   scrollToTop: true,
-  mixins: [storyblokLivePreview, fastScroll, slowScroll],
+  mixins: [storyblokLivePreview, carouselOnScroll, fastScroll, slowScroll],
   asyncData(context) {
     let endpoint = `cdn/stories/talents/${context.params.slug}`
     let version =

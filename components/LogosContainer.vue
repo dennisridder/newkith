@@ -1,8 +1,8 @@
 <template>
-  <section class="section section-Logos section-TextContent ">
+  <section class="section section-Logos section-TextContent carouselOnScroll">
     <p>Our partners:</p>
-    <div class="section-Logos_Content animatedHorizontal">
-      <div ref="wrapper" class="animatedHorizontal-Wrapper">
+    <div class="section-Logos_Content">
+      <div class="carouselOnScroll-Wrapper">
         <ul>
           <component
             :is="blok.component | dashify"
@@ -71,32 +71,9 @@
 </template>
 
 <script>
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-
-gsap.registerPlugin(ScrollTrigger)
-
 export default {
   props: {
     blok: Object
-  },
-  mounted() {
-    this.onScroll()
-  },
-  methods: {
-    onScroll() {
-      const sectionWidth = window.innerWidth / 1.5
-      gsap.to(this.$refs.wrapper, {
-        x: -sectionWidth,
-        ease: "none",
-        scrollTrigger: {
-          trigger: this.$el,
-          scrub: true,
-          start: "top bottom",
-          end: "bottom top"
-        }
-      })
-    }
   }
 }
 </script>

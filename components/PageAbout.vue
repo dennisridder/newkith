@@ -40,11 +40,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import fastScroll from "@/mixins/fastScroll"
 import slowScroll from "@/mixins/slowScroll"
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import carouselOnScroll from "@/mixins/carouselOnScroll"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default {
-  mixins: [storyblokLivePreview, fastScroll, slowScroll],
+  mixins: [storyblokLivePreview, carouselOnScroll, fastScroll, slowScroll],
   props: {
     blok: Object
   },
