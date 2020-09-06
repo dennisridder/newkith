@@ -17,7 +17,10 @@
           />
         </nuxt-link>
       </ul>
-      <ul></ul>
+
+      <ul>
+        <li class="hide"></li>
+      </ul>
       <ul>
         <nuxt-link class="link cursorInteract" to="/" tag="li">Home</nuxt-link>
         <nuxt-link class="link cursorInteract" to="/cases" tag="li"
@@ -201,6 +204,8 @@ export default {
   display: flex
   flex-direction: column
   pointer-events: none
+  .hide
+    opacity: 0
   &.active
     pointer-events: auto
   &-Background

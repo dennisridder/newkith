@@ -6,7 +6,7 @@
       @mouseleave="mouseLeaveTop"
     >
       <div class="header-Logo cursorInteract">
-        <nuxt-link to="/" tag="li">
+        <nuxt-link to="/">
           <div v-html="require('~/assets/images/logo-hash.svg?include')" />
         </nuxt-link>
       </div>
@@ -110,7 +110,7 @@
     <div class="header-Top header-Top_Mobile">
       <div class="header-Top_Mobile_Top">
         <div class="header-Logo cursorInteract">
-          <nuxt-link to="/" tag="li">
+          <nuxt-link to="/">
             <div v-html="require('~/assets/images/icon-hash.svg?include')" />
           </nuxt-link>
         </div>
