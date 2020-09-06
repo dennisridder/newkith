@@ -116,7 +116,7 @@ export default {
     displayFooter() {
       if (this.showFooter === true) {
         gsap.to(".footer-Background", {
-          height: document.querySelector(".footer").offsetHeight,
+          height: this.$el.offsetHeight,
           duration: "0.75",
           ease: "expo.out"
         })
