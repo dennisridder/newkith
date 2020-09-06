@@ -58,7 +58,7 @@
               class="icon"
               v-html="require('~/assets/images/icon-arrow.svg?include')"
             />
-            &nbsp;back</nuxt-link
+            <h4>&nbsp;back</h4></nuxt-link
           >
         </ul>
       </nav>
@@ -72,7 +72,7 @@
               class="icon"
               v-html="require('~/assets/images/icon-arrow.svg?include')"
             />
-            &nbsp;back</nuxt-link
+            <h4>&nbsp;back</h4></nuxt-link
           >
         </ul>
       </nav>
@@ -86,7 +86,7 @@
               class="icon"
               v-html="require('~/assets/images/icon-arrow.svg?include')"
             />
-            &nbsp;back</nuxt-link
+            <h4>&nbsp;back</h4></nuxt-link
           >
         </ul>
       </nav>
@@ -555,8 +555,9 @@ export default {
         margin-right: 0
   &-Back
     display: flex
-    // .icon
-    //   width: 1rem
+    h4
+      margin-left: .5rem
+      line-height: 1.25
     svg
       transform: rotate(180deg)
   &-Background
