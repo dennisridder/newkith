@@ -3,7 +3,7 @@
     <blok-landing :words="wordsArray" />
     <section
       v-if="story.content.thumbnail"
-      class="section section-Thumbnail section-ImageContent fastScroll"
+      class="section section-Thumbnail section-ImageContent scrollFast"
     >
       <div class="section-Thumbnail_Wrapper">
         <div
@@ -31,15 +31,17 @@
 </template>
 
 <script>
-import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import carouselOnScroll from "@/mixins/carouselOnScroll"
-import fastScroll from "@/mixins/fastScroll"
 import gsap from "gsap"
 import $ from "jquery"
 
+import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import scrollFast from "@/mixins/scrollFast"
+import scrollSlow from "@/mixins/scrollSlow"
+import carouselOnScroll from "@/mixins/carouselOnScroll"
+
 export default {
   scrollToTop: true,
-  mixins: [storyblokLivePreview, carouselOnScroll, fastScroll],
+  mixins: [storyblokLivePreview, carouselOnScroll, scrollFast, scrollSlow],
   asyncData(context) {
     let endpoint = `cdn/stories/talents/${context.params.slug}`
     let version =

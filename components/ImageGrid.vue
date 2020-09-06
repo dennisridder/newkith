@@ -1,5 +1,5 @@
 <template>
-  <section class="section section-ImageGrid section-ImageContent">
+  <section class="section section-ImageGrid section-ImageContent scrollFast">
     <ul class="imageGrid verticalRowIrregular">
       <!-- prettier-ignore -->
       <li v-for="item in array" :id="item.id" :key="item.id" class="imageGrid-Row">

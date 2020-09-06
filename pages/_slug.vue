@@ -9,10 +9,12 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import scrollFast from "@/mixins/scrollFast"
+import scrollSlow from "@/mixins/scrollSlow"
 import carouselOnScroll from "@/mixins/carouselOnScroll"
 
 export default {
-  mixins: [storyblokLivePreview, carouselOnScroll],
+  mixins: [storyblokLivePreview, carouselOnScroll, scrollFast, scrollSlow],
   asyncData(context) {
     // Load the JSON from the API
     return context.app.$storyapi

@@ -2,7 +2,7 @@
   <div v-editable="blok" class="section-Wrapper section-Wrapper_Aboutpage">
     <blok-landing v-if="blok.disable_landing === false" :words="landingInput" />
     <section
-      class="section section-About_Landing section-Media section-ImageContent vimeo fastScroll"
+      class="section section-About_Landing section-Media section-ImageContent vimeo scrollFast"
     >
       <div class="section-Media_Wrapper">
         <div id="movie" class="section-Media_Container ">
@@ -23,14 +23,16 @@
 import gsap from "gsap"
 import $ from "jquery"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import fastScroll from "@/mixins/fastScroll"
-import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import carouselOnScroll from "@/mixins/carouselOnScroll"
 
 gsap.registerPlugin(ScrollTrigger)
 
+import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import scrollFast from "@/mixins/scrollFast"
+import scrollSlow from "@/mixins/scrollSlow"
+import carouselOnScroll from "@/mixins/carouselOnScroll"
+
 export default {
-  mixins: [storyblokLivePreview, carouselOnScroll, fastScroll],
+  mixins: [storyblokLivePreview, carouselOnScroll, scrollFast, scrollSlow],
   props: {
     blok: Object
   },

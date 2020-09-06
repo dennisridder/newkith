@@ -65,6 +65,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 gsap.registerPlugin(ScrollTrigger)
 
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import scrollFast from "@/mixins/scrollFast"
 import scrollSlow from "@/mixins/scrollSlow"
 import carouselOnScroll from "@/mixins/carouselOnScroll"
 import MarkdownItem from "@/components/MarkdownItem.vue"
@@ -73,7 +74,7 @@ export default {
   components: {
     "markdown-item": MarkdownItem
   },
-  mixins: [storyblokLivePreview, scrollSlow, carouselOnScroll],
+  mixins: [storyblokLivePreview, carouselOnScroll, scrollFast, scrollSlow],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories/home", {
