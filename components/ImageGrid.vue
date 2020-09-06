@@ -3,8 +3,10 @@
     <ul class="imageGrid verticalRowIrregular">
       <!-- prettier-ignore -->
       <li v-for="item in array" :id="item.id" :key="item.id" class="imageGrid-Row">
-      <nuxt-link :to="slug + item.id" class="imageGrid-Item cursorInteract" tag="div">
-        <blok-image-container :id="item.id" :image="item.thumbnail" :title="item.title" />
+      <nuxt-link :to="slug + item.id" class="imageGrid-Item cursorInteract" tag="div" :title="item.title">
+
+        <blok-image-container :id="item.id" :image="item.thumbnail" :alttitle="item.title" />
+        
         <div class="imageGrid-Details">
           <h2>{{ item.title }}</h2>
           <blok-tag-list v-if="item.taglist" :array="item.taglist" />
@@ -23,7 +25,8 @@ export default {
   props: {
     array: Array,
     slug: String
-  }
+  },
+  mounted() {}
 }
 </script>
 

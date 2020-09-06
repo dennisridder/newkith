@@ -4,12 +4,7 @@
       :words="['Newkith', 'talent', 'Connective', 'Online', 'agency']"
     />
     <blok-title :words="[`${story.content.cases_header}`]" />
-    <blok-image-grid
-      v-if="casesList"
-      :array="casesList"
-      slug="/cases/"
-      title="Cases"
-    />
+    <blok-image-grid v-if="casesList" :array="casesList" slug="/cases/" />
     <section
       class="section section-ImageGridFooter section-TextContent scrollFast"
     >
@@ -31,12 +26,7 @@
     </section>
     <blok-quote :blok="story.content" />
     <blok-title :words="[`${story.content.talents_header}`]" />
-    <blok-image-grid
-      v-if="talentsList"
-      :array="talentsList"
-      slug="/talents/"
-      title="Talents"
-    />
+    <blok-image-grid v-if="talentsList" :array="talentsList" slug="/talents/" />
     <section
       class="section section-ImageGridFooter section-TextContent scrollFast"
     >
@@ -121,6 +111,7 @@ export default {
     this.getLandingInput()
     this.filterCases()
     this.filterTalents()
+    console.log("HOME", this.casesList)
   },
   methods: {
     getLandingInput() {
