@@ -9,9 +9,9 @@ export default {
   },
   methods: {
     onScroll() {
+      const sectionWidth = window.innerWidth / 1.5
       setTimeout(function() {
         var targets = document.querySelectorAll(".carouselOnScroll")
-        const sectionWidth = window.innerWidth / 1.5
         targets.forEach((el, index) => {
           var child = el.querySelectorAll(".carouselOnScroll-Wrapper")
           if (index % 2 === 0) {

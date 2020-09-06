@@ -35,13 +35,12 @@
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import carouselOnScroll from "@/mixins/carouselOnScroll"
 import fastScroll from "@/mixins/fastScroll"
-import slowScroll from "@/mixins/slowScroll"
 import gsap from "gsap"
 import $ from "jquery"
 
 export default {
   scrollToTop: true,
-  mixins: [storyblokLivePreview, carouselOnScroll, fastScroll, slowScroll],
+  mixins: [storyblokLivePreview, carouselOnScroll, fastScroll],
   asyncData(context) {
     let endpoint = `cdn/stories/blog/${context.params.slug}`
     let version =

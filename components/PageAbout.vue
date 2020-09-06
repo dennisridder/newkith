@@ -24,14 +24,13 @@ import gsap from "gsap"
 import $ from "jquery"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import fastScroll from "@/mixins/fastScroll"
-import slowScroll from "@/mixins/slowScroll"
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import carouselOnScroll from "@/mixins/carouselOnScroll"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default {
-  mixins: [storyblokLivePreview, carouselOnScroll, fastScroll, slowScroll],
+  mixins: [storyblokLivePreview, carouselOnScroll, fastScroll],
   props: {
     blok: Object
   },
