@@ -10,7 +10,9 @@
       slug="/cases/"
       title="Cases"
     />
-    <section class="section section-ImageGridFooter section-TextContent">
+    <section
+      class="section section-ImageGridFooter section-TextContent scrollFast"
+    >
       <div class="section-ImageGridFooter_Content">
         <h2>{{ story.content.cases_footer_title }}</h2>
         <markdown-item :input="story.content.cases_footer_text" />
@@ -35,7 +37,9 @@
       slug="/talents/"
       title="Talents"
     />
-    <section class="section section-ImageGridFooter section-TextContent">
+    <section
+      class="section section-ImageGridFooter section-TextContent scrollFast"
+    >
       <div class="section-ImageGridFooter_Content">
         <h2>{{ story.content.talents_footer_title }}</h2>
         <markdown-item :input="story.content.talents_footer_text" />
