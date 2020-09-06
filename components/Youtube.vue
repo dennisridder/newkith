@@ -9,13 +9,10 @@
         class="section-Media_Container "
         @mousemove="imageTilt($event)"
       >
-        <iframe
-          id="mediaPlayer"
-          type="text/html"
-          width="640"
-          height="360"
-          frameborder="0"
-          :src="'https://www.youtube.com/embed/' + blok.video_id"
+        <blok-youtube-player
+          :videoid="blok.video_id"
+          autoplay="1&mute=1"
+          title=""
         />
       </div>
     </div>
