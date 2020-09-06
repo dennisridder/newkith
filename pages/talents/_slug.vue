@@ -79,7 +79,6 @@ export default {
   mounted() {
     this.wordsToArray()
     window.addEventListener("scroll", this.imageTiltOnScroll)
-    console.log("SINGLE", this.story.content._uid)
   },
   destroyed() {
     window.removeEventListener("scroll", this.imageTiltOnScroll)

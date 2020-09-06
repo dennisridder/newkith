@@ -111,7 +111,6 @@ export default {
     this.getLandingInput()
     this.filterCases()
     this.filterTalents()
-    console.log("HOME", this.casesList)
   },
   methods: {
     getLandingInput() {

@@ -25,7 +25,6 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.imageTiltOnScroll)
-    console.log(this.blok)
   },
   destroyed() {
     window.removeEventListener("scroll", this.imageTiltOnScroll)

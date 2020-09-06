@@ -29,7 +29,6 @@ export default {
   props: { image: String, alttitle: String, id: String },
   mounted() {
     window.addEventListener("scroll", this.imageTiltOnScroll)
-    console.log(this.title)
   },
   destroyed() {
     window.removeEventListener("scroll", this.imageTiltOnScroll)

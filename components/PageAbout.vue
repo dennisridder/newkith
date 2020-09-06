@@ -44,7 +44,6 @@ export default {
   mounted() {
     this.getLandingInput()
     this.videoOnScroll()
-    console.log("ABOUT PAGE", this.blok)
   },
   methods: {
     getLandingInput() {
