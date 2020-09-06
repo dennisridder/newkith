@@ -9,13 +9,14 @@
         class="section-Media_Container "
         @mousemove="imageTilt($event)"
       >
+        <!-- prettier-ignore -->
         <iframe
-          :src="'https://player.vimeo.com/video/' + blok.video_id"
+          :src="'https://player.vimeo.com/video/' + blok.video_id + '?autoplay=true'"
           width="640"
           height="360"
           frameborder="0"
+          allow="autoplay"
           transparent="true"
-          autoplay="true"
           autopause="true"
           loop="true"
           playsinline="true"

@@ -6,13 +6,14 @@
     >
       <div class="section-Media_Wrapper">
         <div id="movie" class="section-Media_Container ">
+          <!-- prettier-ignore -->
           <iframe
-            :src="'https://player.vimeo.com/video/' + blok.vimeo_id"
+            :src="'https://player.vimeo.com/video/' + blok.vimeo_id + '?autoplay=true'"
             width="640"
             height="360"
             frameborder="0"
+            allow="autoplay"
             transparent="true"
-            autoplay="true"
             autopause="true"
             loop="true"
             playsinline="true"
