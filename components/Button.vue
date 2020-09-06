@@ -2,6 +2,7 @@
   <a
     :href="'https://' + blok.hyperlink"
     target="_blank"
+    rel="noreferrer"
     class="button cursorInteract"
     ><h4>{{ blok.text }}</h4></a
   >

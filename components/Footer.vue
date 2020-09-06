@@ -39,7 +39,11 @@
             class="icon"
             v-html="require('~/assets/images/icon-mail.svg?include')"
           />
-          <a :href="`mailto:${general[0].content.general_email}`">
+          <a
+            :href="`mailto:${general[0].content.general_email}`"
+            target="_blank"
+            rel="noreferrer"
+          >
             {{ general[0].content.general_email }}
           </a>
         </li>
@@ -48,7 +52,11 @@
             class="icon"
             v-html="require('~/assets/images/icon-call.svg?include')"
           />
-          <a :href="`tel:0031${general[0].content.general_phone_number}`">
+          <a
+            :href="`tel:0031${general[0].content.general_phone_number}`"
+            target="_blank"
+            rel="noreferrer"
+          >
             +31(0){{ general[0].content.general_phone_number }}
           </a>
         </li>
@@ -57,7 +65,11 @@
             class="icon"
             v-html="require('~/assets/images/icon-location.svg?include')"
           />
-          <a href="https://goo.gl/maps/EQQuTb834wUmkuQy6" target="_blank">
+          <a
+            href="https://goo.gl/maps/EQQuTb834wUmkuQy6"
+            target="_blank"
+            rel="noreferrer"
+          >
             Directions
           </a>
         </li>
@@ -66,7 +78,11 @@
             class="icon"
             v-html="require('~/assets/images/icon-instagram.svg?include')"
           />
-          <a href="https://www.instagram.com/new.kith/" target="_blank">
+          <a
+            href="https://www.instagram.com/new.kith/"
+            target="_blank"
+            rel="noreferrer"
+          >
             Instagram
           </a>
         </li>
