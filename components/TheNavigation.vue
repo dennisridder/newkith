@@ -496,6 +496,7 @@ export default {
       width: 100%
       padding: var(--spacing-content-sides)
       justify-content: space-between
+      align-items: center
       .header-Logo
         pointer-events: auto
         svg
@@ -539,6 +540,7 @@ export default {
         text-decoration: none
     ul
       display: flex
+      flex-wrap: wrap
   &-Services
     pointer-events: auto
   &-ContentTitle
