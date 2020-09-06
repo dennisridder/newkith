@@ -43,6 +43,7 @@
             :href="`mailto:${general[0].content.general_email}`"
             target="_blank"
             rel="noreferrer"
+            title="mail"
           >
             {{ general[0].content.general_email }}
           </a>
@@ -56,6 +57,7 @@
             :href="`tel:0031${general[0].content.general_phone_number}`"
             target="_blank"
             rel="noreferrer"
+            title="call"
           >
             +31(0){{ general[0].content.general_phone_number }}
           </a>
@@ -69,6 +71,7 @@
             href="https://goo.gl/maps/EQQuTb834wUmkuQy6"
             target="_blank"
             rel="noreferrer"
+            title="directions"
           >
             Directions
           </a>
@@ -82,6 +85,7 @@
             href="https://www.instagram.com/new.kith/"
             target="_blank"
             rel="noreferrer"
+            title="instagram"
           >
             Instagram
           </a>
