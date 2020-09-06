@@ -79,6 +79,7 @@ export default {
   mounted() {
     this.wordsToArray()
     window.addEventListener("scroll", this.imageTiltOnScroll)
+    console.log("SINGLE", this.story.content._uid)
   },
   destroyed() {
     window.removeEventListener("scroll", this.imageTiltOnScroll)
@@ -102,7 +103,7 @@ export default {
       if (mq.matches) {
         var el = $("#" + this.story.content._uid)
         var domRect = document
-          .getElementById(`effect-${this.id}`)
+          .getElementById(this.story.content._uid)
           .getBoundingClientRect()
         if (domRect.top > 0 && domRect.top < window.innerHeight * 2) {
           gsap.to(el, 1, {
