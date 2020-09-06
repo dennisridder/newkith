@@ -67,6 +67,7 @@
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import fastScroll from "@/mixins/fastScroll"
 import slowScroll from "@/mixins/slowScroll"
+import carouselOnScroll from "@/mixins/carouselOnScroll"
 import MarkdownItem from "@/components/MarkdownItem.vue"
 import { mapState } from "vuex"
 
@@ -78,7 +79,7 @@ export default {
   components: {
     "markdown-item": MarkdownItem
   },
-  mixins: [storyblokLivePreview, fastScroll, slowScroll],
+  mixins: [storyblokLivePreview, fastScroll, slowScroll, carouselOnScroll],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories/home", {
