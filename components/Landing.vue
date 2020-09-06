@@ -33,15 +33,16 @@ export default {
   },
   data() {
     return {
-      wordsArray: [],
       firstWord: "",
       lastWord: "",
       middleWords: []
     }
   },
+  created() {
+    this.wordsSort()
+  },
   mounted() {
     this.wordsLoad()
-    this.wordsSort()
     this.wordsLoadAnimated()
     this.wordsSwap()
     this.scrollSpeedLanding()
@@ -123,12 +124,11 @@ export default {
       }
     },
     scrollSpeedLanding() {
-      var el = document.querySelector(".section-Landing")
-      gsap.to(el, {
+      gsap.to(this.$el, {
         yPercent: 50,
         ease: "none",
         scrollTrigger: {
-          trigger: el,
+          trigger: this.$el,
           scrub: true,
           start: "top top",
           end: "bottom top"
