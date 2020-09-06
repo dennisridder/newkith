@@ -84,6 +84,8 @@ export default {
           margin-bottom: 0
     .imageGrid-Item
       flex-basis: 33.3333%
+    .image-Effect > div
+      width: 100%
     @media screen and (max-width: $breakpoint-tablet)
       .imageGrid-Item
         flex-basis: 50%
