@@ -1,10 +1,8 @@
 <template>
-  <section class="section section-Title section-TextContent">
-    <ul class="title">
+  <section class="section section-Title section-TextContent scrollSlow">
+    <ul>
       <li>
-        <h1 v-for="word in words" :key="word" class="section-Title_Word">
-          {{ word }}&nbsp;
-        </h1>
+        <h1 v-for="(word, i) in words" :key="i">{{ word }}&nbsp;</h1>
       </li>
     </ul>
   </section>
@@ -19,16 +17,9 @@ export default {
 </script>
 
 <style lang="sass">
-.title
-  display: flex
-  flex-wrap: wrap
-  text-transform: uppercase
-  li
-    overflow: hidden
-    &:nth-child(3)
-      width: 100%
-  &-Animated
-    h1, h2, p, a
-      transform: translate(0px, 100%)
-      opacity: 0
+.section-Title
+  ul
+    display: flex
+    flex-wrap: wrap
+    text-transform: uppercase
 </style>

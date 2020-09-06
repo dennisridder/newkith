@@ -3,10 +3,7 @@
     <blok-landing
       :words="['Newkith', 'talent', 'Connective', 'Online', 'agency']"
     />
-    <blok-title
-      class="section-ImageGrid_Title"
-      :words="[`${story.content.cases_header}`]"
-    />
+    <blok-title :words="[`${story.content.cases_header}`]" />
     <blok-image-grid
       v-if="casesList"
       :array="casesList"
@@ -31,10 +28,7 @@
       </div>
     </section>
     <blok-quote :blok="story.content" />
-    <blok-title
-      class="section-ImageGrid_Title"
-      :words="[`${story.content.talents_header}`]"
-    />
+    <blok-title :words="[`${story.content.talents_header}`]" />
     <blok-image-grid
       v-if="talentsList"
       :array="talentsList"
@@ -64,22 +58,22 @@
 </template>
 
 <script>
-import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import fastScroll from "@/mixins/fastScroll"
-import slowScroll from "@/mixins/slowScroll"
-import carouselOnScroll from "@/mixins/carouselOnScroll"
-import MarkdownItem from "@/components/MarkdownItem.vue"
 import { mapState } from "vuex"
-
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+
 gsap.registerPlugin(ScrollTrigger)
+
+import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import scrollSlow from "@/mixins/scrollSlow"
+import carouselOnScroll from "@/mixins/carouselOnScroll"
+import MarkdownItem from "@/components/MarkdownItem.vue"
 
 export default {
   components: {
     "markdown-item": MarkdownItem
   },
-  mixins: [storyblokLivePreview, fastScroll, slowScroll, carouselOnScroll],
+  mixins: [storyblokLivePreview, scrollSlow, carouselOnScroll],
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories/home", {
@@ -122,27 +116,8 @@ export default {
     this.getLandingInput()
     this.filterCases()
     this.filterTalents()
-    this.scrollSpeedTitles()
   },
   methods: {
-    scrollSpeedTitles() {
-      var titles = document.querySelectorAll(".section-Title")
-      const mq = window.matchMedia("(min-width: 768px)")
-      if (mq.matches) {
-        titles.forEach(el => {
-          gsap.to(el, {
-            y: ScrollTrigger.maxScroll(window) * 0.25,
-            ease: "none",
-            scrollTrigger: {
-              trigger: el,
-              scrub: true,
-              start: "top bottom",
-              end: "+=175%"
-            }
-          })
-        })
-      }
-    },
     getLandingInput() {
       if (this.story.content.landing_text) {
         var landingTextArray = this.story.content.landing_text.split(" ")
