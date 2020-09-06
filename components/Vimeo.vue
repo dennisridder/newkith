@@ -9,22 +9,7 @@
         class="section-Media_Container "
         @mousemove="imageTilt($event)"
       >
-        <!-- prettier-ignore -->
-        <iframe
-          :src="'https://player.vimeo.com/video/' + blok.video_id + '?autoplay=true'"
-          width="640"
-          height="360"
-          frameborder="0"
-          allow="autoplay"
-          transparent="true"
-          autopause="true"
-          loop="true"
-          playsinline="true"
-          title="false"
-          webkitallowfullscreen
-          mozallowfullscreen
-          allowfullscreen
-        />
+        <blok-vimeo-player :videoid="blok.video_id" autoplay="true" />
       </div>
     </div>
   </section>
@@ -40,6 +25,7 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.imageTiltOnScroll)
+    console.log(this.blok)
   },
   destroyed() {
     window.removeEventListener("scroll", this.imageTiltOnScroll)

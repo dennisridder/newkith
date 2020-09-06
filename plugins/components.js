@@ -13,6 +13,7 @@ import Logo from "~/components/Logo.vue"
 import Image from "~/components/Image.vue"
 import Youtube from "~/components/Youtube.vue"
 import Vimeo from "~/components/Vimeo.vue"
+import VimeoPlayer from "~/components/VimeoPlayer.vue"
 import TagList from "~/components/TagList.vue"
 import FilterList from "~/components/FilterList.vue"
 import Text from "~/components/Text.vue"
@@ -36,6 +37,7 @@ Vue.component("blok-logo", Logo)
 Vue.component("blok-image", Image)
 Vue.component("blok-youtube", Youtube)
 Vue.component("blok-vimeo", Vimeo)
+Vue.component("blok-vimeo-player", VimeoPlayer)
 Vue.component("blok-text", Text)
 Vue.component("blok-quote", Quote)
 Vue.component("blok-image-grid", ImageGrid)
