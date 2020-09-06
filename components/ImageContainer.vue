@@ -1,7 +1,6 @@
 <template>
   <div class="image-Effect image-Effect_Tilt">
     <div :id="'effect-' + id" @mousemove="imageTilt($event)">
-      <!-- <img :src="image" :alt="title" /> -->
       <!-- prettier-ignore -->
       <img
         v-if="image"

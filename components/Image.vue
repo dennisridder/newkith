@@ -10,7 +10,21 @@
         :class="blok.orientation"
         @mousemove="imageTilt($event)"
       >
-        <img :src="blok.image" :alt="blok.image_title" />
+        <!-- prettier-ignore -->
+        <img
+        v-if="blok.image"
+        :srcset="
+          `${transformImage(blok.image, '2880x0/filters:format(webp)')} 2880w, 
+           ${transformImage(blok.image, '2560x0/filters:format(webp)')} 2560w, 
+           ${transformImage(blok.image, '1920x0/filters:format(webp)')} 1920w, 
+           ${transformImage(blok.image, '1680x0/filters:format(webp)')} 1680w, 
+           ${transformImage(blok.image, '1280x0/filters:format(webp)')} 1280w,
+           ${transformImage(blok.image, '1024x0/filters:format(webp)')} 1024w, 
+           ${transformImage(blok.image, '768x0/filters:format(webp)')} 768w`"
+        sizes="100vw"
+        :data-src="`${transformImage(blok.image, '1600x0/filters:format(jpg)')}`"
+        :alt="blok.image_title"
+      />
       </div>
     </div>
   </section>
@@ -31,6 +45,13 @@ export default {
     window.removeEventListener("scroll", this.imageTiltOnScroll)
   },
   methods: {
+    transformImage(image, option) {
+      if (!image) return ""
+      if (!option) return ""
+      let imageService = "//img2.storyblok.com/"
+      let path = image.replace("//a.storyblok.com", "")
+      return imageService + option + path
+    },
     imageTilt: function(event) {
       const mq = window.matchMedia("(hover: hover)")
       if (mq.matches) {

@@ -11,7 +11,22 @@
           class="section-Thumbnail_Container "
           @mousemove="imageTilt($event)"
         >
-          <img :src="story.content.thumbnail" :alt="story.content.title" />
+          <!-- <img :src="story.content.thumbnail" :alt="story.content.title" /> -->
+          <!-- prettier-ignore -->
+          <img
+        v-if="story.content.thumbnail"
+        :srcset="
+          `${transformImage(story.content.thumbnail, '2880x0/filters:format(webp)')} 2880w,
+           ${transformImage(story.content.thumbnail, '2560x0/filters:format(webp)')} 2560w, 
+           ${transformImage(story.content.thumbnail, '1920x0/filters:format(webp)')} 1920w, 
+           ${transformImage(story.content.thumbnail, '1680x0/filters:format(webp)')} 1680w, 
+           ${transformImage(story.content.thumbnail, '1280x0/filters:format(webp)')} 1280w,
+           ${transformImage(story.content.thumbnail, '1024x0/filters:format(webp)')} 1024w, 
+           ${transformImage(story.content.thumbnail, '768x0/filters:format(webp)')} 768w`"
+        sizes="100vw"
+        :data-src="`${transformImage(story.content.thumbnail, '1600x0/filters:format(jpg)')}`"
+        :alt="story.content.title"
+      />
         </div>
       </div>
     </section>
@@ -84,6 +99,13 @@ export default {
     window.removeEventListener("scroll", this.imageTiltOnScroll)
   },
   methods: {
+    transformImage(image, option) {
+      if (!image) return ""
+      if (!option) return ""
+      let imageService = "//img2.storyblok.com/"
+      let path = image.replace("//a.storyblok.com", "")
+      return imageService + option + path
+    },
     imageTilt: function(event) {
       const mq = window.matchMedia("(hover: hover)")
       if (mq.matches) {
