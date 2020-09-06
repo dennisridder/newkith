@@ -12,14 +12,17 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 @import '~/assets/styles/variables.sass'
 
 .section-Logos
-  li
+  &_Item
     height: 100%
     margin-left: var(--spacing-two)
     width: 10rem
+    p
+        margin-left: var(--spacing-content-sides)
+        margin-bottom: var(--spacing-one)
     img
         height: 100%
         width: 100%

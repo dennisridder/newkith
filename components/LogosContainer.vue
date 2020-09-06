@@ -94,10 +94,10 @@ export default {
         flex-wrap: nowrap
         border-top: $border
         border-bottom: $border
-        padding-top: 1.5rem
-        padding-bottom: 1.5rem
+        padding-top: 2rem
+        padding-bottom: 2rem
     ul
         display: flex
         flex-wrap: nowrap
-        height: 6.5rem
+        height: 5.5rem
 </style>
