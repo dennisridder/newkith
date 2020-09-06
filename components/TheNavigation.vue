@@ -499,7 +499,7 @@ export default {
       .header-Logo
         pointer-events: auto
         svg
-          height: 5rem
+          height: 2rem
     &_Middle
       width: 100%
       padding-left: var(--spacing-content-sides)
