@@ -1,7 +1,7 @@
 <template>
   <ul class="tagList">
     <li v-for="tag in array" :id="tag" :key="tag">
-      <h4>#{{ tag }}</h4>
+      <span>#{{ tag }}</span>
     </li>
   </ul>
 </template>

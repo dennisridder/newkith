@@ -7,7 +7,7 @@
         :id="tag"
         :key="tag"
       >
-        <h4>#{{ tag }}</h4>
+        <span>#{{ tag }}</span>
       </li>
     </ul>
   </section>

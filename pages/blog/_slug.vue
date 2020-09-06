@@ -19,7 +19,7 @@
       v-if="story.tag_list"
       class="section section-TagList section-TextContent"
     >
-      <h4 class="date">{{ formatDate(story.created_at) }}</h4>
+      <span class="date">{{ formatDate(story.created_at) }}</span>
       <blok-tag-list :array="story.tag_list" />
     </section>
     <component

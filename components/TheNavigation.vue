@@ -73,7 +73,7 @@
               class="icon"
               v-html="require('~/assets/images/icon-arrow.svg?include')"
             />
-            <h4>&nbsp;back</h4></nuxt-link
+            <span>&nbsp;back</span></nuxt-link
           >
         </ul>
       </nav>
@@ -87,7 +87,7 @@
               class="icon"
               v-html="require('~/assets/images/icon-arrow.svg?include')"
             />
-            <h4>&nbsp;back</h4></nuxt-link
+            <span>&nbsp;back</span></nuxt-link
           >
         </ul>
       </nav>
@@ -101,7 +101,7 @@
               class="icon"
               v-html="require('~/assets/images/icon-arrow.svg?include')"
             />
-            <h4>&nbsp;back</h4></nuxt-link
+            <span>&nbsp;back</span></nuxt-link
           >
         </ul>
       </nav>
@@ -160,7 +160,7 @@
           :input="general[0].content.header_text_column_one"
         />
         <nuxt-link to="/talents" class="link header-ContentText cursorInteract">
-          <h4>See our talents</h4>
+          <span>See our talents</span>
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
@@ -176,7 +176,7 @@
           :input="general[0].content.header_text_column_two"
         />
         <nuxt-link to="/cases" class="link header-ContentText cursorInteract">
-          <h4>See our work</h4>
+          <span>See our work</span>
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
@@ -572,7 +572,7 @@ export default {
         margin-right: 0
   &-Back
     display: flex
-    h4
+    span
       margin-left: .5rem
       line-height: 1.25
     svg

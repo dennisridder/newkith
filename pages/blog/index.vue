@@ -11,7 +11,7 @@
         >
           <nuxt-link :id="index" class="blogList-Content cursorInteract carouselOnScroll-Wrapper" :class="{ index }" :to="post.full_slug" tag="div">
             <div v-if="post.created_at" class="blogList-Content_Date">
-              <h4>{{ formatDate(post.created_at) }}</h4>
+              <span>{{ formatDate(post.created_at) }}</span>
             </div>
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
@@ -23,7 +23,7 @@
               <h2>{{ post.content.title }}</h2>
             </div>
             <div v-if="post.created_at" class="blogList-Content_Date">
-              <h4>{{ formatDate(post.created_at) }}</h4>
+              <span>{{ formatDate(post.created_at) }}</span>
             </div>
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
@@ -35,7 +35,7 @@
               <h2>{{ post.content.title }}</h2>
             </div>
             <div v-if="post.created_at" class="blogList-Content_Date">
-              <h4>{{ formatDate(post.created_at) }}</h4>
+              <span>{{ formatDate(post.created_at) }}</span>
             </div>
             <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
@@ -47,7 +47,7 @@
               <h2>{{ post.content.title }}</h2>
             </div>
             <div v-if="post.created_at" class="blogList-Content_Date">
-              <h4>{{ formatDate(post.created_at) }}</h4>
+              <span>{{ formatDate(post.created_at) }}</span>
             </div>
        <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
@@ -59,7 +59,7 @@
               <h2>{{ post.content.title }}</h2>
             </div>
             <div v-if="post.created_at" class="blogList-Content_Date">
-              <h4>{{ formatDate(post.created_at) }}</h4>
+              <span>{{ formatDate(post.created_at) }}</span>
             </div>
        <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
@@ -71,7 +71,7 @@
               <h2>{{ post.content.title }}</h2>
             </div>
             <div v-if="post.created_at" class="blogList-Content_Date">
-              <h4>{{ formatDate(post.created_at) }}</h4>
+              <span>{{ formatDate(post.created_at) }}</span>
             </div>
        <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
@@ -83,7 +83,7 @@
               <h2>{{ post.content.title }}</h2>
             </div>
             <div v-if="post.created_at" class="blogList-Content_Date">
-              <h4>{{ formatDate(post.created_at) }}</h4>
+              <span>{{ formatDate(post.created_at) }}</span>
             </div>
        <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
@@ -95,7 +95,7 @@
               <h2>{{ post.content.title }}</h2>
             </div>
             <div v-if="post.created_at" class="blogList-Content_Date">
-              <h4>{{ formatDate(post.created_at) }}</h4>
+              <span>{{ formatDate(post.created_at) }}</span>
             </div>
        <div class="blogList-Content_Title">
               <h2>{{ post.content.title }}</h2>
@@ -229,7 +229,7 @@ export default {
     width: 100%
     overflow-x: auto
     border-top: $border
-    h1, h2, h4, p
+    h1, h2, span, p
       hyphens: none
       overflow-wrap: normal
       break-word: normal

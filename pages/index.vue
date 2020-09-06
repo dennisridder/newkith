@@ -16,7 +16,7 @@
           tag="div"
           class="section-ImageGridFooter_Link link cursorInteract"
         >
-          <h4>See all our cases</h4>
+          <span>See all our cases</span>
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
@@ -38,9 +38,9 @@
           tag="div"
           class="section-ImageGridFooter_Link link cursorInteract"
         >
-          <h4>
+          <span>
             See all our talents
-          </h4>
+          </span>
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"

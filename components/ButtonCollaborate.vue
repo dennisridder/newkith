@@ -3,7 +3,7 @@
     :href="`mailto:${blok.button_mail_address}`"
     rel="noreferrer"
     class="button cursorInteract"
-    ><h4>{{ blok.button_text }}</h4></a
+    ><span>{{ blok.button_text }}</span></a
   >
 </template>
 
