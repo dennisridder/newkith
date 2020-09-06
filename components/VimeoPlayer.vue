@@ -1,7 +1,7 @@
 <template>
   <!-- prettier-ignore -->
   <iframe
-    :src="'https://player.vimeo.com/video/' + videoid + '?autoplay=' + autoplay"
+    :src="'https://player.vimeo.com/video/' + videoid + '?autoplay=' + autoplay + '&muted=true'"
     width="640"
     height="360"
     frameborder="0"
@@ -9,6 +9,7 @@
     transparent="true"
     autopause="true"
     loop="true"
+    muted="true"
     playsinline="true"
     title="false"
     webkitallowfullscreen
