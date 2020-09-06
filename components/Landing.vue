@@ -45,7 +45,7 @@ export default {
     this.wordsLoad()
     this.wordsLoadAnimated()
     this.wordsSwap()
-    this.scrollSpeedLanding()
+    this.scrollSlowLanding()
   },
   methods: {
     wordsSort() {
@@ -123,15 +123,15 @@ export default {
         }, 250)
       }
     },
-    scrollSpeedLanding() {
+    scrollSlowLanding() {
       gsap.to(this.$el, {
-        yPercent: 50,
+        y: window.innerHeight,
         ease: "none",
         scrollTrigger: {
           trigger: this.$el,
           scrub: true,
           start: "top top",
-          end: "bottom top"
+          end: "+=200%"
         }
       })
     }

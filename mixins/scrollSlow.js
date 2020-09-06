@@ -15,13 +15,13 @@ export default {
         if (mq.matches) {
           targets.forEach(el => {
             gsap.to(el, {
-              y: window.innerHeight,
+              y: window.innerHeight / 2,
               ease: "none",
               scrollTrigger: {
                 trigger: el,
                 scrub: true,
                 start: "top bottom",
-                end: "+=200%"
+                end: "+=150%"
               }
             })
           })
