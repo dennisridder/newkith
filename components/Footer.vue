@@ -7,14 +7,14 @@
           <p>{{ general[0].content.footer_title }}</p>
         </li>
         <li>
-          <p>{{ general[0].content.footer_text }}</p>
+          <markdown-item :input="general[0].content.footer_text" />
         </li>
         <nuxt-link to="/about" class="link cursorInteract">
+          <h4>Read our story</h4>
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
-          <p>Read our story</p>
         </nuxt-link>
       </ul>
       <ul></ul>
@@ -82,8 +82,12 @@
 import { gsap } from "gsap"
 import lodash from "lodash"
 import { mapState } from "vuex"
+import MarkdownItem from "@/components/MarkdownItem.vue"
 
 export default {
+  components: {
+    "markdown-item": MarkdownItem
+  },
   data() {
     return {
       scrollPosition: 0,

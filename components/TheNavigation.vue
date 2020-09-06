@@ -145,11 +145,11 @@
           :input="general[0].content.header_text_column_one"
         />
         <nuxt-link to="/talents" class="link header-ContentText cursorInteract">
+          <h4>See our talents</h4>
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
-          <p>See our talents</p>
         </nuxt-link>
       </div>
       <div class="header-Bottom_Items">
@@ -161,11 +161,11 @@
           :input="general[0].content.header_text_column_two"
         />
         <nuxt-link to="/cases" class="link header-ContentText cursorInteract">
+          <h4>See our work</h4>
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
-          <p>See our work</p>
         </nuxt-link>
       </div>
       <div class="header-Bottom_Items">

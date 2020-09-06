@@ -21,11 +21,11 @@
           tag="div"
           class="section-ImageGridFooter_Link link cursorInteract"
         >
+          <h4>See all our cases</h4>
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
-          <p>See all our cases</p>
         </nuxt-link>
       </div>
     </section>
@@ -48,13 +48,13 @@
           tag="div"
           class="section-ImageGridFooter_Link link cursorInteract"
         >
+          <h4>
+            See all our talents
+          </h4>
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
-          <p>
-            See all our talents
-          </p>
         </nuxt-link>
       </div>
     </section>
