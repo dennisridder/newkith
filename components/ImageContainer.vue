@@ -5,15 +5,15 @@
       <img
         v-if="image"
         :srcset="
-          `${transformImage(image, '1901x0/filters:format(webp)')} 2880w, 
-           ${transformImage(image, '1690x0/filters:format(webp)')} 2560w, 
-           ${transformImage(image, '1268x0/filters:format(webp)')} 1920w, 
-           ${transformImage(image, '1109x0/filters:format(webp)')} 1680w, 
-           ${transformImage(image, '845x0/filters:format(webp)')} 1280w,
-           ${transformImage(image, '1024x0/filters:format(webp)')} 1024w, 
-           ${transformImage(image, '1537x0/filters:format(webp)')} 768w`"
+          `${transformImage(image, '1901x0')} 2880w, 
+           ${transformImage(image, '1690x0')} 2560w, 
+           ${transformImage(image, '1268x0')} 1920w, 
+           ${transformImage(image, '1109x0')} 1680w, 
+           ${transformImage(image, '845x0')} 1280w,
+           ${transformImage(image, '1024x0')} 1024w, 
+           ${transformImage(image, '1537x0')} 768w`"
         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 34vw"
-        :data-src="`${transformImage(image, '1600x0/filters:format(jpg)')}`"
+        :data-src="`${transformImage(image, '1600x0')}`"
         :alt="alttitle"
       />
     </div>

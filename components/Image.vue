@@ -14,15 +14,15 @@
         <img
         v-if="blok.image"
         :srcset="
-          `${transformImage(blok.image, '2880x0/filters:format(webp)')} 2880w, 
-           ${transformImage(blok.image, '2560x0/filters:format(webp)')} 2560w, 
-           ${transformImage(blok.image, '1920x0/filters:format(webp)')} 1920w, 
-           ${transformImage(blok.image, '1680x0/filters:format(webp)')} 1680w, 
-           ${transformImage(blok.image, '1280x0/filters:format(webp)')} 1280w,
-           ${transformImage(blok.image, '1024x0/filters:format(webp)')} 1024w, 
-           ${transformImage(blok.image, '768x0/filters:format(webp)')} 768w`"
+          `${transformImage(blok.image, '2880x0')} 2880w, 
+           ${transformImage(blok.image, '2560x0')} 2560w, 
+           ${transformImage(blok.image, '1920x0')} 1920w, 
+           ${transformImage(blok.image, '1680x0')} 1680w, 
+           ${transformImage(blok.image, '1280x0')} 1280w,
+           ${transformImage(blok.image, '1024x0')} 1024w, 
+           ${transformImage(blok.image, '768x0')} 768w`"
         sizes="100vw"
-        :data-src="`${transformImage(blok.image, '1600x0/filters:format(jpg)')}`"
+        :data-src="`${transformImage(blok.image, '1600x0')}`"
         :alt="blok.image_title"
       />
       </div>
