@@ -16,13 +16,13 @@
           <img
         v-if="story.content.thumbnail"
         :srcset="
-          `${transformImage(story.content.thumbnail, '2880x0')} 2880w,
-           ${transformImage(story.content.thumbnail, '2560x0')} 2560w, 
-           ${transformImage(story.content.thumbnail, '1920x0')} 1920w, 
-           ${transformImage(story.content.thumbnail, '1680x0')} 1680w, 
-           ${transformImage(story.content.thumbnail, '1280x0')} 1280w,
-           ${transformImage(story.content.thumbnail, '1024x0')} 1024w, 
-           ${transformImage(story.content.thumbnail, '768x0')} 768w`"
+          `${transformImage(story.content.thumbnail, '2880x0/filters:format(jpg):quality(80)')} 2880w,
+           ${transformImage(story.content.thumbnail, '2560x0/filters:format(jpg):quality(80)')} 2560w, 
+           ${transformImage(story.content.thumbnail, '1920x0/filters:format(jpg):quality(80)')} 1920w, 
+           ${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(80)')} 1680w, 
+           ${transformImage(story.content.thumbnail, '1280x0/filters:format(jpg):quality(80)')} 1280w,
+           ${transformImage(story.content.thumbnail, '1024x0/filters:format(jpg):quality(80)')} 1024w, 
+           ${transformImage(story.content.thumbnail, '768x0/filters:format(jpg):quality(80)')} 768w`"
         sizes="100vw"
         :data-src="`${transformImage(story.content.thumbnail, '1600x0')}`"
         :alt="story.content.title"
