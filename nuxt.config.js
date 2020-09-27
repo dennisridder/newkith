@@ -1,6 +1,8 @@
 const axios = require("axios")
 require("dotenv").config()
 
+// TODO: site descr
+
 module.exports = {
   mode: "universal",
 
@@ -106,7 +108,8 @@ module.exports = {
               callback(null, routes)
             })
         })
-    }
+    },
+    fallback: true
   },
   /*
    ** Build configuration
