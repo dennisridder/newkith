@@ -93,6 +93,17 @@
             Instagram
           </a>
         </li>
+        <li>&nbsp;</li>
+        <li class="link cursorInteract">
+          <a
+            href="https://www.driesbos.com"
+            target="_blank"
+            rel="noreferrer"
+            title="Site by Dries Bos"
+          >
+            Site by Dries Bos
+          </a>
+        </li>
       </ul>
     </div>
     <nuxt-link class="footer-Logo cursorInteract" to="/" tag="div">
