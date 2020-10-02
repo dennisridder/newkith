@@ -64,7 +64,6 @@ module.exports = {
    */
   modules: [
     "@nuxtjs/axios",
-    "vue-scrollto/nuxt",
     [
       "storyblok-nuxt",
       {
