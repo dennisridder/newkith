@@ -71,7 +71,7 @@
             v-html="require('~/assets/images/icon-location.svg?include')"
           />
           <a
-            href="https://goo.gl/maps/EQQuTb834wUmkuQy6"
+            :href="general[0].content.general_location"
             target="_blank"
             rel="noreferrer"
             title="directions"
