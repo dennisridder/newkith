@@ -88,7 +88,14 @@ export default {
   },
   head() {
     return {
-      title: this.stories[0].name.toUpperCase() + " — #NEWKITH"
+      title: this.stories[0].name.toUpperCase() + " — #NEWKITH",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.general[0].content.website_description
+        }
+      ]
     }
   }
 }

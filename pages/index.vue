@@ -155,7 +155,14 @@ export default {
   },
   head() {
     return {
-      title: this.story.name.toUpperCase() + " — #NEWKITH"
+      title: this.story.name.toUpperCase() + " — #NEWKITH",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.general[0].content.website_description
+        }
+      ]
     }
   }
 }

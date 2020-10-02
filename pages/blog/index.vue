@@ -180,7 +180,14 @@ export default {
   },
   head() {
     return {
-      title: "BLOG — #NEWKITH"
+      title: "BLOG — #NEWKITH",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.general[0].content.website_description
+        }
+      ]
     }
   }
 }
