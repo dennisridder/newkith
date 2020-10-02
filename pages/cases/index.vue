@@ -48,14 +48,13 @@ export default {
       landingInput: []
     }
   },
-
   computed: {
     ...mapState({
-      cases: state => state.cases.list
+      cases: state => state.cases.list,
+      general: state => state.general.list
     })
   },
   mounted() {
-    console.log(this.stories)
     this.getLandingInput()
     this.filterCases()
     this.filterArray()

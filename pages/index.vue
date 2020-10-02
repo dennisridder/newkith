@@ -104,7 +104,8 @@ export default {
   computed: {
     ...mapState({
       cases: state => state.cases.list,
-      talents: state => state.talents.list
+      talents: state => state.talents.list,
+      general: state => state.general.list
     })
   },
   mounted() {

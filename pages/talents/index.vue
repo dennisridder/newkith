@@ -50,7 +50,8 @@ export default {
   },
   computed: {
     ...mapState({
-      talents: state => state.talents.list
+      talents: state => state.talents.list,
+      general: state => state.general.list
     })
   },
   mounted() {

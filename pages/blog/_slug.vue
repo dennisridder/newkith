@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
 import gsap from "gsap"
 import $ from "jquery"
 
@@ -91,6 +92,11 @@ export default {
       story: { content: {} },
       wordsArray: []
     }
+  },
+  computed: {
+    ...mapState({
+      general: state => state.general.list
+    })
   },
   mounted() {
     this.wordsToArray()

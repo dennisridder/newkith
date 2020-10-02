@@ -118,6 +118,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import scrollFast from "@/mixins/scrollFast"
 import scrollSlow from "@/mixins/scrollSlow"
@@ -156,8 +157,12 @@ export default {
       filterList: []
     }
   },
+  computed: {
+    ...mapState({
+      general: state => state.general.list
+    })
+  },
   mounted() {
-    console.log(this.stories)
     this.filterArray()
   },
   methods: {
