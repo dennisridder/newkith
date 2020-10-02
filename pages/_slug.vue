@@ -33,6 +33,11 @@ export default {
   },
   data() {
     return { story: { content: {} } }
+  },
+  head() {
+    return {
+      title: this.story.name.toUpperCase() + " — #NEWKITH"
+    }
   }
 }
 </script>

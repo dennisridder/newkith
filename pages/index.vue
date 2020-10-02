@@ -152,6 +152,11 @@ export default {
       let filteredArray = array.slice(1, 6)
       this.talentsList = filteredArray
     }
+  },
+  head() {
+    return {
+      title: this.story.name.toUpperCase() + " — #NEWKITH"
+    }
   }
 }
 </script>

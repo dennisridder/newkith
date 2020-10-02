@@ -55,6 +55,7 @@ export default {
     })
   },
   mounted() {
+    console.log(this.stories)
     this.getLandingInput()
     this.filterCases()
     this.filterArray()
@@ -85,6 +86,11 @@ export default {
       const backToArray = [...uniqueSet]
       // Set filterList data
       this.filterList = backToArray
+    }
+  },
+  head() {
+    return {
+      title: this.stories[0].name.toUpperCase() + " — #NEWKITH"
     }
   }
 }

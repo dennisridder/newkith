@@ -85,6 +85,11 @@ export default {
       // Set filterList data
       this.filterList = backToArray
     }
+  },
+  head() {
+    return {
+      title: this.stories[0].name.toUpperCase() + " — #NEWKITH"
+    }
   }
 }
 </script>

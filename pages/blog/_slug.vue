@@ -147,6 +147,11 @@ export default {
         this.wordsArray = Object.values(array)
       }
     }
+  },
+  head() {
+    return {
+      title: this.story.name.toUpperCase() + " — #NEWKITH"
+    }
   }
 }
 </script>

@@ -157,48 +157,14 @@ export default {
     }
   },
   mounted() {
+    console.log(this.stories)
     this.filterArray()
-    // this.onScroll()
   },
   methods: {
     formatDate(date) {
       var d = (new Date(date) + "").split(" ")
       return [d[2], d[1], d[3]].join(" ")
     },
-    // onScroll() {
-    //   setTimeout(function() {
-    //     const sections = document.querySelectorAll(".carouselOnScroll")
-    //     const sectionWidth = window.innerWidth / 1.5
-    //     sections.forEach((el, index) => {
-    //       const wrapper = el.querySelectorAll(".carouselOnScroll-Wrapper")
-    //       if (index % 2 === 0) {
-    //         gsap.fromTo(
-    //           wrapper,
-    //           { x: 0 },
-    //           {
-    //             x: -sectionWidth,
-    //             scrollTrigger: {
-    //               trigger: el,
-    //               scrub: true
-    //             }
-    //           }
-    //         )
-    //       } else {
-    //         gsap.fromTo(
-    //           wrapper,
-    //           { x: -sectionWidth },
-    //           {
-    //             x: 0,
-    //             scrollTrigger: {
-    //               trigger: el,
-    //               scrub: true
-    //             }
-    //           }
-    //         )
-    //       }
-    //     })
-    //   }, 100)
-    // },
     filterArray() {
       // Map tag values to new array
       var array = this.stories
@@ -210,6 +176,11 @@ export default {
       const backToArray = [...uniqueSet]
       // Set filterList data
       this.filterList = backToArray
+    }
+  },
+  head() {
+    return {
+      title: "BLOG — #NEWKITH"
     }
   }
 }
