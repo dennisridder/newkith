@@ -94,7 +94,7 @@
           </a>
         </li>
         <li>&nbsp;</li>
-        <li class="link cursorInteract">
+        <li class="link link-Colophon cursorInteract">
           <a
             href="https://www.driesbos.com"
             target="_blank"
