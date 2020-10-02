@@ -22,17 +22,19 @@
         <li class="hide"></li>
       </ul>
       <ul>
-        <nuxt-link class="link cursorInteract" to="/" tag="li">Home</nuxt-link>
-        <nuxt-link class="link cursorInteract" to="/cases" tag="li"
+        <nuxt-link class="nav-Link link cursorInteract" to="/" tag="li"
+          >Home</nuxt-link
+        >
+        <nuxt-link class="nav-Link link cursorInteract" to="/cases" tag="li"
           >Cases</nuxt-link
         >
-        <nuxt-link class="link cursorInteract" to="/talents" tag="li"
+        <nuxt-link class="nav-Link link cursorInteract" to="/talents" tag="li"
           >Talents</nuxt-link
         >
-        <nuxt-link class="link cursorInteract" to="/blog" tag="li"
+        <nuxt-link class="nav-Link link cursorInteract" to="/blog" tag="li"
           >What's happening</nuxt-link
         >
-        <nuxt-link class="link cursorInteract" to="/about" tag="li"
+        <nuxt-link class="nav-Link link cursorInteract" to="/about" tag="li"
           >Our story</nuxt-link
         >
       </ul>

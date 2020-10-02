@@ -12,13 +12,20 @@
       </div>
       <nav v-if="mainNav == true" class="header-Nav">
         <ul>
-          <li class="header-Services cursorInteract" @click="clickServices">
+          <li
+            class="nav-Link header-Services cursorInteract"
+            :class="isActive"
+            @click="clickServices"
+          >
             Our services
           </li>
-          <nuxt-link to="/blog" class="cursorInteract" tag="li"
+          <nuxt-link to="/blog" class="nav-Link cursorInteract" tag="li"
             >What's happening</nuxt-link
           >
-          <nuxt-link to="/about" class="header-Story cursorInteract" tag="li"
+          <nuxt-link
+            to="/about"
+            class="nav-Link header-Story cursorInteract"
+            tag="li"
             >Our story</nuxt-link
           >
         </ul>
@@ -215,6 +222,7 @@ export default {
   data() {
     return {
       isActive: "one",
+      servicesIsActive: false,
       pageType: "initial",
       mainNav: false,
       services: false
@@ -245,6 +253,7 @@ export default {
         .offsetHeight
       if (this.isActive === "one") {
         this.isActive = "two"
+        this.servicesIsActive = true
         gsap.to(".section-Wrapper", {
           css: {
             marginTop: headerTopHeight
@@ -264,6 +273,7 @@ export default {
         .offsetHeight
       if (this.isActive === "one") {
         this.isActive = "two"
+        this.servicesIsActive = true
         gsap.to(".section-Wrapper", {
           css: {
             marginTop: headerTopHeight
@@ -305,6 +315,7 @@ export default {
           ease: "ease"
         })
         this.isActive = "one"
+        this.servicesIsActive = false
       }
     },
     clickServices() {
@@ -545,14 +556,31 @@ export default {
     @media screen and (min-width: $breakpoint-mobile)
       margin-left: var(--spacing-content-sides)
     li
+      --var: 0%
+      position: relative
       display: flex
       align-items: center
       cursor: pointer
       flex-shrink: 0
       .icon
         margin-right: 0
+      &::before
+        content: ''
+        position: absolute
+        left: 0
+        display: inline-block
+        bottom: -5px
+        top: 0
+        width: var(--var)
+        z-index: 0
+        border-bottom: $border
       &:hover, &.nuxt-link-exact-active
         text-decoration: none
+      &.nuxt-link-exact-active, &.three
+        &::before
+          animation: hyperLink .33s ease-out
+          animation-iteration-count: 1
+          animation-fill-mode: both
     ul
       display: flex
       flex-wrap: wrap
