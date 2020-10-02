@@ -36,7 +36,7 @@ module.exports = {
         content: "black-translucent"
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/png", href: "/icon.png" }]
   },
 
   /*
