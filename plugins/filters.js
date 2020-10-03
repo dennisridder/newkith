@@ -42,12 +42,8 @@ Vue.filter("removeFirst", function(values) {
   return values.slice(1)
 })
 
-Vue.filter("showOnlyFirstThree", function(values) {
-  return values.slice(0, 3)
-})
-
-Vue.filter("showOnlyFirstFive", function(values) {
-  return values.slice(0, 5)
+Vue.filter("showOnlyFirstX", function(values, amount) {
+  return values.slice(0, amount)
 })
 
 // Remove duplicates

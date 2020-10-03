@@ -6,7 +6,7 @@
     <blok-title :words="[`${story.content.cases_header}`]" />
     <blok-image-grid
       v-if="cases"
-      :array="cases | removeFirst | showOnlyFirstThree | shuffle"
+      :array="cases | removeFirst | showOnlyFirstX(3) | shuffle"
       slug="/cases/"
     />
     <section
@@ -32,7 +32,7 @@
     <blok-title :words="[`${story.content.talents_header}`]" />
     <blok-image-grid
       v-if="talents"
-      :array="talents | removeFirst | showOnlyFirstFive | shuffle"
+      :array="talents | removeFirst | showOnlyFirstX(5) | shuffle"
       slug="/talents/"
     />
     <section
