@@ -167,7 +167,7 @@
           :input="general[0].content.header_text_column_one"
         />
         <nuxt-link to="/talents" class="link header-ContentText cursorInteract">
-          <span>See our talents</span>
+          <span>our talents</span>
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
@@ -183,7 +183,7 @@
           :input="general[0].content.header_text_column_two"
         />
         <nuxt-link to="/cases" class="link header-ContentText cursorInteract">
-          <span>See our work</span>
+          <span>selected cases</span>
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
@@ -538,23 +538,31 @@ export default {
   &-Bottom
     display: flex
     justify-content: space-between
-    gap: var(--spacing-two)
     padding: 3rem var(--spacing-content-sides)
-    &_Items
-      @media screen and (min-width: $breakpoint-mobile)
-        flex-basis: 33.3333%
     @media screen and (max-width: $breakpoint-mobile)
       flex-direction: column
       justify-content: flex-start
-      .header-Bottom_Items
+    &_Items
+      padding-left: 1.25rem
+      padding-right: 1.25rem
+      @media screen and (min-width: $breakpoint-mobile)
+        flex-basis: 33.3333%
+      @media screen and (max-width: $breakpoint-mobile)
         margin-bottom: var(--spacing-three)
-        &:last-child
+      &:first-child
+        padding-left: 0
+      &:last-child
+        padding-right: 0
+        @media screen and (max-width: $breakpoint-mobile)
           margin-bottom: var(--spacing-content-bottom)
           padding-bottom: var(--spacing-content-bottom)
   &-Nav
     flex-shrink: 0
     @media screen and (min-width: $breakpoint-mobile)
       margin-left: var(--spacing-content-sides)
+    ul
+      display: flex
+      flex-wrap: wrap
     li
       --var: 0%
       position: relative
@@ -581,9 +589,6 @@ export default {
           animation: hyperLink .33s ease-out
           animation-iteration-count: 1
           animation-fill-mode: both
-    ul
-      display: flex
-      flex-wrap: wrap
   &-Services
     pointer-events: auto
   &-ContentTitle
