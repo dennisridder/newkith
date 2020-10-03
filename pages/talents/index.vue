@@ -47,7 +47,7 @@ export default {
   data() {
     return {
       stories: { content: {} },
-      filterList: [],
+      // filterList: [],
       landingInput: []
     }
   },

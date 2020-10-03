@@ -42,11 +42,11 @@ Vue.filter("removeFirst", function(values) {
   return values.slice(1)
 })
 
-Vue.filter("showFirstThree", function(values) {
+Vue.filter("showOnlyFirstThree", function(values) {
   return values.slice(0, 3)
 })
 
-Vue.filter("showFirstFive", function(values) {
+Vue.filter("showOnlyFirstFive", function(values) {
   return values.slice(0, 5)
 })
 

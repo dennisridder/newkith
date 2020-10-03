@@ -1,7 +1,7 @@
 <template>
   <div class="section-Wrapper">
     <blok-landing :words="landingInput" />
-    <blok-image-grid v-if="casesList" :array="casesList" slug="/cases/" />
+    <blok-image-grid v-if="cases" :array="cases | removeFirst" slug="/cases/" />
   </div>
 </template>
 
@@ -43,8 +43,7 @@ export default {
   data() {
     return {
       stories: { content: {} },
-      casesList: [],
-      filterList: [],
+      // filterList: [],
       landingInput: []
     }
   },
@@ -56,8 +55,7 @@ export default {
   },
   mounted() {
     this.getLandingInput()
-    this.filterCases()
-    this.filterArray()
+    // this.filterArray()
   },
   methods: {
     getLandingInput() {
@@ -69,23 +67,18 @@ export default {
         var pathTitleArray = pathTitle.split("-")
         this.landingInput = pathTitleArray
       }
-    },
-    filterCases() {
-      let array = this.cases
-      let filteredArray = array.slice(1)
-      this.casesList = filteredArray
-    },
-    filterArray() {
-      var array = this.casesList
-      var filteredArray = array.map(el => {
-        return el.taglist[0]
-      })
-      // Remove duplicates
-      const uniqueSet = new Set(filteredArray)
-      const backToArray = [...uniqueSet]
-      // Set filterList data
-      this.filterList = backToArray
     }
+    // filterArray() {
+    //   var array = this.casesList
+    //   var filteredArray = array.map(el => {
+    //     return el.taglist[0]
+    //   })
+    //   // Remove duplicates
+    //   const uniqueSet = new Set(filteredArray)
+    //   const backToArray = [...uniqueSet]
+    //   // Set filterList data
+    //   this.filterList = backToArray
+    // }
   },
   head() {
     return {
