@@ -4,7 +4,11 @@
       :words="['Newkith', 'talent', 'Connective', 'Online', 'agency']"
     />
     <blok-title :words="[`${story.content.cases_header}`]" />
-    <blok-image-grid v-if="casesList" :array="casesList" slug="/cases/" />
+    <blok-image-grid
+      v-if="cases"
+      :array="cases | removeFirst | showFirstThree | shuffle"
+      slug="/cases/"
+    />
     <section
       class="section section-ImageGridFooter section-TextContent scrollFast"
     >
@@ -26,7 +30,11 @@
     </section>
     <blok-quote :blok="story.content" />
     <blok-title :words="[`${story.content.talents_header}`]" />
-    <blok-image-grid v-if="talentsList" :array="talentsList" slug="/talents/" />
+    <blok-image-grid
+      v-if="talents"
+      :array="talents | removeFirst | showFirstFive | shuffle"
+      slug="/talents/"
+    />
     <section
       class="section section-ImageGridFooter section-TextContent scrollFast"
     >
@@ -96,8 +104,6 @@ export default {
   data() {
     return {
       story: { content: {} },
-      casesList: [],
-      talentsList: [],
       landingInput: []
     }
   },
@@ -110,8 +116,6 @@ export default {
   },
   mounted() {
     this.getLandingInput()
-    this.filterCases()
-    this.filterTalents()
   },
   methods: {
     getLandingInput() {
@@ -123,35 +127,6 @@ export default {
         var pathTitleArray = pathTitle.split("-")
         this.landingInput = Object.values(pathTitleArray)
       }
-    },
-    shuffle(arr) {
-      function getRandomInt(n) {
-        return Math.floor(Math.random() * n)
-      }
-      var n = arr.length // Length of the array
-
-      for (var i = 0; i < n - 1; ++i) {
-        var j = getRandomInt(n) // Get random of [0, n-1]
-
-        var temp = arr[i] // Swap arr[i] and arr[j]
-        arr[i] = arr[j]
-        arr[j] = temp
-      }
-    },
-    filterCases() {
-      // Clone array
-      let array = this.cases.slice(0)
-      array.shift()
-      this.shuffle(array)
-      let filteredArray = array.slice(1, 4)
-      this.casesList = filteredArray
-    },
-    filterTalents() {
-      let array = this.talents.slice(0)
-      array.shift()
-      this.shuffle(array)
-      let filteredArray = array.slice(1, 6)
-      this.talentsList = filteredArray
     }
   },
   head() {
