@@ -123,8 +123,46 @@
         </div>
         <nav class="header-Top_Mobile_Toggle">
           <ul>
+            <nuxt-link
+              v-if="pageType === 'blogSlug'"
+              to="/talents"
+              class="header-Back link cursorInteract"
+              tag="li"
+              ><div
+                class="icon"
+                v-html="require('~/assets/images/icon-arrow.svg?include')"
+              />
+              &nbsp;Back
+            </nuxt-link>
+            <nuxt-link
+              v-if="pageType === 'talentSlug'"
+              to="/talents"
+              class="header-Back link cursorInteract"
+              tag="li"
+              ><div
+                class="icon"
+                v-html="require('~/assets/images/icon-arrow.svg?include')"
+              />
+              &nbsp;Back</nuxt-link
+            >
+            <nuxt-link
+              v-if="pageType === 'caseSlug'"
+              to="/cases"
+              class="header-Back link cursorInteract"
+              tag="li"
+              ><div
+                class="icon"
+                v-html="require('~/assets/images/icon-arrow.svg?include')"
+              />
+              &nbsp;Back</nuxt-link
+            >
             <li
-              v-if="isActive === 'one'"
+              v-if="
+                isActive === 'one' &&
+                  pageType !== 'caseSlug' &&
+                  pageType !== 'talentSlug' &&
+                  pageType !== 'blogSlug'
+              "
               class="cursorInteract"
               @click="mouseEnterTopMobile"
             >
@@ -198,13 +236,6 @@
           class="header-ContentText"
           :input="general[0].content.header_text_column_three"
         />
-        <!-- <nuxt-link to="/about" class="link header-ContentText cursorInteract">
-          <div
-            class="icon"
-            v-html="require('~/assets/images/icon-arrow.svg?include')"
-          />
-          <p>Read more</p>
-        </nuxt-link> -->
       </div>
     </div>
   </header>
@@ -517,6 +548,8 @@ export default {
     flex-direction: column
     &_Toggle
       pointer-events: auto
+      .icon
+        transform: translateY(2px)
     &_Top
       display: flex
       width: 100%
@@ -543,10 +576,10 @@ export default {
       flex-direction: column
       justify-content: flex-start
     &_Items
-      padding-left: 1.25rem
-      padding-right: 1.25rem
       @media screen and (min-width: $breakpoint-mobile)
         flex-basis: 33.3333%
+        padding-left: 1.25rem
+        padding-right: 1.25rem
       @media screen and (max-width: $breakpoint-mobile)
         margin-bottom: var(--spacing-three)
       &:first-child
