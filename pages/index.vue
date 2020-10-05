@@ -1,8 +1,9 @@
 <template>
   <div class="section-Wrapper section-Wrapper_Homepage">
-    <blok-landing
-      :words="['Newkith', 'talent', 'Connective', 'Online', 'agency']"
-    />
+    <!-- <blok-landing
+      :words="['New kith', 'talent', 'Connective', 'Online', 'agency']"
+    /> -->
+    <blok-landing :words="story.content.landing_animation_words" />
     <blok-title :words="[`${story.content.cases_header}`]" />
     <blok-image-grid
       v-if="cases"
@@ -115,6 +116,7 @@ export default {
     })
   },
   mounted() {
+    console.log("INDEX PAGE", this.story.content.landing_animation_words)
     this.getLandingInput()
   },
   methods: {

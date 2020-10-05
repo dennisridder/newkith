@@ -6,7 +6,7 @@
       </li>
       <li class="swapWordContainer">
         <h1 v-for="word in middleWords" :key="word" class="swapWord">
-          {{ word }}&nbsp;
+          {{ word.word }}&nbsp;
         </h1>
       </li>
       <li>
@@ -42,6 +42,7 @@ export default {
     this.wordsSort()
   },
   mounted() {
+    console.log("LANDING ITEM", this.words)
     this.wordsLoad()
     this.wordsLoadAnimated()
     this.wordsSwap()
@@ -49,8 +50,8 @@ export default {
   },
   methods: {
     wordsSort() {
-      this.firstWord = this.words[0]
-      this.lastWord = this.words[this.words.length - 1]
+      this.firstWord = this.words[0].word
+      this.lastWord = this.words[this.words.length - 1].word
       this.middleWords = this.words.slice(1, this.words.length - 1)
     },
     wordsLoad() {
