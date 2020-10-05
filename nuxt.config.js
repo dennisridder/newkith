@@ -21,7 +21,7 @@ module.exports = {
         hid: "description",
         name: "description",
         content:
-          "KITH SIGNIFIES ACQUAINTANCE, FRIENDS, NEIGHBOURS, OR THE LIKE. IT REFERS TO PEOPLE LIVING IN THE SAME GENERAL LOCALITY FORMING A MORE OR LESS COHESIVE GROUP." // Change in package.json files
+          "Amsterdam based influencer marketing agency that strongly believes in the new media." // Change in package.json files
       },
       {
         name: "mobile-web-app-capable",
