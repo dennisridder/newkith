@@ -69,7 +69,7 @@ export default {
     })
   },
   mounted() {
-    console.log(this.talents)
+    // console.log("TALENT PAGE", this.talents)
     this.getLandingInput()
     this.removeFirst()
     this.toggleSortByTitleToggle()
