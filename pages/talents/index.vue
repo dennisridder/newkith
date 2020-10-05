@@ -1,17 +1,27 @@
 <template>
   <div class="section-Wrapper">
     <blok-landing :words="landingInput" />
-    <blok-image-grid
-      v-if="talents"
-      :array="talents | removeFirst"
-      slug="/talents/"
-    />
+    <section class="section section-Filters section-TextContent">
+      <ul class="section-Filters_Container">
+        <li
+          class="section-Filters_Item cursorInteract"
+          @click="toggleSortByTitleToggle"
+        >
+          <span>Sort by name</span>
+          <div
+            :class="{ active: sortByTitleToggle }"
+            class="icon icon-Arrow"
+            v-html="require('~/assets/images/icon-arrow.svg?include')"
+          />
+        </li>
+      </ul>
+    </section>
+    <blok-image-grid v-if="talentList" :array="talentList" slug="/talents/" />
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex"
-
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import scrollFast from "@/mixins/scrollFast"
 import scrollSlow from "@/mixins/scrollSlow"
@@ -47,8 +57,9 @@ export default {
   data() {
     return {
       stories: { content: {} },
-      // filterList: [],
-      landingInput: []
+      landingInput: [],
+      talentList: [],
+      sortByTitleToggle: true
     }
   },
   computed: {
@@ -58,8 +69,10 @@ export default {
     })
   },
   mounted() {
+    console.log(this.talents)
     this.getLandingInput()
-    // this.filterArray()
+    this.removeFirst()
+    this.toggleSortByTitleToggle()
   },
   methods: {
     getLandingInput() {
@@ -70,6 +83,24 @@ export default {
         var pathTitle = this.$route.path.replace(/\\|\//g, "")
         var pathTitleArray = pathTitle.split("-")
         this.landingInput = pathTitleArray
+      }
+    },
+    removeFirst() {
+      this.talentList = this.talents.slice(1)
+    },
+    toggleSortByTitleToggle() {
+      this.sortByTitle(this.talentList)
+      this.sortByTitleToggle = !this.sortByTitleToggle
+    },
+    sortByTitle(values) {
+      if (this.sortByTitleToggle) {
+        values.sort((a, b) =>
+          a.title > b.title ? 1 : b.title > a.title ? -1 : 0
+        )
+      } else {
+        values.sort((a, b) =>
+          a.title < b.title ? 1 : b.title < a.title ? -1 : 0
+        )
       }
     }
     // filterArray() {

@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 @import '~/assets/styles/variables.sass'
 
 .section-Filters
@@ -36,6 +36,8 @@ export default {
     width: 100%
     max-width: var(--button-container-width)
   &_Item
+    display: flex
+    align-items: center
     border: $border
     margin-left: var(--button-margins)
     margin-bottom: var(--button-margins)
@@ -44,6 +46,14 @@ export default {
     transition: background $transition-button, color $transition-button
     text-decoration: none
     cursor: pointer
+    .icon
+      margin-left: .5rem
+      transform: rotate(90deg)
+      height: 1rem
+      width: 1rem
+      transition: transform .33s ease
+      &.active
+        transform: rotate(-90deg)
     &:last-child
       margin-right: 0
     &:hover
