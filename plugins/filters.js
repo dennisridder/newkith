@@ -46,24 +46,6 @@ Vue.filter("showOnlyFirstX", function(values, amount) {
   return values.slice(0, amount)
 })
 
-Vue.filter("orderObjectByName", function(values) {
-  function compare(a, b) {
-    // Use toUpperCase() to ignore character casing
-    const itemA = a.title.toUpperCase()
-    const itemB = b.title.toUpperCase()
-
-    let comparison = 0
-    if (itemA > itemB) {
-      comparison = 1
-    } else if (itemA < itemB) {
-      comparison = -1
-    }
-    // return comparison
-    return comparison * -1 // Invert
-  }
-  values.sort(compare)
-})
-
 // Remove duplicates
 Vue.filter("unique", function(values) {
   return values.filter(function(element, index, self) {
