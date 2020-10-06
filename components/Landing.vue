@@ -50,9 +50,11 @@ export default {
   },
   methods: {
     wordsSort() {
-      this.firstWord = this.words[0].word
-      this.lastWord = this.words[this.words.length - 1].word
-      this.middleWords = this.words.slice(1, this.words.length - 1)
+      if (this.$route.name === "index") {
+        this.firstWord = this.words[0].word
+        this.lastWord = this.words[this.words.length - 1].word
+        this.middleWords = this.words.slice(1, this.words.length - 1)
+      }
     },
     wordsLoad() {
       if (this.$route.name !== "index") {
