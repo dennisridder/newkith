@@ -17,6 +17,7 @@ import VimeoPlayer from "~/components/VimeoPlayer.vue"
 import YoutubePlayer from "~/components/YoutubePlayer.vue"
 import TagList from "~/components/TagList.vue"
 import FilterList from "~/components/FilterList.vue"
+import FilterItem from "~/components/FilterItem.vue"
 import Text from "~/components/Text.vue"
 import Quote from "~/components/Quote.vue"
 import ImageGrid from "~/components/ImageGrid.vue"
@@ -30,6 +31,7 @@ Vue.component("blok-title", Title)
 Vue.component("blok-footer", Footer)
 Vue.component("blok-tag-list", TagList)
 Vue.component("blok-filter-list", FilterList)
+Vue.component("blok-filter-item", FilterItem)
 Vue.component("blok-buttons-container", ButtonsContainer)
 Vue.component("blok-button", Button)
 Vue.component("blok-button-collaborate", ButtonCollaborate)

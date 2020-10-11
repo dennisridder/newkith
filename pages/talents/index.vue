@@ -14,22 +14,16 @@
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
         </li>
-        <li
-          class="section-Filters_Item cursorInteract"
-          :class="{ active: showAllToggle }"
-          @click="showAll"
-        >
+        <li class="section-Filters_Item cursorInteract all" @click="showAll">
           <span>All</span>
         </li>
-        <li
+        <blok-filter-item
           v-for="tag in taglist"
           :id="tag"
           :key="tag"
-          class="section-Filters_Item cursorInteract"
-          @click="filterByValue(tag)"
-        >
-          <span>#{{ tag }}</span>
-        </li>
+          :tag="tag"
+          @click.native="filterByValue(tag)"
+        />
       </ul>
     </section>
     <blok-image-grid v-if="talentList" :array="talentList" slug="/talents/" />
@@ -90,9 +84,7 @@ export default {
     this.getLandingInput()
     this.resetTalentList()
     this.getTags()
-    console.log("TALENT LIST", this.talentList)
-    console.log("TALENT TAGS", this.taglist)
-    console.log("TALENT BY TITLE", this.sortByTitleToggle)
+    this.changeActiveClass("all")
   },
   methods: {
     getLandingInput() {
@@ -138,7 +130,7 @@ export default {
     },
     // Sort by tag filter
     filterByValue(string) {
-      console.log("filterByValue", string)
+      this.changeActiveClass(string)
       this.resetTalentList()
       this.showAllToggle = false
       var array = this.talentList.filter(o =>
@@ -149,13 +141,20 @@ export default {
         )
       )
       this.talentList = array
-      console.log("TALENT LIST", this.talentList, array)
     },
     showAll() {
-      console.log("showAll")
+      this.changeActiveClass("all")
       this.resetTalentList()
       this.showAllToggle = true
-      console.log("TALENT LIST", this.talentList)
+    },
+    changeActiveClass(value) {
+      // Remove all active classes
+      var classArray = document.querySelectorAll(".section-Filters_Item")
+      classArray.forEach(el => {
+        el.classList.remove("active")
+      })
+      var item = document.querySelector(".section-Filters_Item." + value)
+      item.classList.add("active")
     }
   },
   head() {

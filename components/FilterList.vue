@@ -1,14 +1,15 @@
 <template>
   <section class="section section-Filters section-TextContent">
     <ul class="section-Filters_Container">
-      <li
+      <!-- <li
         class="section-Filters_Item cursorInteract"
         v-for="tag in array"
         :id="tag"
         :key="tag"
       >
         <span>#{{ tag }}</span>
-      </li>
+      </li> -->
+      <filter-item v-for="tag in array" :id="tag" :key="tag" :tag="tag" />
     </ul>
   </section>
 </template>
@@ -34,7 +35,6 @@ export default {
     justify-content: flex-end
     flex-wrap: wrap
     width: 100%
-    max-width: var(--button-container-width)
   &_Item
     display: flex
     align-items: center
