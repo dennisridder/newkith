@@ -1,7 +1,32 @@
 <template>
   <div class="section-Wrapper">
     <blok-landing :words="landingInput" />
-    <blok-image-grid v-if="cases" :array="cases | removeFirst" slug="/cases/" />
+    <section class="section section-Filters section-TextContent">
+      <ul class="section-Filters_Container">
+        <li
+          class="section-Filters_Item cursorInteract"
+          @click="toggleSortByTitleToggle"
+        >
+          <span>Sort by title</span>
+          <div
+            :class="{ ascending: sortByTitleToggle }"
+            class="icon icon-Arrow"
+            v-html="require('~/assets/images/icon-arrow.svg?include')"
+          />
+        </li>
+        <li class="section-Filters_Item cursorInteract all" @click="showAll">
+          <span>All</span>
+        </li>
+        <blok-filter-item
+          v-for="tag in taglist"
+          :id="tag"
+          :key="tag"
+          :tag="tag"
+          @click.native="filterByValue(tag)"
+        />
+      </ul>
+    </section>
+    <blok-image-grid v-if="list" :array="list" slug="/cases/" />
   </div>
 </template>
 
@@ -43,8 +68,11 @@ export default {
   data() {
     return {
       stories: { content: {} },
-      // filterList: [],
-      landingInput: []
+      landingInput: [],
+      list: [],
+      sortByTitleToggle: true,
+      showAllToggle: true,
+      taglist: []
     }
   },
   computed: {
@@ -55,7 +83,9 @@ export default {
   },
   mounted() {
     this.getLandingInput()
-    // this.filterArray()
+    this.resetList()
+    this.getTags()
+    this.changeActiveClass("all")
   },
   methods: {
     getLandingInput() {
@@ -67,18 +97,65 @@ export default {
         var pathTitleArray = pathTitle.split("-")
         this.landingInput = pathTitleArray
       }
+    },
+    resetList() {
+      // console.log("RESET START CASES", this.cases)
+      // console.log("RESET START LIST", this.list)
+      this.list = this.cases.slice(1)
+      this.sortByTitle(this.list)
+      // console.log("RESET END CASES", this.cases)
+      // console.log("RESET END LIST", this.list)
+    },
+    toggleSortByTitleToggle() {
+      this.sortByTitleToggle = !this.sortByTitleToggle
+      this.sortByTitle(this.list)
+    },
+    sortByTitle(values) {
+      if (this.sortByTitleToggle) {
+        values.sort((a, b) =>
+          a.title > b.title ? 1 : b.title > a.title ? -1 : 0
+        )
+      } else {
+        values.sort((a, b) =>
+          a.title < b.title ? 1 : b.title < a.title ? -1 : 0
+        )
+      }
+    },
+    getTags() {
+      var arrays = this.list.map(el => el.taglist)
+      var mergedArray = [].concat.apply([], arrays)
+      const duplicatesRemovedArray = new Set(mergedArray)
+      const backToArray = [...duplicatesRemovedArray]
+      this.taglist = backToArray
+    },
+    filterByValue(string) {
+      console.log("filterByValue START LIST", this.list)
+      this.changeActiveClass(string)
+      this.resetList()
+      this.showAllToggle = false
+      var array = this.list.filter(o =>
+        Object.keys(o).some(k =>
+          String(o[k])
+            .toLowerCase()
+            .includes(string.toLowerCase())
+        )
+      )
+      this.list = array
+      console.log("filterByValue END LIST", this.list)
+    },
+    showAll() {
+      this.changeActiveClass("all")
+      this.resetList()
+      this.showAllToggle = true
+    },
+    changeActiveClass(value) {
+      var classArray = document.querySelectorAll(".section-Filters_Item")
+      classArray.forEach(el => {
+        el.classList.remove("active")
+      })
+      var item = document.querySelector(".section-Filters_Item." + value)
+      item.classList.add("active")
     }
-    // filterArray() {
-    //   var array = this.casesList
-    //   var filteredArray = array.map(el => {
-    //     return el.taglist[0]
-    //   })
-    //   // Remove duplicates
-    //   const uniqueSet = new Set(filteredArray)
-    //   const backToArray = [...uniqueSet]
-    //   // Set filterList data
-    //   this.filterList = backToArray
-    // }
   },
   head() {
     return {

@@ -26,7 +26,7 @@
         />
       </ul>
     </section>
-    <blok-image-grid v-if="talentList" :array="talentList" slug="/talents/" />
+    <blok-image-grid v-if="list" :array="list" slug="/talents/" />
   </div>
 </template>
 
@@ -68,7 +68,7 @@ export default {
     return {
       stories: { content: {} },
       landingInput: [],
-      talentList: [],
+      list: [],
       sortByTitleToggle: true,
       showAllToggle: true,
       taglist: []
@@ -82,7 +82,7 @@ export default {
   },
   mounted() {
     this.getLandingInput()
-    this.resetTalentList()
+    this.resetList()
     this.getTags()
     this.changeActiveClass("all")
   },
@@ -97,14 +97,13 @@ export default {
         this.landingInput = pathTitleArray
       }
     },
-    resetTalentList() {
-      this.talentList = this.talents.slice(1)
-      this.sortByTitle(this.talentList)
+    resetList() {
+      this.list = this.talents.slice(1)
+      this.sortByTitle(this.list)
     },
-    // Sort by title
     toggleSortByTitleToggle() {
       this.sortByTitleToggle = !this.sortByTitleToggle
-      this.sortByTitle(this.talentList)
+      this.sortByTitle(this.list)
     },
     sortByTitle(values) {
       if (this.sortByTitleToggle) {
@@ -117,38 +116,32 @@ export default {
         )
       }
     },
-    // Get tags list
     getTags() {
-      // Get talist
-      var arrays = this.talentList.map(el => el.taglist)
-      // Merge into one array
+      var arrays = this.list.map(el => el.taglist)
       var mergedArray = [].concat.apply([], arrays)
-      // Remove duplicates
       const duplicatesRemovedArray = new Set(mergedArray)
       const backToArray = [...duplicatesRemovedArray]
       this.taglist = backToArray
     },
-    // Sort by tag filter
     filterByValue(string) {
       this.changeActiveClass(string)
-      this.resetTalentList()
+      this.resetList()
       this.showAllToggle = false
-      var array = this.talentList.filter(o =>
+      var array = this.list.filter(o =>
         Object.keys(o).some(k =>
           String(o[k])
             .toLowerCase()
             .includes(string.toLowerCase())
         )
       )
-      this.talentList = array
+      this.list = array
     },
     showAll() {
       this.changeActiveClass("all")
-      this.resetTalentList()
+      this.resetList()
       this.showAllToggle = true
     },
     changeActiveClass(value) {
-      // Remove all active classes
       var classArray = document.querySelectorAll(".section-Filters_Item")
       classArray.forEach(el => {
         el.classList.remove("active")
