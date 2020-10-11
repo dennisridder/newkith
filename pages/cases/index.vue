@@ -99,12 +99,8 @@ export default {
       }
     },
     resetList() {
-      // console.log("RESET START CASES", this.cases)
-      // console.log("RESET START LIST", this.list)
       this.list = this.cases.slice(1)
       this.sortByTitle(this.list)
-      // console.log("RESET END CASES", this.cases)
-      // console.log("RESET END LIST", this.list)
     },
     toggleSortByTitleToggle() {
       this.sortByTitleToggle = !this.sortByTitleToggle
@@ -129,7 +125,6 @@ export default {
       this.taglist = backToArray
     },
     filterByValue(string) {
-      console.log("filterByValue START LIST", this.list)
       this.changeActiveClass(string)
       this.resetList()
       this.showAllToggle = false
@@ -141,7 +136,6 @@ export default {
         )
       )
       this.list = array
-      console.log("filterByValue END LIST", this.list)
     },
     showAll() {
       this.changeActiveClass("all")
