@@ -517,7 +517,7 @@ export default {
   right: 0
   display: flex
   flex-direction: column
-  z-index: 999
+  z-index: $z-header
   pointer-events: none
   max-height: 100vh
   overflow-y: auto

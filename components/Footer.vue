@@ -213,7 +213,7 @@ export default {
 .footer
   position: relative
   padding-top: var(--spacing-two)
-  z-index: 800
+  z-index: $z-footer
   display: flex
   flex-direction: column
   pointer-events: none
