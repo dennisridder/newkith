@@ -48,12 +48,12 @@ export default {
     cursor: pointer
     .icon
       margin-left: .5rem
-      transform: rotate(90deg)
+      transform: rotate(-90deg)
       height: 1rem
       width: 1rem
-      transition: transform .33s ease
-      &.active
-        transform: rotate(-90deg)
+      transition: transform .2s ease-in-out
+      &.ascending
+        transform: rotate(90deg)
     &:last-child
       margin-right: 0
     &:hover

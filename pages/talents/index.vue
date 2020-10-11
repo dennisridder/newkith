@@ -9,10 +9,22 @@
         >
           <span>Sort by name</span>
           <div
-            :class="{ active: sortByTitleToggle }"
+            :class="{ ascending: sortByTitleToggle }"
             class="icon icon-Arrow"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
+        </li>
+        <li class="section-Filters_Item cursorInteract" @click="showAll">
+          <span>All</span>
+        </li>
+        <li
+          v-for="tag in taglist"
+          :id="tag"
+          :key="tag"
+          class="section-Filters_Item cursorInteract"
+          @click="filterByValue(tag)"
+        >
+          <span>#{{ tag }}</span>
         </li>
       </ul>
     </section>
@@ -59,7 +71,8 @@ export default {
       stories: { content: {} },
       landingInput: [],
       talentList: [],
-      sortByTitleToggle: true
+      sortByTitleToggle: true,
+      taglist: []
     }
   },
   computed: {
@@ -69,10 +82,12 @@ export default {
     })
   },
   mounted() {
-    // console.log("TALENT PAGE", this.talents)
     this.getLandingInput()
-    this.removeFirst()
-    this.toggleSortByTitleToggle()
+    this.resetTalentList()
+    this.getTags()
+    console.log("TALENT LIST", this.talentList)
+    console.log("TALENT TAGS", this.taglist)
+    console.log("TALENT BY TITLE", this.sortByTitleToggle)
   },
   methods: {
     getLandingInput() {
@@ -85,12 +100,14 @@ export default {
         this.landingInput = pathTitleArray
       }
     },
-    removeFirst() {
+    resetTalentList() {
       this.talentList = this.talents.slice(1)
-    },
-    toggleSortByTitleToggle() {
       this.sortByTitle(this.talentList)
+    },
+    // Sort by title
+    toggleSortByTitleToggle() {
       this.sortByTitleToggle = !this.sortByTitleToggle
+      this.sortByTitle(this.talentList)
     },
     sortByTitle(values) {
       if (this.sortByTitleToggle) {
@@ -102,18 +119,37 @@ export default {
           a.title < b.title ? 1 : b.title < a.title ? -1 : 0
         )
       }
+    },
+    // Get tags list
+    getTags() {
+      // Get talist
+      var arrays = this.talentList.map(el => el.taglist)
+      // Merge into one array
+      var mergedArray = [].concat.apply([], arrays)
+      // Remove duplicates
+      const duplicatesRemovedArray = new Set(mergedArray)
+      const backToArray = [...duplicatesRemovedArray]
+      this.taglist = backToArray
+    },
+    // Sort by tag filter
+    filterByValue(string) {
+      console.log("filterByValue", string)
+      this.resetTalentList()
+      var array = this.talentList.filter(o =>
+        Object.keys(o).some(k =>
+          String(o[k])
+            .toLowerCase()
+            .includes(string.toLowerCase())
+        )
+      )
+      this.talentList = array
+      console.log("TALENT LIST", this.talentList, array)
+    },
+    showAll() {
+      console.log("showAll")
+      this.resetTalentList()
+      console.log("TALENT LIST", this.talentList)
     }
-    // filterArray() {
-    //   var array = this.talentsList
-    //   var filteredArray = array.map(el => {
-    //     return el.taglist[0]
-    //   })
-    //   // Remove duplicates
-    //   const uniqueSet = new Set(filteredArray)
-    //   const backToArray = [...uniqueSet]
-    //   // Set filterList data
-    //   this.filterList = backToArray
-    // }
   },
   head() {
     return {
