@@ -14,7 +14,11 @@
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
         </li>
-        <li class="section-Filters_Item cursorInteract" @click="showAll">
+        <li
+          class="section-Filters_Item cursorInteract"
+          :class="{ active: showAllToggle }"
+          @click="showAll"
+        >
           <span>All</span>
         </li>
         <li
@@ -72,6 +76,7 @@ export default {
       landingInput: [],
       talentList: [],
       sortByTitleToggle: true,
+      showAllToggle: true,
       taglist: []
     }
   },
@@ -135,6 +140,7 @@ export default {
     filterByValue(string) {
       console.log("filterByValue", string)
       this.resetTalentList()
+      this.showAllToggle = false
       var array = this.talentList.filter(o =>
         Object.keys(o).some(k =>
           String(o[k])
@@ -148,6 +154,7 @@ export default {
     showAll() {
       console.log("showAll")
       this.resetTalentList()
+      this.showAllToggle = true
       console.log("TALENT LIST", this.talentList)
     }
   },

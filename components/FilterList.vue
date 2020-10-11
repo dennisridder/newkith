@@ -56,7 +56,7 @@ export default {
         transform: rotate(90deg)
     &:last-child
       margin-right: 0
-    &:hover
+    &:hover, &.active
       background: $bg-hover
       color: $color-hover
 </style>
