@@ -42,7 +42,7 @@ export default {
     this.wordsSort()
   },
   mounted() {
-    console.log("LANDING ITEM", this.words)
+    // console.log("LANDING ITEM", this.words)
     this.wordsLoad()
     this.wordsLoadAnimated()
     this.wordsSwap()

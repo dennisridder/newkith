@@ -116,7 +116,7 @@ export default {
     })
   },
   mounted() {
-    console.log("INDEX PAGE", this.story.content.landing_animation_words)
+    // console.log("INDEX PAGE", this.story.content.landing_animation_words)
     this.getLandingInput()
   },
   methods: {
