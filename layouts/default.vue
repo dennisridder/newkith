@@ -13,11 +13,23 @@
 <script>
 import TheNavigation from "~/components/TheNavigation.vue"
 import cursorInteraction from "@/mixins/cursorInteraction"
+import ogImage from "@/static/newkith.png"
 
 export default {
   components: {
     "the-navigation": TheNavigation
   },
-  mixins: [cursorInteraction]
+  mixins: [cursorInteraction],
+  head() {
+    return {
+      meta: [
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: this.BASE_URL + ogImage
+        }
+      ]
+    }
+  }
 }
 </script>
