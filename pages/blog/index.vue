@@ -214,11 +214,13 @@ export default {
         )
       )
       this.list = array
+      this.onScroll()
     },
     showAll() {
       this.changeActiveClass("all")
       this.resetList()
       this.showAllToggle = true
+      this.onScroll()
     },
     changeActiveClass(value) {
       var classArray = document.querySelectorAll(".section-Filters_Item")
