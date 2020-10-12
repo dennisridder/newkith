@@ -245,11 +245,13 @@
 import gsap from "gsap"
 import { mapState } from "vuex"
 import MarkdownItem from "@/components/MarkdownItem.vue"
+import cursorInteraction from "@/mixins/cursorInteraction"
 
 export default {
   components: {
     "markdown-item": MarkdownItem
   },
+  mixins: [cursorInteraction],
   data() {
     return {
       isActive: "one",
