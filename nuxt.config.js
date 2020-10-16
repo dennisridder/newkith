@@ -21,7 +21,7 @@ module.exports = {
         hid: "description",
         name: "description",
         content:
-          "Amsterdam based influencer marketing agency that strongly believes in the new media." // Change in package.json files
+          "Amsterdam based influencer marketing agency that strongly believes in the new media."
       },
       {
         name: "mobile-web-app-capable",
