@@ -30,7 +30,6 @@ export default {
   display: flex
   justify-content: flex-end
   margin-bottom: 5rem
-  z-index: $z-filter
   &_Container
     display: flex
     justify-content: flex-end
