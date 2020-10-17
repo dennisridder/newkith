@@ -1,6 +1,12 @@
 <template>
   <div class="section-Wrapper">
     <blok-landing :words="landingInput" />
+    <component
+      :is="stories[0].content.component | dashify"
+      v-if="stories[0].content.component"
+      :key="stories[0].content._uid"
+      :blok="stories[0].content"
+    ></component>
     <section class="section section-Filters section-TextContent">
       <ul class="section-Filters_Container">
         <li
@@ -81,6 +87,7 @@ export default {
     })
   },
   mounted() {
+    console.log(this.stories)
     this.getLandingInput()
     this.resetList()
     this.getTags()
