@@ -9,6 +9,13 @@
     ></component>
     <section class="section section-Filters section-TextContent">
       <ul class="section-Filters_Container">
+        <li class="section-Filters_Item cursorInteract">
+          <input v-model="searchQuery" placeholder="Search..." />
+          <div
+            class="icon icon-Search"
+            v-html="require('~/assets/images/icon-search.svg?include')"
+          />
+        </li>
         <li
           class="section-Filters_Item cursorInteract"
           @click="toggleSortByTitleToggle"
@@ -32,7 +39,7 @@
         />
       </ul>
     </section>
-    <blok-image-grid v-if="list" :array="list" slug="/talents/" />
+    <blok-image-grid v-if="list" :array="filterItems(list)" slug="/talents/" />
   </div>
 </template>
 
@@ -77,7 +84,8 @@ export default {
       list: [],
       sortByTitleToggle: true,
       showAllToggle: true,
-      taglist: []
+      taglist: [],
+      searchQuery: ""
     }
   },
   computed: {
@@ -106,6 +114,15 @@ export default {
     resetList() {
       this.list = this.talents.slice(1)
       this.sortByTitle(this.list)
+    },
+    filterItems(presets) {
+      // https://stackoverflow.com/questions/46274647/use-v-model-to-search-in-v-for-array-vue-js
+      this.showAllToggle = false
+      var app = this
+      return presets.filter(function(preset) {
+        let regex = new RegExp("(" + app.searchQuery + ")", "i")
+        return preset.title.match(regex)
+      })
     },
     toggleSortByTitleToggle() {
       this.sortByTitleToggle = !this.sortByTitleToggle

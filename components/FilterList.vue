@@ -46,12 +46,21 @@ export default {
     transition: background $transition-button, color $transition-button
     text-decoration: none
     cursor: pointer
+    input
+      display: block
+      background: rgba(0,0,0,0)
+      max-width: auto !important
+      width: auto !important
+      min-width: auto !important
+      &:hover::placeholder
+        color: currentColor
     .icon
       margin-left: .5rem
-      transform: rotate(-90deg)
       height: 1rem
       width: 1rem
       transition: transform .2s ease-in-out
+      &.icon-Arrow
+        transform: rotate(-90deg)
       &.ascending
         transform: rotate(90deg)
     &:last-child

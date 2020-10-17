@@ -48,6 +48,7 @@ module.exports = {
    */
   css: [
     "@/assets/styles/reset.css",
+    "@/assets/styles/reset-form.css",
     "@/assets/styles/transitions.sass",
     "@/assets/styles/variables.sass",
     "@/assets/styles/typography.sass",
