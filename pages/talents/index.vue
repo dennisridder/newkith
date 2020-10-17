@@ -87,7 +87,6 @@ export default {
     })
   },
   mounted() {
-    console.log(this.stories)
     this.getLandingInput()
     this.resetList()
     this.getTags()
