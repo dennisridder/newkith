@@ -209,3 +209,13 @@ html
           max-width: 100%
           max-height: 100%
           object-fit: contain
+
+.mobile
+  display: none
+  @media screen and (max-width: $breakpoint-mobile)
+    display: inherit
+
+.desktop
+  display: none
+  @media screen and (min-width: $breakpoint-mobile)
+    display: inherit

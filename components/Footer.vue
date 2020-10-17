@@ -37,6 +37,17 @@
         <nuxt-link class="nav-Link link cursorInteract" to="/about" tag="li"
           >Our story</nuxt-link
         >
+        <li class="desktop">&nbsp;</li>
+        <li class="desktop link link-Colophon cursorInteract">
+          <a
+            href="https://www.driesbos.com"
+            target="_blank"
+            rel="noreferrer"
+            title="Site by Dries Bos"
+          >
+            Site by Dries Bos
+          </a>
+        </li>
       </ul>
       <ul>
         <li class="link cursorInteract">
@@ -95,8 +106,8 @@
             Instagram
           </a>
         </li>
-        <li>&nbsp;</li>
-        <li class="link link-Colophon cursorInteract">
+        <li class="mobile">&nbsp;</li>
+        <li class="mobile link link-Colophon cursorInteract">
           <a
             href="https://www.driesbos.com"
             target="_blank"
