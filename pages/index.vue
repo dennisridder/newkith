@@ -19,7 +19,7 @@
         <nuxt-link
           to="/cases"
           tag="div"
-          class="section-ImageGridFooter_Link link cursorInteract"
+          class="section-ImageGridFooter_Link cursorInteract button"
         >
           <span>See all our cases</span>
           <div
@@ -45,7 +45,7 @@
         <nuxt-link
           to="/talents"
           tag="div"
-          class="section-ImageGridFooter_Link link cursorInteract"
+          class="section-ImageGridFooter_Link button cursorInteract"
         >
           <span>
             See all our talents

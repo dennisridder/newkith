@@ -23,19 +23,22 @@ export default {
 <style lang="sass">
 @import '~/assets/styles/variables.sass'
 
-.section-Buttons
-  .button
-    border: $border
-    margin-right: var(--button-margins)
-    margin-bottom: var(--button-margins)
-    padding: var(--button-padding-top) var(--button-padding-sides)
-    line-height: 1
-    transition: background $transition-button, color $transition-button
-    text-decoration: none
-    cursor: pointer
-    &:last-child
-      margin-right: 0
-    &:hover
-      background: $bg-hover
-      color: $color-hover
+.button
+  display: inline-flex
+  align-items: center
+  border: $border
+  margin-right: var(--button-margins)
+  margin-bottom: var(--button-margins)
+  padding: var(--button-padding-top) var(--button-padding-sides)
+  line-height: 1
+  transition: background $transition-button, color $transition-button
+  text-decoration: none
+  cursor: pointer
+  &:last-child
+    margin-right: 0
+  &:hover
+    background: $bg-hover
+    color: $color-hover
+  .icon
+    margin-left: .5rem
 </style>
