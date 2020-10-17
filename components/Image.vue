@@ -22,7 +22,7 @@
            ${transformImage(blok.image, '1024x0')} 1024w, 
            ${transformImage(blok.image, '768x0')} 768w`"
         sizes="100vw"
-        :data-src="`${transformImage(blok.image, '1600x0')}`"
+        :data-src="transformImage(blok.image, '1600x0')"
         :alt="blok.image_title"
       />
       </div>

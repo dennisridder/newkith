@@ -16,15 +16,15 @@
           <img
         v-if="story.content.thumbnail"
         :srcset="
-          `${transformImage(story.content.thumbnail, '2880x0/filters:format(jpg):quality(60)')} 2880w,
-           ${transformImage(story.content.thumbnail, '2560x0/filters:format(jpg):quality(60)')} 2560w, 
-           ${transformImage(story.content.thumbnail, '1920x0/filters:format(jpg):quality(60)')} 1920w, 
-           ${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(60)')} 1680w, 
-           ${transformImage(story.content.thumbnail, '1280x0/filters:format(jpg):quality(60)')} 1280w,
-           ${transformImage(story.content.thumbnail, '1024x0/filters:format(jpg):quality(60)')} 1024w, 
-           ${transformImage(story.content.thumbnail, '768x0/filters:format(jpg):quality(60)')} 768w`"
+          `${transformImage(story.content.thumbnail, '2880x0/filters:format(jpg):quality(50)')} 2880w,
+           ${transformImage(story.content.thumbnail, '2560x0/filters:format(jpg):quality(50)')} 2560w, 
+           ${transformImage(story.content.thumbnail, '1920x0/filters:format(jpg):quality(50)')} 1920w, 
+           ${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(50)')} 1680w, 
+           ${transformImage(story.content.thumbnail, '1280x0/filters:format(jpg):quality(50)')} 1280w,
+           ${transformImage(story.content.thumbnail, '1024x0/filters:format(jpg):quality(50)')} 1024w, 
+           ${transformImage(story.content.thumbnail, '768x0/filters:format(jpg):quality(50)')} 768w`"
         sizes="100vw"
-        :data-src="`${transformImage(story.content.thumbnail, '1600x0')}`"
+        :data-src="`${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(50)')}`"
         :alt="story.content.title"
       />
         </div>
