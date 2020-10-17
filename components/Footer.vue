@@ -37,6 +37,13 @@
         <nuxt-link class="nav-Link link cursorInteract" to="/about" tag="li"
           >Our story</nuxt-link
         >
+        <li>&nbsp;</li>
+        <nuxt-link
+          class="nav-Link link cursorInteract"
+          to="/privacy-policy"
+          tag="li"
+          >Privacy Policy</nuxt-link
+        >
         <li class="desktop">&nbsp;</li>
         <li class="desktop link link-Colophon cursorInteract">
           <a
