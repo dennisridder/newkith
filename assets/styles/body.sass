@@ -40,8 +40,10 @@ html
     background: rgba(0,0,0,0)
     font-size: .75rem
     line-height: 1.25
+    margin-right: .5rem
     text-transform: uppercase
     letter-spacing: .04em
+    transition: background $transition-button, color $transition-button
     font-family: 'Sohne Buch', Helvetica, Arial, sans-serif
     &::placeholder
       color: currentColor
@@ -49,6 +51,17 @@ html
       line-height: 1.25
       text-transform: uppercase
       letter-spacing: .04rem
+      opacity: 1
+      transition: opacity $transition-button
+    &:focus
+      background: white
+      color: black
+      &::placeholder
+        opacity: 0
+
+form
+  .icon
+    cursor: pointer
 
 .icon
   position: relative
