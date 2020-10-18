@@ -16,6 +16,28 @@
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
         </nuxt-link>
+        <form
+          name="contact"
+          method="post"
+          action="/success"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          class="link cursorInteract"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input
+            type="text"
+            required
+            name="email"
+            placeholder="Our newsletter..."
+          />
+          <button type="submit">
+            <div
+              class="icon"
+              v-html="require('~/assets/images/icon-arrow.svg?include')"
+            />
+          </button>
+        </form>
       </ul>
 
       <ul>
@@ -272,7 +294,9 @@ export default {
       ul
         flex-basis: 100%
         margin-bottom: var(--spacing-two)
-
+    li
+      .icon
+        margin-right: .5rem
     a
       text-decoration: none
   &-Logo
