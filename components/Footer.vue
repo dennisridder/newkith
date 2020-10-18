@@ -59,9 +59,9 @@
         <nuxt-link class="nav-Link link cursorInteract" to="/about" tag="li"
           >Our story</nuxt-link
         >
-        <li>&nbsp;</li>
+        <li class="desktop">&nbsp;</li>
         <nuxt-link
-          class="nav-Link link cursorInteract"
+          class="desktop nav-Link link cursorInteract"
           to="/privacy-policy"
           tag="li"
           >Privacy Policy</nuxt-link
@@ -135,6 +135,13 @@
             Instagram
           </a>
         </li>
+        <li class="mobile">&nbsp;</li>
+        <nuxt-link
+          class="mobile nav-Link link cursorInteract"
+          to="/privacy-policy"
+          tag="li"
+          >Privacy Policy</nuxt-link
+        >
         <li class="mobile">&nbsp;</li>
         <li class="mobile link link-Colophon cursorInteract">
           <a
@@ -217,6 +224,12 @@ export default {
           delay: "0.1",
           ease: "ease"
         })
+        gsap.to(".footer", {
+          backgroundColor: "#0202c4",
+          duration: "0",
+          delay: "0.75",
+          ease: "ease"
+        })
       } else {
         gsap.to(".footer-Background", {
           height: "0",
@@ -241,6 +254,12 @@ export default {
           duration: "0.5",
           ease: "ease"
         })
+        gsap.to(".footer", {
+          backgroundColor: "black",
+          duration: "0",
+          delay: "0",
+          ease: "ease"
+        })
       }
     }
   }
@@ -257,6 +276,8 @@ export default {
   display: flex
   flex-direction: column
   pointer-events: none
+  max-height: 100vh
+  overflow-y: auto
   .hide
     opacity: 0
   &.active
