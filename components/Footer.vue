@@ -17,7 +17,7 @@
           />
         </nuxt-link>
         <form
-          name="contact"
+          name="subscribe"
           method="post"
           action="/success"
           data-netlify="true"
