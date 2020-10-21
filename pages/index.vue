@@ -29,8 +29,8 @@
     <blok-quote :blok="story.content" />
     <blok-title :words="[`${story.content.talents_header}`]" />
     <blok-image-grid
-      v-if="talents"
-      :array="talents | removeFirst | showOnlyFirstX(5)"
+      v-if="talentList"
+      :array="talentList | removeFirst | shuffle | showOnlyFirstX(5)"
       slug="/talents/"
     />
     <section
@@ -102,7 +102,8 @@ export default {
   data() {
     return {
       story: { content: {} },
-      landingInput: []
+      landingInput: [],
+      talentList: []
     }
   },
   computed: {
@@ -114,8 +115,12 @@ export default {
   },
   mounted() {
     this.getLandingInput()
+    this.filterTalents()
   },
   methods: {
+    filterTalents() {
+      this.talentList = this.talents
+    },
     getLandingInput() {
       if (this.story.content.landing_text) {
         var landingTextArray = this.story.content.landing_text.split(" ")
