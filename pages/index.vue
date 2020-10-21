@@ -3,8 +3,8 @@
     <blok-landing :words="story.content.landing_animation_words" />
     <blok-title :words="[`${story.content.cases_header}`]" />
     <blok-image-grid
-      v-if="cases"
-      :array="cases | removeFirst | showOnlyFirstX(3) | shuffle"
+      v-if="caseList"
+      :array="caseList | removeFirst | showOnlyFirstX(3) | shuffle"
       slug="/cases/"
     />
     <section
@@ -103,7 +103,8 @@ export default {
     return {
       story: { content: {} },
       landingInput: [],
-      talentList: []
+      talentList: [],
+      caseList: []
     }
   },
   computed: {
@@ -116,10 +117,14 @@ export default {
   mounted() {
     this.getLandingInput()
     this.filterTalents()
+    this.filterCases()
   },
   methods: {
     filterTalents() {
       this.talentList = this.talents
+    },
+    filterCases() {
+      this.caseList = this.cases
     },
     getLandingInput() {
       if (this.story.content.landing_text) {
