@@ -4,7 +4,7 @@
     <blok-title :words="[`${story.content.cases_header}`]" />
     <blok-image-grid
       v-if="caseList"
-      :array="caseList | removeFirst | shuffle | showOnlyFirstX(3)"
+      :array="caseList | shuffle | showOnlyFirstX(3)"
       slug="/cases/"
     />
     <section
@@ -30,7 +30,7 @@
     <blok-title :words="[`${story.content.talents_header}`]" />
     <blok-image-grid
       v-if="talentList"
-      :array="talentList | removeFirst | shuffle | showOnlyFirstX(5)"
+      :array="talentList | shuffle | showOnlyFirstX(5)"
       slug="/talents/"
     />
     <section
@@ -121,10 +121,10 @@ export default {
   },
   methods: {
     filterTalents() {
-      this.talentList = this.talents
+      this.talentList = this.talents.slice(1)
     },
     filterCases() {
-      this.caseList = this.cases
+      this.caseList = this.cases.slice(1)
     },
     getLandingInput() {
       if (this.story.content.landing_text) {
