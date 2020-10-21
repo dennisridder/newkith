@@ -13,6 +13,7 @@
         <!-- prettier-ignore -->
         <img
         v-if="blok.image"
+        v-lazy="transformImage(blok.image, '1600x0')"
         :srcset="
           `${transformImage(blok.image, '2880x0')} 2880w, 
            ${transformImage(blok.image, '2560x0')} 2560w, 
@@ -22,7 +23,7 @@
            ${transformImage(blok.image, '1024x0')} 1024w, 
            ${transformImage(blok.image, '768x0')} 768w`"
         sizes="100vw"
-        :data-src="transformImage(blok.image, '1600x0')"
+        class="lazy"
         :alt="blok.image_title"
       />
       </div>

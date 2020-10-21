@@ -4,6 +4,7 @@
       <!-- prettier-ignore -->
       <img
         v-if="image"
+        v-lazy="`${transformImage(image, '1600x0')}`"
         :srcset="
           `${transformImage(image, '1901x0')} 2880w, 
            ${transformImage(image, '1690x0')} 2560w, 
@@ -13,7 +14,7 @@
            ${transformImage(image, '1024x0')} 1024w, 
            ${transformImage(image, '1537x0')} 768w`"
         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 34vw"
-        :data-src="`${transformImage(image, '1600x0')}`"
+        class="lazy"
         :alt="alttitle"
       />
     </div>

@@ -15,16 +15,17 @@
           <!-- prettier-ignore -->
           <img
         v-if="story.content.thumbnail"
+        v-lazy="`${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(40)')}`"
         :srcset="
-          `${transformImage(story.content.thumbnail, '2880x0/filters:format(jpg):quality(50)')} 2880w,
-           ${transformImage(story.content.thumbnail, '2560x0/filters:format(jpg):quality(50)')} 2560w, 
-           ${transformImage(story.content.thumbnail, '1920x0/filters:format(jpg):quality(50)')} 1920w, 
-           ${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(50)')} 1680w, 
-           ${transformImage(story.content.thumbnail, '1280x0/filters:format(jpg):quality(50)')} 1280w,
-           ${transformImage(story.content.thumbnail, '1024x0/filters:format(jpg):quality(50)')} 1024w, 
-           ${transformImage(story.content.thumbnail, '768x0/filters:format(jpg):quality(50)')} 768w`"
-        sizes="100vw"
-        :data-src="`${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(50)')}`"
+          `${transformImage(story.content.thumbnail, '2880x0/filters:format(jpg):quality(40)')} 2880w,
+           ${transformImage(story.content.thumbnail, '2560x0/filters:format(jpg):quality(40)')} 2560w, 
+           ${transformImage(story.content.thumbnail, '1920x0/filters:format(jpg):quality(40)')} 1920w, 
+           ${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(40)')} 1680w, 
+           ${transformImage(story.content.thumbnail, '1280x0/filters:format(jpg):quality(40)')} 1280w,
+           ${transformImage(story.content.thumbnail, '1024x0/filters:format(jpg):quality(40)')} 1024w, 
+           ${transformImage(story.content.thumbnail, '768x0/filters:format(jpg):quality(40)')} 768w`"
+        sizes="(max-width: 768px) 100vw, 50vw"
+        class="lazy"
         :alt="story.content.title"
       />
         </div>

@@ -4,6 +4,12 @@ html
   background: $bg
   color: $color
 
+.lazy
+  opacity: 0
+  transition: opacity $trans-img
+  &[lazy=loaded]
+    opacity: 1
+
 .cursor
   position: fixed
   width: 1.5em
