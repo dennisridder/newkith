@@ -1,8 +1,5 @@
 <template>
   <div class="section-Wrapper section-Wrapper_Homepage">
-    <!-- <blok-landing
-      :words="['New kith', 'talent', 'Connective', 'Online', 'agency']"
-    /> -->
     <blok-landing :words="story.content.landing_animation_words" />
     <blok-title :words="[`${story.content.cases_header}`]" />
     <blok-image-grid
@@ -33,7 +30,7 @@
     <blok-title :words="[`${story.content.talents_header}`]" />
     <blok-image-grid
       v-if="talents"
-      :array="talents | removeFirst | showOnlyFirstX(5) | shuffle"
+      :array="talents | removeFirst | showOnlyFirstX(5)"
       slug="/talents/"
     />
     <section
