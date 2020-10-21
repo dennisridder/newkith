@@ -275,7 +275,6 @@ export default {
       @media screen and ( hover: hover )
         h2
           color: $support-color
-        h2
           font-family: 'SohneSchmal HalbfettKursiv'
         & .blogList-Image
           visibility: visible
