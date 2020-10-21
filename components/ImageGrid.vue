@@ -8,7 +8,7 @@
         <blok-image-container :id="item.id" :image="item.thumbnail" :alttitle="item.title" />
         
         <div class="imageGrid-Details">
-          <h2>{{ item.title }}</h2>
+          <h2 v-if="item.title">{{ item.title }}</h2>
           <blok-tag-list v-if="item.taglist" :array="item.taglist" />
         </div>
       </nuxt-link>

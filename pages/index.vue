@@ -4,7 +4,7 @@
     <blok-title :words="[`${story.content.cases_header}`]" />
     <blok-image-grid
       v-if="caseList"
-      :array="caseList | removeFirst | showOnlyFirstX(3) | shuffle"
+      :array="caseList | removeFirst | shuffle | showOnlyFirstX(3)"
       slug="/cases/"
     />
     <section
