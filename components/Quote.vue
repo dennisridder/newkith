@@ -79,7 +79,7 @@ export default {
     padding-right: 0
     text-transform: uppercase
     width: 100vw
-    overflow-x: auto
+    overflow-x: hidden
     &_Wrapper
         display: flex
         flex-wrap: nowrap

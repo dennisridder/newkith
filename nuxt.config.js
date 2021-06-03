@@ -4,8 +4,6 @@ require("dotenv").config()
 // TODO: site descr
 
 module.exports = {
-  mode: "universal",
-
   /*
    ** Headers of the page
    */

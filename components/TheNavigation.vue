@@ -531,6 +531,8 @@ export default {
   &.three
     pointer-events: auto
   &-Top
+    background-color: $bg
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.2)
     display: flex
     flex-wrap: nowrap
     flex-shrink: 0
