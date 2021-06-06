@@ -7,7 +7,7 @@
     >
       <div class="header-Logo cursorInteract">
         <nuxt-link to="/">
-          <div v-html="require('~/assets/images/logo-hash.svg?include')" />
+          <div v-html="require('~/assets/images/newkith-logo.svg?include')" />
         </nuxt-link>
       </div>
       <nav v-if="mainNav == true" class="header-Nav">
@@ -118,7 +118,11 @@
       <div class="header-Top_Mobile_Top">
         <div class="header-Logo cursorInteract">
           <nuxt-link to="/">
-            <div v-html="require('~/assets/images/icon-hash.svg?include')" />
+            <div
+              v-html="
+                require('~/assets/images/newkith-logo-mobile.svg?include')
+              "
+            />
           </nuxt-link>
         </div>
         <nav class="header-Top_Mobile_Toggle">
@@ -522,7 +526,7 @@ export default {
   z-index: $z-header
   pointer-events: none
   max-height: 100vh
-  overflow-y: auto
+  overflow: hidden
   @media screen and (max-width: $breakpoint-mobile)
     bottom: 0
   &.two
@@ -545,7 +549,7 @@ export default {
     .header-Logo
       flex-grow: 1
       svg
-        height: 2rem
+        height: 2.5rem
     @media screen and (max-width: $breakpoint-mobile)
       display: none
   &-Top_Mobile
