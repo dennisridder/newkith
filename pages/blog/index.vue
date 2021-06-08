@@ -262,7 +262,7 @@ export default {
     padding-top: 3rem
     padding-bottom: 3rem
     width: 100%
-    overflow-x: auto
+    // overflow-x: auto
     border-top: $border
     h1, h2, span, p
       hyphens: none
@@ -276,6 +276,7 @@ export default {
         h2
           color: $support-color
           font-family: 'FormaDJRDisplay', 'SohneSchmal HalbfettKursiv'
+          font-style: italic
         & .blogList-Image
           visibility: visible
   &-Image
@@ -312,10 +313,11 @@ export default {
     flex-wrap: nowrap
     cursor: pointer
     align-items: center
-    margin-left: 3rem
+    &_Date
+      // margin: 0 3rem
     > div
       flex-shrink: 0
-      margin-right: 3rem
+      margin: 0 1.5rem
     &_Title
-      max-width: 30em
+      // max-width: 30em
 </style>

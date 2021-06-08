@@ -107,7 +107,7 @@ export default {
             wordSwap.to(el, duration, {
               opacity: 1,
               yPercent: -100,
-              display: "inline-block",
+              display: "block",
               ease: "expo.out:"
             })
             wordSwap.to(
@@ -151,9 +151,13 @@ export default {
     &:nth-child(3)
       width: 100%
   &-Animated
+    li
+      display: block
+      width: 100vw
     h1, h2, p, a
       transform: translate(0px, 100%)
       opacity: 0
+    animated-Word
   .swapWordContainer
     h1
       display: none

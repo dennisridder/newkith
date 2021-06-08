@@ -371,7 +371,7 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to(".header-ContentTitle", {
+        gsap.to(".header-ContentTitle, .header-Bottom_Items", {
           opacity: "1",
           duration: "0.7",
           delay: "0.1",
@@ -402,7 +402,7 @@ export default {
           delay: "0.25",
           ease: "expo.out"
         })
-        gsap.to(".header-ContentTitle", {
+        gsap.to(".header-ContentTitle, .header-Bottom_Items", {
           opacity: "0",
           duration: "0.4",
           delay: "0.1",
@@ -431,7 +431,7 @@ export default {
           delay: "0.25",
           ease: "expo.out"
         })
-        gsap.to(".header-ContentTitle", {
+        gsap.to(".header-ContentTitle, .header-Bottom_Items", {
           opacity: "0",
           duration: "0.4",
           delay: "0.1",
@@ -467,7 +467,7 @@ export default {
         delay: "0.25",
         ease: "expo.out"
       })
-      gsap.to(".header-ContentTitle", {
+      gsap.to(".header-ContentTitle, .header-Bottom_Items", {
         opacity: "0",
         duration: "0.4",
         delay: "0.1",
@@ -529,6 +529,8 @@ export default {
   overflow: hidden
   @media screen and (max-width: $breakpoint-mobile)
     bottom: 0
+  p, a, .icon
+    color: white
   &.two
     .header-Top_Mobile_Middle
       pointer-events: auto
@@ -584,16 +586,18 @@ export default {
       flex-direction: column
       justify-content: flex-start
     &_Items
+      opacity: 0
+      outline: 2px solid white
+      padding: 1.25rem
+      margin: 0 1.25rem
       @media screen and (min-width: $breakpoint-mobile)
         flex-basis: 33.3333%
-        padding-left: 1.25rem
-        padding-right: 1.25rem
       @media screen and (max-width: $breakpoint-mobile)
         margin-bottom: var(--spacing-three)
       &:first-child
-        padding-left: 0
+        margin-left: 0 !important
       &:last-child
-        padding-right: 0
+        margin-right: 0 !important
         @media screen and (max-width: $breakpoint-mobile)
           margin-bottom: var(--spacing-content-bottom)
           padding-bottom: var(--spacing-content-bottom)
@@ -613,6 +617,7 @@ export default {
       flex-shrink: 0
       .icon
         margin-right: 0
+        color: black;
       &::before
         content: ''
         position: absolute
