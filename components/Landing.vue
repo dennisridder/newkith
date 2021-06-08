@@ -153,7 +153,6 @@ export default {
   &-Animated
     li
       display: block
-      width: 100vw
     h1, h2, p, a
       transform: translate(0px, 100%)
       opacity: 0
