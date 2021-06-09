@@ -19,6 +19,9 @@
           >
             Our services
           </li>
+          <nuxt-link to="/talents" class="nav-Link cursorInteract" tag="li"
+            >Talents</nuxt-link
+          >
           <nuxt-link to="/blog" class="nav-Link cursorInteract" tag="li"
             >What's happening</nuxt-link
           >
@@ -188,6 +191,9 @@
             <li class="header-Services cursorInteract" @click="clickServices">
               Our services
             </li>
+            <nuxt-link to="/talents" class="cursorInteract" tag="li"
+              >Talents</nuxt-link
+            >
             <nuxt-link to="/blog" class="cursorInteract" tag="li"
               >What's happening</nuxt-link
             >
@@ -280,6 +286,7 @@ export default {
   mounted() {
     this.checkPageType()
     this.toggleMainNav()
+    this.setSectionWrapper()
   },
   methods: {
     routeChange() {
@@ -293,13 +300,24 @@ export default {
         this.servicesIsActive = true
         gsap.to(".section-Wrapper", {
           css: {
-            marginTop: headerTopHeight
+            marginTop: headerTopHeight + "px"
           },
           duration: "0.75",
           ease: "expo.out"
         })
         gsap.to(".header-Background", {
           height: headerTopHeight,
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Background", {
+          height: headerTopHeight,
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Desktop", {
+          backgroundColor: "transparent",
+          boxShadow: "none",
           duration: "0.75",
           ease: "expo.out"
         })
@@ -313,7 +331,7 @@ export default {
         this.servicesIsActive = true
         gsap.to(".section-Wrapper", {
           css: {
-            marginTop: headerTopHeight
+            marginTop: headerTopHeight + "px"
           },
           duration: "0.75",
           ease: "expo.out"
@@ -323,7 +341,14 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
+        gsap.to(".header-Top_Mobile_Top", {
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          duration: "0.75",
+          ease: "expo.out"
+        })
         gsap.to(".header-Top_Mobile_Middle", {
+          height: "auto",
           opacity: "1",
           duration: "0.6",
           delay: "0.2",
@@ -335,7 +360,7 @@ export default {
       if (this.isActive === "two") {
         gsap.to(".section-Wrapper", {
           css: {
-            marginTop: 0
+            marginTop: "10vw"
           },
           duration: "0.75",
           ease: "expo.out"
@@ -345,7 +370,14 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
+        gsap.to(".header-Top_Desktop", {
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          duration: "0.75",
+          ease: "expo.out"
+        })
         gsap.to(".header-Top_Mobile_Middle", {
+          height: 0,
           opacity: "0",
           duration: "0.4",
           delay: "0",
@@ -368,6 +400,12 @@ export default {
         })
         gsap.to(".header-Background", {
           height: document.querySelector(".header").offsetHeight,
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Desktop", {
+          backgroundColor: "transparent",
+          boxShadow: "none",
           duration: "0.75",
           ease: "expo.out"
         })
@@ -402,6 +440,12 @@ export default {
           delay: "0.25",
           ease: "expo.out"
         })
+        gsap.to(".header-Top_Desktop", {
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          duration: "0.75",
+          ease: "expo.out"
+        })
         gsap.to(".header-ContentTitle, .header-Bottom_Items", {
           opacity: "0",
           duration: "0.4",
@@ -419,7 +463,7 @@ export default {
       if (this.isActive === "three") {
         gsap.to(".section-Wrapper", {
           css: {
-            marginTop: 0
+            marginTop: "10vw"
           },
           duration: "0.65",
           delay: "0.25",
@@ -428,6 +472,19 @@ export default {
         gsap.to(".header-Background", {
           height: "0",
           duration: "0.65",
+          delay: "0.25",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Desktop", {
+          backgroundColor: "white",
+          boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Mobile_Top", {
+          backgroundColor: "white",
+          boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
+          duration: "0.75",
           delay: "0.25",
           ease: "expo.out"
         })
@@ -455,7 +512,7 @@ export default {
     mouseLeaveAllMobile() {
       gsap.to(".section-Wrapper", {
         css: {
-          marginTop: 0
+          marginTop: "10vw"
         },
         duration: "0.65",
         delay: "0.25",
@@ -463,6 +520,13 @@ export default {
       })
       gsap.to(".header-Background", {
         height: "0",
+        duration: "0.65",
+        delay: "0.25",
+        ease: "expo.out"
+      })
+      gsap.to(".header-Top_Mobile_Top", {
+        backgroundColor: "white",
+        boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
         duration: "0.65",
         delay: "0.25",
         ease: "expo.out"
@@ -508,6 +572,11 @@ export default {
       } else {
         this.mainNav = true
       }
+    },
+    setSectionWrapper() {
+      gsap.set(".section-Wrapper", {
+        marginTop: "10vw"
+      })
     }
   }
 }
@@ -516,6 +585,8 @@ export default {
 <style lang="sass">
 @import '~/assets/styles/variables.sass'
 
+.section-Wrapper
+  margin-top: 10vw
 .header
   position: fixed
   left: 0
@@ -538,14 +609,15 @@ export default {
   &.three
     pointer-events: auto
   &-Top
-    background-color: $bg
-    box-shadow: 0px 2px 10px rgba(0,0,0,0.2)
     display: flex
     flex-wrap: nowrap
     flex-shrink: 0
     @media screen and (max-width: $breakpoint-mobile)
       align-items: flex-start
   &-Top_Desktop
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.2)
+    -webkit-box-shadow: 0px 2px 10px rgba(0,0,0,0.2)
+    background-color: white
     align-items: center
     pointer-events: auto
     padding: 3rem var(--spacing-content-sides)
@@ -567,6 +639,9 @@ export default {
       padding: var(--spacing-content-sides)
       justify-content: space-between
       align-items: center
+      background-color: $bg
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.2)
+      -webkit-box-shadow: 0px 2px 10px rgba(0,0,0,0.2)
       .header-Logo
         pointer-events: auto
         svg
@@ -642,6 +717,7 @@ export default {
     letter-spacing: .01rem
     cursor: pointer
     margin-right: 1rem
+    margin-bottom: 1rem
     &:last-child
       margin-right: 0
       .icon
