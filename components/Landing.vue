@@ -156,6 +156,8 @@ export default {
     h1, h2, p, a
       transform: translate(0px, 100%)
       opacity: 0
+    h1
+      font-size: 15vw
     animated-Word
   .swapWordContainer
     h1

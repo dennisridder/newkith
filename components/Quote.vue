@@ -86,6 +86,7 @@ export default {
     &_Item
         h1
             white-space: nowrap
+            font-size: 15vw
         &:first-child
             margin-left: var(--spacing-content-sides)
 </style>

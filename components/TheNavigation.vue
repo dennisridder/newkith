@@ -526,7 +526,8 @@ export default {
   z-index: $z-header
   pointer-events: none
   max-height: 100vh
-  overflow: hidden
+  max-width: 100vw
+  overflow-y: auto
   @media screen and (max-width: $breakpoint-mobile)
     bottom: 0
   p, a, .icon
@@ -594,10 +595,6 @@ export default {
         flex-basis: 33.3333%
       @media screen and (max-width: $breakpoint-mobile)
         margin-bottom: var(--spacing-three)
-      &:first-child
-        margin-left: 0 !important
-      &:last-child
-        margin-right: 0 !important
         @media screen and (max-width: $breakpoint-mobile)
           margin-bottom: var(--spacing-content-bottom)
           padding-bottom: var(--spacing-content-bottom)
