@@ -19,16 +19,25 @@
           >
             Our services
           </li>
-          <nuxt-link to="/talents" class="nav-Link cursorInteract" tag="li"
+          <nuxt-link
+            to="/talents"
+            class="nav-Link cursorInteract"
+            tag="li"
+            @click="otherClick"
             >Talents</nuxt-link
           >
-          <nuxt-link to="/blog" class="nav-Link cursorInteract" tag="li"
+          <nuxt-link
+            to="/blog"
+            class="nav-Link cursorInteract"
+            tag="li"
+            @click="otherClick"
             >What's happening</nuxt-link
           >
           <nuxt-link
             to="/about"
             class="nav-Link header-Story cursorInteract"
             tag="li"
+            @click="otherClick"
             >Our story</nuxt-link
           >
         </ul>
@@ -191,13 +200,25 @@
             <li class="header-Services cursorInteract" @click="clickServices">
               Our services
             </li>
-            <nuxt-link to="/talents" class="cursorInteract" tag="li"
+            <nuxt-link
+              to="/talents"
+              class="cursorInteract"
+              tag="li"
+              @click="otherClick"
               >Talents</nuxt-link
             >
-            <nuxt-link to="/blog" class="cursorInteract" tag="li"
+            <nuxt-link
+              to="/blog"
+              class="cursorInteract"
+              tag="li"
+              @click="otherClick"
               >What's happening</nuxt-link
             >
-            <nuxt-link to="/about" class="header-Story cursorInteract" tag="li"
+            <nuxt-link
+              to="/about"
+              class="header-Story cursorInteract"
+              tag="li"
+              @click="otherClick"
               >Our story</nuxt-link
             >
           </ul>
@@ -387,6 +408,14 @@ export default {
         this.servicesIsActive = false
       }
     },
+    otherClick() {
+      gsap.to(".header-Top_Desktop, .header-Top_Mobile_Top", {
+        backgroundColor: "white",
+        boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
+        duration: "0.75",
+        ease: "expo.out"
+      })
+    },
     clickServices() {
       this.services = !this.services
       if (this.services === true) {
@@ -522,6 +551,12 @@ export default {
         height: "0",
         duration: "0.65",
         delay: "0.25",
+        ease: "expo.out"
+      })
+      gsap.to(".header-Top_Desktop", {
+        backgroundColor: "white",
+        boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
+        duration: "0.75",
         ease: "expo.out"
       })
       gsap.to(".header-Top_Mobile_Top", {
