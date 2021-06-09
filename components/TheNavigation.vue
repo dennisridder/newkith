@@ -371,8 +371,8 @@ export default {
           ease: "expo.out"
         })
         gsap.to(".header-Top_Desktop", {
-          backgroundColor: "transparent",
-          boxShadow: "none",
+          backgroundColor: "white",
+          boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
           duration: "0.75",
           ease: "expo.out"
         })
