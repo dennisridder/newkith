@@ -336,7 +336,7 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to("#newkith-logo", {
+        gsap.to(".header-Top_Desktop .header-Logo svg", {
           fill: "white",
           duration: "0.75",
           ease: "expo.out"
@@ -401,7 +401,7 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to("#newkith-logo", {
+        gsap.to(".header-Top_Desktop .header-Logo svg", {
           fill: "black",
           duration: "0.75",
           ease: "expo.out"
@@ -452,7 +452,7 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to("#newkith-logo", {
+        gsap.to(".header-Top_Desktop .header-Logo svg", {
           fill: "white",
           duration: "0.75",
           ease: "expo.out"
@@ -499,7 +499,7 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to("#newkith-logo", {
+        gsap.to(".header-Top_Desktop .header-Logo svg", {
           fill: "white",
           duration: "0.75",
           ease: "expo.out"
@@ -544,7 +544,7 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to("#newkith-logo", {
+        gsap.to(".header-Top_Desktop .header-Logo svg", {
           fill: "black",
           duration: "0.75",
           ease: "expo.out"
@@ -603,7 +603,7 @@ export default {
         duration: "0.75",
         ease: "expo.out"
       })
-      gsap.to("#newkith-logo", {
+      gsap.to(".header-Top_Desktop .header-Logo svg", {
         fill: "black",
         duration: "0.75",
         ease: "expo.out"
