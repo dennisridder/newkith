@@ -331,8 +331,13 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to(".header-Background", {
-          height: headerTopHeight,
+        gsap.to(".header-Nav, .header-Nav li .icon", {
+          color: "white",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to("#newkith-logo", {
+          fill: "white",
           duration: "0.75",
           ease: "expo.out"
         })
@@ -391,6 +396,16 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
+        gsap.to(".header-Nav, .header-Nav li .icon", {
+          color: "black",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to("#newkith-logo", {
+          fill: "black",
+          duration: "0.75",
+          ease: "expo.out"
+        })
         gsap.to(".header-Top_Desktop", {
           backgroundColor: "white",
           boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
@@ -432,6 +447,16 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
+        gsap.to(".header-Nav, .header-Nav li .icon", {
+          color: "white",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to("#newkith-logo", {
+          fill: "white",
+          duration: "0.75",
+          ease: "expo.out"
+        })
         gsap.to(".header-Top_Desktop", {
           backgroundColor: "transparent",
           boxShadow: "none",
@@ -469,6 +494,16 @@ export default {
           delay: "0.25",
           ease: "expo.out"
         })
+        gsap.to(".header-Nav, .header-Nav li .icon", {
+          color: "white",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to("#newkith-logo", {
+          fill: "white",
+          duration: "0.75",
+          ease: "expo.out"
+        })
         gsap.to(".header-Top_Desktop", {
           backgroundColor: "transparent",
           boxShadow: "none",
@@ -502,6 +537,16 @@ export default {
           height: "0",
           duration: "0.65",
           delay: "0.25",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Nav, .header-Nav li .icon", {
+          color: "black",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to("#newkith-logo", {
+          fill: "black",
+          duration: "0.75",
           ease: "expo.out"
         })
         gsap.to(".header-Top_Desktop", {
@@ -551,6 +596,16 @@ export default {
         height: "0",
         duration: "0.65",
         delay: "0.25",
+        ease: "expo.out"
+      })
+      gsap.to(".header-Nav, .header-Nav li .icon", {
+        color: "black",
+        duration: "0.75",
+        ease: "expo.out"
+      })
+      gsap.to("#newkith-logo", {
+        fill: "black",
+        duration: "0.75",
         ease: "expo.out"
       })
       gsap.to(".header-Top_Desktop", {
@@ -698,7 +753,6 @@ export default {
       justify-content: flex-start
     &_Items
       opacity: 0
-      outline: 2px solid white
       padding: 1.25rem
       margin: 0 1.25rem
       @media screen and (min-width: $breakpoint-mobile)
@@ -713,6 +767,7 @@ export default {
     @media screen and (min-width: $breakpoint-mobile)
       margin-left: var(--spacing-content-sides)
     ul
+      align-content: center
       display: flex
       flex-wrap: wrap
     li
@@ -742,9 +797,12 @@ export default {
           animation: hyperLink .33s ease-out
           animation-iteration-count: 1
           animation-fill-mode: both
+    &.hover
+      color: red
   &-Services
     pointer-events: auto
   &-ContentTitle
+    font-weight: 700
     margin-bottom: 1.5rem
   &-ContentTitle, &-ContentText
     opacity: 0

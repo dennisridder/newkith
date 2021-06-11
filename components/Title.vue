@@ -21,5 +21,5 @@ export default {
   ul
     display: flex
     flex-wrap: wrap
-    text-transform: uppercase
+    // text-transform: uppercase
 </style>

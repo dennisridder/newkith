@@ -145,7 +145,7 @@ export default {
 .title
   display: flex
   flex-wrap: wrap
-  text-transform: uppercase
+  // text-transform: uppercase
   li
     overflow: hidden
     &:nth-child(3)
@@ -153,11 +153,12 @@ export default {
   &-Animated
     li
       display: block
+      width: 100%
     h1, h2, p, a
       transform: translate(0px, 100%)
       opacity: 0
     h1
-      font-size: 15vw
+      font-size: 11vw
     animated-Word
   .swapWordContainer
     h1

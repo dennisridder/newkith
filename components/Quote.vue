@@ -77,7 +77,7 @@ export default {
 .section-Quote
     padding-left: 0
     padding-right: 0
-    text-transform: uppercase
+    // text-transform: uppercase
     width: 100vw
     overflow-x: hidden
     &_Wrapper
