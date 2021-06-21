@@ -6,7 +6,7 @@
       <nuxt-link :to="slug + item.id" class="imageGrid-Item cursorInteract" tag="div" :title="item.title">
 
         <blok-image-container :id="item.id" :image="item.thumbnail" :alttitle="item.title" />
-        
+
         <div class="imageGrid-Details">
           <h2 v-if="item.title">{{ item.title }}</h2>
           <blok-tag-list v-if="item.taglist" :array="item.taglist" />
@@ -49,7 +49,7 @@ export default {
     &:hover
       @media ( hover: hover )
         h2
-          font-family: 'SohneSchmal HalbfettKursiv'
+          font-family: 'FormaDJRDisplay', 'SohneSchmal HalbfettKursiv'
           color: $support-color
   &-Details
     display: flex

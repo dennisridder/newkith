@@ -7,7 +7,7 @@
     >
       <div class="header-Logo cursorInteract">
         <nuxt-link to="/">
-          <div v-html="require('~/assets/images/logo-hash.svg?include')" />
+          <div v-html="require('~/assets/images/newkith-logo.svg?include')" />
         </nuxt-link>
       </div>
       <nav v-if="mainNav == true" class="header-Nav">
@@ -19,13 +19,25 @@
           >
             Our services
           </li>
-          <nuxt-link to="/blog" class="nav-Link cursorInteract" tag="li"
+          <nuxt-link
+            to="/talents"
+            class="nav-Link cursorInteract"
+            tag="li"
+            @click="otherClick"
+            >Talents</nuxt-link
+          >
+          <nuxt-link
+            to="/blog"
+            class="nav-Link cursorInteract"
+            tag="li"
+            @click="otherClick"
             >What's happening</nuxt-link
           >
           <nuxt-link
             to="/about"
             class="nav-Link header-Story cursorInteract"
             tag="li"
+            @click="otherClick"
             >Our story</nuxt-link
           >
         </ul>
@@ -118,7 +130,11 @@
       <div class="header-Top_Mobile_Top">
         <div class="header-Logo cursorInteract">
           <nuxt-link to="/">
-            <div v-html="require('~/assets/images/icon-hash.svg?include')" />
+            <div
+              v-html="
+                require('~/assets/images/newkith-logo-mobile.svg?include')
+              "
+            />
           </nuxt-link>
         </div>
         <nav class="header-Top_Mobile_Toggle">
@@ -184,10 +200,25 @@
             <li class="header-Services cursorInteract" @click="clickServices">
               Our services
             </li>
-            <nuxt-link to="/blog" class="cursorInteract" tag="li"
+            <nuxt-link
+              to="/talents"
+              class="cursorInteract"
+              tag="li"
+              @click="otherClick"
+              >Talents</nuxt-link
+            >
+            <nuxt-link
+              to="/blog"
+              class="cursorInteract"
+              tag="li"
+              @click="otherClick"
               >What's happening</nuxt-link
             >
-            <nuxt-link to="/about" class="header-Story cursorInteract" tag="li"
+            <nuxt-link
+              to="/about"
+              class="header-Story cursorInteract"
+              tag="li"
+              @click="otherClick"
               >Our story</nuxt-link
             >
           </ul>
@@ -276,6 +307,7 @@ export default {
   mounted() {
     this.checkPageType()
     this.toggleMainNav()
+    this.setSectionWrapper()
   },
   methods: {
     routeChange() {
@@ -289,13 +321,29 @@ export default {
         this.servicesIsActive = true
         gsap.to(".section-Wrapper", {
           css: {
-            marginTop: headerTopHeight
+            marginTop: headerTopHeight + "px"
           },
           duration: "0.75",
           ease: "expo.out"
         })
         gsap.to(".header-Background", {
           height: headerTopHeight,
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Nav, .header-Nav li .icon", {
+          color: "white",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Desktop .header-Logo svg", {
+          fill: "white",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Desktop", {
+          backgroundColor: "transparent",
+          boxShadow: "none",
           duration: "0.75",
           ease: "expo.out"
         })
@@ -309,7 +357,7 @@ export default {
         this.servicesIsActive = true
         gsap.to(".section-Wrapper", {
           css: {
-            marginTop: headerTopHeight
+            marginTop: headerTopHeight + "px"
           },
           duration: "0.75",
           ease: "expo.out"
@@ -319,7 +367,14 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
+        gsap.to(".header-Top_Mobile_Top", {
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          duration: "0.75",
+          ease: "expo.out"
+        })
         gsap.to(".header-Top_Mobile_Middle", {
+          height: "auto",
           opacity: "1",
           duration: "0.6",
           delay: "0.2",
@@ -331,7 +386,7 @@ export default {
       if (this.isActive === "two") {
         gsap.to(".section-Wrapper", {
           css: {
-            marginTop: 0
+            marginTop: "10vw"
           },
           duration: "0.75",
           ease: "expo.out"
@@ -341,7 +396,24 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
+        gsap.to(".header-Nav, .header-Nav li .icon", {
+          color: "black",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Desktop .header-Logo svg", {
+          fill: "black",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Desktop", {
+          backgroundColor: "white",
+          boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
+          duration: "0.75",
+          ease: "expo.out"
+        })
         gsap.to(".header-Top_Mobile_Middle", {
+          height: 0,
           opacity: "0",
           duration: "0.4",
           delay: "0",
@@ -350,6 +422,14 @@ export default {
         this.isActive = "one"
         this.servicesIsActive = false
       }
+    },
+    otherClick() {
+      gsap.to(".header-Top_Desktop, .header-Top_Mobile_Top", {
+        backgroundColor: "white",
+        boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
+        duration: "0.75",
+        ease: "expo.out"
+      })
     },
     clickServices() {
       this.services = !this.services
@@ -367,7 +447,23 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to(".header-ContentTitle", {
+        gsap.to(".header-Nav, .header-Nav li .icon", {
+          color: "white",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Desktop .header-Logo svg", {
+          fill: "white",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Desktop", {
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-ContentTitle, .header-Bottom_Items", {
           opacity: "1",
           duration: "0.7",
           delay: "0.1",
@@ -398,7 +494,23 @@ export default {
           delay: "0.25",
           ease: "expo.out"
         })
-        gsap.to(".header-ContentTitle", {
+        gsap.to(".header-Nav, .header-Nav li .icon", {
+          color: "white",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Desktop .header-Logo svg", {
+          fill: "white",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Desktop", {
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-ContentTitle, .header-Bottom_Items", {
           opacity: "0",
           duration: "0.4",
           delay: "0.1",
@@ -415,7 +527,7 @@ export default {
       if (this.isActive === "three") {
         gsap.to(".section-Wrapper", {
           css: {
-            marginTop: 0
+            marginTop: "10vw"
           },
           duration: "0.65",
           delay: "0.25",
@@ -427,7 +539,30 @@ export default {
           delay: "0.25",
           ease: "expo.out"
         })
-        gsap.to(".header-ContentTitle", {
+        gsap.to(".header-Nav, .header-Nav li .icon", {
+          color: "black",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Desktop .header-Logo svg", {
+          fill: "black",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Desktop", {
+          backgroundColor: "white",
+          boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        gsap.to(".header-Top_Mobile_Top", {
+          backgroundColor: "white",
+          boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
+          duration: "0.75",
+          delay: "0.25",
+          ease: "expo.out"
+        })
+        gsap.to(".header-ContentTitle, .header-Bottom_Items", {
           opacity: "0",
           duration: "0.4",
           delay: "0.1",
@@ -451,7 +586,7 @@ export default {
     mouseLeaveAllMobile() {
       gsap.to(".section-Wrapper", {
         css: {
-          marginTop: 0
+          marginTop: "10vw"
         },
         duration: "0.65",
         delay: "0.25",
@@ -463,7 +598,30 @@ export default {
         delay: "0.25",
         ease: "expo.out"
       })
-      gsap.to(".header-ContentTitle", {
+      gsap.to(".header-Nav, .header-Nav li .icon", {
+        color: "black",
+        duration: "0.75",
+        ease: "expo.out"
+      })
+      gsap.to(".header-Top_Desktop .header-Logo svg", {
+        fill: "black",
+        duration: "0.75",
+        ease: "expo.out"
+      })
+      gsap.to(".header-Top_Desktop", {
+        backgroundColor: "white",
+        boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
+        duration: "0.75",
+        ease: "expo.out"
+      })
+      gsap.to(".header-Top_Mobile_Top", {
+        backgroundColor: "white",
+        boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
+        duration: "0.65",
+        delay: "0.25",
+        ease: "expo.out"
+      })
+      gsap.to(".header-ContentTitle, .header-Bottom_Items", {
         opacity: "0",
         duration: "0.4",
         delay: "0.1",
@@ -504,6 +662,11 @@ export default {
       } else {
         this.mainNav = true
       }
+    },
+    setSectionWrapper() {
+      gsap.set(".section-Wrapper", {
+        marginTop: "10vw"
+      })
     }
   }
 }
@@ -512,6 +675,8 @@ export default {
 <style lang="sass">
 @import '~/assets/styles/variables.sass'
 
+.section-Wrapper
+  margin-top: 10vw
 .header
   position: fixed
   left: 0
@@ -522,9 +687,12 @@ export default {
   z-index: $z-header
   pointer-events: none
   max-height: 100vh
+  max-width: 100vw
   overflow-y: auto
   @media screen and (max-width: $breakpoint-mobile)
     bottom: 0
+  p, a, .icon
+    color: white
   &.two
     .header-Top_Mobile_Middle
       pointer-events: auto
@@ -537,13 +705,16 @@ export default {
     @media screen and (max-width: $breakpoint-mobile)
       align-items: flex-start
   &-Top_Desktop
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.2)
+    -webkit-box-shadow: 0px 2px 10px rgba(0,0,0,0.2)
+    background-color: white
     align-items: center
     pointer-events: auto
     padding: 3rem var(--spacing-content-sides)
     .header-Logo
       flex-grow: 1
       svg
-        height: 2rem
+        height: 2.5rem
     @media screen and (max-width: $breakpoint-mobile)
       display: none
   &-Top_Mobile
@@ -558,6 +729,9 @@ export default {
       padding: var(--spacing-content-sides)
       justify-content: space-between
       align-items: center
+      background-color: $bg
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.2)
+      -webkit-box-shadow: 0px 2px 10px rgba(0,0,0,0.2)
       .header-Logo
         pointer-events: auto
         svg
@@ -578,16 +752,13 @@ export default {
       flex-direction: column
       justify-content: flex-start
     &_Items
+      opacity: 0
+      padding: 1.25rem
+      margin: 0 1.25rem
       @media screen and (min-width: $breakpoint-mobile)
         flex-basis: 33.3333%
-        padding-left: 1.25rem
-        padding-right: 1.25rem
       @media screen and (max-width: $breakpoint-mobile)
         margin-bottom: var(--spacing-three)
-      &:first-child
-        padding-left: 0
-      &:last-child
-        padding-right: 0
         @media screen and (max-width: $breakpoint-mobile)
           margin-bottom: var(--spacing-content-bottom)
           padding-bottom: var(--spacing-content-bottom)
@@ -596,6 +767,7 @@ export default {
     @media screen and (min-width: $breakpoint-mobile)
       margin-left: var(--spacing-content-sides)
     ul
+      align-content: center
       display: flex
       flex-wrap: wrap
     li
@@ -607,6 +779,7 @@ export default {
       flex-shrink: 0
       .icon
         margin-right: 0
+        color: black;
       &::before
         content: ''
         position: absolute
@@ -624,9 +797,12 @@ export default {
           animation: hyperLink .33s ease-out
           animation-iteration-count: 1
           animation-fill-mode: both
+    &.hover
+      color: red
   &-Services
     pointer-events: auto
   &-ContentTitle
+    font-weight: 700
     margin-bottom: 1.5rem
   &-ContentTitle, &-ContentText
     opacity: 0
@@ -634,6 +810,7 @@ export default {
     letter-spacing: .01rem
     cursor: pointer
     margin-right: 1rem
+    margin-bottom: 1rem
     &:last-child
       margin-right: 0
       .icon

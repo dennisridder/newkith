@@ -23,7 +23,7 @@
           :key="index"
           class="blogList-Item carouselOnScroll"
         >
-          <nuxt-link :id="index" class="blogList-Content cursorInteract carouselOnScroll-Wrapper" :class="{ index }" :to="post.slug" tag="div">
+          <nuxt-link :id="index" class="blogList-Content cursorInteract carouselOnScroll-Wrapper" :class="{ index }" :to="'/blog/'+post.slug" tag="div">
             <div v-if="post.created_at" class="blogList-Content_Date">
               <span>{{ formatDate(post.created_at) }}</span>
             </div>
@@ -262,7 +262,7 @@ export default {
     padding-top: 3rem
     padding-bottom: 3rem
     width: 100%
-    overflow-x: auto
+    // overflow-x: auto
     border-top: $border
     h1, h2, span, p
       hyphens: none
@@ -275,7 +275,8 @@ export default {
       @media screen and ( hover: hover )
         h2
           color: $support-color
-          font-family: 'SohneSchmal HalbfettKursiv'
+          font-family: 'FormaDJRDisplay', 'SohneSchmal HalbfettKursiv'
+          font-style: italic
         & .blogList-Image
           visibility: visible
   &-Image
@@ -312,10 +313,11 @@ export default {
     flex-wrap: nowrap
     cursor: pointer
     align-items: center
-    margin-left: 3rem
+    &_Date
+      // margin: 0 3rem
     > div
       flex-shrink: 0
-      margin-right: 3rem
+      margin: 0 1.5rem
     &_Title
-      max-width: 30em
+      // max-width: 30em
 </style>

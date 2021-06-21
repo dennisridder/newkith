@@ -4,8 +4,6 @@ require("dotenv").config()
 // TODO: site descr
 
 module.exports = {
-  mode: "universal",
-
   /*
    ** Headers of the page
    */
@@ -62,6 +60,10 @@ module.exports = {
       {
         name: "apple-mobile-web-app-status-bar-style",
         content: "black-translucent"
+      },
+      {
+        name: "facebook-domain-verification",
+        content: "rypsilsadpawbva8w9mgo6mfxr6834"
       }
     ],
     link: [{ rel: "icon", type: "image/png", href: "/icon.png" }]
@@ -89,7 +91,8 @@ module.exports = {
   plugins: [
     "~/plugins/components",
     "~/plugins/filters",
-    "~/plugins/vue-lazyload"
+    "~/plugins/vue-lazyload",
+    "~/plugins/gtm"
   ],
 
   /*
@@ -106,8 +109,14 @@ module.exports = {
             : process.env.PREVIEWKEY,
         cacheProvider: "memory"
       }
-    ]
+    ],
+    "@nuxtjs/gtm"
   ],
+  gtm: {
+    enabled: true,
+    debug: true,
+    id: "GTM-KK8GW2F"
+  },
   generate: {
     routes: function(callback) {
       const token = process.env.PUBLICKEY
@@ -178,7 +187,7 @@ module.exports = {
     // [
     //   "@nuxtjs/google-analytics",
     //   {
-    //     id: process.env.GA_ID
+    //     id: "GTM-KK8GW2F"
     //   }
     // ]
   ]

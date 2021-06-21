@@ -156,7 +156,7 @@
       </ul>
     </div>
     <nuxt-link class="footer-Logo cursorInteract" to="/" tag="div">
-      <div v-html="require('~/assets/images/logo.svg?include')" />
+      <div v-html="require('~/assets/images/newkith-logo.svg?include')" />
     </nuxt-link>
     <script>
       ;(function(l, e, a, d, i, n, f, o) {
@@ -295,6 +295,7 @@ export default {
 @import '~/assets/styles/variables.sass'
 
 .footer
+  color: white
   position: relative
   padding-top: var(--spacing-two)
   z-index: $z-footer
@@ -350,4 +351,6 @@ export default {
     padding-left: var(--spacing-content-sides)
     padding-right: var(--spacing-content-sides)
     padding-bottom: var(--spacing-two)
+    svg
+     fill: white !important
 </style>

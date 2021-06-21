@@ -77,15 +77,16 @@ export default {
 .section-Quote
     padding-left: 0
     padding-right: 0
-    text-transform: uppercase
+    // text-transform: uppercase
     width: 100vw
-    overflow-x: auto
+    overflow-x: hidden
     &_Wrapper
         display: flex
         flex-wrap: nowrap
     &_Item
         h1
             white-space: nowrap
+            font-size: 15vw
         &:first-child
             margin-left: var(--spacing-content-sides)
 </style>

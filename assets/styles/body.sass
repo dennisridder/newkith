@@ -16,10 +16,10 @@ html
   height: 1.5em
   top: 0
   left: 0
-  transform: translate(-50%, -50%)
-  border-radius: 100px
-  background: white
-  color: white
+  transform: translate(-50%, -50%) scale(0.95)
+  border-radius: 50%
+  background: $color
+  color: $color
   pointer-events: none
   transition: width .16s ease, height .16s ease
   will-change: width, height
@@ -47,15 +47,15 @@ html
     font-size: .75rem
     line-height: 1.25
     margin-right: .5rem
-    text-transform: uppercase
+    // text-transform: uppercase
     letter-spacing: .04em
     transition: background $transition-button, color $transition-button
-    font-family: 'Sohne Buch', Helvetica, Arial, sans-serif
+    font-family: 'FormaDJRDisplay', 'Sohne Buch', Helvetica, Arial, sans-serif
     &::placeholder
       color: currentColor
       font-size: .75rem
       line-height: 1.25
-      text-transform: uppercase
+      // text-transform: uppercase
       letter-spacing: .04rem
       opacity: 1
       transition: opacity $transition-button

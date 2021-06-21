@@ -1,6 +1,114 @@
 @import '~/assets/styles/variables.sass'
 
 @font-face
+  src: url('~assets/fonts/FormaDJRDisplay-Hairline.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-Hairline.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: normal
+  font-weight: 200
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-HairlineItalic.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-HairlineItalic.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: italic
+  font-weight: 100
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-Thin.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-Thin.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: normal
+  font-weight: 200
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-ThinItalic.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-ThinItalic.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: italic
+  font-weight: 100
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-ExtraLight.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-ExtraLight.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: normal
+  font-weight: 275
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-ExtraLightItalic.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-ExtraLightItalic.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: italic
+  font-weight: 275
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-Light.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-Light.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: normal
+  font-weight: 300
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-LightItalic.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-LightItalic.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: italic
+  font-weight: 300
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-Regular.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-Regular.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: normal
+  font-weight: normal
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-Italic.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-Italic.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: italic
+  font-weight: normal
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-Medium.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-Medium.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: normal
+  font-weight: 500
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-MediumItalic.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-MediumItalic.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: italic
+  font-weight: 500
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-Bold.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-Bold.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: normal
+  font-weight: bold
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-BoldItalic.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-BoldItalic.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: italic
+  font-weight: bold
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-ExtraBold.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-ExtraBold.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: normal
+  font-weight: 800
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-BlackItalic.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-BlackItalic.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: italic
+  font-weight: 800
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-Black.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-Black.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: normal
+  font-weight: 900
+
+@font-face
+  src: url('~assets/fonts/FormaDJRDisplay-BlackItalic.woff2') format("woff2"), url('~assets/fonts/FormaDJRDisplay-BlackItalic.woff') format("woff")
+  font-family: 'FormaDJRDisplay'
+  font-style: italic
+  font-weight: 900
+
+@font-face
   font-family: 'Sohne Buch'
   src: url('~assets/fonts/Sohne-Buch.woff2') format('woff2'), url('~assets/fonts/Sohne-Buch.woff') format('woff')
   font-weight: normal
@@ -61,59 +169,79 @@ h1, h2, h3, p, a
   overflow-wrap: normal
   hyphens: none
 
+// li, h1, h2, h3, h4, p, a, a:link, a:visited, a:hover, a:active, span, input, button, nav
+//   font-family: 'Sohne Buch', Helvetica, Arial, sans-serif
+//   font-size: 1em
+//   line-height: 1.55
+//   color: currentColor
+//   font-style: normal
+//   font-weight: normal
+//   -webkit-font-smoothing: antialiased
+//   -moz-osx-font-smoothing: grayscale
+//   text-rendering: geometricPrecision
+
 li, h1, h2, h3, h4, p, a, a:link, a:visited, a:hover, a:active, span, input, button, nav
-  font-family: 'Sohne Buch', Helvetica, Arial, sans-serif
+  font-family: 'FormaDJRDisplay', 'Sohne Buch', Helvetica, Arial, sans-serif
   font-size: 1em
   line-height: 1.55
   color: currentColor
   font-style: normal
-  font-weight: normal
+  font-weight: bold
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-rendering: geometricPrecision
 
+p
+  font-weight: normal
+
+
 h1
   display: inline-block
   line-height: 1
-  font-family: 'SohneSchmal Halbfett'
-  font-size: 15vw
+  font-family: 'FormaDJRDisplay', 'SohneSchmal Halbfett'
+  font-size: 11vw
   line-height: .9
   overflow: hidden
   @media screen and (max-width: $breakpoint-tablet)
     font-size: 17.5vw
   @media screen and (max-width: $breakpoint-mobile)
-    font-size: 26vw
+    font-size: 12vw
     line-height: .8
 
 h2, h3
   margin-top: .5rem
   margin-bottom: .5rem
-  text-transform: uppercase
-  font-family: 'SohneSchmal Halbfett'
-  font-size: 5vw
+  // text-transform: uppercase
+  font-family: 'FormaDJRDisplay', 'SohneSchmal Halbfett'
+  font-size: 2.5vw
   line-height: .9
   @media screen and (max-width: $breakpoint-tablet)
     font-size: 10vw
   @media screen and (max-width: $breakpoint-mobile)
-    font-size: 15vw
+    font-size: 12vw
 
 h4, span // Captions
   font-size: .75rem
-  text-transform: uppercase
+  // text-transform: uppercase
   letter-spacing: .04em
 
 a
   text-decoration: underline
 
 strong
-  font-family: 'Sohne Kraftig', Helvetica, Arial, sans-serif
+  font-family: 'FormaDJRDisplay', 'Sohne Kraftig', Helvetica, Arial, sans-serif
+  font-style: normal
+  font-weight: 900
 
 em
-  font-family: 'Sohne BuchKursiv', Helvetica, Arial, sans-serif
+  font-family: 'FormaDJRDisplay', 'Sohne BuchKursiv', Helvetica, Arial, sans-serif
+  font-style: italic
 
 strong
   em
-    font-family: 'Sohne KraftigKursiv', Helvetica, Arial, sans-serif
+    font-family: 'FormaDJRDisplay', 'Sohne KraftigKursiv', Helvetica, Arial, sans-serif
+    font-size: italic
+    font-weight: 900
 
 .ellipsis
   overflow: hidden
