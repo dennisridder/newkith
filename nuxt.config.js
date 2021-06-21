@@ -66,7 +66,7 @@ module.exports = {
         content: "rypsilsadpawbva8w9mgo6mfxr6834"
       }
     ],
-    link: [{ rel: "icon", type: "image/png", href: "/icon.png" }]
+    link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }]
   },
 
   /*

@@ -278,6 +278,8 @@ import { mapState } from "vuex"
 import MarkdownItem from "@/components/MarkdownItem.vue"
 import cursorInteraction from "@/mixins/cursorInteraction"
 
+var timeline = gsap.timeline()
+
 export default {
   components: {
     "markdown-item": MarkdownItem
@@ -336,11 +338,14 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to(".header-Top_Desktop .header-Logo svg", {
-          fill: "white",
-          duration: "0.75",
-          ease: "expo.out"
-        })
+        gsap.to(
+          ".header-Top_Desktop .header-Logo svg, .header-Top_Mobile_Top .header-Logo svg",
+          {
+            fill: "white",
+            duration: "0.75",
+            ease: "expo.out"
+          }
+        )
         gsap.to(".header-Top_Desktop", {
           backgroundColor: "transparent",
           boxShadow: "none",
@@ -355,31 +360,58 @@ export default {
       if (this.isActive === "one") {
         this.isActive = "two"
         this.servicesIsActive = true
-        gsap.to(".section-Wrapper", {
-          css: {
-            marginTop: headerTopHeight + "px"
-          },
-          duration: "0.75",
-          ease: "expo.out"
-        })
-        gsap.to(".header-Background", {
-          height: headerTopHeight,
-          duration: "0.75",
-          ease: "expo.out"
-        })
-        gsap.to(".header-Top_Mobile_Top", {
-          backgroundColor: "transparent",
-          boxShadow: "none",
-          duration: "0.75",
-          ease: "expo.out"
-        })
-        gsap.to(".header-Top_Mobile_Middle", {
-          height: "auto",
-          opacity: "1",
-          duration: "0.6",
-          delay: "0.2",
-          ease: "ease"
-        })
+        timeline.clear()
+        timeline
+          .to(
+            ".section-Wrapper",
+            {
+              css: {
+                marginTop: headerTopHeight + "px"
+              },
+              duration: "0.75",
+              ease: "expo.out"
+            },
+            0
+          )
+          .to(
+            ".header-Background",
+            {
+              height: headerTopHeight,
+              duration: "0.75",
+              ease: "expo.out"
+            },
+            0
+          )
+          .to(
+            ".header-Top_Mobile_Top",
+            {
+              backgroundColor: "transparent",
+              boxShadow: "none",
+              duration: "0.75",
+              ease: "expo.out"
+            },
+            0
+          )
+          .to(
+            ".header-Top_Mobile_Top .header-Logo svg, .header-Top_Mobile_Middle, .header-Nav",
+            {
+              color: "white",
+              fill: "white",
+              duration: "0.75",
+              ease: "expo.out"
+            },
+            0
+          )
+          .to(
+            ".header-Top_Mobile_Middle",
+            {
+              height: "auto",
+              opacity: "1",
+              duration: "0.6",
+              ease: "ease"
+            },
+            0.2
+          )
       }
     },
     mouseLeaveTop() {
@@ -401,11 +433,14 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to(".header-Top_Desktop .header-Logo svg", {
-          fill: "black",
-          duration: "0.75",
-          ease: "expo.out"
-        })
+        gsap.to(
+          ".header-Top_Desktop .header-Logo svg, .header-Top_Mobile_Top .header-Logo svg",
+          {
+            fill: "black",
+            duration: "0.75",
+            ease: "expo.out"
+          }
+        )
         gsap.to(".header-Top_Desktop", {
           backgroundColor: "white",
           boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
@@ -452,11 +487,14 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to(".header-Top_Desktop .header-Logo svg", {
-          fill: "white",
-          duration: "0.75",
-          ease: "expo.out"
-        })
+        gsap.to(
+          ".header-Top_Desktop .header-Logo svg, .header-Top_Mobile_Top .header-Logo svg",
+          {
+            fill: "white",
+            duration: "0.75",
+            ease: "expo.out"
+          }
+        )
         gsap.to(".header-Top_Desktop", {
           backgroundColor: "transparent",
           boxShadow: "none",
@@ -499,11 +537,14 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to(".header-Top_Desktop .header-Logo svg", {
-          fill: "white",
-          duration: "0.75",
-          ease: "expo.out"
-        })
+        gsap.to(
+          ".header-Top_Desktop .header-Logo svg, .header-Top_Mobile_Top .header-Logo svg",
+          {
+            fill: "white",
+            duration: "0.75",
+            ease: "expo.out"
+          }
+        )
         gsap.to(".header-Top_Desktop", {
           backgroundColor: "transparent",
           boxShadow: "none",
@@ -544,11 +585,14 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to(".header-Top_Desktop .header-Logo svg", {
-          fill: "black",
-          duration: "0.75",
-          ease: "expo.out"
-        })
+        gsap.to(
+          ".header-Top_Desktop .header-Logo svg, .header-Top_Mobile_Top .header-Logo svg",
+          {
+            fill: "black",
+            duration: "0.75",
+            ease: "expo.out"
+          }
+        )
         gsap.to(".header-Top_Desktop", {
           backgroundColor: "white",
           boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
@@ -584,60 +628,84 @@ export default {
       }
     },
     mouseLeaveAllMobile() {
-      gsap.to(".section-Wrapper", {
-        css: {
-          marginTop: "10vw"
-        },
-        duration: "0.65",
-        delay: "0.25",
-        ease: "expo.out"
-      })
-      gsap.to(".header-Background", {
-        height: "0",
-        duration: "0.65",
-        delay: "0.25",
-        ease: "expo.out"
-      })
-      gsap.to(".header-Nav, .header-Nav li .icon", {
-        color: "black",
-        duration: "0.75",
-        ease: "expo.out"
-      })
-      gsap.to(".header-Top_Desktop .header-Logo svg", {
-        fill: "black",
-        duration: "0.75",
-        ease: "expo.out"
-      })
-      gsap.to(".header-Top_Desktop", {
-        backgroundColor: "white",
-        boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
-        duration: "0.75",
-        ease: "expo.out"
-      })
-      gsap.to(".header-Top_Mobile_Top", {
-        backgroundColor: "white",
-        boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
-        duration: "0.65",
-        delay: "0.25",
-        ease: "expo.out"
-      })
-      gsap.to(".header-ContentTitle, .header-Bottom_Items", {
-        opacity: "0",
-        duration: "0.4",
-        delay: "0.1",
-        ease: "ease"
-      })
-      gsap.to(".header-ContentText", {
-        opacity: "0",
-        duration: "0.5",
-        ease: "ease"
-      })
-      gsap.to(".header-Top_Mobile_Middle", {
-        opacity: "0",
-        duration: "0.4",
-        delay: "0.1",
-        ease: "ease"
-      })
+      timeline.clear()
+      timeline
+        .to(
+          ".section-Wrapper",
+          {
+            css: {
+              marginTop: "10vw"
+            },
+            duration: "0.65",
+            ease: "expo.out"
+          },
+          0.25
+        )
+        .to(
+          ".header-Background",
+          {
+            height: "0",
+            duration: "0.65",
+            ease: "expo.out"
+          },
+          0.25
+        )
+        .to(
+          ".header-Nav, .header-Nav li .icon",
+          {
+            color: "black",
+            duration: "0.75",
+            ease: "expo.out"
+          },
+          0
+        )
+        .to(
+          ".header-Top_Desktop .header-Logo svg, .header-Top_Mobile_Top .header-Logo svg",
+          {
+            fill: "black",
+            duration: "0.75",
+            ease: "expo.out"
+          },
+          0
+        )
+        .to(".header-Top_Desktop", {
+          backgroundColor: "white",
+          boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
+          duration: "0.75",
+          ease: "expo.out"
+        })
+        .to(
+          ".header-Top_Mobile_Top",
+          {
+            backgroundColor: "white",
+            boxShadow: "0px 2px 10px rgba(0,0,0,0.2)",
+            ease: "expo.out"
+          },
+          0.25
+        )
+        .to(".header-ContentTitle, .header-Bottom_Items", {
+          opacity: "0",
+          duration: "0.4",
+          ease: "ease"
+        })
+        .to(
+          ".header-ContentText",
+          {
+            opacity: "0",
+            duration: "0.5",
+            ease: "ease"
+          },
+          0
+        )
+        .to(
+          ".header-Top_Mobile_Middle",
+          {
+            opacity: "0",
+            duration: "0.4",
+            ease: "ease"
+          },
+          0.1
+        )
       this.isActive = "one"
       this.services = false
     },
