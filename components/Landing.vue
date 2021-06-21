@@ -159,6 +159,7 @@ export default {
       opacity: 0
     h1
       font-size: 11vw
+      padding-bottom: 1vw
     animated-Word
   .swapWordContainer
     h1

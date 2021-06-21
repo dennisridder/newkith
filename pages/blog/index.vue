@@ -23,7 +23,7 @@
           :key="index"
           class="blogList-Item carouselOnScroll"
         >
-          <nuxt-link :id="index" class="blogList-Content cursorInteract carouselOnScroll-Wrapper" :class="{ index }" :to="post.slug" tag="div">
+          <nuxt-link :id="index" class="blogList-Content cursorInteract carouselOnScroll-Wrapper" :class="{ index }" :to="'/blog/'+post.slug" tag="div">
             <div v-if="post.created_at" class="blogList-Content_Date">
               <span>{{ formatDate(post.created_at) }}</span>
             </div>
