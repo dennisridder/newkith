@@ -771,7 +771,7 @@ export default {
   pointer-events: none
   max-height: 100vh
   max-width: 100vw
-  overflow-y: auto
+  overflow-y: hidden
   @media screen and (max-width: $breakpoint-mobile)
     bottom: 0
   p, a, .icon
