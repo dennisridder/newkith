@@ -2,20 +2,22 @@
   <section class="section section-Landing section-TextContent">
     <ul v-if="$route.name === 'index'" class="title title-Animated">
       <li>
-        <h1 class="animated-Word">{{ firstWord }}&nbsp;</h1>
+        <h1 class="animated-Word">{{ firstWord }}</h1>
       </li>
       <li class="swapWordContainer">
         <h1 v-for="word in middleWords" :key="word" class="swapWord">
-          {{ word.word }}&nbsp;
+          {{ word.word }}
         </h1>
       </li>
       <li>
-        <h1 class="animated-Word">{{ lastWord }}&nbsp;</h1>
+        <h1 class="animated-Word">{{ lastWord }}</h1>
       </li>
     </ul>
     <ul v-else class="title title-Animated">
       <li>
-        <h1 v-for="word in words" :key="word" class="word">{{ word }}&nbsp;</h1>
+        <h1 v-for="word in words" :key="word" class="word">
+          {{ word + "&nbsp;" }}
+        </h1>
       </li>
     </ul>
   </section>
@@ -60,18 +62,22 @@ export default {
         setTimeout(function() {
           let duration = 0.25
           let delay = 0.125
-          gsap.to(".word", {
-            duration: duration,
-            stagger: delay,
-            yPercent: -100,
-            ease: "expo.out:"
-          })
-          gsap.to(".word", {
-            duration: duration,
-            stagger: delay,
-            opacity: 1,
-            ease: "ease.in:"
-          })
+          gsap.fromTo(
+            ".word",
+            {
+              y: function() {
+                return this._targets[0].clientHeight
+              },
+              opacity: 0
+            },
+            {
+              y: 0,
+              opacity: 1,
+              duration: duration,
+              stagger: delay,
+              ease: "expo.out:"
+            }
+          )
         }, 125)
       }
     },
@@ -80,43 +86,72 @@ export default {
         setTimeout(function() {
           let duration = 0.25
           let delay = 0.25
-          gsap.to(".animated-Word", {
-            duration: duration,
-            stagger: delay,
-            yPercent: -100,
-            ease: "expo.out:"
-          })
-          gsap.to(".animated-Word", {
-            duration: duration,
-            stagger: delay,
+          gsap.set(".title-Animated, .swapWordContainer h1:first-child", {
             opacity: 1,
-            ease: "ease.in:"
+            visibility: "visible"
           })
+          gsap.fromTo(
+            ".title-Animated > li",
+            {
+              y: function() {
+                return this._targets[0].clientHeight
+              },
+              opacity: 0
+            },
+            {
+              duration: duration,
+              stagger: delay,
+              y: 0,
+              opacity: 1,
+              ease: "expo.out:"
+            }
+          )
         }, 125)
       }
     },
     wordsSwap() {
+      // var targets = document.querySelectorAll(".swapWord")
+      // targets.forEach((el, index) => {
+      //   if (index === 0)
+      //     gsap.set(el, { opacity: 1, display: "block", yPercent: -100 })
+      // })
+
       let duration = 0.125
       let delay = 1.25
       if (this.$route.name === "index") {
         setTimeout(function() {
           var targets = document.querySelectorAll(".swapWord")
-          var wordSwap = gsap.timeline({ repeat: -1 })
+          var wordSwap = gsap.timeline({
+            repeat: -1
+          })
+          var targetHeight = targets[0].clientHeight
+          console.log("targetHeight", targetHeight)
+          console.log(targets)
+
           targets.forEach((el, index) => {
             var timeDelay = (duration + duration + delay) * (index + 1)
-            wordSwap.to(el, duration, {
-              opacity: 1,
-              yPercent: -100,
-              display: "block",
-              ease: "expo.out:"
-            })
+            wordSwap.fromTo(
+              el,
+              duration,
+              {
+                y: targetHeight
+              },
+              {
+                y: 0,
+                opacity: 1,
+                display: "block",
+                ease: "expo.out:"
+              }
+            )
             wordSwap.to(
               el,
               duration,
               {
                 opacity: 0,
-                yPercent: "-=100",
                 display: "none",
+                y: function() {
+                  return -1 * this._targets[0].clientHeight
+                },
                 ease: "expo.in:"
               },
               timeDelay
@@ -151,17 +186,24 @@ export default {
     &:nth-child(3)
       width: 100%
   &-Animated
+    opacity: 1
     li
       display: block
       width: 100%
-    h1, h2, p, a
-      transform: translate(0px, 100%)
-      opacity: 0
     h1
-      font-size: 11vw
-      padding-bottom: 1vw
+      font-size: 17vw
+      padding-bottom: 4vw
+      margin-bottom: -3vw
+
+      @media screen and (min-width: 1024px)
+        font-size: 13vw
     animated-Word
   .swapWordContainer
+    width: 120vw
     h1
       display: none
+      opacity: 0
+    h1:first-child
+      display: block
+      visibility: hidden
 </style>

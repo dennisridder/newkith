@@ -333,11 +333,14 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to(".header-Nav, .header-Nav li .icon", {
-          color: "white",
-          duration: "0.75",
-          ease: "expo.out"
-        })
+        gsap.to(
+          ".header-Nav, .header-Nav li .icon, .header-Top_Mobile_Toggle",
+          {
+            color: "white",
+            duration: "0.75",
+            ease: "expo.out"
+          }
+        )
         gsap.to(
           ".header-Top_Desktop .header-Logo svg, .header-Top_Mobile_Top .header-Logo svg",
           {
@@ -393,7 +396,7 @@ export default {
             0
           )
           .to(
-            ".header-Top_Mobile_Top .header-Logo svg, .header-Top_Mobile_Middle, .header-Nav",
+            ".header-Top_Mobile_Top .header-Logo svg, .header-Top_Mobile_Middle, .header-Nav, .header-Top_Mobile_Toggle",
             {
               color: "white",
               fill: "white",
@@ -428,11 +431,14 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to(".header-Nav, .header-Nav li .icon", {
-          color: "black",
-          duration: "0.75",
-          ease: "expo.out"
-        })
+        gsap.to(
+          ".header-Nav, .header-Nav li .icon, .header-Top_Mobile_Toggle",
+          {
+            color: "black",
+            duration: "0.75",
+            ease: "expo.out"
+          }
+        )
         gsap.to(
           ".header-Top_Desktop .header-Logo svg, .header-Top_Mobile_Top .header-Logo svg",
           {
@@ -482,11 +488,14 @@ export default {
           duration: "0.75",
           ease: "expo.out"
         })
-        gsap.to(".header-Nav, .header-Nav li .icon", {
-          color: "white",
-          duration: "0.75",
-          ease: "expo.out"
-        })
+        gsap.to(
+          ".header-Nav, .header-Nav li .icon, .header-Top_Mobile_Toggle",
+          {
+            color: "white",
+            duration: "0.75",
+            ease: "expo.out"
+          }
+        )
         gsap.to(
           ".header-Top_Desktop .header-Logo svg, .header-Top_Mobile_Top .header-Logo svg",
           {
@@ -532,11 +541,14 @@ export default {
           delay: "0.25",
           ease: "expo.out"
         })
-        gsap.to(".header-Nav, .header-Nav li .icon", {
-          color: "white",
-          duration: "0.75",
-          ease: "expo.out"
-        })
+        gsap.to(
+          ".header-Nav, .header-Nav li .icon, .header-Top_Mobile_Toggle",
+          {
+            color: "white",
+            duration: "0.75",
+            ease: "expo.out"
+          }
+        )
         gsap.to(
           ".header-Top_Desktop .header-Logo svg, .header-Top_Mobile_Top .header-Logo svg",
           {
@@ -580,11 +592,14 @@ export default {
           delay: "0.25",
           ease: "expo.out"
         })
-        gsap.to(".header-Nav, .header-Nav li .icon", {
-          color: "black",
-          duration: "0.75",
-          ease: "expo.out"
-        })
+        gsap.to(
+          ".header-Nav, .header-Nav li .icon, .header-Top_Mobile_Toggle",
+          {
+            color: "black",
+            duration: "0.75",
+            ease: "expo.out"
+          }
+        )
         gsap.to(
           ".header-Top_Desktop .header-Logo svg, .header-Top_Mobile_Top .header-Logo svg",
           {
@@ -651,7 +666,7 @@ export default {
           0.25
         )
         .to(
-          ".header-Nav, .header-Nav li .icon",
+          ".header-Nav, .header-Nav li .icon, .header-Top_Mobile_Toggle",
           {
             color: "black",
             duration: "0.75",
@@ -756,7 +771,7 @@ export default {
   pointer-events: none
   max-height: 100vh
   max-width: 100vw
-  overflow-y: auto
+  overflow-y: hidden
   @media screen and (max-width: $breakpoint-mobile)
     bottom: 0
   p, a, .icon
