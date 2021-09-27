@@ -23,6 +23,8 @@ import Text from "~/components/Text.vue"
 import Quote from "~/components/Quote.vue"
 import ImageGrid from "~/components/ImageGrid.vue"
 import ImageContainer from "~/components/ImageContainer.vue"
+import IconTextGrid from "~/components/IconTextGrid.vue"
+import IconTextGridItem from "~/components/IconTextGridItem.vue"
 
 Vue.component("blok-page", Page)
 Vue.component("blok-page-homepage", PageHomepage)
@@ -48,3 +50,5 @@ Vue.component("blok-text", Text)
 Vue.component("blok-quote", Quote)
 Vue.component("blok-image-grid", ImageGrid)
 Vue.component("blok-image-container", ImageContainer)
+Vue.component("blok-icon-text-grid", IconTextGrid)
+Vue.component("blok-icon-text-grid-item", IconTextGridItem)
