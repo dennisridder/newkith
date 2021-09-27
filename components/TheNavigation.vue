@@ -762,7 +762,7 @@ export default {
   margin-top: 10vw
 
   @media screen and (max-width: $breakpoint-mobile)
-    margin-top: 24vw
+    margin-top: 24vw !important
 
 .header
   position: fixed
