@@ -192,11 +192,13 @@ export default {
       width: 100%
     h1
       font-size: 17vw
+      font-size: 8vw
       padding-bottom: 4vw
       margin-bottom: -3vw
 
       @media screen and (min-width: 1024px)
-        font-size: 13vw
+        // font-size: 13vw
+        font-size: 5vw
     animated-Word
   .swapWordContainer
     width: 120vw

@@ -5,6 +5,8 @@ import PageAbout from "~/components/PageAbout.vue"
 import PageCasesAndTalents from "~/components/PageCasesAndTalents.vue"
 import Landing from "~/components/Landing.vue"
 import Title from "~/components/Title.vue"
+import Columns from "~/components/Columns.vue"
+import Hero from "~/components/Hero.vue"
 import Footer from "~/components/Footer.vue"
 import ButtonsContainer from "~/components/ButtonsContainer.vue"
 import Button from "~/components/Button.vue"
@@ -52,3 +54,5 @@ Vue.component("blok-image-grid", ImageGrid)
 Vue.component("blok-image-container", ImageContainer)
 Vue.component("blok-icon-text-grid", IconTextGrid)
 Vue.component("blok-icon-text-grid-item", IconTextGridItem)
+Vue.component("blok-hero", Hero)
+Vue.component("blok-columns", Columns)

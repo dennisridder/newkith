@@ -1,6 +1,12 @@
 <template>
   <div class="section-Wrapper section-Wrapper_Homepage">
-    <blok-landing :words="story.content.landing_animation_words" />
+    <component
+      :is="blok.component | dashify"
+      v-for="blok in story.content.content"
+      :key="blok._uid"
+      :blok="blok"
+    ></component>
+    <!-- <blok-landing :words="story.content.landing_animation_words" />
     <blok-title :words="[`${story.content.cases_header}`]" />
     <blok-image-grid
       v-if="caseList"
@@ -53,7 +59,7 @@
           />
         </nuxt-link>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 

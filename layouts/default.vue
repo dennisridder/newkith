@@ -6,7 +6,7 @@
       <nuxt />
     </transition>
     <blok-footer />
-    <div class="cursor"></div>
+    <!-- <div class="cursor"></div> -->
   </main>
 </template>
 

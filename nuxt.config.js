@@ -37,7 +37,7 @@ module.exports = {
     )`
       },
       {
-        hid: 'mcjs',
+        hid: "mcjs",
         innerHTML: `!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/45a5561023842caf04f0cb311/5185b68e630c282a0f3a2caff.js");`
       }
     ],

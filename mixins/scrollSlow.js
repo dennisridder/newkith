@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default {
   mounted() {
-    this.scrollSlow()
+    // this.scrollSlow()
   },
   methods: {
     scrollSlow() {

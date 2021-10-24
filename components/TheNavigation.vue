@@ -40,6 +40,13 @@
             @click="otherClick"
             >Our story</nuxt-link
           >
+          <nuxt-link
+            to="/contact"
+            class="nav-Link cursorInteract"
+            tag="li"
+            @click="otherClick"
+            >Contact</nuxt-link
+          >
         </ul>
       </nav>
       <nav v-if="mainNav == true" class="header-Nav header-IconRow">
@@ -421,7 +428,8 @@ export default {
       if (this.isActive === "two") {
         gsap.to(".section-Wrapper", {
           css: {
-            marginTop: "10vw"
+            // marginTop: "10vw"
+            marginTop: "140px"
           },
           duration: "0.75",
           ease: "expo.out"
@@ -580,7 +588,8 @@ export default {
       if (this.isActive === "three") {
         gsap.to(".section-Wrapper", {
           css: {
-            marginTop: "10vw"
+            // marginTop: "10vw"
+            marginTop: "140px"
           },
           duration: "0.65",
           delay: "0.25",
@@ -649,7 +658,7 @@ export default {
           ".section-Wrapper",
           {
             css: {
-              marginTop: "10vw"
+              marginTop: ""
             },
             duration: "0.65",
             ease: "expo.out"
@@ -748,7 +757,7 @@ export default {
     },
     setSectionWrapper() {
       gsap.set(".section-Wrapper", {
-        marginTop: "10vw"
+        marginTop: ""
       })
     }
   }
@@ -759,10 +768,11 @@ export default {
 @import '~/assets/styles/variables.sass'
 
 .section-Wrapper
-  margin-top: 10vw
+  // margin-top: 10vw
+  margin-top: 140px
 
   @media screen and (max-width: $breakpoint-mobile)
-    margin-top: 24vw !important
+    margin-top: 82px !important
 
 .header
   position: fixed
@@ -797,11 +807,11 @@ export default {
     background-color: white
     align-items: center
     pointer-events: auto
-    padding: 3rem var(--spacing-content-sides)
+    padding: 2rem var(--spacing-content-sides)
     .header-Logo
       flex-grow: 1
       svg
-        height: 2.5rem
+        height: 2.125rem
     @media screen and (max-width: $breakpoint-mobile)
       display: none
   &-Top_Mobile
@@ -857,6 +867,9 @@ export default {
       align-content: center
       display: flex
       flex-wrap: wrap
+
+      @media screen and (max-width: $breakpoint-laptop)
+        font-size: 0.875em
     li
       --var: 0%
       position: relative
@@ -897,7 +910,8 @@ export default {
     letter-spacing: .01rem
     cursor: pointer
     margin-right: 1rem
-    margin-bottom: 1rem
+    padding-top: 0.5rem
+    padding-bottom: 0.5rem
     &:last-child
       margin-right: 0
       .icon

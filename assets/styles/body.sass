@@ -121,8 +121,13 @@ form
   &-Landing
     display: flex
     align-items: flex-start
-    padding-bottom: 10vh
-    padding-top: 10vh
+    padding-top: var(--spacing-content-bottom)
+    padding-bottom: var(--spacing-content-bottom)
+    margin-bottom: 1px
+
+    @media screen and (max-width: $breakpoint-mobile)
+      padding-bottom: 10vh
+      padding-top: 10vh
   &-Thumbnail
     position: relative
     width: 100%
@@ -217,6 +222,8 @@ form
           padding-top: 0
       &.square
         padding-top: 100%
+        img
+          object-fit: cover
         @media screen and (max-width: $breakpoint-mobile)
           padding-top: 0
       &.portrait

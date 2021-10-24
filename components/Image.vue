@@ -8,7 +8,6 @@
         :id="blok._uid"
         class="section-Media_Container"
         :class="blok.orientation"
-        @mousemove="imageTilt($event)"
       >
         <!-- prettier-ignore -->
         <img
@@ -40,10 +39,10 @@ export default {
     blok: Object
   },
   mounted() {
-    window.addEventListener("scroll", this.imageTiltOnScroll)
+    // window.addEventListener("scroll", this.imageTiltOnScroll)
   },
   destroyed() {
-    window.removeEventListener("scroll", this.imageTiltOnScroll)
+    // window.removeEventListener("scroll", this.imageTiltOnScroll)
   },
   methods: {
     transformImage(image, option) {
