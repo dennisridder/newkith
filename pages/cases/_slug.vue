@@ -1,48 +1,62 @@
 <template>
   <div class="section section-CaseSingle section-Single section-Wrapper">
     <blok-landing :words="wordsArray" />
-    <section
-      v-if="story.content.thumbnail"
-      class="section section-Thumbnail section-ImageContent scrollFast"
-    >
-      <div class="section-Thumbnail_Wrapper">
-        <div
-          :id="story.content._uid"
-          class="section-Thumbnail_Container "
-          @mousemove="imageTilt($event)"
+    <div class="section-CaseSingle-Row">
+      <div
+        class="section-CaseSingle-Column section-CaseSingle-Column-Thumbnail"
+      >
+        <section
+          v-if="story.content.thumbnail"
+          class="section section-Thumbnail section-ImageContent scrollFast"
         >
-          <!-- <img :src="story.content.thumbnail" :alt="story.content.title" /> -->
-          <!-- prettier-ignore -->
-          <img
-        v-if="story.content.thumbnail"
-        v-lazy="`${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(40)')}`"
-        :srcset="
-          `${transformImage(story.content.thumbnail, '2880x0/filters:format(jpg):quality(40)')} 2880w,
-           ${transformImage(story.content.thumbnail, '2560x0/filters:format(jpg):quality(40)')} 2560w, 
-           ${transformImage(story.content.thumbnail, '1920x0/filters:format(jpg):quality(40)')} 1920w, 
-           ${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(40)')} 1680w, 
-           ${transformImage(story.content.thumbnail, '1280x0/filters:format(jpg):quality(40)')} 1280w,
-           ${transformImage(story.content.thumbnail, '1024x0/filters:format(jpg):quality(40)')} 1024w, 
-           ${transformImage(story.content.thumbnail, '768x0/filters:format(jpg):quality(40)')} 768w`"
-        sizes="(max-width: 768px) 100vw, 50vw"
-        class="lazy"
-        :alt="story.content.title"
-      />
-        </div>
+          <div class="section-Thumbnail_Wrapper">
+            <div :id="story.content._uid" class="section-Thumbnail_Container">
+              <!-- <img :src="story.content.thumbnail" :alt="story.content.title" /> -->
+              <!-- prettier-ignore -->
+              <img
+            v-if="story.content.thumbnail"
+            v-lazy="`${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(40)')}`"
+            :srcset="
+              `${transformImage(story.content.thumbnail, '2880x0/filters:format(jpg):quality(40)')} 2880w,
+              ${transformImage(story.content.thumbnail, '2560x0/filters:format(jpg):quality(40)')} 2560w, 
+              ${transformImage(story.content.thumbnail, '1920x0/filters:format(jpg):quality(40)')} 1920w, 
+              ${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(40)')} 1680w, 
+              ${transformImage(story.content.thumbnail, '1280x0/filters:format(jpg):quality(40)')} 1280w,
+              ${transformImage(story.content.thumbnail, '1024x0/filters:format(jpg):quality(40)')} 1024w, 
+              ${transformImage(story.content.thumbnail, '768x0/filters:format(jpg):quality(40)')} 768w`"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            class="lazy"
+            :alt="story.content.title"
+          />
+            </div>
+          </div>
+        </section>
+        <section
+          v-if="story.tag_list"
+          class="section section-TagList section-TextContent"
+        >
+          <blok-tag-list :array="story.tag_list" />
+        </section>
       </div>
-    </section>
-    <section
-      v-if="story.tag_list"
-      class="section section-TagList section-TextContent"
-    >
-      <blok-tag-list :array="story.tag_list" />
-    </section>
-    <component
-      :is="blok.component | dashify"
-      v-for="blok in story.content.body"
-      :key="blok._uid"
-      :blok="blok"
-    ></component>
+      <div class="section-CaseSingle-Column section-CaseSingle-Column-Content">
+        <component
+          :is="blok.component | dashify"
+          v-for="blok in firstTextBlock"
+          :key="blok._uid"
+          :blok="blok"
+        ></component>
+      </div>
+      <div
+        class="section-CaseSingle-Column section-CaseSingle-Column-OtherContent"
+      >
+        <component
+          :is="blok.component | dashify"
+          v-for="blok in otherBlocks(story.content.body)"
+          :key="blok._uid"
+          :blok="blok"
+        ></component>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -96,16 +110,30 @@ export default {
   computed: {
     ...mapState({
       general: state => state.general.list
-    })
+    }),
+    firstTextBlock() {
+      return this.story.content.body
+        .filter(block => ["text"].includes(block.component))
+        .slice(0, 1)
+    }
   },
   mounted() {
     this.wordsToArray()
-    window.addEventListener("scroll", this.imageTiltOnScroll)
+    // window.addEventListener("scroll", this.imageTiltOnScroll)
   },
   destroyed() {
-    window.removeEventListener("scroll", this.imageTiltOnScroll)
+    // window.removeEventListener("scroll", this.imageTiltOnScroll)
   },
   methods: {
+    otherBlocks(blocks) {
+      const textBlockUid = this.firstTextBlock[0]._uid
+
+      return blocks.filter(
+        block =>
+          ![textBlockUid].includes(block._uid) &&
+          !["logos-container"].includes(block.component)
+      )
+    },
     transformImage(image, option) {
       if (!image) return ""
       if (!option) return ""
@@ -164,3 +192,79 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+@import '~/assets/styles/variables.sass'
+
+.section-CaseSingle
+  position: relative
+
+.section-CaseSingle-Row
+  display: flex
+  flex-flow: row wrap
+  padding-left: var(--spacing-content-sides)
+  padding-right: var(--spacing-content-sides)
+
+.section-CaseSingle-Column
+  .section-TagList
+    padding-left: 0
+    padding-right: 0
+
+  &-Thumbnail
+    flex: 0 0 30%
+    margin-right: 10%
+
+    section:last-child
+      margin-bottom: 0
+
+    @media screen and (max-width: $breakpoint-mobile)
+      width: 100%
+      flex: none
+      margin-right: 0
+      margin-bottom: var(--spacing-content-bottom)
+
+    .section-Thumbnail
+      padding-left: 0
+      padding-right: 0
+      margin-bottom: 1.25em
+
+      img
+        object-fit: cover
+
+  &-Content
+    flex: 0 0 60%
+
+    section:last-child
+      margin-bottom: 0
+
+    .section-TextContent
+      padding-left: 0
+      padding-right: 0
+
+    @media screen and (max-width: $breakpoint-mobile)
+      flex: 0 0 100%
+
+  &-OtherContent
+    flex: 0 0 100%
+    display: flex
+    flex-flow: row wrap
+    // justify-content: space-between
+
+    &:not(:empty)
+      padding-top: var(--spacing-content-bottom)
+      padding-bottom: var(--spacing-three)
+
+    .section-TextContent
+      padding-left: 0
+      padding-right: 0
+
+    .section-Media
+      flex: 0 0 calc(33.33% - var(--spacing-content-sides))
+      margin-right: var(--spacing-content-sides)
+      padding-left: 0
+      padding-right: 0
+
+      @media screen and (max-width: $breakpoint-mobile)
+        flex: 0 0 100%
+        margin-right: 0
+</style>

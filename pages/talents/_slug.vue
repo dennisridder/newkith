@@ -1,48 +1,54 @@
 <template>
   <div class="section section-Wrapper section-TalentSingle section-Single">
     <blok-landing :words="wordsArray" />
-    <section
-      v-if="story.content.thumbnail"
-      class="section section-Thumbnail section-ImageContent scrollFast"
-    >
-      <div class="section-Thumbnail_Wrapper">
-        <div
-          :id="story.content._uid"
-          class="section-Thumbnail_Container "
-          @mousemove="imageTilt($event)"
+    <div class="section-TalentSingle-Row">
+      <div
+        class="section-TalentSingle-Column section-TalentSingle-Column-Thumbnail"
+      >
+        <section
+          v-if="story.content.thumbnail"
+          class="section section-Thumbnail section-ImageContent -scrollFast"
         >
-          <!-- <img :src="story.content.thumbnail" :alt="story.content.title" /> -->
-          <!-- prettier-ignore -->
-          <img
-        v-if="story.content.thumbnail"
-        v-lazy="`${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(40)')}`"
-        :srcset="
-          `${transformImage(story.content.thumbnail, '2880x0/filters:format(jpg):quality(40)')} 2880w,
-           ${transformImage(story.content.thumbnail, '2560x0/filters:format(jpg):quality(40)')} 2560w, 
-           ${transformImage(story.content.thumbnail, '1920x0/filters:format(jpg):quality(40)')} 1920w, 
-           ${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(40)')} 1680w, 
-           ${transformImage(story.content.thumbnail, '1280x0/filters:format(jpg):quality(40)')} 1280w,
-           ${transformImage(story.content.thumbnail, '1024x0/filters:format(jpg):quality(40)')} 1024w, 
-           ${transformImage(story.content.thumbnail, '768x0/filters:format(jpg):quality(40)')} 768w`"
-        sizes="(max-width: 768px) 100vw, 50vw"
-        class="lazy"
-        :alt="story.content.title"
-      />
-        </div>
+          <div class="section-Thumbnail_Wrapper">
+            <div :id="story.content._uid" class="section-Thumbnail_Container">
+              <!-- <img :src="story.content.thumbnail" :alt="story.content.title" /> -->
+              <!-- prettier-ignore -->
+              <img
+            v-if="story.content.thumbnail"
+            v-lazy="`${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(40)')}`"
+            :srcset="
+              `${transformImage(story.content.thumbnail, '2880x0/filters:format(jpg):quality(40)')} 2880w,
+              ${transformImage(story.content.thumbnail, '2560x0/filters:format(jpg):quality(40)')} 2560w, 
+              ${transformImage(story.content.thumbnail, '1920x0/filters:format(jpg):quality(40)')} 1920w, 
+              ${transformImage(story.content.thumbnail, '1680x0/filters:format(jpg):quality(40)')} 1680w, 
+              ${transformImage(story.content.thumbnail, '1280x0/filters:format(jpg):quality(40)')} 1280w,
+              ${transformImage(story.content.thumbnail, '1024x0/filters:format(jpg):quality(40)')} 1024w, 
+              ${transformImage(story.content.thumbnail, '768x0/filters:format(jpg):quality(40)')} 768w`"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            class="lazy"
+            :alt="story.content.title"
+          />
+            </div>
+          </div>
+        </section>
+        <section
+          v-if="story.tag_list"
+          class="section section-TagList section-TextContent"
+        >
+          <blok-tag-list :array="story.tag_list" />
+        </section>
       </div>
-    </section>
-    <section
-      v-if="story.tag_list"
-      class="section section-TagList section-TextContent"
-    >
-      <blok-tag-list :array="story.tag_list" />
-    </section>
-    <component
-      :is="blok.component | dashify"
-      v-for="blok in story.content.body"
-      :key="blok._uid"
-      :blok="blok"
-    ></component>
+      <div
+        class="section-TalentSingle-Column section-TalentSingle-Column-Content"
+      >
+        <component
+          :is="blok.component | dashify"
+          v-for="blok in filterBlocks(story.content.body)"
+          :key="blok._uid"
+          :blok="blok"
+        ></component>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -100,12 +106,18 @@ export default {
   },
   mounted() {
     this.wordsToArray()
-    window.addEventListener("scroll", this.imageTiltOnScroll)
+    // window.addEventListener("scroll", this.imageTiltOnScroll)
   },
   destroyed() {
-    window.removeEventListener("scroll", this.imageTiltOnScroll)
+    // window.removeEventListener("scroll", this.imageTiltOnScroll)
   },
   methods: {
+    filterBlocks(blocks) {
+      // console.log(blocks.map(block => block.component))
+      return blocks.filter(
+        block => !["quote", "something-else"].includes(block.component)
+      )
+    },
     transformImage(image, option) {
       if (!image) return ""
       if (!option) return ""
@@ -164,3 +176,52 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+@import '~/assets/styles/variables.sass'
+
+.section-TalentSingle
+  position: relative
+
+.section-TalentSingle-Row
+  display: flex
+  flex-flow: row wrap
+  padding-left: var(--spacing-content-sides)
+  padding-right: var(--spacing-content-sides)
+
+.section-TalentSingle-Column
+  .section-TagList
+    padding-left: 0
+    padding-right: 0
+
+  &-Thumbnail
+    flex-basis: 30%
+    margin-right: 10%
+
+    section:last-child
+      margin-bottom: 0
+
+    @media screen and (max-width: $breakpoint-mobile)
+      width: 100%
+      flex: none
+      margin-right: 0
+      margin-bottom: var(--spacing-content-bottom)
+
+    .section-Thumbnail
+      padding-left: 0
+      padding-right: 0
+      margin-bottom: 1.25em
+
+      img
+        object-fit: cover
+
+  &-Content
+    flex-basis: 60%
+
+    .section-TextContent
+      padding-left: 0
+      padding-right: 0
+
+    @media screen and (max-width: $breakpoint-mobile)
+      flex-basis: 100%
+</style>

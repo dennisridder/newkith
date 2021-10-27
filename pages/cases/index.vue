@@ -7,7 +7,7 @@
       :key="stories[0].content._uid"
       :blok="stories[0].content"
     ></component>
-    <section class="section section-Filters section-TextContent">
+    <!-- <section class="section section-Filters section-TextContent">
       <ul class="section-Filters_Container">
         <li
           class="section-Filters_Item cursorInteract"
@@ -31,7 +31,7 @@
           @click.native="filterByValue(tag)"
         />
       </ul>
-    </section>
+    </section> -->
     <blok-image-grid v-if="list" :array="list" slug="/cases/" />
   </div>
 </template>
@@ -91,7 +91,7 @@ export default {
     this.getLandingInput()
     this.resetList()
     this.getTags()
-    this.changeActiveClass("all")
+    // this.changeActiveClass("all")
   },
   methods: {
     getLandingInput() {

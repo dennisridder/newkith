@@ -770,9 +770,13 @@ export default {
 .section-Wrapper
   // margin-top: 10vw
   margin-top: 140px
+  > .section-Wrapper
+    margin-top: 0 !important
 
   @media screen and (max-width: $breakpoint-mobile)
     margin-top: 82px !important
+    > .section-Wrapper
+      margin-top: 0 !important
 
 .header
   position: fixed

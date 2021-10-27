@@ -1,18 +1,18 @@
 <template>
-  <section class="section section-ImageGrid section-ImageContent scrollFast">
-    <ul class="imageGrid verticalRowIrregular">
+  <section class="section section-ImageGrid section- scrollFast">
+    <ul class="imageGrid displayGrid xverticalRowIrregular">
       <!-- prettier-ignore -->
       <li v-for="item in array" :id="item.id" :key="item.id" class="imageGrid-Row">
-      <nuxt-link :to="slug + item.id" class="imageGrid-Item cursorInteract" tag="div" :title="item.title">
+        <nuxt-link :to="slug + item.id" class="imageGrid-Item cursorInteract" tag="div" :title="item.title">
 
-        <blok-image-container :id="item.id" :image="item.thumbnail" :alttitle="item.title" />
+          <blok-image-container :id="item.id" :image="item.thumbnail" :alttitle="item.title" />
 
-        <div class="imageGrid-Details">
-          <h2 v-if="item.title">{{ item.title }}</h2>
-          <blok-tag-list v-if="item.taglist" :array="item.taglist" />
-        </div>
-      </nuxt-link>
-    </li>
+          <div class="imageGrid-Details">
+            <h2 v-if="item.title">{{ item.title }}</h2>
+            <blok-tag-list v-if="item.taglist" :array="item.taglist" />
+          </div>
+        </nuxt-link>
+      </li>
     </ul>
   </section>
 </template>
@@ -33,13 +33,18 @@ export default {
 <style lang="sass">
 @import '~/assets/styles/variables.sass'
 
+.section-ImageGrid
+  padding-left: var(--spacing-content-sides)
+  padding-right: var(--spacing-content-sides)
+
 .imageGrid
   position: relative
   display: flex
   flex-direction: column
   &-Row
     position: relative
-    display: flex
+    // display: flex
+    width: 100%
   &-Item
     position: relative
     display: flex
@@ -54,6 +59,19 @@ export default {
   &-Details
     display: flex
     flex-direction: column
+
+  // Display as a grid
+  &.displayGrid
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: calc(3em + 1vw);
+
+    @media screen and (max-width: $breakpoint-tablet)
+      grid-template-columns: repeat(2, 1fr)
+
+    @media screen and (max-width: $breakpoint-mobile)
+      grid-template-columns: repeat(1, 1fr)
+      gap: calc(1em + 1vw);
 
   // Vertical column, with irregular placement within rows
   &.verticalRowIrregular
