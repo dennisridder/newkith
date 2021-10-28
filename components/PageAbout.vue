@@ -43,7 +43,7 @@ export default {
   },
   mounted() {
     this.getLandingInput()
-    this.videoOnScroll()
+    // this.videoOnScroll()
   },
   methods: {
     getLandingInput() {
@@ -94,3 +94,12 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+.section-About_Landing
+  margin-top: -3em
+  padding-left: var(--spacing-content-sides);
+  padding-right: var(--spacing-content-sides);
+  margin-bottom: calc(var(--spacing-content-bottom) / 2);
+  max-width: 1200px
+</style>

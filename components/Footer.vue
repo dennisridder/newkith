@@ -59,6 +59,9 @@
         <nuxt-link class="nav-Link link cursorInteract" to="/about" tag="li"
           >Our story</nuxt-link
         >
+        <nuxt-link class="nav-Link link cursorInteract" to="/contact" tag="li"
+          >Contact</nuxt-link
+        >
         <li class="desktop">&nbsp;</li>
         <nuxt-link
           class="desktop nav-Link link cursorInteract"

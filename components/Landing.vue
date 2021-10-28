@@ -60,7 +60,7 @@ export default {
     wordsLoad() {
       if (this.$route.name !== "index") {
         setTimeout(function() {
-          let duration = 0.25
+          let duration = 0
           let delay = 0.125
           gsap.fromTo(
             ".word",
