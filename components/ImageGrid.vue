@@ -34,6 +34,8 @@ export default {
 @import '~/assets/styles/variables.sass'
 
 .section-ImageGrid
+  margin-top: calc(var(--spacing-content-bottom) / 2 * -1);
+  margin-bottom: var(--spacing-content-bottom)
   padding-left: var(--spacing-content-sides)
   padding-right: var(--spacing-content-sides)
 

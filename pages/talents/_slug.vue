@@ -48,6 +48,16 @@
           :blok="blok"
         ></component>
       </div>
+      <div
+        class="section-TalentSingle-Column section-TalentSingle-Column-OtherContent"
+      >
+        <component
+          :is="blok.component | dashify"
+          v-for="blok in story.content.bottom"
+          :key="blok._uid"
+          :blok="blok"
+        ></component>
+      </div>
     </div>
   </div>
 </template>
@@ -224,4 +234,31 @@ export default {
 
     @media screen and (max-width: $breakpoint-mobile)
       flex-basis: 100%
+
+  &-OtherContent
+    flex: 0 0 100%
+    display: flex
+    flex-flow: row wrap
+    // justify-content: space-between
+
+    > section:last-child
+      margin-bottom: 1px
+
+    &:not(:empty)
+      padding-top: var(--spacing-content-bottom)
+      padding-bottom: var(--spacing-three)
+
+    .section-TextContent
+      padding-left: 0
+      padding-right: 0
+
+    .section-Media
+      flex: 0 0 calc(33.33% - var(--spacing-content-sides))
+      margin-right: var(--spacing-content-sides)
+      padding-left: 0
+      padding-right: 0
+
+      @media screen and (max-width: $breakpoint-mobile)
+        flex: 0 0 100%
+        margin-right: 0
 </style>

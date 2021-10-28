@@ -16,3 +16,11 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+@import '~/assets/styles/variables.sass'
+
+.section-Bottom
+  > section:not(:last-child)
+    margin-bottom: calc(var(--spacing-content-bottom) / 2)
+</style>

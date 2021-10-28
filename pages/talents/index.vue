@@ -40,6 +40,19 @@
       </ul>
     </section> -->
     <blok-image-grid v-if="list" :array="list" slug="/talents/" />
+
+    <div
+      v-if="bottomContent && bottomContent.length"
+      class="section-Wrapper section-Bottom"
+    >
+      <component
+        :is="blok.component | dashify"
+        v-for="blok in bottomContent"
+        :key="blok._uid"
+        v-editable="blok"
+        :blok="blok"
+      ></component>
+    </div>
   </div>
 </template>
 
@@ -92,7 +105,10 @@ export default {
     ...mapState({
       talents: state => state.talents.list,
       general: state => state.general.list
-    })
+    }),
+    bottomContent() {
+      return this.stories ? this.stories[0].content.bottom : []
+    }
   },
   mounted() {
     this.getLandingInput()
