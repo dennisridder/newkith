@@ -6,11 +6,7 @@
       class="section section-Thumbnail section-ImageContent scrollFast"
     >
       <div class="section-Thumbnail_Wrapper">
-        <div
-          :id="story.content._uid"
-          class="section-Thumbnail_Container "
-          @mousemove="imageTilt($event)"
-        >
+        <div :id="story.content._uid" class="section-Thumbnail_Container">
           <!-- <img :src="story.content.thumbnail" :alt="story.content.title" /> -->
           <!-- prettier-ignore -->
           <img
@@ -101,10 +97,10 @@ export default {
   },
   mounted() {
     this.wordsToArray()
-    window.addEventListener("scroll", this.imageTiltOnScroll)
+    // window.addEventListener("scroll", this.imageTiltOnScroll)
   },
   destroyed() {
-    window.removeEventListener("scroll", this.imageTiltOnScroll)
+    // window.removeEventListener("scroll", this.imageTiltOnScroll)
   },
   methods: {
     transformImage(image, option) {
@@ -169,3 +165,11 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+@import '~/assets/styles/variables.sass'
+
+.section-Thumbnail
+  padding-bottom: calc(var(--spacing-image-sides) / 2)
+  max-width: 640px
+</style>
