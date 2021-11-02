@@ -7,7 +7,6 @@
       <div
         :id="blok._uid"
         class="section-Media_Container "
-        @mousemove="imageTilt($event)"
       >
         <blok-youtube-player
           :videoid="blok.video_id"
