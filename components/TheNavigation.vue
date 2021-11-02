@@ -242,13 +242,20 @@
           class="header-ContentText"
           :input="general[0].content.header_text_column_one"
         />
-        <nuxt-link to="/talents" class="link header-ContentText cursorInteract">
-          <span>our talents</span>
+        <nuxt-link to="/influencer-marketing" class="link header-ContentText cursorInteract">
+          <span>influencer marketing</span>
           <div
             class="icon"
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
         </nuxt-link>
+        <!-- <nuxt-link to="/talents" class="link header-ContentText cursorInteract">
+          <span>our talents</span>
+          <div
+            class="icon"
+            v-html="require('~/assets/images/icon-arrow.svg?include')"
+          />
+        </nuxt-link> -->
       </div>
       <div class="header-Bottom_Items">
         <p class="header-ContentTitle">
