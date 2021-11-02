@@ -4,10 +4,7 @@
     class="section section-Media section-ImageContent youtube scrollFast"
   >
     <div class="section-Media_Wrapper" :class="blok.sizing">
-      <div
-        :id="blok._uid"
-        class="section-Media_Container "
-      >
+      <div :id="blok._uid" class="section-Media_Container">
         <blok-youtube-player
           :videoid="blok.video_id"
           autoplay="1&mute=1"
