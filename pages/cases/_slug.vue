@@ -204,6 +204,7 @@ export default {
   flex-flow: row wrap
   padding-left: var(--spacing-content-sides)
   padding-right: var(--spacing-content-sides)
+  margin-bottom: var(--spacing-three)
 
 .section-CaseSingle-Column
   .section-TagList
@@ -252,19 +253,46 @@ export default {
 
     &:not(:empty)
       padding-top: var(--spacing-content-bottom)
-      padding-bottom: var(--spacing-three)
+      padding-bottom: 0
 
     .section-TextContent
       padding-left: 0
       padding-right: 0
 
     .section-Media
-      flex: 0 0 calc(33.33% - var(--spacing-content-sides))
-      margin-right: var(--spacing-content-sides)
-      padding-left: 0
-      padding-right: 0
+      flex: 1
+      // flex: 0 0 calc(33.33% - var(--spacing-content-sides))
+      // flex: 0 0 33.33%
+      // margin-right: var(--spacing-content-sides)
+      // padding-left: 0
+      // padding-right: 0
+
+      &:first-child
+        margin-left: calc(var(--spacing-content-sides) / 2 * -1)
+
+      &:last-child
+        margin-right: calc(var(--spacing-content-sides) / 2 * -1)
+        margin-bottom: 0
+
+      &_Wrapper
+        width: 100%
+        padding-left: calc(var(--spacing-content-sides) / 3 * -1)
+        padding-right: calc(var(--spacing-content-sides) / 3 * -1)
+
+        .section-Media_Container.landscape
+          padding-top: 100%
 
       @media screen and (max-width: $breakpoint-mobile)
         flex: 0 0 100%
         margin-right: 0
+        padding-left: 0
+        padding-right: 0
+
+        &:first-child
+          margin-left: 0
+          margin-right: 0
+
+        &_Wrapper
+          .section-Media_Container.landscape
+            padding-top: 0
 </style>
