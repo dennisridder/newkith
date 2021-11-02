@@ -28,10 +28,10 @@ export default {
     blok: Object
   },
   mounted() {
-    window.addEventListener("scroll", this.imageTiltOnScroll)
+    // window.addEventListener("scroll", this.imageTiltOnScroll)
   },
   destroyed() {
-    window.removeEventListener("scroll", this.imageTiltOnScroll)
+    // window.removeEventListener("scroll", this.imageTiltOnScroll)
   },
   methods: {
     imageTilt: function(event) {
