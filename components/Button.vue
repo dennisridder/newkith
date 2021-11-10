@@ -1,7 +1,7 @@
 <template>
   <a
     :href="'https://' + blok.hyperlink"
-    target="_blank"
+    data-target="_blank"
     rel="noreferrer"
     class="button cursorInteract"
   >

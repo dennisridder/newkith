@@ -242,7 +242,10 @@
           class="header-ContentText"
           :input="general[0].content.header_text_column_one"
         />
-        <nuxt-link to="/influencer-marketing" class="link header-ContentText cursorInteract">
+        <nuxt-link
+          to="/influencer-marketing"
+          class="link header-ContentText cursorInteract"
+        >
           <span>influencer marketing</span>
           <div
             class="icon"

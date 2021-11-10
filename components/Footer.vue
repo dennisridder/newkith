@@ -16,7 +16,8 @@
             v-html="require('~/assets/images/icon-arrow.svg?include')"
           />
         </nuxt-link>
-        <form
+        <newsletter-form />
+        <!-- <form
           name="subscribe"
           method="post"
           action="/success"
@@ -37,7 +38,7 @@
               v-html="require('~/assets/images/icon-arrow.svg?include')"
             />
           </button>
-        </form>
+        </form> -->
       </ul>
 
       <ul>
@@ -194,9 +195,11 @@ import { gsap } from "gsap"
 import lodash from "lodash"
 import { mapState } from "vuex"
 import MarkdownItem from "@/components/MarkdownItem.vue"
+import NewsletterForm from "@/components/NewsletterForm.vue"
 
 export default {
   components: {
+    NewsletterForm,
     "markdown-item": MarkdownItem
   },
   data() {
