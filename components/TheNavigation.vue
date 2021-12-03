@@ -41,6 +41,13 @@
             >Our story</nuxt-link
           >
           <nuxt-link
+            to="/jobs"
+            class="nav-Link cursorInteract"
+            tag="li"
+            @click="otherClick"
+            >Jobs</nuxt-link
+          >
+          <nuxt-link
             to="/contact"
             class="nav-Link cursorInteract"
             tag="li"

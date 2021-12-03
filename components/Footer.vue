@@ -54,6 +54,9 @@
         <nuxt-link class="nav-Link link cursorInteract" to="/talents" tag="li"
           >Talents</nuxt-link
         >
+        <nuxt-link class="nav-Link link cursorInteract" to="/jobs" tag="li"
+          >Jobs</nuxt-link
+        >
         <nuxt-link class="nav-Link link cursorInteract" to="/blog" tag="li"
           >What's happening</nuxt-link
         >
