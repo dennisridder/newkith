@@ -7,38 +7,7 @@
       :key="stories[0].content._uid"
       :blok="stories[0].content"
     ></component>
-    <!-- <section class="section section-Filters section-TextContent">
-      <ul class="section-Filters_Container">
-        <li class="section-Filters_Item cursorInteract">
-          <input v-model="searchQuery" placeholder="Search..." />
-          <div
-            class="icon icon-Search"
-            v-html="require('~/assets/images/icon-search.svg?include')"
-          />
-        </li>
-        <li
-          class="section-Filters_Item cursorInteract"
-          @click="toggleSortByTitleToggle"
-        >
-          <span>Sort by name</span>
-          <div
-            :class="{ ascending: sortByTitleToggle }"
-            class="icon icon-Arrow"
-            v-html="require('~/assets/images/icon-arrow.svg?include')"
-          />
-        </li>
-        <li class="section-Filters_Item cursorInteract all" @click="showAll">
-          <span>All</span>
-        </li>
-        <blok-filter-item
-          v-for="tag in taglist"
-          :id="tag"
-          :key="tag"
-          :tag="tag"
-          @click.native="filterByValue(tag)"
-        />
-      </ul>
-    </section> -->
+
     <blok-image-grid v-if="list" :array="list" slug="/talents/" />
 
     <div
@@ -70,7 +39,7 @@ export default {
       .get("cdn/stories", {
         version: process.env.NODE_ENV == "production" ? "published" : "draft",
         starts_with: "talents/",
-        per_page: 100,
+        per_page: 100
       })
       .then(res => {
         return res.data

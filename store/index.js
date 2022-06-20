@@ -52,7 +52,8 @@ export default {
 
       let getTalents = await app.$storyapi.get("cdn/stories", {
         version: process.env.NODE_ENV === "production" ? "published" : "draft",
-        starts_with: "talents/"
+        starts_with: "talents/",
+        per_page: 100
       })
       let talents = getTalents.data.stories.map(bp => {
         return {
